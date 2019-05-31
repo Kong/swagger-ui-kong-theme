@@ -1,0 +1,44 @@
+This repo is a plugin for Swagger-UI that loads a custom 2/3 column theme, and adds code snippets with react-apiembed
+
+This repo is still under development and changes are coming
+
+## How to load
+
+```
+npm install swagger-ui-kong-theme --save
+```
+From where you are loading your Swagger-Ui
+```js
+import { SwaggerUIKongTheme } from 'swagger-ui-kong-theme' // eslint-disable-line no-console
+```
+As part of the options include ```SwaggerUIKongTheme``` in the plugins array and ```'KongLayout'``` as your Layout
+
+for example:
+```js
+const swaggerUIOptions = {
+    spec: swaggerSpec, // Define data to be used
+    dom_id: '#ui-wrapper', // Determine what element to load swagger ui
+    docExpansion: 'list',
+    deepLinking: true, // Enables dynamic deep linking for tags and operations
+    filter: true,
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset
+    ],
+    plugins: [
+      SwaggerUIKongTheme,
+      SwaggerUIBundle.plugins.DownloadUrl
+    ],
+    layout: 'KongLayout',
+  }
+
+  const ui = SwaggerUIBundle(swaggerUIOptions)
+```
+
+
+## How to develop
+run to install required packages
+``` npm install ```
+
+run to build
+``` npm run build ```
