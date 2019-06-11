@@ -19,6 +19,7 @@
     ]
   },
   "dependencies": {
+    "curl-to-har": "^1.0.1",
     "react": "^16.8.6",
     "react-apiembed": "^0.1.1",
     "swagger2har": "git+https://github.com/Kong/swagger2har.git#ac44a6968d21dd89733a6adedde468cbd68282e2"

@@ -11,8 +11,16 @@ const SwaggerUIKongTheme = (system) => {
       responses: (Original, system) => (props) => {
         return (
           <div className="right-side-wrapper">
-            <Original {...props} />
-            <AugmentingResponses {...props} />
+            <Original { ...props} />
+            <AugmentingResponses {...props} system={system} />
+          </div>
+        )
+      },
+      curl : (Original, system) => (props) => {
+        return (
+          <div>
+            <p>{props.request}</p>
+            <Original { ...props} />
           </div>
         )
       }
