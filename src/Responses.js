@@ -1,46 +1,21 @@
 import React from "react"
-import curlToHar from "curl-to-har"
 import { createHar } from "swagger2har"
 import { CodeSnippetWidget } from 'react-apiembed'
 
-function curl( request ){
-  let curlified = []
-  let type = ""
-  let headers = request.get("headers")
-  curlified.push( "curl" )
-  curlified.push( "-X", request.get("method") )
-  curlified.push( `"${request.get("url")}"`)
-
-  if ( headers && headers.size ) {
-    for( let p of request.get("headers").entries() ){
-      let [ h,v ] = p
-      type = v
-      curlified.push( "-H " )
-      curlified.push( `"${h}: ${v}"` )
-    }
-  }
-
-  if ( request.get("body") ){
-
-    if(type === "multipart/form-data" && request.get("method") === "POST") {
-      for( let [ k,v ] of request.get("body").entrySeq()) {
-        curlified.push( "-F" )
-        if (v instanceof win.File) {
-          curlified.push( `"${k}=@${v.name}${v.type ? `;type=${v.type}` : ""}"` )
-        } else {
-          curlified.push( `"${k}=${v}"` )
-        }
-      }
-    } else {
-      curlified.push( "-d" )
-      curlified.push( JSON.stringify( request.get("body") ).replace(/\\n/g, "") )
-    }
-  }
-
-  return curlified.join( " " )
-}
 
 export default class AugmentingResponses extends React.Component {
+  shouldComponentUpdate(nextProps) {
+    // BUG: props.tryItOutResponse is always coming back as a new Immutable instance
+    let render = this.props.tryItOutResponse !== nextProps.tryItOutResponse
+    || this.props.responses !== nextProps.responses
+    || this.props.produces !== nextProps.produces
+    || this.props.producesValue !== nextProps.producesValue
+    || this.props.displayRequestDuration !== nextProps.displayRequestDuration
+    || this.props.path !== nextProps.path
+    || this.props.method !== nextProps.method
+    return render
+  }
+
   render() {
     const {
       system,
@@ -55,16 +30,44 @@ export default class AugmentingResponses extends React.Component {
     const basePath = specSelectors.basePath()
 
     const mutatedRequest = specSelectors.mutatedRequestFor(path, method)
-    console.log('mutated', mutatedRequest)
-
     let har = createHar(spec, path, method, selectedServer || `${scheme}://${host}${basePath}`)
-    har.headers.forEach(header => {
-      if (typeof header.value === 'function') {
-        header.value = 'poo'
-      }
-    })
-    console.log('har', har)
 
+
+
+    if (mutatedRequest) {
+      let mutatedRequest = specSelectors.mutatedRequestFor(path, method)
+      mutatedRequest = mutatedRequest.toJS()
+
+      // url
+      har.url = mutatedRequest.url
+      har.queryString = []
+
+      // body
+      if (mutatedRequest.body) {
+        har.postData = har.postData || {}
+        har.postData.jsoObj = JSON.parse(mutatedRequest.body)
+        // strip \n
+        har.postData.text = JSON.stringify(JSON.parse(mutatedRequest.body))
+      }
+
+      // headers
+      har.headers = Object.keys(mutatedRequest.headers).map(headerkey => {
+        return {
+          name : headerkey,
+          value: mutatedRequest.headers[headerkey]
+        }
+      })
+
+    } else {
+
+      // for some reason for scheme host basePath urls we sometimes get function header values instead of string
+      // CodeSnippets only wants string headers ¯\_(ツ)_/¯
+      har.headers.forEach(header => {
+        if (typeof header.value !== 'string') {
+          header.value = ''
+        }
+      })
+    }
 
     const languages = [
       {
