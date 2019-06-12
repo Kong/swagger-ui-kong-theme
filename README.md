@@ -2,10 +2,25 @@ This repo is a plugin for Swagger-UI that loads a custom 2/3 column theme, and a
 
 This repo is still under development and changes are coming
 
+## Known Issues
+Swagger-UI does mot support react 16.
+If you have react 16 ANYWHERE loaded/bundled on the same page as swagger you will not be able to fill in required perameters on try it
+https://github.com/swagger-api/swagger-ui/issues/4745
+
+Workaround: Use yarm not npm
+make sure you have
+```
+  "resolutions": {
+    "react": "15.6.2",
+    "react-dom": "15.6.2"
+  }
+```
+in your package json
+
 ## How to load
 
 ```
-npm install swagger-ui-kong-theme --save
+yarn add swagger-ui-kong-theme
 ```
 From where you are loading your Swagger-Ui
 ```js
@@ -38,7 +53,7 @@ const swaggerUIOptions = {
 
 ## How to develop
 run to install required packages
-``` npm install ```
+``` yarn ```
 
 run to build
 ``` npm run build ```

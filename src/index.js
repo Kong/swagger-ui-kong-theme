@@ -2,6 +2,7 @@ import React from 'react'
 import style from './styles.css'
 import KongLayout from './Layout'
 import AugmentingResponses from './Responses'
+import JsonSchema_string from './JsonSchemaString'
 
 
 
@@ -23,11 +24,15 @@ const SwaggerUIKongTheme = (system) => {
             <Original { ...props} />
           </div>
         )
+      },
+      jsonschema_string : (Original, system) => (props) => {
+        return (
+            <Original { ...props} />
+        )
       }
     }
   }
 }
-
 
 
 exports.KongLayout = KongLayout
