@@ -1,10 +1,18 @@
 .swagger-ui .scheme-container {
   background-color: #ebf7ff;
+  padding: 20px;
 }
 
 .swagger-ui .wrapper{
   max-width: none;
-  margin: 10px;
+}
+
+.swagger-ui .information-container {
+  word-break: break-word !important;
+}
+
+.swagger-ui table thead tr td, .swagger-ui table thead tr th{
+  border-bottom: none;
 }
 
 .swagger-ui .opblock {
@@ -13,15 +21,86 @@
   box-shadow: none;
 }
 
+
 .swagger-ui .opblock .opblock-section-header {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
-.opblock .opblock-summary {
+.swagger-ui .opblock .body-param {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.swagger-ui .opblock .body-param .body-param-options label {
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgb(245, 245, 245);
+  border-radius: 3px 0px 0px;
+  border: 1px solid rgb(230, 230, 230);
+}
+.swagger-ui .opblock .body-param .body-param-options span {
+  padding: 8px 5px;
+}
+.swagger-ui .opblock .body-param .body-param-options select {
+  min-width: none !important;
+}
+
+.swagger-ui .opblock .body-param pre{
   background-color: white;
-  border: none;
+  color: rgba(0, 0, 0, 0.7);
+  border-radius: 3px 0px 0px;
+  border: 1px solid rgb(230, 230, 230);
+}
+
+.swagger-ui .opblock-body .responses-wrapper pre {
+  background-color: #ebf7ff;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.swagger-ui .opblock-body .right-side-wrapper .markdown {
+  background-color: #ebf7ff !important;
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.swagger-ui .opblock-body pre span {
+  color: inherit !important
+}
+
+.opblock .opblock-summary {
+  display: grid !important;
+  grid-template-columns: 80px auto 30px;
+  border: none !important;
   border-bottom: none !important;
+  background-color: white !important;
+}
+
+.opblock .opblock-summary .opblock-summary-method {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.opblock .opblock-summary .opblock-summary-description {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  font-family: Roboto-Medium !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  padding-bottom: 5px;
+}
+
+.opblock .opblock-summary .authorization__btn {
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+
+.opblock .opblock-summary .opblock-summary-path {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  background-color: rgb(245, 245, 245);
+  padding: 5px 5px;
+  font-size: 16px;
 }
 
 .opblock-body {
@@ -39,7 +118,6 @@
     grid-template-columns: 40% 60%;
     -ms-grid-rows: auto auto auto 100px;
     grid-template-rows: auto auto auto 100px;
-
   }
 }
 
@@ -106,4 +184,8 @@
 
 .tabs-component .is-active a{
   color: black
+}
+
+.swagger-ui .opblock-body code {
+  color:
 }

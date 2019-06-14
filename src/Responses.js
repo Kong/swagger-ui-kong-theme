@@ -45,9 +45,18 @@ export default class AugmentingResponses extends React.Component {
       // body
       if (mutatedRequest.body) {
         har.postData = har.postData || {}
-        har.postData.jsoObj = JSON.parse(mutatedRequest.body)
-        // strip \n
-        har.postData.text = JSON.stringify(JSON.parse(mutatedRequest.body))
+        try {
+          const parsed = JSON.parse(mutatedRequest.body)
+          har.postData.jsoObj = parsed
+          har.postData.text = JSON.stringify(parsed)
+        } catch(e) {
+          // catch probably means xml
+          har.postData.jsoObj = undefined
+          // this is probably bad practice and will screw over people to want new lines
+          // TODO fix
+          har.postData.text = mutatedRequest.body.replace(/\n|\t/g, '')
+          console.log(mutatedRequest.body)
+        }
       }
 
       // headers

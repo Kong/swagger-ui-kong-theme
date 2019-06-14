@@ -80,17 +80,9 @@ export default class KongLayout extends React.Component {
     return (
 
       <div className='swagger-ui'>
-        <div className="parameters-col">
           <SvgAssets />
           <VersionPragmaFilter isSwagger2={isSwagger2} isOAS3={isOAS3} alsoShow={<Errors />}>
-            <Errors />
-            <Row className="information-container">
-              <Col mobile={12}>
-                <InfoContainer />
-              </Col>
-            </Row>
-
-            {hasServers || hasSchemes || hasSecurityDefinitions ? (
+          {hasServers || hasSchemes || hasSecurityDefinitions ? (
               <div className="scheme-container">
                 <Col className="schemes wrapper" mobile={12}>
                   {hasServers ? (<ServersContainer />) : null}
@@ -100,6 +92,12 @@ export default class KongLayout extends React.Component {
               </div>
             ) : null}
 
+            <Errors />
+            <Row className="information-container">
+              <Col mobile={12}>
+                <InfoContainer />
+              </Col>
+            </Row>
             <FilterContainer />
             <Row>
               <Col mobile={12} desktop={12} >
@@ -112,9 +110,6 @@ export default class KongLayout extends React.Component {
               </Col>
             </Row>
           </VersionPragmaFilter>
-        </div>
-
-
       </div>
     )
   }
