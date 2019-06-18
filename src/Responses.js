@@ -100,7 +100,7 @@ export default class AugmentingResponses extends React.Component {
 
 
     return (
-      <div>
+      <div className={'code-snippet'}>
           <CodeSnippetWidget har={har} snippets={languages}/>
       </div>
     )
