@@ -11,8 +11,10 @@
   word-break: break-word !important;
 }
 
-.swagger-ui table thead tr td, .swagger-ui table thead tr th{
-  border-bottom: none;
+/* this is required to align the execute button (both .execute-wrapper and .btn-group)
+  Might lead to uglyness if we have a really long paramter name */
+.swagger-ui table thead tr td, .swagger-ui table tbody tr td:first-of-type {
+  width: 7em;
 }
 
 .swagger-ui .opblock {
@@ -34,23 +36,42 @@
 
 .swagger-ui .opblock .body-param .body-param-options label {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: rgb(245, 245, 245);
-  border-radius: 3px 0px 0px;
+  border-radius: 3px 3px 0 0;
   border: 1px solid rgb(230, 230, 230);
+  margin: 0 0 0 0;
 }
 .swagger-ui .opblock .body-param .body-param-options span {
   padding: 8px 5px;
 }
 .swagger-ui .opblock .body-param .body-param-options select {
-  min-width: none !important;
+  min-width: unset;
+  margin-right: 5px;
 }
 
 .swagger-ui .opblock .body-param pre{
   background-color: white;
   color: rgba(0, 0, 0, 0.7);
-  border-radius: 3px 0px 0px;
+  border-radius: 0 0 3px;
   border: 1px solid rgb(230, 230, 230);
+}
+
+.swagger-ui .opblock .body-param span{
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.swagger-ui .opblock .body-param textarea{
+  background: rgb(0, 36, 61);
+  color: white;
+  border-radius: 0 0 3px;
+  border: 1px solid rgb(3, 3, 3);
+  margin: 0;
+}
+
+
+.swagger-ui .opblock-section .table-container {
+  padding-bottom: 0;
 }
 
 .swagger-ui .opblock-body .responses-wrapper pre {
@@ -63,8 +84,8 @@
   color: rgba(0, 0, 0, 0.7) !important;
 }
 
-.swagger-ui .opblock-body pre span {
-  color: inherit !important
+.swagger-ui .opblock-body .right-side-wrapper pre span {
+  color: unset !important;
 }
 
 .opblock .opblock-summary {
@@ -110,40 +131,50 @@
 }
 
 @media (min-width: 768px) {
+  /* we ie does not support implicet grids so we have to work around
+      it also does not support grid-gaps so we use a extra col instead */
   .opblock-body {
-    display: -ms-grid;
     display: grid;
     grid-column-gap: 30px;
-    -ms-grid-columns: 40% 30px 60%;
     grid-template-columns: 40% 60%;
+
+    display: -ms-grid;
+
+    -ms-grid-columns: 40% 30px 60%;
     -ms-grid-rows: auto auto auto 100px;
-    grid-template-rows: auto auto auto 100px;
   }
 }
 
 .opblock-body .btn-group {
-  grid-row-start: 4;
-  -ms-grid-row: 4;
+  grid-row-start: 3;
+  -ms-grid-row: 3;
   grid-column-start: 1;
   -ms-grid-column: 1;
+  padding: 0 20px 20px calc(7em + 20px);
+  max-height: 60px;
 }
 
 .opblock-body .execute-wrapper {
-  grid-row-start: 4;
-  -ms-grid-row: 4;
+  grid-row-start: 3;
+  -ms-grid-row: 3;
   grid-column-start: 1;
   -ms-grid-column: 1;
+  padding-top: 0;
+  padding-left: calc(7em + 20px);
 }
 
 .opblock-section {
   grid-column-start: 1;
   -ms-grid-column: 1;
+  grid-row-start: 2;
+  -ms-grid-row: 2;
 }
 
 .loading-container {
   grid-column-start: 1;
+  grid-row-start: 4;
   -ms-grid-column: 1;
-  -ms-grid-row: 2;
+  -ms-grid-row: 4;
 }
 
 .right-side-wrapper {
@@ -166,26 +197,48 @@
 
 /* code snippets */
 
-.tabs-component ul{
-  min-height: 25px;
-  background-color: lightgrey;
+.code-snippet .tabs-component ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 30px;
+  border-radius: 3px 0px 0px;
+  background-color: rgb(0, 48, 82);
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.tabs-component li{
+.code-snippet .tabs-component li{
+  line-height: 2.5;
   display: inline;
   margin: 0 5px 0 0;
 }
 
-.tabs-component a {
-  color: white
+.code-snippet .tabs-component a {
+  color: rgb(255, 255, 255);
+  font-family: Roboto-Regular;
+  font-size: 14px;
+  font-weight: normal;
 }
 
-.tabs-component .is-active a{
-  color: black
+.code-snippet .tabs-component .is-active a{
+  color: rgb(255, 255, 255);
+  font-family: Roboto-Medium;
+  font-size: 14px;
+  font-weight: 800;
 }
 
-.swagger-ui .opblock-body code {
-  color:
+.code-snippet .tabs-component-panels > section > pre {
+  border-radius: 0 0 3px;
+  background-color: rgb(0, 36, 61);
+}
+
+.code-snippet .tabs-component-panels > section > pre span :before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  border-right: 1px solid #ddd;
+  padding: 0 .5em;
+  margin-right: .5em;
+  color: #888
 }
