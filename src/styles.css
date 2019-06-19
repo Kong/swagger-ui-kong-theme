@@ -1,3 +1,7 @@
+.wide {
+  width: 100%
+}
+
 .swagger-ui .scheme-container {
   background-color: #ebf7ff;
   padding: 20px;

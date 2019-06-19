@@ -2,14 +2,17 @@ import React from 'react'
 import style from './styles.css'
 import KongLayout from './Layout'
 import AugmentingResponses from './Responses'
-
+import Sidebar from './Sidebar'
+import SidebarList from './SidebarList'
 
 
 const SwaggerUIKongTheme = (system) => {
   return {
     components: {
       curl: () => null,
-      KongLayout: KongLayout
+      KongLayout: KongLayout,
+      Sidebar: Sidebar,
+      SidebarList: SidebarList
     },
     wrapComponents: {
       responses: (Original, system) => (props) => {
