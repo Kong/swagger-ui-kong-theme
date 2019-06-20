@@ -52,8 +52,8 @@ export default class AugmentingResponses extends React.Component {
         } catch(e) {
           // catch probably means xml
           har.postData.jsoObj = undefined
-          // this is probably bad practice and will screw over people to want new lines
-          // TODO fix
+          // TODO fix clean up
+          // this is probably bad practice and will screw over people to want new lines in their xml
           har.postData.text = mutatedRequest.body.replace(/\n|\t/g, '')
           console.log(mutatedRequest.body)
         }
