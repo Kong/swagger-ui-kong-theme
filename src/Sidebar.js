@@ -1,6 +1,8 @@
+import { get } from "http";
 
 export default function ({ getComponent }) {
   const SidebarList = getComponent("SidebarList", true)
+  const FilterContainer = getComponent("FilterContainer", true)
   return (
     <div>
       <div className="sidebar-toggle">
@@ -15,6 +17,7 @@ export default function ({ getComponent }) {
               <li><a href="{{config.PORTAL_GUI_URL}}/guides">Introduction</a></li>
             </ul>
           </div>
+          <FilterContainer />
           <SidebarList title="Resources" />
         </div>
       </div>

@@ -20,7 +20,6 @@ export default class KongLayout extends React.Component {
     const ServersContainer = getComponent("ServersContainer", true)
     const SchemesContainer = getComponent("SchemesContainer", true)
     const AuthorizeBtnContainer = getComponent("AuthorizeBtnContainer", true)
-    const FilterContainer = getComponent("FilterContainer", true)
     const Sidebar = getComponent("Sidebar", true)
 
     let isSwagger2 = specSelectors.isSwagger2()
@@ -101,7 +100,6 @@ export default class KongLayout extends React.Component {
                 <InfoContainer />
               </Col>
             </Row>
-            <FilterContainer />
             <Row>
               <Col mobile={12} desktop={12} >
                 <Operations />
