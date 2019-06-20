@@ -15,11 +15,7 @@ export default class SidebarList extends React.Component {
   }
 
   componentDidMount() {
-    const spec = this.props.specSelectors.specJson().toJS()
-    const builtSpec = this.buildSidebar(spec)
     let taggedOps = this.props.specSelectors.taggedOperations()
-    console.log('built', builtSpec)
-    console.log('tagged', taggedOps.toJS())
     this.setState({
       sidebarData: taggedOps,
       filteredSidebarData: taggedOps
@@ -66,6 +62,7 @@ export default class SidebarList extends React.Component {
   sidebarAnchorClicked (tag, id) {
     this.setState({activeTags: [ ...this.state.activeTags, tag] })
     this.setState({activeId: id})
+    this.props.layoutActions.show(["operations-tag", tag], true)
     this.props.layoutActions.show(["operations", tag, id], true)
     const idUrl = this.buildSidebarURL(id)
     let anchorPath = `operations-${tag}-${idUrl}`
