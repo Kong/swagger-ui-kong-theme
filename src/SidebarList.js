@@ -31,7 +31,6 @@ export default class SidebarList extends React.Component {
   }
   updatefilteredSidebarData(filter){
     const filteredSidebarData = this.props.fn.opsFilter(this.state.sidebarData, filter)
-    console.log('filtered', filter, filteredSidebarData.toJS())
     this.setState({filter, filteredSidebarData})
   }
 
@@ -57,6 +56,10 @@ export default class SidebarList extends React.Component {
 
   ifActive (bool) {
     return bool? "active": ""
+  }
+
+  ifSubmenuActive() {
+
   }
 
   sidebarAnchorClicked (tag, id) {
@@ -86,7 +89,7 @@ export default class SidebarList extends React.Component {
         <li className="list-title">Resources</li>
 
         { this.state.filteredSidebarData.map( (sidebarItem, tag) =>
-          <li className={ "submenu " + this.ifActive(this.isTagActive(tag)) } >
+          <li className={ "submenu " + this.ifActive(this.state.filter.length || this.isTagActive(tag)) } >
           <span className="submenu-title" onClick={() => this.subMenuClicked(tag)}>{tag}</span>
           <ul className="submenu-items">
 
