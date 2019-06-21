@@ -2,6 +2,214 @@
   width: 100%
 }
 
+
+/* sidebar */
+#sidebar .operation-filter-input {
+  margin-left: 15px;
+}
+
+#sidebar .sidebar-menu {
+  position: fixed;
+  z-index: 2;
+  top: 80px;
+  width: 215px;
+  height: calc(100vh - 80px);
+  background: #fff;
+  overflow-y: auto;
+  border-right: 1px solid #eee;
+}
+#sidebar #spec-sidebar {
+  padding-bottom: 100px;
+}
+#sidebar .sidebar-list li.list-title {
+  font-weight: 600;
+  color: hsl(205, 100%, 17%);
+}
+.sidebar-list {
+  padding: 0 1rem;
+  margin-top: 2rem;
+}
+.sidebar-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-list .method a {
+  cursor: pointer;
+}
+.sidebar-list ul li {
+  padding: 0.3rem 0.2rem;
+  font-size: 14px;
+  font-weight: 400;
+  color: hsl(205, 13%, 40%);
+}
+.sidebar-list ul li a {
+  color: hsl(205, 13%, 40%);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.sidebar-list ul li a:hover {
+  color: hsl(205, 13%, 20%);
+}
+.sidebar-list ul li.submenu {
+  padding: .3rem .2rem;
+}
+.sidebar-list ul li.submenu.active ul {
+  height: auto;
+  max-height: 9999px;
+  padding-top: .5rem;
+}
+.sidebar-list ul li .submenu-title {
+  position: relative;
+  display: block;
+  font-weight: 500;
+  color: hsl(205, 13%, 30%);
+  cursor: pointer;
+  padding: .3rem;
+  margin: auto -.3rem;
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 20px;
+}
+.sidebar-list ul li .submenu-title:hover,
+.sidebar-list ul li.active .submenu-title {
+  color: hsl(205, 13%, 20%);
+  background: hsl(205, 13%, 95%);
+}
+.sidebar-list ul li .submenu-title:after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  top: 8px;
+  left: auto;
+  right: 10px;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid hsl(205, 10%, 70%);
+}
+.sidebar-list ul li.active .submenu-title:after {
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid hsl(205, 10%, 70%);
+  top: 10px;
+}
+.sidebar-list ul li .submenu-items {
+  max-height: 0;
+  overflow: hidden;
+}
+.sidebar-list ul li .submenu-items a {
+  display: block;
+  line-height: 1.2;
+  font-weight: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.sidebar-list li.active > a {
+  font-weight: 500;
+}
+.sidebar-list ul li .method-post:before,
+.sidebar-list ul li .method-put:before,
+.sidebar-list ul li .method-get:before,
+.sidebar-list ul li .method-delete:before,
+.sidebar-list ul li .method-patch:before,
+.sidebar-list ul li .method-options:before {
+  color: white;
+  font-size: 9px;
+  padding: .08rem .3rem .08rem;
+  position: relative;
+  top: -1px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.sidebar-list ul li .method-post:before {
+  content: "POST";
+  background: #248FB2;
+}
+.sidebar-list ul li .method-put:before {
+  content: "PUT";
+  background: #9B6F8A;
+}
+.sidebar-list ul li .method-get:before {
+  content: "GET";
+  background: #6ABD5A;
+}
+.sidebar-list ul li .method-delete:before {
+  content: "DELETE";
+  background: #E2797A;
+}
+.sidebar-list ul li .method-patch:before {
+  content: "PATCH";
+  background: #50e3c2;
+}
+.sidebar-list ul li .method-head:before {
+  content: "HEAD";
+  background: #9012fe;
+}
+.sidebar-list ul li .method-options:before {
+  content: "OPTIONS";
+  background: #0d5aa7;
+}
+
+@media all and (max-width: 1200px) {
+  #sidebar {
+    position: fixed;
+    top: 40px;
+    right: 0;
+    transform: translateX(100%);
+    transition: all 400ms ease;
+    z-index: 2;
+  }
+  #sidebar.open {
+    transform: translateX(0);
+  }
+  #sidebar.open .sidebar-menu {
+    height: 100vh;
+    width: 300px;
+    right: 0;
+    border-right: none;
+  }
+
+  .sidebar-toggle {
+    position: fixed;
+    display: flex;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    justify-content: left;
+    padding: 1rem;
+    background: #eee;
+    z-index: 2;
+    transition: background 300ms ease;
+    cursor: pointer;
+  }
+  .sidebar-toggle:hover {
+    background: #f6f6f6;
+  }
+}
+
+@media all and (min-width: 1201px) {
+  .sidebar-toggle {
+    display: none;
+  }
+  .overlay.on {
+    display: none;
+  }
+}
+
+
+
+
+/* main */
+
 .swagger-ui .scheme-container {
   background-color: #ebf7ff;
   padding: 20px;
@@ -14,6 +222,7 @@
 .swagger-ui .information-container {
   word-break: break-word !important;
 }
+
 
 /* this is required to align the execute button (both .execute-wrapper and .btn-group)
   Might lead to uglyness if we have a really long paramter name */
@@ -92,7 +301,7 @@
   color: unset !important;
 }
 
-.opblock .opblock-summary {
+.swagger-ui .opblock .opblock-summary {
   display: grid !important;
   grid-template-columns: 80px auto 30px;
   border: none !important;
@@ -100,12 +309,12 @@
   background-color: white !important;
 }
 
-.opblock .opblock-summary .opblock-summary-method {
+.swagger-ui .opblock .opblock-summary .opblock-summary-method {
   grid-column-start: 1;
   grid-row-start: 2;
 }
 
-.opblock .opblock-summary .opblock-summary-description {
+.swagger-ui .opblock .opblock-summary .opblock-summary-description {
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -115,12 +324,12 @@
   padding-bottom: 5px;
 }
 
-.opblock .opblock-summary .authorization__btn {
+.swagger-ui .opblock .opblock-summary .authorization__btn {
   grid-column-start: 3;
   grid-row-start: 1;
 }
 
-.opblock .opblock-summary .opblock-summary-path {
+.swagger-ui .opblock .opblock-summary .opblock-summary-path {
   grid-column-start: 2;
   grid-column-end: 4;
   background-color: rgb(245, 245, 245);
@@ -128,7 +337,7 @@
   font-size: 16px;
 }
 
-.opblock-body {
+.swagger-ui .opblock-body {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -137,7 +346,7 @@
 @media (min-width: 768px) {
   /* we ie does not support implicet grids so we have to work around
       it also does not support grid-gaps so we use a extra col instead */
-  .opblock-body {
+    .swagger-ui .opblock-body {
     display: grid;
     grid-column-gap: 30px;
     grid-template-columns: 40% 60%;
@@ -149,7 +358,7 @@
   }
 }
 
-.opblock-body .btn-group {
+.swagger-ui .opblock-body .btn-group {
   grid-row-start: 3;
   -ms-grid-row: 3;
   grid-column-start: 1;
@@ -158,7 +367,7 @@
   height: 55px;
 }
 
-.opblock-body .execute-wrapper {
+.swagger-ui .opblock-body .execute-wrapper {
   grid-row-start: 3;
   -ms-grid-row: 3;
   grid-column-start: 1;
@@ -167,21 +376,21 @@
   padding-left: calc(7em + 20px);
 }
 
-.opblock-section {
+.swagger-ui .opblock-section {
   grid-column-start: 1;
   -ms-grid-column: 1;
   grid-row-start: 2;
   -ms-grid-row: 2;
 }
 
-.loading-container {
+.swagger-ui .loading-container {
   grid-column-start: 1;
   grid-row-start: 3;
   -ms-grid-column: 1;
   -ms-grid-row: 4;
 }
 
-.right-side-wrapper {
+.swagger-ui .right-side-wrapper {
   grid-column-start: 2;
   grid-row-start: 1;
   grid-row-end: 5;
@@ -191,17 +400,17 @@
   -ms-grid-row-span: 4;
 }
 
-.opblock-body {
+.swagger-ui .opblock-body {
   width: 100%
 }
 
-.swaggar-ui .responses-table {
+.swagger-ui .swaggar-ui .responses-table {
   color: white !important;
 }
 
 /* code snippets */
 
-.code-snippet .tabs-component ul{
+.swagger-ui .code-snippet .tabs-component ul{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -212,32 +421,32 @@
   padding: 0;
   margin: 0;
 }
-.code-snippet .tabs-component li{
+.swagger-ui .code-snippet .tabs-component li{
   line-height: 2.5;
   display: inline;
   margin: 0 5px 0 0;
 }
 
-.code-snippet .tabs-component a {
+.swagger-ui .code-snippet .tabs-component a {
   color: rgb(255, 255, 255);
   font-family: Roboto-Regular;
   font-size: 14px;
   font-weight: normal;
 }
 
-.code-snippet .tabs-component .is-active a{
+.swagger-ui .code-snippet .tabs-component .is-active a{
   color: rgb(255, 255, 255);
   font-family: Roboto-Medium;
   font-size: 14px;
   font-weight: 800;
 }
 
-.code-snippet .tabs-component-panels > section > pre {
+.swagger-ui .code-snippet .tabs-component-panels > section > pre {
   border-radius: 0 0 3px;
   background-color: rgb(0, 36, 61);
 }
 
-.code-snippet .tabs-component-panels > section > pre span :before {
+.swagger-ui .code-snippet .tabs-component-panels > section > pre span :before {
   counter-increment: line;
   content: counter(line);
   display: inline-block;
@@ -245,4 +454,92 @@
   padding: 0 .5em;
   margin-right: .5em;
   color: #888
+}
+
+
+/**************************************************************************
+ * From templates repo, not sure if needed, consildating all css in one spot before removing
+ * swagger-ui container
+ */
+
+
+.swagger-ui .information-container *,
+.swagger-ui .operations-container .col:not(.end) *,
+.swagger-ui .operations-container .opblock .response-code pre,
+.swagger-ui .operations-container .col.end .opblock .response-code,
+.swagger-ui .operations-container .opblock .response-code .markdown {
+  white-space: normal !important;
+  word-break: break-all !important;
+}
+
+.swagger-ui .operations-container .opblock .opblock-summary,
+.swagger-ui .operations-container .opblock .response-code,
+.swagger-ui .operations-container .col.end .opblock .response-code,
+.swagger-ui .operations-container .opblock .response-code .markdown {
+  height: auto;
+}
+
+.swagger-ui .operations-container .opblock .response-code pre {
+  margin: 0;
+}
+
+.swagger-ui .operations-container .opblock .opblock-summary {
+  min-height: 36px;
+  position: relative;
+}
+
+.swagger-ui .operations-container .opblock .opblock-summary-path {
+  margin-left: 80px;
+}
+
+.swagger-ui .operations-container .opblock .opblock-summary-method {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .swagger-ui .operations-container .opblock .opblock-summary-path {
+    margin-left: 0;
+  }
+
+  .swagger-ui .operations-container .opblock .opblock-summary-method {
+    position: relative;
+  }
+}
+
+/**************************************************************************
+ * swagger-ui operation panel theming
+ */
+.swagger-ui .side-panel { background: hsl(220, 8%, 19%); }
+.swagger-ui .model-example-wrapper { overflow: auto; }
+.swagger-ui .code-block { background: hsla(220, 8%, 10%, 1); }
+.swagger-ui .operations-container select { border-color: rgba(255,255,255,0.1); }
+
+/**************************************************************************
+ * swagger-ui operation panel fixes
+ */
+.swagger-ui .code-block { max-height: 600px !important }
+
+.overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+.overlay.on {
+  display: block;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
