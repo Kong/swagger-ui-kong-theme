@@ -1,9 +1,9 @@
 import React from 'react'
 import style from './styles.css'
-import KongLayout from './Layout'
-import AugmentingResponses from './Responses'
-import Sidebar from './Sidebar'
-import SidebarList from './SidebarList'
+import KongLayout from './components/Layout'
+import AugmentingResponses from './components/AugmentingResponses'
+import Sidebar from './components/Sidebar'
+import SidebarList from './components/SidebarList'
 
 
 const SwaggerUIKongTheme = (system) => {

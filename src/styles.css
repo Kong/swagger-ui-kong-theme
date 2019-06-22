@@ -2,7 +2,6 @@
   width: 100%
 }
 
-
 /* sidebar */
 #sidebar .operation-filter-input {
   margin-left: 15px;
@@ -118,30 +117,35 @@
 .sidebar-list ul li .method-get:before,
 .sidebar-list ul li .method-delete:before,
 .sidebar-list ul li .method-patch:before,
+.sidebar-list ul li .method-head:before,
 .sidebar-list ul li .method-options:before {
   color: white;
-  font-size: 9px;
+  font-size: 10px;
   padding: .08rem .3rem .08rem;
   position: relative;
   top: -1px;
   border-radius: 3px;
   font-weight: 600;
+  width: 40px;
+  display: inline-block;
+  text-align: center;
+  font-family: monospace;
 }
 .sidebar-list ul li .method-post:before {
   content: "POST";
-  background: #248FB2;
+  background: #49cc90;
 }
 .sidebar-list ul li .method-put:before {
   content: "PUT";
-  background: #9B6F8A;
+  background: #fca130;
 }
 .sidebar-list ul li .method-get:before {
   content: "GET";
-  background: #6ABD5A;
+  background: #61affe;
 }
 .sidebar-list ul li .method-delete:before {
   content: "DELETE";
-  background: #E2797A;
+  background: #f93e3e;
 }
 .sidebar-list ul li .method-patch:before {
   content: "PATCH";
@@ -194,6 +198,9 @@
   .sidebar-toggle:hover {
     background: #f6f6f6;
   }
+  .swagger-ui {
+    margin-top: 40px;
+  }
 }
 
 @media all and (min-width: 1201px) {
@@ -204,9 +211,6 @@
     display: none;
   }
 }
-
-
-
 
 /* main */
 
@@ -343,10 +347,10 @@
   background-color: white;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   /* we ie does not support implicet grids so we have to work around
       it also does not support grid-gaps so we use a extra col instead */
-    .swagger-ui .opblock-body {
+  .swagger-ui .opblock-body {
     display: grid;
     grid-column-gap: 30px;
     grid-template-columns: 40% 60%;
@@ -356,6 +360,10 @@
     -ms-grid-columns: 40% 30px 60%;
     -ms-grid-rows: auto auto auto 100px;
   }
+  .swagger-ui .right-side-wrapper {
+    margin-right: 20px;
+  }
+
 }
 
 .swagger-ui .opblock-body .btn-group {
@@ -409,6 +417,9 @@
 }
 
 /* code snippets */
+.swagger-ui .code-snippet {
+  margin-right: 15px;
+}
 
 .swagger-ui .code-snippet .tabs-component ul{
   display: flex;
