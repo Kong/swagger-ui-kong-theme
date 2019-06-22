@@ -17,7 +17,7 @@ export default class SidebarList extends React.Component {
   }
 
   componentDidMount() {
-    let taggedOps = this.props.specSelectors.taggedOperations()
+    const taggedOps = this.props.specSelectors.taggedOperations()
     this.setState({
       sidebarData: taggedOps,
       filteredSidebarData: taggedOps
@@ -76,9 +76,14 @@ export default class SidebarList extends React.Component {
     return bool ? "active" : ""
   }
 
-  sidebarAnchorClicked(tag, id) {
-    this.setState({ activeTags: [...this.state.activeTags, tag] })
-    this.setState({ activeId: id })
+  sidebarAnchorClicked(tag, op) {
+    let id = op.get("operation").get("operationId") || op.get("id")
+    id = this.buildSidebarURL(id)
+    console.log('op', op.toJS())
+    this.setState({
+      activeTags: [...this.state.activeTags, tag],
+      activeId: id
+    })
     this.props.layoutActions.show(["operations-tag", tag], true)
     this.props.layoutActions.show(["operations", tag, id], true)
     const idUrl = this.buildSidebarURL(id)
@@ -96,6 +101,10 @@ export default class SidebarList extends React.Component {
     this.setState({ activeTags: [...this.state.activeTags, tag] })
   }
 
+  summaryOrPath(op) {
+    return op.getIn(['operation', 'summary']) || op.get("path")
+  }
+
   render() {
     return (
       <div className="spec sidebar-list" id="spec-sidebar-list">
@@ -109,8 +118,8 @@ export default class SidebarList extends React.Component {
                 {sidebarItem.get("operations").map(op =>
                   <div>
                     <li className={"method " + this.ifActive(this.isIdActive(op.get("id")))} >
-                      <a onClick={() => this.sidebarAnchorClicked(tag, op.get("operation").get("operationId"))} className={"method-" + op.get("method")}>
-                        {"  " + op.get("operation").get("summary")}
+                      <a onClick={() => this.sidebarAnchorClicked(tag, op)} className={"method-" + op.get("method")}>
+                        {this.summaryOrPath(op)}
                       </a>
                     </li>
 
