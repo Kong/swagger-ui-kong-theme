@@ -1,14 +1,26 @@
 {
   "name": "swagger-ui-kong-theme",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Plugin to theme Swagger-UI with 3 columns",
   "main": "dist/bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kong/kong-portal-cli.git"
+  },
+  "author": "Henri Pietila @henripro",
+  "license": "Apache-2.0",
+  "keywords": [
+    "swagger-ui",
+    "theme",
+    "plugin",
+    "three",
+    "column",
+    "three-column"
+  ],
   "babel": {
     "presets": [
       "@babel/preset-env",

@@ -24,7 +24,7 @@ yarn add swagger-ui-kong-theme
 ```
 From where you are loading your Swagger-Ui
 ```js
-import { SwaggerUIKongTheme } from 'swagger-ui-kong-theme' // eslint-disable-line no-console
+import { SwaggerUIKongTheme } from 'swagger-ui-kong-theme'
 ```
 As part of the options include ```SwaggerUIKongTheme``` in the plugins array and ```'KongLayout'``` as your Layout
 
@@ -57,3 +57,11 @@ run to install required packages
 
 run to build
 ``` npm run build ```
+
+
+## Contributing
+For problems directly related to this plugin, add an issue on GitHub.
+
+For other issues, see Swagger UI
+https://github.com/swagger-api/swagger-ui
+
