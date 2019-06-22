@@ -126,10 +126,11 @@
   top: -1px;
   border-radius: 3px;
   font-weight: 600;
-  width: 40px;
+  width: 42px;
   display: inline-block;
   text-align: center;
   font-family: monospace;
+  margin-right: 5px;
 }
 .sidebar-list ul li .method-post:before {
   content: "POST";
@@ -302,12 +303,16 @@
 }
 
 .swagger-ui .opblock-body .right-side-wrapper pre span {
+  color: inherit !important;
   color: unset !important;
 }
 
 .swagger-ui .opblock .opblock-summary {
   display: grid !important;
+  display: -ms-grid !important;
   grid-template-columns: 80px auto 30px;
+  -ms-grid-columns: 80px 1fr 30px;
+  -ms-grid-rows: auto auto;
   border: none !important;
   border-bottom: none !important;
   background-color: white !important;
@@ -315,13 +320,23 @@
 
 .swagger-ui .opblock .opblock-summary .opblock-summary-method {
   grid-column-start: 1;
+  -ms-grid-column: 1;
   grid-row-start: 2;
+  -ms-grid-row: 2;
+
+  /* I have no clue why this is needed */
+  display: -ms-grid;
 }
 
-.swagger-ui .opblock .opblock-summary .opblock-summary-description {
+.swagger-ui .opblock .opblock-summary .opblock-summary-description{
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
+
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  -ms-grid-row: 1;
+
   font-family: Roboto-Medium !important;
   font-size: 20px !important;
   font-weight: 600 !important;
@@ -331,11 +346,20 @@
 .swagger-ui .opblock .opblock-summary .authorization__btn {
   grid-column-start: 3;
   grid-row-start: 1;
+
+  -ms-grid-column: 3;
+  -ms-grid-row: 1
 }
 
-.swagger-ui .opblock .opblock-summary .opblock-summary-path {
+.swagger-ui .opblock .opblock-summary .opblock-summary-path,
+.swagger-ui .opblock .opblock-summary .opblock-summary-path__deprecated {
   grid-column-start: 2;
   grid-column-end: 4;
+
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  -ms-grid-row: 2;
+
   background-color: rgb(245, 245, 245);
   padding: 5px 5px;
   font-size: 16px;
@@ -358,7 +382,7 @@
 
     display: -ms-grid;
     -ms-grid-columns: 40% 30px 60%;
-    -ms-grid-rows: auto auto auto 100px;
+    -ms-grid-rows: min-content min-content min-content min-content min-content;
   }
   .swagger-ui .right-side-wrapper {
     margin-right: 20px;
