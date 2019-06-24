@@ -22,11 +22,6 @@ const SwaggerUIKongTheme = (system) => {
             <Original { ...props} />
           </div>
         )
-      },
-      jsonschema_string : (Original, system) => (props) => {
-        return (
-            <Original { ...props} />
-        )
       }
     }
   }
