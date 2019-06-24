@@ -211,6 +211,9 @@
   .overlay.on {
     display: none;
   }
+  .swagger-ui {
+    margin-left: 215px;
+  }
 }
 
 /* main */
