@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { opId } from '../helpers/helpers'
 export default class SidebarList extends React.Component {
   constructor(props) {
     super(props)
@@ -77,19 +77,18 @@ export default class SidebarList extends React.Component {
   }
 
   sidebarAnchorClicked(tag, op) {
-    let id = op.get("operation").get("operationId") || op.get("id")
-    id = this.buildSidebarURL(id)
-    console.log('op', op.toJS())
+    // this order is crucial to get the correct id
+    let id = op.getIn(["operation", "__originalOperationId"]) || op.getIn(["operation", "operationId"]) || opId(op.get("operation"), op.get("path"), op.get('method')) || op.get("id")
+    // id = this.buildSidebarURL(id)
     this.setState({
       activeTags: [...this.state.activeTags, tag],
       activeId: id
     })
     this.props.layoutActions.show(["operations-tag", tag], true)
     this.props.layoutActions.show(["operations", tag, id], true)
-    const idUrl = this.buildSidebarURL(id)
-    let anchorPath = `operations-${tag}-${idUrl}`
-    window.location.hash = anchorPath
-    let anchor = document.querySelector(`#${anchorPath}`)
+    let anchorPath = `operations-${tag}-${id}`
+    // this is needed because escaping is inconsistant
+    let anchor = document.querySelector(`#${anchorPath}`) || document.querySelector(`#operations-${tag}-${this.buildSidebarURL(id)}`)
     this.moveToAnchor(anchor)
   }
 
