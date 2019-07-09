@@ -1,3 +1,10 @@
+/* @font-face {
+  font-family: 'Roboto';
+  src: url("/fonts/Roboto-Medium.ttf") format("ttf");
+} */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
+
 .wide {
   width: 100%
 }
@@ -255,6 +262,13 @@
   flex-direction: column-reverse;
 }
 
+.swaggar-ui .opblock-tag small {
+  font-family: roboto;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.4);
+  padding-left: 10px;
+}
+
 .swagger-ui .opblock .body-param .body-param-options label {
   display: flex;
   justify-content: space-between;
@@ -300,10 +314,50 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
-.swagger-ui .opblock-body .right-side-wrapper .markdown {
-  background-color: #ebf7ff !important;
-  color: rgba(0, 0, 0, 0.7) !important;
+.swagger-ui .swaggar-ui .responses-table {
+  color: white !important;
 }
+
+.swagger-ui .opblock-body .responses-table > thead {
+  display: none;
+}
+
+.swagger-ui .opblock-body .responses-table .response-col_status  {
+  background-color: #ebf7ff;
+  display: block;
+  width: 100%;
+  max-width: unset;
+  text-align: right;
+  border-radius: 4px 0 0 4px;
+
+  /* this padding is not perfect, less than a pixel of alignment from right side */
+  padding: 9px 0;
+}
+
+.swagger-ui .opblock .responses-table .response .highlight-code {
+  margin-bottom: 10px;
+}
+
+
+.swagger-ui .opblock-body .responses-table .response-col_description {
+  padding: 0;
+  width: 100%;
+}
+
+.swagger-ui .opblock-body .responses-table .response-col_description div > h5{
+  display: none;
+}
+
+.swaggar-ui .swagger-ui .response-col_description__inner div.markdown,
+.swagger-ui .response-col_description__inner div.renderedMarkdown,
+.swaggar-ui .swagger-ui .response-col_description__inner div.markdown p,
+.swagger-ui .response-col_description__inner div.renderedMarkdown p,
+.swagger-ui .response-col_description__inner div.markdown {
+  background-color: #ebf7ff;
+  color: rgba(0, 0, 0, 0.7);
+  border-radius: 0 4px 4px 0;
+ }
+
 
 .swagger-ui .opblock-body .right-side-wrapper pre span {
   color: inherit !important;
@@ -340,9 +394,9 @@
   -ms-grid-column-span: 3;
   -ms-grid-row: 1;
 
-  font-family: Roboto-Medium !important;
+  font-family: Roboto !important;
   font-size: 20px !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   padding-bottom: 5px;
 }
 
@@ -439,9 +493,6 @@
   width: 100%
 }
 
-.swagger-ui .swaggar-ui .responses-table {
-  color: white !important;
-}
 
 /* code snippets */
 .swagger-ui .code-snippet {
@@ -467,14 +518,14 @@
 
 .swagger-ui .code-snippet .tabs-component a {
   color: rgb(255, 255, 255);
-  font-family: Roboto-Regular;
+  font-family: 'Roboto-Medium';
   font-size: 14px;
   font-weight: normal;
 }
 
 .swagger-ui .code-snippet .tabs-component .is-active a{
   color: rgb(255, 255, 255);
-  font-family: Roboto-Medium;
+  font-family: 'Roboto-Medium';
   font-size: 14px;
   font-weight: 800;
 }
