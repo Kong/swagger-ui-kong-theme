@@ -1,6 +1,7 @@
 import React from "react"
 import { createHar } from "swagger2har"
 import { CodeSnippetWidget } from 'react-apiembed'
+import { opId } from '../helpers/helpers'
 
 
 export default class AugmentingResponses extends React.Component {
@@ -31,7 +32,6 @@ export default class AugmentingResponses extends React.Component {
 
     const mutatedRequest = specSelectors.mutatedRequestFor(path, method)
     let har = createHar(spec, path, method, selectedServer || `${scheme}://${host}${basePath}`)
-
 
 
     if (mutatedRequest) {
@@ -77,6 +77,7 @@ export default class AugmentingResponses extends React.Component {
         }
       })
     }
+
 
     const languages = [
       {

@@ -262,7 +262,7 @@
   flex-direction: column-reverse;
 }
 
-.swaggar-ui .opblock-tag small {
+.swagger-ui .opblock-tag small {
   font-family: roboto;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.4);
@@ -304,7 +304,6 @@
   margin: 0;
 }
 
-
 .swagger-ui .opblock-section .table-container {
   padding-bottom: 0;
 }
@@ -322,6 +321,11 @@
   display: none;
 }
 
+.swagger-ui .opblock-body .live-responses-table tr{
+  display: flex;
+  flex-direction: column;
+}
+
 .swagger-ui .opblock-body .responses-table .response-col_status  {
   background-color: #ebf7ff;
   display: block;
@@ -333,24 +337,30 @@
   /* this padding is not perfect, less than a pixel of alignment from right side */
   padding: 9px 0;
 }
-
-.swagger-ui .opblock .responses-table .response .highlight-code {
-  margin-bottom: 10px;
+.swagger-ui .opblock-body .live-responses-table .response-col_status  {
+  text-align: left;
+  padding-left: 20px;
+  margin-bottom: 1em;
 }
 
+.swagger-ui .opblock-body .live-responses-table .response-col_description .highlight-code{
+  margin-bottom: 1em;
+}
 
 .swagger-ui .opblock-body .responses-table .response-col_description {
   padding: 0;
   width: 100%;
 }
 
+
+
 .swagger-ui .opblock-body .responses-table .response-col_description div > h5{
   display: none;
 }
 
-.swaggar-ui .swagger-ui .response-col_description__inner div.markdown,
+.swagger-ui .swagger-ui .response-col_description__inner div.markdown,
 .swagger-ui .response-col_description__inner div.renderedMarkdown,
-.swaggar-ui .swagger-ui .response-col_description__inner div.markdown p,
+.swagger-ui .swagger-ui .response-col_description__inner div.markdown p,
 .swagger-ui .response-col_description__inner div.renderedMarkdown p,
 .swagger-ui .response-col_description__inner div.markdown {
   background-color: #ebf7ff;
@@ -358,6 +368,13 @@
   border-radius: 0 4px 4px 0;
  }
 
+.swagger-ui .responses-inner table.responses-table {
+  padding: 0;
+}
+/* hides the "Responses" above the example responses hidden by js when live response is active   */
+.swagger-ui .responses-inner > div > h4 {
+  display: none;
+}
 
 .swagger-ui .opblock-body .right-side-wrapper pre span {
   color: inherit !important;

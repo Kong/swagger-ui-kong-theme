@@ -32,3 +32,8 @@ export function idFromPathMethod(pathName, method, { v2OperationIdCompatibilityM
   }
   return `${toLower(method)}${escapeString(pathName)}`
 }
+
+// suitable for use in URL fragments
+export const createDeepLinkPath = (str) => typeof str == "string" || str instanceof String ? str.trim().replace(/\s/g, "%20") : ""
+// suitable for use in CSS classes and ids
+export const escapeDeepLinkPath = (str) => window.CSS.escape(createDeepLinkPath(str).replace(/%20/g, "_") )
