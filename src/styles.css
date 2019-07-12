@@ -313,7 +313,7 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
-.swagger-ui .swaggar-ui .responses-table {
+.swagger-ui .swagger-ui .responses-table {
   color: white !important;
 }
 
@@ -329,7 +329,7 @@
 .swagger-ui .opblock-body .responses-table .response-col_status  {
   background-color: #ebf7ff;
   display: block;
-  width: 100%;
+  /* width: 100%; */
   max-width: unset;
   text-align: right;
   border-radius: 4px 0 0 4px;
@@ -338,7 +338,7 @@
   padding: 9px 0;
 }
 .swagger-ui .opblock-body .live-responses-table .response-col_status  {
-  text-align: left;
+  text-align: center;
   padding-left: 20px;
   margin-bottom: 1em;
 }
@@ -349,13 +349,25 @@
 
 .swagger-ui .opblock-body .responses-table .response-col_description {
   padding: 0;
+  background-color: #ebf7ff;
+  border-radius: 4px;
   width: 100%;
 }
 
 
-
 .swagger-ui .opblock-body .responses-table .response-col_description div > h5{
   display: none;
+}
+
+/* .swagger-ui .responses-inner .responses-table:not(.live-responses-table) > {
+  display: grid;
+} */
+
+.swagger-ui .responses-inner .responses-table:not(.live-responses-table) tr.response{
+  display: flex;
+  /* background-color: #ebf7ff; */
+  border-radius: 4px;
+  border: 0.5em solid white;
 }
 
 .swagger-ui .swagger-ui .response-col_description__inner div.markdown,
@@ -365,7 +377,6 @@
 .swagger-ui .response-col_description__inner div.markdown {
   background-color: #ebf7ff;
   color: rgba(0, 0, 0, 0.7);
-  border-radius: 0 4px 4px 0;
  }
 
 .swagger-ui .responses-inner table.responses-table {
