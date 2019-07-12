@@ -1,3 +1,4 @@
+import React from "react"
 import { get } from "http";
 
 export default function ({ getComponent }) {

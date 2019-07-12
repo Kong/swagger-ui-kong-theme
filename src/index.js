@@ -39,3 +39,4 @@ const SwaggerUIKongTheme = (system) => {
 
 exports.KongLayout = KongLayout
 exports.SwaggerUIKongTheme = SwaggerUIKongTheme
+exports.style = style

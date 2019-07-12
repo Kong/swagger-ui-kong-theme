@@ -4,8 +4,6 @@ export default class SidebarList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      specName: window._kong.spec.name,
-      spec: window._kong.spec,
       sidebarData: [],
       filteredSidebarData: [],
       activeTags: [],
