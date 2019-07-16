@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import SwaggerLoader from './SwaggerLoader';
 import './App.css';
 
