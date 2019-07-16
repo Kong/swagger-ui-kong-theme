@@ -32,7 +32,7 @@ export default class AugmentingOperation extends React.Component {
       $exampleResponse.style.display = 'none'
 
     } else if ($exampleResponse) {
-      $exampleResponse.style.display = 'inherit'
+      $exampleResponse.style.display = 'table'
     }
 
     return (

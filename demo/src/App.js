@@ -1,6 +1,5 @@
 import React from 'react';
 import SwaggerLoader from './SwaggerLoader';
-import './App.css';
 
 function App() {
   return (

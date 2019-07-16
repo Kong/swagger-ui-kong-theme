@@ -190,14 +190,12 @@
   .sidebar-toggle {
     position: fixed;
     display: flex;
-    top: 80px;
     left: 0;
     right: 0;
     width: 100%;
     height: 40px;
     align-items: center;
     justify-content: left;
-    padding: 1rem;
     background: #eee;
     z-index: 2;
     transition: background 300ms ease;
@@ -220,6 +218,28 @@
   }
   .swagger-ui {
     margin-left: 215px;
+    margin-top: 0;
+  }
+}
+
+/* sidebar overlay */
+.overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+.overlay.open {
+  display: block;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }
 
@@ -329,18 +349,20 @@
 .swagger-ui .opblock-body .responses-table .response-col_status  {
   background-color: #ebf7ff;
   display: block;
-  /* width: 100%; */
   max-width: unset;
-  text-align: right;
+  text-align: center;
   border-radius: 4px 0 0 4px;
+  font-family: monospace;
 
   /* this padding is not perfect, less than a pixel of alignment from right side */
   padding: 9px 0;
 }
 .swagger-ui .opblock-body .live-responses-table .response-col_status  {
+  display: flex;
   text-align: center;
   padding-left: 20px;
   margin-bottom: 1em;
+  width: 100%
 }
 
 .swagger-ui .opblock-body .live-responses-table .response-col_description .highlight-code{
@@ -348,10 +370,13 @@
 }
 
 .swagger-ui .opblock-body .responses-table .response-col_description {
-  padding: 0;
   background-color: #ebf7ff;
   border-radius: 4px;
   width: 100%;
+}
+
+.swagger-ui .response-col_status .response-undocumented {
+  padding-left: 10px;
 }
 
 
@@ -359,15 +384,13 @@
   display: none;
 }
 
-/* .swagger-ui .responses-inner .responses-table:not(.live-responses-table) > {
-  display: grid;
-} */
 
 .swagger-ui .responses-inner .responses-table:not(.live-responses-table) tr.response{
   display: flex;
   /* background-color: #ebf7ff; */
   border-radius: 4px;
   border: 0.5em solid white;
+  font-family: monospace;
 }
 
 .swagger-ui .swagger-ui .response-col_description__inner div.markdown,
@@ -411,6 +434,8 @@
 
   /* I have no clue why this is needed */
   display: -ms-grid;
+
+  min-width: unset;
 }
 
 .swagger-ui .opblock .opblock-summary .opblock-summary-description{
@@ -641,22 +666,3 @@
  */
 .swagger-ui .code-block { max-height: 600px !important }
 
-.overlay {
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 1;
-}
-.overlay.on {
-  display: block;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
