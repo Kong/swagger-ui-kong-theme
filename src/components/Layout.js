@@ -5,7 +5,8 @@ export default class KongLayout extends React.Component {
     const {
       errSelectors,
       specSelectors,
-      getComponent
+      getComponent,
+      getConfigs
     } = this.props
 
     let SvgAssets = getComponent("SvgAssets")
@@ -22,6 +23,7 @@ export default class KongLayout extends React.Component {
     const AuthorizeBtnContainer = getComponent("AuthorizeBtnContainer", true)
     const Sidebar = getComponent("Sidebar", true)
 
+
     let isSwagger2 = specSelectors.isSwagger2()
     let isOAS3 = specSelectors.isOAS3()
 
@@ -30,6 +32,11 @@ export default class KongLayout extends React.Component {
     const loadingStatus = specSelectors.loadingStatus()
 
     let loadingMessage = null
+
+    const swaggerAbsoluteTop = {
+      top: getConfigs().theme && getConfigs().theme.swaggerAbsoluteTop || '0'
+    }
+
 
     if (loadingStatus === "loading") {
       loadingMessage = <div className="info">
@@ -79,8 +86,8 @@ export default class KongLayout extends React.Component {
     const hasSecurityDefinitions = !!specSelectors.securityDefinitions()
 
     return (
-    <div className='wide'>
-      <Sidebar/>
+    <div className='wide' style={swaggerAbsoluteTop}>
+      <Sidebar getConfigs={getConfigs}/>
       <div className='swagger-ui'>
           <SvgAssets />
           <VersionPragmaFilter isSwagger2={isSwagger2} isOAS3={isOAS3} alsoShow={<Errors />}>
