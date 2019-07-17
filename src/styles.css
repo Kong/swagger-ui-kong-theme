@@ -4,7 +4,8 @@
 } */
 
 .wide {
-  width: 100%
+  width: 100%;
+  position: absolute;
 }
 
 /* sidebar */
@@ -596,7 +597,7 @@
 
 .swagger-ui .code-snippet .tabs-component .is-active a{
   color: rgb(255, 255, 255);
-  /* font-family: 'Roboto-Medium'; */
+  font-family: 'Roboto-Medium';
   font-size: 14px;
   font-weight: 800;
 }

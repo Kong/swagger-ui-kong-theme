@@ -1,11 +1,15 @@
 import React from 'react';
 import SwaggerLoader from './SwaggerLoader';
+import Configerator from './Configerator'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <SwaggerLoader/>
-    </div>
+    <Router className="App">
+      <Route component={SwaggerLoader} path="/swagger/:specUrl/:config" />
+      <Route exact component={Configerator} path="/" />
+
+    </Router>
   );
 }
 

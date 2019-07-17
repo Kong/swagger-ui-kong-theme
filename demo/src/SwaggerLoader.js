@@ -7,7 +7,7 @@ import { SwaggerUIKongTheme } from 'swagger-ui-kong-theme'
 
 async function loadSpec(url) {
   try {
-    return parseSpec(await( await fetch("https://petstore.swagger.io/v2/swagger.json") ).text())
+    return parseSpec(await( await fetch(url) ).text())
   } catch(e) {
     return e
   }
@@ -43,7 +43,7 @@ function parseSpec (contents) {
   return parsedSpec === undefined ? errorArray : parsedSpec
 }
 
-const swaggerUIOptions = {
+let swaggerUIOptions = {
 
   dom_id: '#ui-wrapper', // Determine what element to load swagger ui
   docExpansion: 'list',
@@ -63,8 +63,22 @@ const swaggerUIOptions = {
 
 class SwaggerLoader extends React.Component{
   async componentDidMount() {
-    swaggerUIOptions.spec = await loadSpec("https://petstore.swagger.io/v2/swagger.json") // Define data to be used
-    SwaggerUI(swaggerUIOptions)
+    const { match: { params } } = this.props;
+    if (params.specUrl) {
+      const url = decodeURIComponent(params.specUrl)
+      if (params.config) {
+        // eslint-disable-next-line no-eval
+        swaggerUIOptions = {
+          ...swaggerUIOptions,
+          ...JSON.parse(decodeURIComponent(params.config))
+        }
+      }
+      swaggerUIOptions.spec = await loadSpec(url) // Define data to be used
+      SwaggerUI(swaggerUIOptions)
+    } else {
+      console.log('failed to load')
+    }
+
   }
   render() {
     return (

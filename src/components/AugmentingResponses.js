@@ -22,7 +22,8 @@ export default class AugmentingResponses extends React.Component {
       system,
       specSelectors,
       path,
-      method
+      method,
+      getConfigs
     } = this.props
     const spec = specSelectors.specJson().toJS()
     const selectedServer = system.oas3Selectors.selectedServer()
@@ -78,8 +79,13 @@ export default class AugmentingResponses extends React.Component {
       })
     }
 
+    let languages
+    const config = this.props.getConfigs()
 
-    const languages = [
+    if (config.theme && config.theme.languages) {
+      languages = config.theme.languages
+    } else {
+      languages = [
       {
         prismLanguage: 'bash',
         target: 'shell',
@@ -98,7 +104,7 @@ export default class AugmentingResponses extends React.Component {
         target: 'ruby'
       }
     ]
-
+  }
 
     return (
       <div className={'code-snippet'}>
