@@ -33,10 +33,11 @@ export default class KongLayout extends React.Component {
 
     let loadingMessage = null
 
+    const config = getConfigs()
     const swaggerAbsoluteTop = {
-      top: getConfigs().theme && getConfigs().theme.swaggerAbsoluteTop || '0'
+      top: config.theme && config.theme.swaggerAbsoluteTop || '0'
     }
-
+    const hasSidebar = config.theme && config.theme.hasSidebar
 
     if (loadingStatus === "loading") {
       loadingMessage = <div className="info">
@@ -87,8 +88,8 @@ export default class KongLayout extends React.Component {
 
     return (
     <div className='wide' style={swaggerAbsoluteTop}>
-      <Sidebar getConfigs={getConfigs}/>
-      <div className='swagger-ui'>
+      { hasSidebar && <Sidebar getConfigs={getConfigs}/> }
+      <div className={'swagger-ui ' + ( hasSidebar && 'has-sidebar')}>
           <SvgAssets />
           <VersionPragmaFilter isSwagger2={isSwagger2} isOAS3={isOAS3} alsoShow={<Errors />}>
           {hasServers || hasSchemes || hasSecurityDefinitions ? (

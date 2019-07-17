@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import syles from './Configerator.modules.css'
 
 class Configerator extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Configerator extends React.Component {
   "layout":"KongLayout",
   "theme": {
     "swaggerAbsoluteTop": "0px",
+    "hasSidebar": true,
     "languages" : [
       {
         "prismLanguage":"bash",
@@ -47,8 +49,6 @@ class Configerator extends React.Component {
   }
 
   createLink(url) {
-    console.log('config', this.state.config)
-    console.log(encodeURIComponent(this.state.config))
     return `swagger/${encodeURIComponent(process.env.PUBLIC_URL + url)}/${encodeURIComponent(this.state.config)}`
   }
 
@@ -58,7 +58,7 @@ class Configerator extends React.Component {
         <h1>Welcome to the Swagger UI Kong Theme demo</h1>
         <p>From here you can try different spec files and configurations.</p>
 
-        <textarea type="text" value={this.state.config} onChange={this.handleChangeConfig}>
+        <textarea className='config-editor' type="text" value={this.state.config} onChange={this.handleChangeConfig}>
 
         </textarea>
 

@@ -203,7 +203,7 @@
   .sidebar-toggle:hover {
     background: #f6f6f6;
   }
-  .swagger-ui {
+  .swagger-ui.has-sidebar {
     margin-top: 40px;
   }
 }
@@ -216,8 +216,10 @@
     display: none;
   }
   .swagger-ui {
-    margin-left: 215px;
     margin-top: 0;
+  }
+  .swagger-ui.has-sidebar {
+    margin-left: 215px;
   }
 }
 
