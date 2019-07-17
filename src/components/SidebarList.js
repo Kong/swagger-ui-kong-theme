@@ -56,6 +56,8 @@ export default class SidebarList extends React.Component {
       .replace(/({|})/g, '_')
       .replace(/\//g, '_')
       .replace(/-/, '_')
+      .replace(/\s/g, '_')
+
   }
 
   moveToAnchor(destination) {
@@ -86,8 +88,11 @@ export default class SidebarList extends React.Component {
     this.props.layoutActions.show(["operations", tag, id], true)
     let anchorPath = `operations-${tag}-${id}`
     // this is needed because escaping is inconsistant
-    let anchor = document.querySelector(`#${anchorPath}`) || document.querySelector(`#operations-${tag}-${this.buildSidebarURL(id)}`)
-    this.moveToAnchor(anchor)
+    let anchor = document.querySelector(`#${anchorPath}`) || document.querySelector(`#operations-${this.buildSidebarURL(tag)}-${this.buildSidebarURL(id)}`)
+    console.log('anchor', anchor, anchorPath)
+    if (anchor) {
+      this.moveToAnchor(anchor)
+    }
   }
 
   subMenuClicked(tag) {
