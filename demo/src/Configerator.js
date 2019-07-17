@@ -6,7 +6,7 @@ class Configerator extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      swaggerUrl: "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/uspto.yaml",
+      swaggerUrl: "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore-expanded.yaml",
       config:
 `{
   "dom_id":"#ui-wrapper",
@@ -67,15 +67,15 @@ class Configerator extends React.Component {
             <Link to={this.createLink("/specs/httpbin.yaml")}>httpbin.yaml</Link>
           </li>
           <li>
-            <Link to={"swagger/" + encodeURIComponent(process.env.PUBLIC_URL + "/specs/petstore.json")}>petstore.json</Link>
+            <Link to={this.createLink("/specs/petstore.json")}>petstore.json</Link>
           </li>
           <li>
-            <Link to={"swagger/" + encodeURIComponent(process.env.PUBLIC_URL + "/specs/uber.json")}>uber.json</Link>
+            <Link to={this.createLink("/specs/uber.json")}>uber.json</Link>
           </li>
           <li>
             <input type="text" value={this.state.swaggerUrl} onChange={this.handleChangeSwaggerUrl} />
 
-            <Link to={"swagger/" + encodeURIComponent(process.env.PUBLIC_URL + this.state.swaggerUrl)}>Your Url</Link>
+            <Link to={this.createLink(this.state.swaggerUrl)}>Your Url</Link>
           </li>
 
         </ul>
