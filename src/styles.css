@@ -305,22 +305,27 @@
   margin-right: 5px;
 }
 
-.swagger-ui .opblock .body-param pre{
+.swagger-ui .opblock-body pre span{
+  color: unset !important
+}
+
+.swagger-ui .opblock-section pre{
   background-color: white;
   color: rgba(0, 0, 0, 0.7);
   border-radius: 0 0 3px;
   border: 1px solid rgb(230, 230, 230);
 }
 
-.swagger-ui .opblock .body-param span{
+/* .swagger-ui .opblock .body-param span{
   color: rgba(0, 0, 0, 0.7) !important;
-}
+} */
 
-.swagger-ui .opblock .body-param textarea{
-  background: rgb(0, 36, 61);
-  color: white;
+.swagger-ui .opblock textarea,
+.swagger-ui textarea[disabled]{
+  color: rgba(0, 0, 0, 0.7);
+  background-color: rgb(242, 242, 242);
   border-radius: 0 0 3px;
-  border: 1px solid rgb(3, 3, 3);
+  border: 1px solid rgb(230, 230, 230);
   margin: 0;
 }
 
