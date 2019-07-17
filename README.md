@@ -34,7 +34,7 @@ const swaggerUIOptions = {
     spec: swaggerSpec, // Define data to be used
     dom_id: '#ui-wrapper', // Determine what element to load swagger ui
     docExpansion: 'list',
-    deepLinking: true, // Enables dynamic deep linking for tags and operations
+    deepLinking: true, // Enables dynamic deep linking for tags and operations this is needed for sidebar
     filter: true,
     presets: [
       SwaggerUIBundle.presets.apis,
@@ -45,19 +45,40 @@ const swaggerUIOptions = {
       SwaggerUIBundle.plugins.DownloadUrl
     ],
     layout: 'KongLayout',
+    theme:
+      {
+        "swaggerAbsoluteTop": "0px", // the top most container is set absolute at this distance from top. (default 0)
+        "hasSidebar": true, // enables sidebar (default off)
+        "languages" : [ // sets langagues for sidebar (default bash, javascript, python, ruby)
+          {
+            "prismLanguage":"bash",
+            "target":"shell",
+            "client":"curl"
+          },{
+            "prismLanguage":"ruby",
+            "target":"ruby"
+        }]
+      }
+    }
   }
 
   const ui = SwaggerUIBundle(swaggerUIOptions)
 ```
 
 
-## How to develop
+## How to develope
 run to install required packages
 ``` yarn ```
 
 run to build
 ``` npm run build ```
 
+
+## How to use Demo
+follow dev steps above then:
+``` cd demo```
+``` yarn ```
+``` yarn start ```
 
 ## Contributing
 For problems directly related to this plugin, add an issue on GitHub.
