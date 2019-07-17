@@ -89,7 +89,6 @@ export default class SidebarList extends React.Component {
     let anchorPath = `operations-${tag}-${id}`
     // this is needed because escaping is inconsistant
     let anchor = document.querySelector(`#${anchorPath}`) || document.querySelector(`#operations-${this.buildSidebarURL(tag)}-${this.buildSidebarURL(id)}`)
-    console.log('anchor', anchor, anchorPath)
     if (anchor) {
       this.moveToAnchor(anchor)
     }
