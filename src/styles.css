@@ -3,8 +3,6 @@
   src: url("/fonts/Roboto-Medium.ttf") format("ttf");
 } */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
-
 .wide {
   width: 100%
 }
@@ -283,7 +281,7 @@
 }
 
 .swagger-ui .opblock-tag small {
-  font-family: roboto;
+  font-family: sans-serif;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.4);
   padding-left: 10px;
@@ -297,6 +295,14 @@
   border: 1px solid rgb(230, 230, 230);
   margin: 0 0 0 0;
 }
+
+/*  1100 is probably a bad magic number, this is to prevent  */
+@media (max-width: 1100px) {
+  .swagger-ui .opblock .body-param .body-param-options label {
+    flex-direction: column;
+  }
+}
+
 .swagger-ui .opblock .body-param .body-param-options span {
   padding: 8px 5px;
 }
@@ -320,6 +326,12 @@
   color: rgba(0, 0, 0, 0.7) !important;
 } */
 
+/*  needed to remove  max width on small screen width*/
+@media (max-width: 768px) {
+  .swagger-ui input[type=email], .swagger-ui input[type=file], .swagger-ui input[type=password], .swagger-ui input[type=search], .swagger-ui input[type=text], .swagger-ui textarea {
+      max-width: unset;
+  }
+}
 .swagger-ui .opblock textarea,
 .swagger-ui textarea[disabled]{
   color: rgba(0, 0, 0, 0.7);
@@ -452,7 +464,7 @@
   -ms-grid-column-span: 3;
   -ms-grid-row: 1;
 
-  font-family: Roboto !important;
+  /* font-family: Roboto !important; */
   font-size: 20px !important;
   font-weight: 500 !important;
   padding-bottom: 5px;
@@ -506,7 +518,7 @@
 }
 
 .swagger-ui .opblock-body .btn-group {
-  grid-row-start: 3;
+  /* grid-row-start: 3; */
   -ms-grid-row: 3;
   grid-column-start: 1;
   -ms-grid-column: 1;
@@ -515,7 +527,7 @@
 }
 
 .swagger-ui .opblock-body .execute-wrapper {
-  grid-row-start: 3;
+  /* grid-row-start: 3; */
   -ms-grid-row: 3;
   grid-column-start: 1;
   -ms-grid-column: 1;
@@ -526,7 +538,8 @@
 .swagger-ui .opblock-section {
   grid-column-start: 1;
   -ms-grid-column: 1;
-  grid-row-start: 2;
+  /* having this grid row seems to make it stack in some specs  */
+  /* grid-row-start: 2; */
   -ms-grid-row: 2;
 }
 
@@ -554,7 +567,7 @@
 
 /* code snippets */
 .swagger-ui .code-snippet {
-  margin-right: 15px;
+  margin: 0 26px;
 }
 
 .swagger-ui .code-snippet .tabs-component ul{
@@ -576,14 +589,14 @@
 
 .swagger-ui .code-snippet .tabs-component a {
   color: rgb(255, 255, 255);
-  font-family: 'Roboto-Medium';
+  /* font-family: 'Roboto-Medium'; */
   font-size: 14px;
   font-weight: normal;
 }
 
 .swagger-ui .code-snippet .tabs-component .is-active a{
   color: rgb(255, 255, 255);
-  font-family: 'Roboto-Medium';
+  /* font-family: 'Roboto-Medium'; */
   font-size: 14px;
   font-weight: 800;
 }
