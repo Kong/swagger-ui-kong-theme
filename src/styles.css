@@ -39,6 +39,10 @@
   padding: 0 1rem;
   margin-top: 2rem;
 }
+#sidebar .filter-container input{
+  width: 220px;
+  font-size: 14px;
+}
 .sidebar-list ul {
   list-style-type: none;
   padding: 0;
@@ -304,8 +308,8 @@
   margin: 0 0 0 0;
 }
 
-/*  1100 is probably a bad magic number, this is to prevent  */
-@media (max-width: 1100px) {
+/*  1000 is probably a bad magic number, this is to prevent rows from being too squshed  */
+@media (max-width: 1000px) {
   .swagger-ui .opblock .body-param .body-param-options label {
     flex-direction: column;
   }
@@ -516,17 +520,17 @@
   background-color: white;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
   /* we ie does not support implicet grids so we have to work around
       it also does not support grid-gaps so we use a extra col instead */
   .swagger-ui .opblock-body {
     display: grid;
     grid-column-gap: 30px;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 45% 55%;
     grid-auto-rows: min-content;
 
     display: -ms-grid;
-    -ms-grid-columns: 40% 30px 60%;
+    -ms-grid-columns: 45% 30px 55%;
     -ms-grid-rows: min-content min-content min-content min-content min-content;
   }
   .swagger-ui .right-side-wrapper {
