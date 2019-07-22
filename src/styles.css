@@ -9,8 +9,13 @@
 }
 
 /* sidebar */
-#sidebar .operation-filter-input {
-  margin-left: 15px;
+#sidebar{
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+#sidebar a{
+  text-decoration: none;
+  transition: all 300ms ease;
 }
 
 #sidebar .sidebar-menu {
@@ -366,6 +371,12 @@
   flex-direction: column;
 }
 
+.swagger-ui .opblock-body .live-responses-table thead tr td{
+  border-radius: 4px;
+  border: 0.5em solid white;
+  font-family: monospace;
+}
+
 .swagger-ui .opblock-body .responses-table .response-col_status  {
   background-color: #ebf7ff;
   display: block;
@@ -384,15 +395,20 @@
   margin-bottom: 1em;
   width: 100%
 }
+.swagger-ui .opblock-body .live-responses-table .response-col_status:empty {
+  display: none;
+}
 
 .swagger-ui .opblock-body .live-responses-table .response-col_description .highlight-code{
   margin-bottom: 1em;
 }
 
 .swagger-ui .opblock-body .responses-table .response-col_description {
+  padding: 10px;
   background-color: #ebf7ff;
   border-radius: 4px;
   width: 100%;
+  font-family: monospace;
 }
 
 .swagger-ui .response-col_status .response-undocumented {
@@ -403,7 +419,6 @@
 .swagger-ui .opblock-body .responses-table .response-col_description div > h5{
   display: none;
 }
-
 
 .swagger-ui .responses-inner .responses-table:not(.live-responses-table) tr.response{
   display: flex;
