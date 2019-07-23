@@ -29,7 +29,6 @@ export default class Sidebar extends React.Component{
 
     const { getComponent } = this.props
     const SidebarList = getComponent("SidebarList", true)
-    const FilterContainer = getComponent("FilterContainer", true)
 
     return (
       <div>
@@ -45,7 +44,6 @@ export default class Sidebar extends React.Component{
                 <li><a href="{{config.PORTAL_GUI_URL}}/guides">Introduction</a></li>
               </ul>
             </div>
-            <FilterContainer />
             <SidebarList title="Resources" />
           </div>
         </div>

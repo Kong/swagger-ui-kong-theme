@@ -103,21 +103,11 @@ export default class KongLayout extends React.Component {
             ) : null}
 
             <Errors />
-            <Row className="information-container">
-              <Col mobile={12}>
-                <InfoContainer />
-              </Col>
-            </Row>
-            <Row>
-              <Col mobile={12} desktop={12} >
-                <Operations />
-              </Col>
-            </Row>
-            <Row>
-              <Col mobile={12} desktop={12} >
-                <Models />
-              </Col>
-            </Row>
+            <div className="main-container">
+              <InfoContainer />
+              <Operations />
+              <Models />
+            </div>
           </VersionPragmaFilter>
       </div>
     </div>

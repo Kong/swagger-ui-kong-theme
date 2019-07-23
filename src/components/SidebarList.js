@@ -107,11 +107,13 @@ export default class SidebarList extends React.Component {
   }
 
   render() {
+    const FilterContainer = this.props.getComponent("FilterContainer", true)
+
     return (
       <div className="spec sidebar-list" id="spec-sidebar-list">
         <ul>
           <li className="list-title">Resources</li>
-
+          <FilterContainer />
           {this.state.filteredSidebarData.map((sidebarItem, tag) =>
             <li className={"submenu " + this.ifActive(this.isTagActive(tag))} >
               <span className="submenu-title" onClick={() => this.subMenuClicked(tag)}>{tag}</span>

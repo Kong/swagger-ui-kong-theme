@@ -255,6 +255,10 @@
 
 /* main */
 
+.swagger-ui .main-container {
+  margin: 0 32px;
+}
+
 .swagger-ui .scheme-container {
   background-color: #ebf7ff;
   padding: 20px;
@@ -268,28 +272,61 @@
   word-break: break-word !important;
 }
 
+.swagger-ui .information-container .title{
+  font-size: 38px;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(59, 65, 81, 0.3);
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
 
 /* this is required to align the execute button (both .execute-wrapper and .btn-group)
   Might lead to uglyness if we have a really long paramter name */
-.swagger-ui table thead tr td, .swagger-ui table tbody tr td:first-of-type {
+/* .swagger-ui table thead tr td, .swagger-ui table tbody tr td:first-of-type {
   width: 7em;
-}
+} */
 
 .swagger-ui .opblock {
   border: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
+  margin-top: 43px;
 }
 
-
-.swagger-ui .opblock .opblock-section-header {
+/* opblock-section-header is used for both parameters and responses
+  this one applies to  both */
+.swagger-ui .opblock .opblock-section-header{
   -webkit-box-shadow: none;
   box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
 }
 
+/* this one just applies to parameters (left side) */
+.swagger-ui .opblock .opblock-section > .opblock-section-header {
+  border-bottom: 1px solid rgba(59, 65, 81, 0.3);
+  padding-right: 0;
+  margin-right: 20px;
+}
+
+.swagger-ui .opblock .responses-wrapper .opblock-section-header > label > span{
+  display: none;
+}
 .swagger-ui .opblock .body-param {
   display: flex;
   flex-direction: column-reverse;
+}
+
+.swagger-ui .opblock-tag {
+  padding-left: 0px;
+  margin-right: 5px;
+  padding-bottom: 24px;
+}
+
+.swagger-ui .opblock-tag .nostyle span {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 24px;
+  font-weight: normal;
 }
 
 .swagger-ui .opblock-tag small {
@@ -357,6 +394,32 @@
   padding-bottom: 0;
 }
 
+/* parameters */
+
+.swagger-ui .parameters thead {
+  display: none;
+}
+
+.swagger-ui .parameters .parameters-col_name {
+  text-align: right;
+  padding-right: 32px;
+}
+
+.swagger-ui .parameters .parameters-col_name .parameter__name{
+  margin-right: 0;
+}
+
+.swagger-ui .parameters .parameters-col_name .parameter__name.required {
+  display: flex;
+  flex-direction: column;
+}
+
+.swagger-ui .parameters .parameters-col_name .parameter__name.required span {
+  display: none;
+}
+
+/* responses */
+
 .swagger-ui .opblock-body .responses-wrapper pre {
   background-color: #ebf7ff;
   color: rgba(0, 0, 0, 0.7);
@@ -364,6 +427,7 @@
 
 .swagger-ui .swagger-ui .responses-table {
   color: white !important;
+  padding-left: 0;
 }
 
 .swagger-ui .opblock-body .responses-table > thead {
@@ -428,7 +492,8 @@
   display: flex;
   /* background-color: #ebf7ff; */
   border-radius: 4px;
-  border: 0.5em solid white;
+  border-top: 0.5em solid transparent;
+  border-bottom: 0.5em solid transparent;
   font-family: monospace;
 }
 
@@ -441,6 +506,10 @@
   color: rgba(0, 0, 0, 0.7);
  }
 
+.swagger-ui .responses-inner{
+  padding-left: 0;
+  padding-right: 0;
+}
 .swagger-ui .responses-inner table.responses-table {
   padding: 0;
 }
@@ -463,6 +532,7 @@
   border: none !important;
   border-bottom: none !important;
   background-color: white !important;
+  padding-left: 0;
 }
 
 .swagger-ui .opblock .opblock-summary .opblock-summary-method {
@@ -470,11 +540,14 @@
   -ms-grid-column: 1;
   grid-row-start: 2;
   -ms-grid-row: 2;
-
-  /* I have no clue why this is needed */
+  /* I have no clue why this is needed #ie */
   display: -ms-grid;
 
+  border-radius: 3px 0 0 3px;
   min-width: unset;
+  height: 36px;
+  line-height: 36px;
+  padding: 0;
 }
 
 .swagger-ui .opblock .opblock-summary .opblock-summary-description{
@@ -487,8 +560,8 @@
   -ms-grid-row: 1;
 
   /* font-family: Roboto !important; */
-  font-size: 20px !important;
-  font-weight: 500 !important;
+  font-size: 20px;
+  font-weight: 500;
   padding-bottom: 5px;
 }
 
@@ -510,7 +583,7 @@
   -ms-grid-row: 2;
 
   background-color: rgb(245, 245, 245);
-  padding: 5px 5px;
+  height: 36px;
   font-size: 16px;
 }
 
@@ -525,16 +598,18 @@
       it also does not support grid-gaps so we use a extra col instead */
   .swagger-ui .opblock-body {
     display: grid;
-    grid-column-gap: 30px;
+    grid-column-gap: 64px;
     grid-template-columns: 45% 55%;
     grid-auto-rows: min-content;
 
     display: -ms-grid;
-    -ms-grid-columns: 45% 30px 55%;
+    -ms-grid-columns: 45% 64px 55%;
     -ms-grid-rows: min-content min-content min-content min-content min-content;
   }
   .swagger-ui .right-side-wrapper {
-    margin-right: 20px;
+    /* 64 pixes to compensate for grid col gap
+      5 more from ?  */
+    margin-right: 69px;
   }
 
 }
@@ -589,7 +664,7 @@
 
 /* code snippets */
 .swagger-ui .code-snippet {
-  margin: 0 26px;
+  margin: 0;
 }
 
 .swagger-ui .code-snippet .tabs-component ul{
