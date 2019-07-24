@@ -44,7 +44,7 @@
   width: 224px;
   height: 32px;
   font-size: 15px;
-  padding-left: 4px;
+  padding-left: 10px;
   margin: 10px 0 16px 0;
 }
 .sidebar-list ul {
@@ -54,18 +54,20 @@
 }
 .sidebar-list .method a {
   cursor: pointer;
+  position: relative;
+  padding-left: 40px;
 }
 .sidebar-list ul li {
-  padding: 0.3rem 0.2rem;
+  padding: 0.3rem 0.2rem 0.3rem 1.8rem;
   font-size: 14px;
   font-weight: 400;
   color: hsl(205, 13%, 40%);
 }
 .sidebar-list ul li a {
   color: hsl(205, 13%, 40%);
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: hidden; */
 }
 .sidebar-list ul li a:hover {
   color: hsl(205, 13%, 20%);
@@ -84,11 +86,11 @@
   font-weight: 500;
   color: hsl(205, 13%, 30%);
   cursor: pointer;
-  padding: .3rem;
+  padding: 0.3rem 0.3rem 0.3rem 2rem ;
   margin: auto -.3rem;
   border-radius: 3px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* overflow: hidden;
+  text-overflow: ellipsis; */
   padding-right: 20px;
 }
 .sidebar-list ul li .submenu-title:hover,
@@ -96,25 +98,26 @@
   color: hsl(205, 13%, 20%);
   background: hsl(205, 13%, 95%);
 }
-.sidebar-list ul li .submenu-title:after {
+.sidebar-list ul li .submenu-title:before {
   position: absolute;
   display: block;
   content: "";
   width: 0;
   height: 0;
   top: 8px;
-  left: auto;
-  right: 10px;
+  left: 10px;
+  right: auto;
   border-top: 4px solid transparent;
   border-bottom: 4px solid transparent;
   border-left: 4px solid hsl(205, 10%, 70%);
 }
-.sidebar-list ul li.active .submenu-title:after {
+.sidebar-list ul li.active .submenu-title:before {
   border-bottom: 4px solid transparent;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid hsl(205, 10%, 70%);
-  top: 10px;
+  top: 12px;
+  left: 20px;
 }
 .sidebar-list ul li .submenu-items {
   max-height: 0;
@@ -124,9 +127,9 @@
   display: block;
   line-height: 1.2;
   font-weight: normal;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: hidden; */
 }
 .sidebar-list li.active > a {
   font-weight: 500;
@@ -140,9 +143,10 @@
 .sidebar-list ul li .method-options:before {
   color: white;
   font-size: 10px;
-  padding: .08rem .3rem .08rem;
-  position: relative;
-  top: -1px;
+  padding: .18rem .1rem;
+  position: absolute;
+  top: 0px;
+  left: -12px;
   border-radius: 3px;
   font-weight: 600;
   width: 42px;
