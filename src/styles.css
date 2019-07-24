@@ -6,6 +6,7 @@
 .wide {
   width: 100%;
   position: absolute;
+  left: 0px;
 }
 
 /* sidebar */
@@ -40,8 +41,11 @@
   margin-top: 2rem;
 }
 #sidebar .filter-container input{
-  width: 220px;
-  font-size: 14px;
+  width: 224px;
+  height: 32px;
+  font-size: 15px;
+  padding-left: 4px;
+  margin: 10px 0 16px 0;
 }
 .sidebar-list ul {
   list-style-type: none;
@@ -268,29 +272,39 @@
   max-width: none;
 }
 
-.swagger-ui .information-container {
+.swagger-ui .info {
   word-break: break-word !important;
 }
 
-.swagger-ui .information-container .title{
+.swagger-ui .main .title{
   font-size: 38px;
   font-weight: 300;
-  border-bottom: 1px solid rgba(59, 65, 81, 0.3);
+  border-bottom: 2px solid #E6E6E6;
   padding-bottom: 30px;
   margin-bottom: 30px;
 }
 
 /* this is required to align the execute button (both .execute-wrapper and .btn-group)
-  Might lead to uglyness if we have a really long paramter name */
-/* .swagger-ui table thead tr td, .swagger-ui table tbody tr td:first-of-type {
-  width: 7em;
-} */
+  Might lead to uglyness if we have a really long parameter name */
+.swagger-ui table thead tr td, .swagger-ui table tbody tr td:first-of-type {
+  width: 9em;
+}
 
 .swagger-ui .opblock {
   border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #E6E6E6 !important;;
   -webkit-box-shadow: none;
   box-shadow: none;
-  margin-top: 43px;
+  margin-top: 32px;
+  padding-bottom: 5px;
+  background-color: white !important;
+
+}
+
+.swagger-ui .opblock-body .opblock-description-wrapper {
+  margin: 0;
+  padding: 0;
 }
 
 /* opblock-section-header is used for both parameters and responses
@@ -304,9 +318,8 @@
 
 /* this one just applies to parameters (left side) */
 .swagger-ui .opblock .opblock-section > .opblock-section-header {
-  border-bottom: 1px solid rgba(59, 65, 81, 0.3);
+  border-bottom: 1px solid #E6E6E6;
   padding-right: 0;
-  margin-right: 20px;
 }
 
 .swagger-ui .opblock .responses-wrapper .opblock-section-header > label > span{
@@ -318,9 +331,7 @@
 }
 
 .swagger-ui .opblock-tag {
-  padding-left: 0px;
-  margin-right: 5px;
-  padding-bottom: 24px;
+  padding: 12px 0;
 }
 
 .swagger-ui .opblock-tag .nostyle span {
@@ -338,18 +349,12 @@
 
 .swagger-ui .opblock .body-param .body-param-options label {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   background-color: rgb(245, 245, 245);
   border-radius: 3px 3px 0 0;
   border: 1px solid rgb(230, 230, 230);
   margin: 0 0 0 0;
-}
-
-/*  1000 is probably a bad magic number, this is to prevent rows from being too squshed  */
-@media (max-width: 1000px) {
-  .swagger-ui .opblock .body-param .body-param-options label {
-    flex-direction: column;
-  }
 }
 
 .swagger-ui .opblock .body-param .body-param-options span {
@@ -371,10 +376,6 @@
   border: 1px solid rgb(230, 230, 230);
 }
 
-/* .swagger-ui .opblock .body-param span{
-  color: rgba(0, 0, 0, 0.7) !important;
-} */
-
 /*  needed to remove  max width on small screen width*/
 @media (max-width: 768px) {
   .swagger-ui input[type=email], .swagger-ui input[type=file], .swagger-ui input[type=password], .swagger-ui input[type=search], .swagger-ui input[type=text], .swagger-ui textarea {
@@ -391,10 +392,13 @@
 }
 
 .swagger-ui .opblock-section .table-container {
-  padding-bottom: 0;
+  padding: 0;
 }
 
 /* parameters */
+.swagger-ui .parameters {
+  table-layout: fixed;
+}
 
 .swagger-ui .parameters thead {
   display: none;
@@ -407,6 +411,7 @@
 
 .swagger-ui .parameters .parameters-col_name .parameter__name{
   margin-right: 0;
+  overflow-wrap: break-word;
 }
 
 .swagger-ui .parameters .parameters-col_name .parameter__name.required {
@@ -414,11 +419,41 @@
   flex-direction: column;
 }
 
+.swagger-ui .parameters .parameters-col_name .parameter__name.required::after {
+  padding: 5px 0 0 0;
+}
+
 .swagger-ui .parameters .parameters-col_name .parameter__name.required span {
   display: none;
 }
 
-/* responses */
+.swagger-ui .parameters .parameters-col_name .parameter__type {
+  padding-top: 0;
+}
+
+
+.swagger-ui .parameters select {
+  width: 100%;
+}
+
+.swagger-ui .parameters input[type=email],
+.swagger-ui .parameters input[type=password],
+.swagger-ui .parameters input[type=search],
+.swagger-ui .parameters input[type=text],
+.swagger-ui .parameters textarea {
+  width: 100%;
+  padding: 8px 0px 8px 10px;
+  max-width: unset;
+}
+
+.swagger-ui .parameters input[type=file] {
+  /* needed because without calc width overflows at least on chrome */
+  width: calc(100% - 10px);
+  padding: 8px 0px 8px 10px;
+  max-width: unset;
+}
+
+
 
 .swagger-ui .opblock-body .responses-wrapper pre {
   background-color: #ebf7ff;
@@ -452,6 +487,7 @@
   text-align: center;
   border-radius: 4px 0 0 4px;
   font-family: monospace;
+  font-weight: bold;
 
   /* this padding is not perfect, less than a pixel of alignment from right side */
   padding: 9px 0;
@@ -527,12 +563,15 @@
   display: grid !important;
   display: -ms-grid !important;
   grid-template-columns: 80px auto 30px;
+  grid-template-rows: 50px auto;
   -ms-grid-columns: 80px 1fr 30px;
-  -ms-grid-rows: auto auto;
+  -ms-grid-rows: 50px auto;
   border: none !important;
   border-bottom: none !important;
   background-color: white !important;
   padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 33px;
 }
 
 .swagger-ui .opblock .opblock-summary .opblock-summary-method {
@@ -607,9 +646,8 @@
     -ms-grid-rows: min-content min-content min-content min-content min-content;
   }
   .swagger-ui .right-side-wrapper {
-    /* 64 pixes to compensate for grid col gap
-      5 more from ?  */
-    margin-right: 69px;
+    /* 64 pixes to compensate for grid col gap */
+    margin-right: 64px;
   }
 
 }
@@ -619,8 +657,8 @@
   -ms-grid-row: 3;
   grid-column-start: 1;
   -ms-grid-column: 1;
-  padding: 0 20px 20px calc(7em + 20px);
-  height: 55px;
+  padding: 16px 0 20px 9em;
+  height: 71px;
 }
 
 .swagger-ui .opblock-body .execute-wrapper {
@@ -628,8 +666,9 @@
   -ms-grid-row: 3;
   grid-column-start: 1;
   -ms-grid-column: 1;
-  padding-top: 0;
-  padding-left: calc(7em + 20px);
+  padding-top: 16px;
+  padding-right: 0;
+  padding-left: 9em;
 }
 
 .swagger-ui .opblock-section {
