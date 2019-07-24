@@ -112,7 +112,7 @@ export default class SidebarList extends React.Component {
     return (
       <div className="spec sidebar-list" id="spec-sidebar-list">
         <ul>
-          <li className="list-title">Resources</li>
+          <li className="spec list-title">Resources</li>
           <FilterContainer />
           {this.state.filteredSidebarData.map((sidebarItem, tag) =>
             <li className={"submenu " + this.ifActive(this.isTagActive(tag))} >
