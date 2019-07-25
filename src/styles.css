@@ -32,8 +32,9 @@
   padding-bottom: 100px;
 }
 #sidebar .sidebar-list li.list-title {
-  font-weight: 600;
-  color: hsl(205, 100%, 17%);
+  font-weight: bold;
+  color: rgb(38, 38, 38);
+  font-size: 16px;
 }
 #sidebar .sidebar-list li.spec.list-title {
   padding-left: 1.8rem;
