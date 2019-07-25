@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## 1.1.1 - 2019-7-25
+## Changed
+- Style changes to main
+- Style changes to sidebar
+
 ## 1.1 - 2019-7-17
 ## Added
 - Demo
