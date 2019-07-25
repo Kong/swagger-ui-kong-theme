@@ -66,7 +66,7 @@ const swaggerUIOptions = {
 ```
 
 
-## How to develope
+## How to develop
 run to install required packages
 ``` yarn ```
 
