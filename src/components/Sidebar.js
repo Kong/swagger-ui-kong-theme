@@ -38,12 +38,6 @@ export default class Sidebar extends React.Component{
         <div className={"overlay " + this.state.sidebarOpen}></div>
         <div id="sidebar" className={this.state.sidebarOpen}>
           <div className="sidebar-menu" style={swaggerAbsoluteTop}>
-            <div className="sidebar-list info">
-              <ul>
-                <li className="list-title">Getting Started</li>
-                <li><a href="{{config.PORTAL_GUI_URL}}/guides">Introduction</a></li>
-              </ul>
-            </div>
             <SidebarList title="Resources" />
           </div>
         </div>
