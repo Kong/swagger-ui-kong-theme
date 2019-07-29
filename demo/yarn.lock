@@ -9659,7 +9659,16 @@ swagger-parser@^8.0.0:
     z-schema "^4.1.0"
 
 swagger-ui-kong-theme@../:
-  version "1.0.2"
+  version "1.1.2"
+  dependencies:
+    curl-to-har "^1.0.1"
+    react-apiembed "^0.1.1"
+    swagger2har "git+https://github.com/Kong/swagger2har.git#ac44a6968d21dd89733a6adedde468cbd68282e2"
+
+swagger-ui-kong-theme@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/swagger-ui-kong-theme/-/swagger-ui-kong-theme-1.1.2.tgz#5a5a2b14b06d265852f03390880bef8ad75b9892"
+  integrity sha512-meuS5TLeZ9aSCyo5i79S1x+EtPjo92vimIwSrQTlqHS7w/d68t3vkc2JFxa2OXUgiQvVD7/JoqnMgz/b3uF5pA==
   dependencies:
     curl-to-har "^1.0.1"
     react "15.6.2"

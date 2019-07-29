@@ -18,13 +18,29 @@ module.exports = {
        }
     ]
   },
+  externals: {
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom'
+    }
+  },
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    library: 'swagger-ui-kong-theme',
+    libraryTarget: 'umd'
   },
   devServer: {
     contentBase: './dist'
