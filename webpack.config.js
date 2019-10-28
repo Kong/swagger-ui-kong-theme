@@ -39,7 +39,7 @@ module.exports = {
     path: __dirname + '/dist',
     publicPath: '/',
     filename: 'bundle.js',
-    library: 'swagger-ui-kong-theme',
+    library: 'SwaggerUIKongTheme',
     libraryTarget: 'umd'
   },
   devServer: {
