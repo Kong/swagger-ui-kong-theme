@@ -2,6 +2,10 @@ Changelog
 All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
+## 1.1.4 - 2019-7-29
+## Fixed
+- webpack library name changed to 'SwaggerUIKongTheme'
+
 ## 1.1.3 - 2019-7-29
 ## Added
 - Webpack build now UMD, allowing use throug ```<script>``` no webpack needed.

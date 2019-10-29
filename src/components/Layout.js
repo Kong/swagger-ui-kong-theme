@@ -1,4 +1,6 @@
 import React from "react"
+import style from './../styles.css'
+
 // Create the layout component
 export default class KongLayout extends React.Component {
   render() {
