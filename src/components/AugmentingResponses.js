@@ -27,9 +27,9 @@ export default class AugmentingResponses extends React.Component {
     } = this.props
     const spec = specSelectors.specJson().toJS()
     const selectedServer = system.oas3Selectors.selectedServer()
-    const scheme = specSelectors.operationScheme()
-    const host = specSelectors.host()
-    const basePath = specSelectors.basePath()
+    const scheme = specSelectors.operationScheme() || 'http'
+    const host = specSelectors.host() || 'example.com'
+    const basePath = specSelectors.basePath() || ''
 
     const mutatedRequest = specSelectors.mutatedRequestFor(path, method)
     let har = createHar(spec, path, method, selectedServer || `${scheme}://${host}${basePath}`)
