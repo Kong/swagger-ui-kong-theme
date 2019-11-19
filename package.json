@@ -33,7 +33,7 @@
   "dependencies": {
     "curl-to-har": "^1.0.1",
     "react-apiembed": "^0.1.1",
-    "swagger2har": "git+https://github.com/Kong/swagger2har.git#ac44a6968d21dd89733a6adedde468cbd68282e2"
+    "swagger2har": "git+https://github.com/Kong/swagger2har.git#d2028deee39b960bedef27971a0fc24d559e024e"
   },
   "devDependencies": {
     "@babel/code-frame": "^7.0.0",
