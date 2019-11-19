@@ -837,6 +837,7 @@
 .swagger-ui .code-snippet .tabs-component-panels > section > pre {
   border-radius: 0 0 3px;
   background-color: rgb(0, 36, 61);
+  overflow-x: auto;
 }
 
 .swagger-ui .code-snippet .tabs-component-panels > section > pre span :before {
