@@ -46,7 +46,10 @@ export default class AugmentingResponses extends React.Component {
       if (mutatedRequest.body) {
         har.postData = har.postData || {}
         try {
-          const parsed = JSON.parse(mutatedRequest.body)
+          const parsed = typeof mutatedRequest.body === "string" ?
+            JSON.parse(mutatedRequest.body) :
+            mutatedRequest.body
+
           har.postData.jsoObj = parsed
           har.postData.text = JSON.stringify(parsed)
         } catch(e) {
