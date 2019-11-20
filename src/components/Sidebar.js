@@ -32,8 +32,8 @@ export default class Sidebar extends React.Component{
 
     return (
       <div>
-        <div className="sidebar-toggle" style={swaggerAbsoluteTop}>
-          <p onClick={this.handleToggleSidebar}>{this.sidebarToggleText()}</p>
+        <div className="sidebar-toggle" style={swaggerAbsoluteTop} onClick={this.handleToggleSidebar}>
+          <p>{this.sidebarToggleText()}</p>
         </div>
         <div className={"overlay " + this.state.sidebarOpen}></div>
         <div id="sidebar" className={this.state.sidebarOpen}>
