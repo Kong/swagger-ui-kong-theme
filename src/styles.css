@@ -274,6 +274,7 @@
 
 .swagger-ui .main-container {
   margin: 0 32px;
+  word-break: break-word;
 }
 
 .swagger-ui .scheme-container {
@@ -779,6 +780,7 @@
   grid-row-start: 3;
   -ms-grid-column: 1;
   -ms-grid-row: 4;
+  word-break: normal;
 }
 
 .swagger-ui .right-side-wrapper {
