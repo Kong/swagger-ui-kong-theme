@@ -34,7 +34,6 @@ export default class AugmentingResponses extends React.Component {
     const mutatedRequest = specSelectors.mutatedRequestFor(path, method)
     let har = createHar(spec, path, method, selectedServer || `${scheme}://${host}${basePath}`)
 
-
     if (mutatedRequest) {
       let mutatedRequest = specSelectors.mutatedRequestFor(path, method)
       mutatedRequest = mutatedRequest.toJS()
@@ -47,7 +46,10 @@ export default class AugmentingResponses extends React.Component {
       if (mutatedRequest.body) {
         har.postData = har.postData || {}
         try {
-          const parsed = JSON.parse(mutatedRequest.body)
+          const parsed = typeof mutatedRequest.body === "string" ?
+            JSON.parse(mutatedRequest.body) :
+            mutatedRequest.body
+
           har.postData.jsoObj = parsed
           har.postData.text = JSON.stringify(parsed)
         } catch(e) {
@@ -56,7 +58,6 @@ export default class AugmentingResponses extends React.Component {
           // TODO fix clean up
           // this is probably bad practice and will screw over people to want new lines in their xml
           har.postData.text = mutatedRequest.body.replace(/\n|\t/g, '')
-          console.log(mutatedRequest.body)
         }
       }
 
@@ -69,7 +70,6 @@ export default class AugmentingResponses extends React.Component {
       })
 
     } else {
-
       // for some reason for scheme host basePath urls we sometimes get function header values instead of string
       // CodeSnippets only wants string headers ¯\_(ツ)_/¯
       har.headers.forEach(header => {
@@ -77,6 +77,9 @@ export default class AugmentingResponses extends React.Component {
           header.value = ''
         }
       })
+
+      // replace '{' '}' delemiters which render escaped in a codesnippet context with ':'
+      har.url = har.url.replace(/{/g, ":").replace(/}/g, "")
     }
 
     let languages

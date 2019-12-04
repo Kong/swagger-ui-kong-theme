@@ -1,6 +1,6 @@
 {
   "name": "swagger-ui-kong-theme",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Plugin to theme Swagger-UI with 3 columns",
   "main": "dist/bundle.js",
   "scripts": {
@@ -33,7 +33,7 @@
   "dependencies": {
     "curl-to-har": "^1.0.1",
     "react-apiembed": "^0.1.1",
-    "swagger2har": "git+https://github.com/Kong/swagger2har.git#ac44a6968d21dd89733a6adedde468cbd68282e2"
+    "swagger2har": "git+https://github.com/Kong/swagger2har.git#8409def1fd72311f44b1d34e669af76226cb4f59"
   },
   "devDependencies": {
     "@babel/code-frame": "^7.0.0",

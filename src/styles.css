@@ -531,7 +531,7 @@
 .swagger-ui .opblock-body .responses-wrapper pre {
   background-color: #ebf7ff;
   color: rgba(0, 0, 0, 0.7);
-  padding-left: 30px;
+  background: rgba(0,0,0,.1);
 }
 
 .swagger-ui .swagger-ui .responses-table {
@@ -545,7 +545,7 @@
 
 .swagger-ui .opblock-body .live-responses-table tr{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .swagger-ui .opblock-body .live-responses-table thead tr td{
@@ -556,7 +556,9 @@
 
 .swagger-ui .opblock-body .responses-table .response-col_status  {
   background-color: #ebf7ff;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: unset;
   text-align: center;
   border-radius: 4px 0 0 4px;
@@ -570,8 +572,6 @@
   display: flex;
   text-align: center;
   padding-left: 30px;
-  margin-bottom: 30px;
-  width: 100%
 }
 .swagger-ui .opblock-body .live-responses-table .response-col_status:empty {
   display: none;
@@ -582,15 +582,15 @@
 }
 
 .swagger-ui .opblock-body .responses-table .response-col_description {
-  padding: 0 10px 10px 10px;
+  padding: 10px;
   background-color: #ebf7ff;
   border-radius: 4px;
   width: 100%;
   font-family: monospace;
 }
 
-.swagger-ui .opblock-body .responses-table .response-col_description .response-col_description__inner .markdown {
-  padding-top: 10px;
+.swagger-ui .opblock-body .responses-table .response-col_description > div {
+  width: 100%;
 }
 
 .swagger-ui .opblock-body .responses-table .response-col_description .response-col_description__inner .renderedMarkdown > p{
@@ -606,7 +606,6 @@
 
 .swagger-ui .responses-inner .responses-table:not(.live-responses-table) tr.response{
   display: flex;
-  /* background-color: #ebf7ff; */
   border-radius: 4px;
   border-bottom: 30px solid transparent;
   font-family: monospace;
@@ -632,6 +631,7 @@
 }
 
 .swagger-ui .responses-inner .request-url pre{
+  background-color: #ebf7ff;
   font-size: 15px;
 }
 
@@ -822,14 +822,12 @@
 
 .swagger-ui .code-snippet .tabs-component a {
   color: rgb(255, 255, 255);
-  /* font-family: 'Roboto-Medium'; */
   font-size: 14px;
   font-weight: normal;
 }
 
 .swagger-ui .code-snippet .tabs-component .is-active a{
   color: rgb(255, 255, 255);
-  font-family: 'Roboto-Medium';
   font-size: 14px;
   font-weight: 800;
 }
@@ -837,6 +835,7 @@
 .swagger-ui .code-snippet .tabs-component-panels > section > pre {
   border-radius: 0 0 3px;
   background-color: rgb(0, 36, 61);
+  overflow-x: auto;
 }
 
 .swagger-ui .code-snippet .tabs-component-panels > section > pre span :before {
