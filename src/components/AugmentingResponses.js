@@ -5,7 +5,14 @@ import { opId } from '../helpers/helpers'
 
 
 export default class AugmentingResponses extends React.Component {
-  shouldComponentUpdate(nextProps) {
+  constructor(props) {
+    super(props);
+    this.state = {
+      overlay: 'on'
+    }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
     // BUG: props.tryItOutResponse is always coming back as a new Immutable instance
     let render = this.props.tryItOutResponse !== nextProps.tryItOutResponse
     || this.props.responses !== nextProps.responses
@@ -14,7 +21,12 @@ export default class AugmentingResponses extends React.Component {
     || this.props.displayRequestDuration !== nextProps.displayRequestDuration
     || this.props.path !== nextProps.path
     || this.props.method !== nextProps.method
+    || this.state.overlay !== nextState.overlay
     return render
+  }
+
+  handleClose() {
+    this.setState({overlay: ""})
   }
 
   render() {
@@ -32,7 +44,7 @@ export default class AugmentingResponses extends React.Component {
     const basePath = specSelectors.basePath() || ''
 
     const mutatedRequest = specSelectors.mutatedRequestFor(path, method)
-    let har = createHar(spec, path, method, selectedServer || `${scheme}://${host}${basePath}`)
+    let har = createHar(spec, path, method, selectedServer || `${scheme}://${host}${basePath}`, )
 
     if (mutatedRequest) {
       let mutatedRequest = specSelectors.mutatedRequestFor(path, method)
@@ -69,6 +81,8 @@ export default class AugmentingResponses extends React.Component {
         }
       })
 
+      this.setState({overlay: ''})
+
     } else {
       // for some reason for scheme host basePath urls we sometimes get function header values instead of string
       // CodeSnippets only wants string headers ¯\_(ツ)_/¯
@@ -78,12 +92,12 @@ export default class AugmentingResponses extends React.Component {
         }
       })
 
-      // replace '{' '}' delemiters which render escaped in a codesnippet context with ':'
+      // replace '{' '}' delimiters which render escaped in a codesnippet context with ':'
       har.url = har.url.replace(/{/g, ":").replace(/}/g, "")
     }
 
     let languages
-    const config = this.props.getConfigs()
+    const config = getConfigs()
 
     if (config.theme && config.theme.languages) {
       languages = config.theme.languages
@@ -111,6 +125,12 @@ export default class AugmentingResponses extends React.Component {
 
     return (
       <div className={'code-snippet'}>
+         { !mutatedRequest &&
+          <div className={`overlay ${this.state.overlay}`}>
+            <span className='close' onClick={() => this.handleClose()}>x</span>
+            <h3>Use 'Try it Out' to see completed code snippet</h3>
+          </div>
+          }
           <CodeSnippetWidget har={har} snippets={languages}/>
       </div>
     )
