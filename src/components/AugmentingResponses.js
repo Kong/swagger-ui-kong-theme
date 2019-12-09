@@ -44,7 +44,7 @@ export default class AugmentingResponses extends React.Component {
     const basePath = specSelectors.basePath() || ''
 
     const mutatedRequest = specSelectors.mutatedRequestFor(path, method)
-    let har = createHar(spec, path, method, selectedServer || `${scheme}://${host}${basePath}`, )
+    let har = createHar(spec, path, method, selectedServer || `${scheme}://${host}${basePath}`)
 
     if (mutatedRequest) {
       let mutatedRequest = specSelectors.mutatedRequestFor(path, method)

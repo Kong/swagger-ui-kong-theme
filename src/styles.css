@@ -808,7 +808,7 @@
   position: absolute;
   flex-direction: column;
   justify-content: center;
-  background-color:rgba(255, 255, 255, 0.75);
+  background-color:rgba(255, 255, 255, 0.80);
 }
 
 .swagger-ui .code-snippet .overlay.on{
@@ -816,7 +816,7 @@
 }
 
 .swagger-ui .code-snippet .overlay .close{
-  color:rgba(50, 0, 0, 0.75);
+  color:rgba(0, 0, 0, 0.5);
   cursor: pointer;
   position: absolute;
   top: 25%;
@@ -824,6 +824,11 @@
   padding: 12px 16px;
   transform: translate(0%, -50%);
 }
+
+.swagger-ui .code-snippet .overlay .close:hover{
+  color:rgba(0, 0, 0, 1);
+}
+
 
 .swagger-ui .code-snippet .overlay h3{
   text-align: center;
