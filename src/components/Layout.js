@@ -1,14 +1,27 @@
 import React from "react"
 import style from './../styles.css'
 
-// Create the layout component
-export default class KongLayout extends React.Component {
+class RegisterBtnContainer extends React.Component {
   handleRegisterClick() {
     if (window.onRegisterClick) {
       window.onRegisterClick()
     }
   }
 
+  render(){
+    return (
+      <div className="register-wrapper">
+        <button onClick={() => this.handleRegisterClick()}>
+          Register
+        </button>
+      </div>
+    )
+  }
+}
+
+
+// Create the layout component
+export default class KongLayout extends React.Component {
   render() {
     const {
       errSelectors,
@@ -93,6 +106,7 @@ export default class KongLayout extends React.Component {
     const hasServers = servers && servers.size
     const hasSchemes = schemes && schemes.size
     const hasSecurityDefinitions = !!specSelectors.securityDefinitions()
+    const hasRegistration = window.appRegistrationEnabled
 
     return (
     <div className='wide' style={swaggerAbsoluteTop}>
@@ -106,11 +120,7 @@ export default class KongLayout extends React.Component {
                 {hasSchemes ? (<SchemesContainer />) : null}
                 <div className="actions">
                   {hasSecurityDefinitions ? (<AuthorizeBtnContainer />) : null}
-                  <div className="register-wrapper">
-                    <button onClick={() => this.handleRegisterClick()}>
-                      Register
-                    </button>
-                  </div>
+                  {hasRegistration ? (<RegisterBtnContainer />) : null}
                 </div>
               </Col>
             </div>

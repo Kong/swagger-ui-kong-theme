@@ -80,7 +80,6 @@ class License extends React.Component {
 
 
 class ViewSpec extends React.Component {
-
   handleViewSpecClick() {
     if (window.onViewSpecClick) {
       window.onViewSpecClick()
