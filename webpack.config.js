@@ -36,9 +36,9 @@ module.exports = {
     extensions: ['*', '.js', '.jsx']
   },
   output: {
-    path: __dirname + '/dist',
+    path: __dirname + '/../kong-portal-templates/workspaces/default/themes/base/assets/js',
     publicPath: '/',
-    filename: 'bundle.js',
+    filename: 'swagger-ui-kong-theme-667aef9.min.js',
     library: 'SwaggerUIKongTheme',
     libraryTarget: 'umd'
   },
