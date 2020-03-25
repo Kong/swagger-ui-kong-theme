@@ -3,6 +3,12 @@ import style from './../styles.css'
 
 // Create the layout component
 export default class KongLayout extends React.Component {
+  handleRegisterClick() {
+    if (window.onRegisterClick) {
+      window.onRegisterClick()
+    }
+  }
+
   render() {
     const {
       errSelectors,
@@ -94,15 +100,20 @@ export default class KongLayout extends React.Component {
       <div className={'swagger-ui ' + ( hasSidebar && 'has-sidebar')}>
           <SvgAssets />
           <VersionPragmaFilter isSwagger2={isSwagger2} isOAS3={isOAS3} alsoShow={<Errors />}>
-          {hasServers || hasSchemes || hasSecurityDefinitions ? (
-              <div className="scheme-container">
-                <Col className="schemes wrapper" mobile={12}>
-                  {hasServers ? (<ServersContainer />) : null}
-                  {hasSchemes ? (<SchemesContainer />) : null}
+            <div className="scheme-container">
+              <Col className="schemes wrapper" mobile={12}>
+                {hasServers ? (<ServersContainer />) : null}
+                {hasSchemes ? (<SchemesContainer />) : null}
+                <div className="actions">
                   {hasSecurityDefinitions ? (<AuthorizeBtnContainer />) : null}
-                </Col>
-              </div>
-            ) : null}
+                  <div className="register-wrapper">
+                    <button onClick={() => this.handleRegisterClick()}>
+                      Register
+                    </button>
+                  </div>
+                </div>
+              </Col>
+            </div>
 
             <Errors />
             <div className="main-container">

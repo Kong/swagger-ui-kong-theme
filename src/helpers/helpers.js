@@ -1,3 +1,5 @@
+import { sanitizeUrl as braintreeSanitizeUrl } from "@braintree/sanitize-url"
+
 // copied from helpers in 'swagger-js', we use this to get the proper id
 const toLower = str => String.prototype.toLowerCase.call(str)
 
@@ -37,3 +39,12 @@ export function idFromPathMethod(pathName, method, { v2OperationIdCompatibilityM
 export const createDeepLinkPath = (str) => typeof str == "string" || str instanceof String ? str.trim().replace(/\s/g, "%20") : ""
 // suitable for use in CSS classes and ids
 export const escapeDeepLinkPath = (str) => window.CSS.escape(createDeepLinkPath(str).replace(/%20/g, "_") )
+
+
+export function sanitizeUrl(url) {
+  if(typeof url !== "string" || url === "") {
+    return ""
+  }
+
+  return braintreeSanitizeUrl(url)
+}

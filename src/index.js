@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './styles.css'
 import KongLayout from './components/Layout'
+import AugmentingInfo from './components/AugmentingInfo.js'
 import AugmentingResponses from './components/AugmentingResponses'
 import AugmentingOperation from './components/AugmentingOperation.js'
 import Sidebar from './components/Sidebar'
@@ -26,9 +27,16 @@ const SwaggerUIKongTheme = (system) => {
       },
       operation : (Original, system) => (props) => {
         return (
-          <div className='opperations-augment-wraper'>
+          <div className='opperations-augment-wrapper'>
             <AugmentingOperation {...props} system={system} />
             <Original { ...props}  />
+          </div>
+        )
+      },
+      info : (Original, system) => (props) => {
+        return (
+          <div className='info-augment-wrapper'>
+            <AugmentingInfo {...props} system={system} />
           </div>
         )
       }
