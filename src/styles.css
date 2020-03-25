@@ -53,6 +53,7 @@
   padding-left: 10px;
   margin: 10px 0 16px 1.8rem;
 }
+
 .sidebar-list ul {
   list-style-type: none;
   padding: 0;
@@ -79,9 +80,7 @@
 }
 .sidebar-list ul li a {
   color: hsl(205, 13%, 40%);
-  /* text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden; */
+  word-wrap: break-word;
 }
 .sidebar-list ul li a:hover {
   color: hsl(205, 13%, 20%);
@@ -100,7 +99,7 @@
   font-weight: 500;
   color: hsl(205, 13%, 30%);
   cursor: pointer;
-  padding: 0.3rem 0.3rem 0.3rem 1.6rem;
+  padding: 0.3rem 0.3rem 0.3rem 2.3rem;
   border-radius: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -234,6 +233,9 @@
   .swagger-ui.has-sidebar {
     margin-top: 40px;
   }
+  .sidebar-toggle > p {
+    margin: 0 32px;
+  }
 }
 
 @media all and (min-width: 1201px) {
@@ -274,13 +276,57 @@
 
 /* main */
 
+.swagger-ui .scheme-container .schemes-title {
+  /* display: none; */
+}
+
+.swagger-ui .scheme-container {
+  box-shadow: none;
+}
+
+.swagger-ui .btn.authorize {
+  color: rgb(0, 149, 255);
+  border: 1px rgb(0, 149, 255) solid;
+}
+
+.swagger-ui .btn.authorize svg {
+  fill: rgb(0, 149, 255);
+}
+
+.swagger-ui .register-wrapper button {
+  background-color: rgb(0, 149, 255);
+  color: white;
+  border-color: rgb(0, 149, 255);
+}
+
 .swagger-ui .main-container {
   margin: 0 32px;
 }
 
+.swagger-ui .tab {
+  margin-bottom: 0;
+}
+
 .swagger-ui .scheme-container {
-  background-color: #ebf7ff;
-  padding: 20px;
+  background-color: rgb(250, 250, 250);
+  border-bottom: 1px rgb(240, 240, 240) solid;
+  padding: 32px 0;
+}
+
+.swagger-ui .scheme-container .schemes.wrapper {
+  padding: 0 30px;
+  justify-content: space-between;
+}
+
+.swagger-ui .scheme-container .schemes.wrapper .actions {
+  display: flex;
+}
+
+.swagger-ui .scheme-container .schemes select {
+  background-color: rgb(250, 250, 250);
+  border-radius: 3px;
+  border: 1px solid rgb(224, 224, 224);
+  box-shadow: none;
 }
 
 .swagger-ui .wrapper{
@@ -291,12 +337,35 @@
   word-break: break-word !important;
 }
 
-.swagger-ui .main .title{
+.swagger-ui .main .title {
   font-size: 38px;
   font-weight: 300;
-  border-bottom: 2px solid #E6E6E6;
+  border-bottom-width: 0;
+  padding-bottom: 0;
+}
+
+.swagger-ui .main .header {
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.swagger-ui .main .header button {
+  border: 1px solid rgb(224, 224, 224);
+  background-color: rgb(250, 250, 250);
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 0 12px;
+}
+
+.info-augment-wrapper {
   padding-bottom: 30px;
   margin-bottom: 30px;
+}
+
+.info-augment-wrapper .info {
+  margin-bottom: 0;
 }
 
 .swagger-ui .opblock {
@@ -318,6 +387,7 @@
   margin: 0;
   padding: 0;
   font-size: 16px;
+  word-break: break-word;
 }
 
 .swagger-ui .opblock-description-wrapper p,
@@ -343,6 +413,12 @@
 
 .swagger-ui .opblock .responses-wrapper .opblock-section-header > label > span{
   display: none;
+}
+
+.swagger-ui .download-contents {
+  right: 20px;
+  word-break: normal;
+  padding: 4px 0px;
 }
 
 .swagger-ui .opblock .opblock-section-header h4 {
@@ -594,11 +670,12 @@
   width: 100%;
 }
 
-.swagger-ui .opblock-body .responses-table .response-col_description .response-col_description__inner .renderedMarkdown > p{
+.swagger-ui .opblock-body .responses-table .response-col_description .response-col_description__inner .renderedMarkdown > p {
   margin-top: 10px;
 }
+
 .swagger-ui .response-col_status .response-undocumented {
-  padding-left: 30px;
+  display: none;
 }
 
 .swagger-ui .opblock-body .responses-table .response-col_description div > h5{
@@ -640,7 +717,7 @@
   padding: 0;
 }
 /* hides the "Responses", "Url", "Server Response" above the example responses hidden by js when live response is active   */
-.swagger-ui .responses-inner div h4 {
+.swagger-ui .responses-inner > div > h4 {
   display: none;
 }
 
@@ -653,7 +730,7 @@
   display: grid !important;
   display: -ms-grid !important;
   grid-template-columns: 80px auto 30px;
-  grid-template-rows: 50px auto;
+  grid-template-rows: auto auto;
   -ms-grid-columns: 80px 1fr 30px;
   -ms-grid-rows: 50px auto;
   border: none !important;
@@ -669,13 +746,18 @@
   -ms-grid-column: 1;
   grid-row-start: 2;
   -ms-grid-row: 2;
+
+  /* not tested in ie, but makes method centered */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   /* I have no clue why this is needed #ie */
   display: -ms-grid;
 
   border-radius: 3px 0 0 3px;
   min-width: unset;
-  height: 36px;
-  line-height: 36px;
+  height: 100%;
   padding: 0;
 }
 
@@ -691,7 +773,7 @@
   /* font-family: Roboto !important; */
   font-size: 20px;
   font-weight: 500;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .swagger-ui .opblock .opblock-summary .authorization__btn {
@@ -712,8 +794,9 @@
   -ms-grid-row: 2;
 
   background-color: rgb(245, 245, 245);
-  height: 36px;
+  padding: 10px 10px;
   font-size: 16px;
+  word-break: break-all;
 }
 
 .swagger-ui .opblock-body {
@@ -781,6 +864,7 @@
   grid-row-start: 3;
   -ms-grid-column: 1;
   -ms-grid-row: 4;
+  word-break: normal;
 }
 
 .swagger-ui .right-side-wrapper {
@@ -809,6 +893,7 @@
   flex-direction: column;
   justify-content: center;
   background-color:rgba(255, 255, 255, 0.80);
+  z-index: 0;
 }
 
 .swagger-ui .code-snippet .overlay.on{
@@ -833,6 +918,9 @@
 .swagger-ui .code-snippet .overlay h3{
   text-align: center;
   margin: 30px;
+  font-size: 1.17em;
+  font-weight: bold;
+  color: rgb(59, 65, 81);
 }
 
 
@@ -859,7 +947,7 @@
   font-weight: normal;
 }
 
-.swagger-ui .code-snippet .tabs-component .is-active a{
+.swagger-ui .code-snippet .tabs-component .is-active a {
   color: rgb(255, 255, 255);
   font-size: 14px;
   font-weight: 800;
@@ -879,6 +967,10 @@
   padding: 0 .5em;
   margin-right: .5em;
   color: #888
+}
+
+.swagger-ui .parameters-col_description > select {
+  height: unset;
 }
 
 
@@ -949,3 +1041,33 @@
  */
 .swagger-ui .code-block { max-height: 600px !important }
 
+/*******************************************************************************
+ * Code Snippet Theme - Twilight
+ */
+/* .swagger-ui .opblock-body .right-side-wrapper pre span.token.cdata,.swagger-ui .opblock-body .right-side-wrapper pre span.token.comment,.swagger-ui .opblock-body .right-side-wrapper pre span.token.doctype,.swagger-ui .opblock-body .right-side-wrapper pre span.token.prolog{color:#787878 !important}
+.swagger-ui .opblock-body .right-side-wrapper pre span.namespace,.swagger-ui .opblock-body .right-side-wrapper pre span.token.punctuation{opacity:.7 !important}
+.swagger-ui .opblock-body .right-side-wrapper pre span.token.boolean,.swagger-ui .opblock-body .right-side-wrapper pre span.token.deleted,.swagger-ui .opblock-body .right-side-wrapper pre span.token.number,.swagger-ui .opblock-body .right-side-wrapper pre span.token.tag{color:#cf694a !important}
+.swagger-ui .opblock-body .right-side-wrapper pre span.token.builtin,.swagger-ui .opblock-body .right-side-wrapper pre span.token.constant,.swagger-ui .opblock-body .right-side-wrapper pre span.token.keyword,.swagger-ui .opblock-body .right-side-wrapper pre span.token.property,.swagger-ui .opblock-body .right-side-wrapper pre span.token.selector,.swagger-ui .opblock-body .right-side-wrapper pre span.token.symbol{color:#f9ee9a !important}
+.swagger-ui .opblock-body .right-side-wrapper pre.language-css span.token.string,.swagger-ui .opblock-body .right-side-wrapper pre.style span.token.string,.swagger-ui .opblock-body .right-side-wrapper pre span.token.attr-name,.swagger-ui .opblock-body .right-side-wrapper pre span.token.attr-value,.swagger-ui .opblock-body .right-side-wrapper pre span.token.char,.swagger-ui .opblock-body .right-side-wrapper pre span.token.entity,.swagger-ui .opblock-body .right-side-wrapper pre span.token.inserted,.swagger-ui .opblock-body .right-side-wrapper pre span.token.operator,.swagger-ui .opblock-body .right-side-wrapper pre span.token.string,.swagger-ui .opblock-body .right-side-wrapper pre span.token.url,.swagger-ui .opblock-body .right-side-wrapper pre span.token.variable{color:#919e6b !important}
+.swagger-ui .opblock-body .right-side-wrapper pre span.token.atrule{color:#7386a5 !important}
+.swagger-ui .opblock-body .right-side-wrapper pre span.token.important,.swagger-ui .opblock-body .right-side-wrapper pre span.token.regex{color:#e9c163 !important}
+.swagger-ui .opblock-body .right-side-wrapper pre span.token.bold,.swagger-ui .opblock-body .right-side-wrapper pre span.token.important{font-weight:700 !important}
+.swagger-ui .opblock-body .right-side-wrapper pre span.token.italic{font-style:italic !important}
+.swagger-ui .opblock-body .right-side-wrapper pre span.token.entity{cursor:help !important} */
+
+/*******************************************************************************
+ * Code Snippet Theme - Dracula
+ */
+ .swagger-ui .opblock-body .right-side-wrapper pre span.token.cdata,.swagger-ui .opblock-body .right-side-wrapper pre span.token.comment,.swagger-ui .opblock-body .right-side-wrapper pre span.token.doctype,.swagger-ui .opblock-body .right-side-wrapper pre span.token.prolog{color:#6272a4 !important}
+ .swagger-ui .opblock-body .right-side-wrapper pre span.token.punctuation{color:#f8f8f2 !important}
+ .swagger-ui .opblock-body .right-side-wrapper pre span.namespace{opacity:.7 !important}
+ .swagger-ui .opblock-body .right-side-wrapper pre span.token.constant,.swagger-ui .opblock-body .right-side-wrapper pre span.token.deleted,.swagger-ui .opblock-body .right-side-wrapper pre span.token.property,.swagger-ui .opblock-body .right-side-wrapper pre span.token.symbol,.swagger-ui .opblock-body .right-side-wrapper pre span.token.tag{color:#ff79c6 !important}
+ .swagger-ui .opblock-body .right-side-wrapper pre span.token.boolean,.swagger-ui .opblock-body .right-side-wrapper pre span.token.number{color:#bd93f9 !important}
+ .swagger-ui .opblock-body .right-side-wrapper pre span.token.attr-name,.swagger-ui .opblock-body .right-side-wrapper pre span.token.builtin,.swagger-ui .opblock-body .right-side-wrapper pre span.token.char,.swagger-ui .opblock-body .right-side-wrapper pre span.token.inserted,.swagger-ui .opblock-body .right-side-wrapper pre span.token.selector,.swagger-ui .opblock-body .right-side-wrapper pre span.token.string{color:#50fa7b !important}
+ .swagger-ui .opblock-body .right-side-wrapper pre.language-css span.token.string,.swagger-ui .opblock-body .right-side-wrapper pre.style span.token.string,.swagger-ui .opblock-body .right-side-wrapper pre span.token.entity,.swagger-ui .opblock-body .right-side-wrapper pre span.token.operator,.swagger-ui .opblock-body .right-side-wrapper pre span.token.url,.swagger-ui .opblock-body .right-side-wrapper pre span.token.variable{color:#f8f8f2 !important}
+ .swagger-ui .opblock-body .right-side-wrapper pre span.token.atrule,.swagger-ui .opblock-body .right-side-wrapper pre span.token.attr-value,.swagger-ui .opblock-body .right-side-wrapper pre span.token.class-name,.swagger-ui .opblock-body .right-side-wrapper pre span.token.function{color:#f1fa8c !important}
+ .swagger-ui .opblock-body .right-side-wrapper pre span.token.keyword{color:#8be9fd !important}
+ .swagger-ui .opblock-body .right-side-wrapper pre span.token.important,.swagger-ui .opblock-body .right-side-wrapper pre span.token.regex{color:#ffb86c !important}
+ .swagger-ui .opblock-body .right-side-wrapper pre span.token.bold,.swagger-ui .opblock-body .right-side-wrapper pre span.token.important{font-weight:700 !important}
+ .swagger-ui .opblock-body .right-side-wrapper pre span.token.italic{font-style:italic !important}
+ .swagger-ui .opblock-body .right-side-wrapper pre span.token.entity{cursor:help !important}
