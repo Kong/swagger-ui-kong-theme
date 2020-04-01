@@ -1,3 +1,7 @@
+const hash = require('child_process')
+  .execSync('git rev-parse --short HEAD')
+  .toString().replace(/(\r\n|\n|\r)/gm, '')
+
 module.exports = {
   entry: './src/index.js',
   watch: true,
@@ -38,7 +42,7 @@ module.exports = {
   output: {
     path: __dirname + '/../kong-portal-templates/workspaces/default/themes/base/assets/js',
     publicPath: '/',
-    filename: 'swagger-ui-kong-theme-667aef9.min.js',
+    filename: `swagger-ui-kong-theme-${hash}.min.js`,
     library: 'SwaggerUIKongTheme',
     libraryTarget: 'umd'
   },
