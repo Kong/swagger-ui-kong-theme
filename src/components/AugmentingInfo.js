@@ -1,7 +1,7 @@
 import { sanitizeUrl } from '../helpers/helpers'
 
 
-const EyeSVG = () => 
+const EyeSVG = () =>
   <svg width="16px" height="9px" viewBox="0 0 16 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
     <title>0DC50B50-D286-4889-B1DA-07E43925811F@1.00x</title>
     <desc>Created with sketchtool.</desc>
@@ -90,7 +90,7 @@ class ViewSpec extends React.Component {
   render(){
     return (
       <button onClick={() => this.handleViewSpecClick()}>
-        <EyeSVG></EyeSVG> View Spec
+        <EyeSVG></EyeSVG> View Raw
       </button>
     )
   }
