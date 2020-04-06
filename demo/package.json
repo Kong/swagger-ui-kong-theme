@@ -52,7 +52,7 @@
     "semver": "6.0.0",
     "style-loader": "0.23.1",
     "swagger-parser": "^8.0.0",
-    "swagger-ui": "^3.23.11",
+    "swagger-ui": "^3.25.0",
     "swagger-ui-kong-theme": "../",
     "terser-webpack-plugin": "1.2.3",
     "ts-pnp": "1.1.2",
