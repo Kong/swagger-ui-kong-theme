@@ -57,7 +57,7 @@ export default class SidebarList extends React.Component {
       .replace(/\//g, '_')
       .replace(/-/, '_')
       .replace(/\s/g, '_')
-      .replace(/\./, '\\.')
+      .replace(/\./g, '\\.')
   }
 
   moveToAnchor(destination) {
