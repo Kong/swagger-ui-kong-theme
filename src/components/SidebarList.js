@@ -57,7 +57,7 @@ export default class SidebarList extends React.Component {
       .replace(/\//g, '_')
       .replace(/-/, '_')
       .replace(/\s/g, '_')
-
+      .replace(/\./g, '\\.')
   }
 
   moveToAnchor(destination) {
@@ -79,7 +79,6 @@ export default class SidebarList extends React.Component {
   sidebarAnchorClicked(tag, op) {
     // this order is crucial to get the correct id
     let id = op.getIn(["operation", "__originalOperationId"]) || op.getIn(["operation", "operationId"]) || opId(op.get("operation"), op.get("path"), op.get('method')) || op.get("id")
-    // id = this.buildSidebarURL(id)
     this.setState({
       activeTags: [...this.state.activeTags, tag],
       activeId: id
@@ -87,8 +86,10 @@ export default class SidebarList extends React.Component {
     this.props.layoutActions.show(["operations-tag", tag], true)
     this.props.layoutActions.show(["operations", tag, id], true)
     let anchorPath = `operations-${tag}-${id}`
-    // this is needed because escaping is inconsistant
-    let anchor = document.querySelector(`#${anchorPath}`) || document.querySelector(`#operations-${this.buildSidebarURL(tag)}-${this.buildSidebarURL(id)}`)
+    let encodedPath = `operations-${this.buildSidebarURL(tag)}-${this.buildSidebarURL(id)}`
+    // this is needed because escaping is inconsistent
+    let anchor = document.getElementById(anchorPath) || document.getElementById(encodedPath)
+
     if (anchor) {
       this.moveToAnchor(anchor)
     }
