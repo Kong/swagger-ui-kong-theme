@@ -4,10 +4,10 @@ This repo is still under development and changes are coming
 
 ## Known Issues
 Swagger-UI does mot support react 16.
-If you have react 16 ANYWHERE loaded/bundled on the same page as swagger you will not be able to fill in required perameters on try it
+If you have react 16 ANYWHERE loaded/bundled on the same page as swagger you will not be able to fill in required parameters on try it
 https://github.com/swagger-api/swagger-ui/issues/4745
 
-Workaround: Use yarm not npm
+Workaround: Use yarn not npm
 make sure you have
 ```
   "resolutions": {
