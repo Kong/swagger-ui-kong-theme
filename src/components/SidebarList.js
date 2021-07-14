@@ -76,7 +76,18 @@ export default class SidebarList extends React.Component {
     return bool ? "active" : ""
   }
 
+
   sidebarAnchorClicked(tag, op) {
+    this.sidebarAnchorSelected(tag, op)
+  }
+
+  sidebarAnchorKeyup(key, tag, op) {
+    if (key === 'Enter') {
+      this.sidebarAnchorSelected(tag, op)
+    }
+  }
+
+  sidebarAnchorSelected(tag, op) {
     // this order is crucial to get the correct id
     let id = op.getIn(["operation", "__originalOperationId"]) || op.getIn(["operation", "operationId"]) || opId(op.get("operation"), op.get("path"), op.get('method')) || op.get("id")
     this.setState({
@@ -95,12 +106,38 @@ export default class SidebarList extends React.Component {
     }
   }
 
-  subMenuClicked(tag) {
-    if (this.isTagActive(tag)) {
-      this.setState({ activeTags: this.state.activeTags.filter(activeTag => activeTag !== tag) })
-      return
-    }
+  removeFromActiveTags(tag) {
+    this.setState({ activeTags: this.state.activeTags.filter(activeTag => activeTag !== tag) })
+  }
+
+  addToActiveTags(tag) {
     this.setState({ activeTags: [...this.state.activeTags, tag] })
+  }
+
+  toggleActiveTags(tag) {
+    if (this.isTagActive(tag)) {
+      this.removeFromActiveTags(tag)
+    } else {
+      this.addToActiveTags(tag)
+    }
+  }
+
+  subMenuClicked(tag) {
+    this.toggleActiveTags(tag)
+  }
+
+  subMenuKeyup(key, tag) {
+    switch (key) {
+      case 'Enter':
+        this.toggleActiveTags(tag)
+        break;
+      case 'ArrowRight':
+        !this.isTagActive(tag) && this.addToActiveTags(tag)
+        break;
+      case 'ArrowLeft':
+        this.isTagActive(tag) && this.removeFromActiveTags(tag)
+        break;
+    }
   }
 
   summaryOrPath(op) {
@@ -112,17 +149,29 @@ export default class SidebarList extends React.Component {
 
     return (
       <div className="spec sidebar-list" id="spec-sidebar-list">
-        <ul>
+        <ul role="list">
           <li className="spec list-title">Resources</li>
           <FilterContainer />
           {this.state.filteredSidebarData.map((sidebarItem, tag) =>
             <li className={"submenu " + this.ifActive(this.isTagActive(tag))} >
-              <span className="submenu-title" onClick={() => this.subMenuClicked(tag)}>{tag}</span>
-              <ul className="submenu-items">
+              <span
+                role="listitem" tabIndex={0} className="submenu-title"
+                onClick={() => this.subMenuClicked(tag)}
+                onKeyUp={(e) => this.subMenuKeyup(e.key, tag)}
+              >
+                {tag}
+              </span>
+              <ul className="submenu-items" role="menu">
                 {sidebarItem.get("operations").map(op =>
                   <div>
-                    <li className={"method " + this.ifActive(this.isIdActive(op.get("id")))} >
-                      <a onClick={() => this.sidebarAnchorClicked(tag, op)} className={"method-" + op.get("method")}>
+                    <li tabIndex={this.isTagActive(tag) ? 0 : -1}
+                      role="menuitem"
+                      className={"method " + this.ifActive(this.isIdActive(op.get("id")))}
+                      onKeyUp={(e) => this.sidebarAnchorKeyup(e.key, tag, op)}
+                    >
+                      <a onClick={() => this.sidebarAnchorClicked(tag, op)}
+                        className={"method-" + op.get("method")}
+                      >
                         {this.summaryOrPath(op)}
                       </a>
                     </li>
