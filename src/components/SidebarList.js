@@ -164,12 +164,14 @@ export default class SidebarList extends React.Component {
               <ul className="submenu-items" role="menu">
                 {sidebarItem.get("operations").map(op =>
                   <div>
-                    <li tabIndex={this.isTagActive(tag) ? 0 : -1}
+                    <li
+                      tabIndex={this.isTagActive(tag) ? 0 : -1}
                       role="menuitem"
                       className={"method " + this.ifActive(this.isIdActive(op.get("id")))}
                       onKeyUp={(e) => this.sidebarAnchorKeyup(e.key, tag, op)}
                     >
-                      <a onClick={() => this.sidebarAnchorClicked(tag, op)}
+                      <a
+                        onClick={() => this.sidebarAnchorClicked(tag, op)}
                         className={"method-" + op.get("method")}
                       >
                         {this.summaryOrPath(op)}
