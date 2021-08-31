@@ -33,7 +33,7 @@
   "dependencies": {
     "@braintree/sanitize-url": "^2.0.2",
     "curl-to-har": "^1.0.1",
-    "react-apiembed": "^0.1.1",
+    "react-apiembed": "git+https://github.com/Kong/react-apiembed.git#28fd0f6032f1f4e4a1e9b696352b83521050a167",
     "swagger2har": "git+https://github.com/Kong/swagger2har.git#8409def1fd72311f44b1d34e669af76226cb4f59"
   },
   "devDependencies": {

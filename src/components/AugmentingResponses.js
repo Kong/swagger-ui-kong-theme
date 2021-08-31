@@ -1,15 +1,24 @@
 import React from "react"
 import { createHar } from "swagger2har"
 import { CodeSnippetWidget } from 'react-apiembed'
-import { opId } from '../helpers/helpers'
 
-
+const hashIdx = "_**[]"
 export default class AugmentingResponses extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       overlay: 'on'
     }
+  }
+
+  // Duplicate keys are hashed with "[key]_**[][index]"
+  // This helper extracts the key from the hashed key
+  // see extractKey https://github.com/swagger-api/swagger-ui/blob/master/src/core/plugins/request-snippets/fn.js
+  extractKey(hashedKey) {
+    if (hashedKey.indexOf(hashIdx) < 0) {
+      return hashedKey
+    }
+    return hashedKey.split(hashIdx)[0].trim()
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -62,14 +71,34 @@ export default class AugmentingResponses extends React.Component {
             JSON.parse(mutatedRequest.body) :
             mutatedRequest.body
 
-          har.postData.jsoObj = parsed
+          har.postData.jsonObj = parsed
           har.postData.text = JSON.stringify(parsed)
+
+          har.postData.mimeType = mutatedRequest.headers['Content-Type']
+          if (har.postData.mimeType === 'multipart/form-data' && har.postData.jsonObj) {
+            har.postData.params = Object.keys(har.postData.jsonObj).map(hashedKey => {
+              const value = har.postData.jsonObj[hashedKey]
+              const name = this.extractKey(hashedKey)
+              const param = { name }
+
+              if (value instanceof File) {
+                param.fileName = `${value.name};type=${value.type}`
+              } else {
+                param.value = value
+              }
+
+              return param
+            })
+          }
+
         } catch(e) {
           // catch probably means xml
-          har.postData.jsoObj = undefined
+          har.postData.jsonObj = undefined
           // TODO fix clean up
           // this is probably bad practice and will screw over people to want new lines in their xml
-          har.postData.text = mutatedRequest.body.replace(/\n|\t/g, '')
+          if (typeof mutatedRequest.body === 'string') {
+            har.postData.text = mutatedRequest.body.replace(/\n|\t/g, '')
+          }
         }
       }
 
