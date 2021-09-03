@@ -155,7 +155,7 @@ export default class SidebarList extends React.Component {
           {this.state.filteredSidebarData.map((sidebarItem, tag) =>
             <li className={"submenu " + this.ifActive(this.isTagActive(tag))} >
               <span
-                role="listitem" tabIndex={0} className="submenu-title"
+                tabIndex={0} className="submenu-title"
                 onClick={() => this.subMenuClicked(tag)}
                 onKeyUp={(e) => this.subMenuKeyup(e.key, tag)}
               >
