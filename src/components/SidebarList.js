@@ -88,8 +88,7 @@ export default class SidebarList extends React.Component {
   }
 
   sidebarAnchorSelected(tag, op) {
-    // this order is crucial to get the correct id
-    let id = op.getIn(["operation", "__originalOperationId"]) || op.getIn(["operation", "operationId"]) || opId(op.get("operation"), op.get("path"), op.get('method')) || op.get("id")
+    let id = getOperationId(op)
     this.setState({
       activeTags: [...this.state.activeTags, tag],
       activeId: id
@@ -144,18 +143,24 @@ export default class SidebarList extends React.Component {
     return op.getIn(['operation', 'summary']) || op.get("path")
   }
 
+  getActiveClass(op) {
+    return this.ifActive(this.isIdActive(getOperationId(op)))
+  }
+
   render() {
     const FilterContainer = this.props.getComponent("FilterContainer", true)
 
     return (
       <div className="spec sidebar-list" id="spec-sidebar-list">
-        <ul role="list">
-          <li className="spec list-title">Resources</li>
+        <ul role="menu">
+          <li role="none" className="spec list-title">Resources</li>
           <FilterContainer />
           {this.state.filteredSidebarData.map((sidebarItem, tag) =>
-            <li className={"submenu " + this.ifActive(this.isTagActive(tag))} >
+            <li role="none" className={"submenu " + this.ifActive(this.isTagActive(tag))} >
               <span
-                role="listitem" tabIndex={0} className="submenu-title"
+                // This is hopefully temporary, and someday we can just make it a button :)
+                role="menuitem"
+                tabIndex={0} className="submenu-title"
                 onClick={() => this.subMenuClicked(tag)}
                 onKeyUp={(e) => this.subMenuKeyup(e.key, tag)}
               >
@@ -163,22 +168,27 @@ export default class SidebarList extends React.Component {
               </span>
               <ul className="submenu-items" role="menu">
                 {sidebarItem.get("operations").map(op =>
-                  <div>
-                    <li
-                      tabIndex={this.isTagActive(tag) ? 0 : -1}
-                      role="menuitem"
-                      className={"method " + this.ifActive(this.isIdActive(op.get("id")))}
-                      onKeyUp={(e) => this.sidebarAnchorKeyup(e.key, tag, op)}
-                    >
-                      <a
-                        onClick={() => this.sidebarAnchorClicked(tag, op)}
-                        className={"method-" + op.get("method")}
-                      >
-                        {this.summaryOrPath(op)}
-                      </a>
-                    </li>
 
-                  </div>)}
+                  <li role="none" key={op} className={"method " + this.getActiveClass(op)}
+                  >
+                    <a
+                      /*
+                        example pulled from https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html
+                      */
+                      role="menuitem"
+                      /*
+                        we set the tabIndex to zero while we're navigating by keyboard
+                        otherwise it dives into the submenu too early and isn't clear to the user
+                      */
+                      tabIndex={this.isTagActive(tag) ? 0 : -1}
+                      onKeyUp={(e) => this.sidebarAnchorKeyup(e.key, tag, op)}
+                      onClick={() => this.sidebarAnchorClicked(tag, op)}
+                      className={"method-" + op.get("method")}
+                    >
+                      {this.summaryOrPath(op)}
+                    </a>
+                  </li>
+                )}
 
               </ul>
             </li>)}
@@ -187,4 +197,9 @@ export default class SidebarList extends React.Component {
       </div>
     )
   }
+}
+
+function getOperationId(op) {
+  // this order is crucial to get the correct id
+  return op.getIn(["operation", "__originalOperationId"]) || op.getIn(["operation", "operationId"]) || opId(op.get("operation"), op.get("path"), op.get('method')) || op.get("id")
 }

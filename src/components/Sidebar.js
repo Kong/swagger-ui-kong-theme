@@ -1,5 +1,4 @@
 import React from "react"
-import { get } from "http";
 
 export default class Sidebar extends React.Component{
   constructor(props) {
@@ -11,10 +10,16 @@ export default class Sidebar extends React.Component{
 
   }
 
-  handleToggleSidebar(e) {
+  handleToggleSidebar() {
     this.state.sidebarOpen === "open" ?
       this.setState({sidebarOpen: "close"}) :
       this.setState({sidebarOpen: "open"})
+  }
+
+  handleKeyToggleSidebar(e) {
+    if (e && e.code && ['Space', 'Enter', 'Return'].includes(e.code)) {
+      this.handleToggleSidebar()
+    }
   }
 
   sidebarToggleText() {
@@ -32,9 +37,9 @@ export default class Sidebar extends React.Component{
 
     return (
       <div>
-        <div className="sidebar-toggle" style={swaggerAbsoluteTop} onClick={this.handleToggleSidebar}>
-          <p>{this.sidebarToggleText()}</p>
-        </div>
+        <button className="sidebar-toggle" style={swaggerAbsoluteTop} onClick={this.handleToggleSidebar} onKeyUp={this.handleKeyToggleSidebar} >
+          {this.sidebarToggleText()}
+        </button>
         <div className={"overlay " + this.state.sidebarOpen}></div>
         <div id="sidebar" className={this.state.sidebarOpen}>
           <div className="sidebar-menu" style={swaggerAbsoluteTop}>

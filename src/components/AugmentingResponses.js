@@ -38,6 +38,15 @@ export default class AugmentingResponses extends React.Component {
     this.setState({overlay: ""})
   }
 
+  handleCloseKeyup(key) {
+    switch (key) {
+      case 'Enter':
+        this.setState({overlay: ""})
+      default:
+        return void 0;
+    }
+  }
+
   render() {
     const {
       system,
@@ -156,7 +165,7 @@ export default class AugmentingResponses extends React.Component {
       <div className={'code-snippet'}>
          { !mutatedRequest &&
           <div className={`overlay ${this.state.overlay}`}>
-            <span className='close' onClick={() => this.handleClose()}>x</span>
+            <span aria-label="close" role="button" className='close' onKeyUp={(e) => handleCloseKeyup(e.key)} onClick={() => this.handleClose()}>x</span>
             <h3>Use 'Try it Out' to see completed code snippet</h3>
           </div>
           }
