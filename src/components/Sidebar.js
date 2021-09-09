@@ -17,7 +17,6 @@ export default class Sidebar extends React.Component{
   }
 
   handleKeyToggleSidebar(e) {
-    console.log({e});
     if (e && e.code && ['Space', 'Enter', 'Return'].includes(e.code)) {
       this.handleToggleSidebar()
     }
