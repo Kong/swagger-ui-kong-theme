@@ -1,5 +1,4 @@
 import React from "react"
-import { get } from "http";
 
 export default class Sidebar extends React.Component{
   constructor(props) {
@@ -39,7 +38,7 @@ export default class Sidebar extends React.Component{
 
     return (
       <div>
-        <button tabIndex="0" className="sidebar-toggle" style={swaggerAbsoluteTop} onClick={this.handleToggleSidebar} onKeyUp={this.handleKeyToggleSidebar} >
+        <button className="sidebar-toggle" style={swaggerAbsoluteTop} onClick={this.handleToggleSidebar} onKeyUp={this.handleKeyToggleSidebar} >
           {this.sidebarToggleText()}
         </button>
         <div className={"overlay " + this.state.sidebarOpen}></div>
