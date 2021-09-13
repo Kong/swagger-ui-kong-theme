@@ -194,83 +194,79 @@
   overflow: hidden;
 }
 .sidebar-list ul li .submenu-items a {
-  position:relative;
-  display: block;
-  border-style: solid;
-  border-width: 2px;
-  /* pre-focus/hover this allows prevents page jank during change */
-  border-color: transparent;
   line-height: 1.2;
   font-weight: normal;
-  padding: 2rem 1rem;
-  text-align: start;
-  white-space: break-spaces;
-  color:var(--blue-500);
-  text-transform: unset;
-  height: unset;
-  width:unset;
-}
-.sidebar-list ul li .submenu-items a:focus,
-.sidebar-list ul li .submenu-items a:active {
-  border-style: solid;
+  padding-left: 6px;
+  vertical-align: top;
+  display: inline-block;
+  width: calc(100% - 45px);
 }
 .sidebar-list ul li .submenu-items li.active > a {
   font-weight: 500;
 }
-/* overrules specificity from swagger-ui */
-.spec.sidebar-list ul li .method-post:before,
-.spec.sidebar-list ul li .method-put:before,
-.spec.sidebar-list ul li .method-get:before,
-.spec.sidebar-list ul li .method-delete:before,
-.spec.sidebar-list ul li .method-patch:before,
-.spec.sidebar-list ul li .method-head:before,
-.spec.sidebar-list ul li .method-options:before {
+
+.sidebar-list ul li .method-tag {
   color: var(--white);
   font-size: 9px;
-  padding: .28rem .1rem;
-  position: absolute;
-  top: 2px;
-  left: 1rem;
+  width: 38px;
+  padding: .3rem 0.3rem;
   border-radius: 3px;
   font-weight: 600;
-  width: 38px;
-  display: inline-block;
-  text-align: center;
   font-family: monospace;
-  margin-right: 5px;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+}
+.sidebar-list ul li .method-post:before,
+.sidebar-list ul li .method-put:before,
+.sidebar-list ul li .method-get:before,
+.sidebar-list ul li .method-delete:before,
+.sidebar-list ul li .method-patch:before,
+.sidebar-list ul li .method-head:before,
+.sidebar-list ul li .method-options:before {
+  display: none !important;
 }
 
 /* colors below should match kong-portal-templates colors for summary methods */
-.sidebar-list ul li .method-post:before {
-  content: "POST";
-  background-color: var(--green-500);
-  color: var(--white);
+.swagger-ui .opblock-summary.opblock-summary-post span.opblock-summary-method,
+.sidebar-list ul li .method-tag-post {
+  background-color: var(--green-400);
+  color: var(--black-70);
 }
-.sidebar-list ul li .method-put:before {
-  content: "PUT";
+.swagger-ui .opblock-summary.opblock-summary-put span.opblock-summary-method,
+.sidebar-list ul li .method-tag-put {
   background-color: var(--yellow-400);
-  color: var(--black-400) !important;
+  color: var(--black-400);
 }
-.sidebar-list ul li .method-get:before {
-  content: "GET";
+.swagger-ui .opblock-summary.opblock-summary-get span.opblock-summary-method,
+.sidebar-list ul li .method-tag-get {
   background: var(--blue-500);
 }
-.sidebar-list ul li .method-delete:before {
-  content: "DELETE";
+.swagger-ui .opblock-summary.opblock-summary-delete span.opblock-summary-method,
+.sidebar-list ul li .method-tag-delete {
   background-color: var(--red-600);
 }
-.sidebar-list ul li .method-patch:before {
-  content: "PATCH";
-  background-color: var(--green-300);
-  color: var(--black-400) !important;
+.swagger-ui .opblock-summary.opblock-summary-patch span.opblock-summary-method,
+.sidebar-list ul li .method-tag-patch {
+  background-color: var(--green-200);
+  color: var(--black-500);
 }
-.sidebar-list ul li .method-head:before {
-  content: "HEAD";
-  background: #9012fe;
+.swagger-ui .opblock-summary.opblock-summary-deprecated span.opblock-summary-method,
+.sidebar-list ul li .method-tag-deprecated {
+  background-color: var(--steel-600);
+  color: var(--black-100);
 }
-.sidebar-list ul li .method-options:before {
-  content: "OPTIONS";
-  background: #0d5aa7;
+.swagger-ui .opblock-summary.opblock-summary-head span.opblock-summary-method,
+.sidebar-list ul li .method-tag-head {
+  background-color: #9012fe;
+}
+.swagger-ui .opblock-summary.opblock-summary-trace span.opblock-summary-method,
+.sidebar-list ul li .method-tag-trace {
+  background-color: #9012fe;
+}
+.swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method,
+.sidebar-list ul li .method-tag-options {
+  background-color: #0d5aa7;
 }
 
 @media all and (max-width: 1200px) {
@@ -414,6 +410,14 @@
   word-break: break-word !important;
 }
 
+.swagger-ui .info-augment-wrapper .info .title small {
+  background: var(--black-400);
+}
+
+.swagger-ui .info-augment-wrapper .info a {
+  color: var(--blue-500);
+}
+
 .swagger-ui .main .title {
   font-size: 38px;
   font-weight: 300;
@@ -517,11 +521,16 @@
   font-weight: normal;
 }
 
+
 .swagger-ui .opblock-tag small {
   font-family: sans-serif;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--black-70);
   padding-left: 10px;
+}
+
+.swagger-ui .opblock-tag small p {
+  color: var(--black-70);
 }
 
 .swagger-ui .opblock .body-param .body-param-options label {

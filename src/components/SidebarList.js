@@ -73,7 +73,7 @@ export default class SidebarList extends React.Component {
   }
 
   ifActive(bool) {
-    return bool ? "active" : ""
+    return bool ? " active" : ""
   }
 
 
@@ -99,6 +99,7 @@ export default class SidebarList extends React.Component {
     let encodedPath = `operations-${this.buildSidebarURL(tag)}-${this.buildSidebarURL(id)}`
     // this is needed because escaping is inconsistent
     let anchor = document.getElementById(anchorPath) || document.getElementById(encodedPath)
+    console.log({ anchor })
 
     if (anchor) {
       this.moveToAnchor(anchor)
@@ -156,11 +157,10 @@ export default class SidebarList extends React.Component {
           <li role="none" className="spec list-title">Resources</li>
           <FilterContainer />
           {this.state.filteredSidebarData.map((sidebarItem, tag) =>
-            <li role="none" className={"submenu " + this.ifActive(this.isTagActive(tag))} >
+            <li className={"submenu" + this.ifActive(this.isTagActive(tag))} >
               <span
-                // This is hopefully temporary, and someday we can just make it a button :)
-                role="menuitem"
-                tabIndex={0} className="submenu-title"
+                role="button"
+                className="submenu-title" tabIndex={0}
                 onClick={() => this.subMenuClicked(tag)}
                 onKeyUp={(e) => this.subMenuKeyup(e.key, tag)}
               >
@@ -168,22 +168,18 @@ export default class SidebarList extends React.Component {
               </span>
               <ul className="submenu-items" role="menu">
                 {sidebarItem.get("operations").map(op =>
+                  <li
+                    role="menuitem"
+                    className={"method" + this.getActiveClass(op)}
+                    tabIndex={this.isTagActive(tag) ? 0 : -1}
+                    onKeyUp={(e) => this.sidebarAnchorKeyup(e.key, tag, op)}
+                    onClick={() => this.sidebarAnchorClicked(tag, op)}
 
-                  <li role="none" key={op} className={"method " + this.getActiveClass(op)}
                   >
+                    <span className={"method-tag method-tag-"+op.get("method")}>{op.get("method")}</span>
                     <a
-                      /*
-                        example pulled from https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html
-                      */
-                      role="menuitem"
-                      /*
-                        we set the tabIndex to zero while we're navigating by keyboard
-                        otherwise it dives into the submenu too early and isn't clear to the user
-                      */
-                      tabIndex={this.isTagActive(tag) ? 0 : -1}
-                      onKeyUp={(e) => this.sidebarAnchorKeyup(e.key, tag, op)}
-                      onClick={() => this.sidebarAnchorClicked(tag, op)}
                       className={"method-" + op.get("method")}
+                      role="none"
                     >
                       {this.summaryOrPath(op)}
                     </a>
