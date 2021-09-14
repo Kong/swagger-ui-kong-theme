@@ -130,7 +130,6 @@
   cursor: pointer;
   position: relative;
   padding-left: 40px;
-  background-color: var(--white);
 }
 .sidebar-list ul li {
   padding: 0.3rem 0.2rem 0.3rem 0;
