@@ -153,9 +153,9 @@ export default class SidebarList extends React.Component {
 
     return (
       <div className="spec sidebar-list" id="spec-sidebar-list">
-        <ul role="menu">
+        <ul>
           <li role="none" className="spec list-title">Resources</li>
-          <FilterContainer />
+          <li role="none"><FilterContainer /></li>
           {this.state.filteredSidebarData.map((sidebarItem, tag) =>
             <li className={"submenu" + this.ifActive(this.isTagActive(tag))} >
               <span
@@ -166,7 +166,7 @@ export default class SidebarList extends React.Component {
               >
                 {tag}
               </span>
-              <ul className="submenu-items" role="menu">
+              <ul className="submenu-items" role="menu" hidden={!this.isTagActive(tag)}>
                 {sidebarItem.get("operations").map(op =>
                   <li
                     role="menuitem"
