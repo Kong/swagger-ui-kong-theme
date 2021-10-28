@@ -55,6 +55,14 @@ export default class AugmentingResponses extends React.Component {
       method,
       getConfigs
     } = this.props
+
+    const specPathSegments = this.props.specPath.toArray()
+    const isCallback = specPathSegments && specPathSegments.length && specPathSegments[3] === 'callbacks'
+
+    if (isCallback) {
+      return null
+    }
+
     const spec = specSelectors.specJson().toJS()
     const selectedServer = system.oas3Selectors.selectedServer()
     const scheme = specSelectors.operationScheme() || 'http'
