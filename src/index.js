@@ -6,6 +6,7 @@ import AugmentingResponses from './components/AugmentingResponses'
 import AugmentingOperation from './components/AugmentingOperation.js'
 import Sidebar from './components/Sidebar'
 import SidebarList from './components/SidebarList'
+import ContentType from './components/ContentType'
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
@@ -14,7 +15,8 @@ const SwaggerUIKongTheme = (system) => {
       curl: () => null,
       KongLayout: KongLayout,
       Sidebar: Sidebar,
-      SidebarList: SidebarList
+      SidebarList: SidebarList,
+      contentType: ContentType
     },
     wrapComponents: {
       responses: (Original, system) => (props) => {
