@@ -149,25 +149,25 @@ export default class AugmentingResponses extends React.Component {
       languages = config.theme.languages
     } else {
       languages = [
-      {
-        prismLanguage: 'bash',
-        target: 'shell',
-        client: 'curl'
-      },
-      {
-        prismLanguage: 'javascript',
-        target: 'javascript',
-        client: 'xhr'
-      },
-      {
-        prismLanguage: 'python',
-        target: 'python'
-      },{
-        prismLanguage: 'ruby',
-        target: 'ruby'
-      }
-    ]
-  }
+        {
+          prismLanguage: 'bash',
+          target: 'shell',
+          client: 'curl'
+        },
+        {
+          prismLanguage: 'javascript',
+          target: 'javascript',
+          client: 'xhr'
+        },
+        {
+          prismLanguage: 'python',
+          target: 'python'
+        },{
+          prismLanguage: 'ruby',
+          target: 'ruby'
+        }
+      ]
+    }
 
     return (
       <div className={'code-snippet'}>
