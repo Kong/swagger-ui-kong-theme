@@ -5,6 +5,7 @@ const hash = require('child_process')
 module.exports = {
   entry: './src/index.js',
   watch: true,
+  devtool: process.env.DEBUG ? 'eval-source-map' : undefined,
   module: {
     rules: [
       {
@@ -42,11 +43,14 @@ module.exports = {
   output: {
     path: __dirname + '/../kong-portal-templates/workspaces/default/themes/base/assets/js',
     publicPath: '/',
-    filename: `swagger-ui-kong-theme-${hash}.min.js`,
+    filename: `swagger-ui-kong-theme-${hash}.${process.env.DEBUG ? 'debug' : 'min'}.js`,
     library: 'SwaggerUIKongTheme',
     libraryTarget: 'umd'
   },
   devServer: {
     contentBase: './dist'
-  }
+  },
+  optimization: process.env.DEBUG ? {
+    minimize: false
+  } : undefined
 }
