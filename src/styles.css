@@ -890,6 +890,33 @@
   background-color: var(--white);
 }
 
+.swagger-ui .callbacks-container h2 {
+  font-size: 20px;
+  margin: 10px 0 0 0;
+}
+
+.swagger-ui .callbacks-container .opblock {
+  margin: 0;
+}
+
+.swagger-ui .callbacks-container .opblock-summary * {
+  font-size: 12px
+}
+
+.swagger-ui .callbacks-container .opblock-summary {
+  padding-top: 4px;
+  padding-bottom: 8px;
+}
+
+.swagger-ui .opblock-body .callbacks-container.opblock-description-wrapper {
+  box-shadow: 0 0 50px 10px rgba(0,0,0,0.04);
+  padding: 20px;
+}
+
+.swagger-ui .callbacks-container .opblock-body {
+  display: block;
+}
+
 @media (min-width: 1000px) {
   /* we ie does not support implicet grids so we have to work around
       it also does not support grid-gaps so we use a extra col instead */
