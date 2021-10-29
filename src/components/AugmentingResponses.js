@@ -55,6 +55,14 @@ export default class AugmentingResponses extends React.Component {
       method,
       getConfigs
     } = this.props
+
+    const specPathSegments = this.props.specPath.toArray()
+    const isCallback = specPathSegments && specPathSegments.length && specPathSegments[3] === 'callbacks'
+
+    if (isCallback) {
+      return null
+    }
+
     const spec = specSelectors.specJson().toJS()
     const selectedServer = system.oas3Selectors.selectedServer()
     const scheme = specSelectors.operationScheme() || 'http'
@@ -141,25 +149,25 @@ export default class AugmentingResponses extends React.Component {
       languages = config.theme.languages
     } else {
       languages = [
-      {
-        prismLanguage: 'bash',
-        target: 'shell',
-        client: 'curl'
-      },
-      {
-        prismLanguage: 'javascript',
-        target: 'javascript',
-        client: 'xhr'
-      },
-      {
-        prismLanguage: 'python',
-        target: 'python'
-      },{
-        prismLanguage: 'ruby',
-        target: 'ruby'
-      }
-    ]
-  }
+        {
+          prismLanguage: 'bash',
+          target: 'shell',
+          client: 'curl'
+        },
+        {
+          prismLanguage: 'javascript',
+          target: 'javascript',
+          client: 'xhr'
+        },
+        {
+          prismLanguage: 'python',
+          target: 'python'
+        },{
+          prismLanguage: 'ruby',
+          target: 'ruby'
+        }
+      ]
+    }
 
     return (
       <div className={'code-snippet'}>

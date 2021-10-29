@@ -99,7 +99,6 @@ export default class SidebarList extends React.Component {
     let encodedPath = `operations-${this.buildSidebarURL(tag)}-${this.buildSidebarURL(id)}`
     // this is needed because escaping is inconsistent
     let anchor = document.getElementById(anchorPath) || document.getElementById(encodedPath)
-    console.log({ anchor })
 
     if (anchor) {
       this.moveToAnchor(anchor)
