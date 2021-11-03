@@ -1013,7 +1013,7 @@
 }
 
 .swagger-ui .code-snippet .overlay .close{
-  color:rgba(0, 0, 0, 0.5);
+  color:rgba(0, 0, 0, 1);
   cursor: pointer;
   position: absolute;
   top: 25%;
@@ -1023,7 +1023,7 @@
 }
 
 .swagger-ui .code-snippet .overlay .close:hover{
-  color:rgba(0, 0, 0, 1);
+  color:rgba(0, 0, 0, 0.5);
 }
 
 
