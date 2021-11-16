@@ -129,7 +129,7 @@
 .sidebar-list .method a {
   cursor: pointer;
   position: relative;
-  padding-left: 40px;
+  padding-left: 8px;
 }
 .sidebar-list ul li {
   padding: 0.3rem 0.2rem 0.3rem 0;
@@ -196,7 +196,6 @@
   position:relative;
   border-style: solid;
   border-width: 2px;
-  /* pre-focus/hover this allows prevents page jank during change */
   border-color: transparent;
   line-height: 1.2;
   font-weight: normal;
@@ -215,14 +214,20 @@
 .sidebar-list ul li .submenu-items li.active > a {
   font-weight: 500;
 }
-/* overrules specificity from swagger-ui */
-.spec.sidebar-list ul li .method-post:before,
-.spec.sidebar-list ul li .method-put:before,
-.spec.sidebar-list ul li .method-get:before,
-.spec.sidebar-list ul li .method-delete:before,
-.spec.sidebar-list ul li .method-patch:before,
-.spec.sidebar-list ul li .method-head:before,
-.spec.sidebar-list ul li .method-options:before {
+
+.sidebar-list ul li .method-tag {
+  color: var(--white);
+  font-size: 9px;
+  width: 38px;
+  padding: .3rem 0.3rem;
+  border-radius: 3px;
+  font-weight: 600;
+  font-family: monospace;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+}
+.sidebar-list ul li a:before {
   color: var(--white);
   font-size: 9px;
   padding: .28rem .1rem;
@@ -237,38 +242,83 @@
   font-family: monospace;
   margin-right: 5px;
 }
+.sidebar-list ul li.method {
+  display: flex;
+  align-items: center;
+}
 
 /* colors below should match kong-portal-templates colors for summary methods */
+.swagger-ui .opblock-summary.opblock-summary-post span.opblock-summary-method,
 .sidebar-list ul li .method-post:before {
-  content: "POST";
   background-color: var(--green-500);
   color: var(--white);
 }
+.swagger-ui .opblock-summary.opblock-summary-put span.opblock-summary-method,
 .sidebar-list ul li .method-put:before {
-  content: "PUT";
   background-color: var(--yellow-400);
   color: var(--black-400) !important;
 }
+.swagger-ui .opblock-summary.opblock-summary-get span.opblock-summary-method,
 .sidebar-list ul li .method-get:before {
-  content: "GET";
   background: var(--blue-500);
 }
+.swagger-ui .opblock-summary.opblock-summary-delete span.opblock-summary-method,
 .sidebar-list ul li .method-delete:before {
-  content: "DELETE";
   background-color: var(--red-600);
 }
+.swagger-ui .opblock-summary.opblock-summary-patch span.opblock-summary-method,
 .sidebar-list ul li .method-patch:before {
-  content: "PATCH";
   background-color: var(--green-300);
   color: var(--black-400) !important;
 }
+.swagger-ui .opblock-summary.opblock-summary-head span.opblock-summary-method,
 .sidebar-list ul li .method-head:before {
-  content: "HEAD";
   background: #9012fe;
 }
+.swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method,
 .sidebar-list ul li .method-options:before {
-  content: "OPTIONS";
   background: #0d5aa7;
+}
+
+.swagger-ui .opblock-summary.opblock-summary-post span.opblock-summary-method,
+.sidebar-list ul li .method-tag-post {
+  background-color: var(--green-400);
+  color: var(--black-70);
+}
+.swagger-ui .opblock-summary.opblock-summary-put span.opblock-summary-method,
+.sidebar-list ul li .method-tag-put {
+  background-color: var(--yellow-400);
+  color: var(--black-400);
+}
+.swagger-ui .opblock-summary.opblock-summary-get span.opblock-summary-method,
+.sidebar-list ul li .method-tag-get {
+  background: var(--blue-500);
+}
+.swagger-ui .opblock-summary.opblock-summary-delete span.opblock-summary-method,
+.sidebar-list ul li .method-tag-delete {
+  background-color: var(--red-600);
+}
+.swagger-ui .opblock-summary.opblock-summary-patch span.opblock-summary-method,
+.sidebar-list ul li .method-tag-patch {
+  background-color: var(--green-200);
+  color: var(--black-500);
+}
+.swagger-ui .opblock-summary.opblock-summary-deprecated span.opblock-summary-method,
+.sidebar-list ul li .method-tag-deprecated {
+  background-color: var(--steel-600);
+  color: var(--black-100);
+}
+.swagger-ui .opblock-summary.opblock-summary-head span.opblock-summary-method,
+.sidebar-list ul li .method-tag-head {
+  background-color: #9012fe;
+}
+.swagger-ui .opblock-summary.opblock-summary-trace span.opblock-summary-method,
+.sidebar-list ul li .method-tag-trace {
+  background-color: #9012fe;
+}
+.swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method,
+.sidebar-list ul li .method-tag-options {
+  background-color: #0d5aa7;
 }
 
 @media all and (max-width: 1200px) {
@@ -412,6 +462,14 @@
   word-break: break-word !important;
 }
 
+.swagger-ui .info-augment-wrapper .info .title small {
+  background: var(--black-400);
+}
+
+.swagger-ui .info-augment-wrapper .info a {
+  color: var(--blue-500);
+}
+
 .swagger-ui .main .title {
   font-size: 38px;
   font-weight: 300;
@@ -434,12 +492,12 @@
   padding: 0 12px;
 }
 
-.info-augment-wrapper {
+.swagger-ui .info-augment-wrapper {
   padding-bottom: 30px;
   margin-bottom: 30px;
 }
 
-.info-augment-wrapper .info {
+.swagger-ui .info-augment-wrapper .info {
   margin-bottom: 0;
 }
 
@@ -496,7 +554,7 @@
   padding: 4px 0px;
 }
 
-.swagger-ui .opblock .opblock-section-header h1 {
+.swagger-ui .opblock .opblock-section-header h4 {
   font-size: 16px;
 }
 
@@ -515,11 +573,16 @@
   font-weight: normal;
 }
 
+
 .swagger-ui .opblock-tag small {
   font-family: sans-serif;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--black-70);
   padding-left: 10px;
+}
+
+.swagger-ui .opblock-tag small p {
+  color: var(--black-70);
 }
 
 .swagger-ui .opblock .body-param .body-param-options label {
@@ -880,6 +943,33 @@
   background-color: var(--white);
 }
 
+.swagger-ui .callbacks-container h2 {
+  font-size: 20px;
+  margin: 10px 0 0 0;
+}
+
+.swagger-ui .callbacks-container .opblock {
+  margin: 0;
+}
+
+.swagger-ui .callbacks-container .opblock-summary * {
+  font-size: 12px
+}
+
+.swagger-ui .callbacks-container .opblock-summary {
+  padding-top: 4px;
+  padding-bottom: 8px;
+}
+
+.swagger-ui .opblock-body .callbacks-container.opblock-description-wrapper {
+  box-shadow: 0 0 50px 10px rgba(0,0,0,0.04);
+  padding: 20px;
+}
+
+.swagger-ui .callbacks-container .opblock-body {
+  display: block;
+}
+
 @media (min-width: 1000px) {
   /* we ie does not support implicet grids so we have to work around
       it also does not support grid-gaps so we use a extra col instead */
@@ -1048,17 +1138,6 @@
   height: unset;
 }
 
-/* .swagger-ui .models h1 {
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 10px 20px 10px 10px;
-  cursor: pointer;
-  transition: all .2s;
-  font-family: sans-serif;
-  color: #606060;
-} */
 
 /**************************************************************************
  * From templates repo, not sure if needed, consildating all css in one spot before removing
@@ -1104,6 +1183,34 @@
   bottom: 0;
 }
 
+.swagger-ui .opblock-summary-get.opblock-summary .opblock-summary-method {
+  background: var(--blue-500);
+}
+
+.swagger-ui .opblock-summary-delete.opblock-summary .opblock-summary-method {
+  background-color: var(--red-600);
+}
+
+.swagger-ui .opblock-summary-patch.opblock-summary .opblock-summary-method {
+  background-color: var(--green-300);
+  color: var(--black-400) !important;
+}
+
+.swagger-ui .opblock-summary-post.opblock-summary .opblock-summary-method {
+  background-color: var(--green-500);
+  color: var(--white);
+}
+
+.swagger-ui .opblock-summary-put.opblock-summary .opblock-summary-method {
+  background-color: var(--yellow-400);
+  color: var(--black-400) !important;
+}
+
+.swagger-ui .opblock.opblock-deprecated .opblock-summary-method {
+  background-color: var(--steel-600);
+  color: var(--black-100);
+}
+
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .swagger-ui .operations-container .opblock .opblock-summary-path {
     margin-left: 0;
@@ -1140,34 +1247,6 @@
 .swagger-ui .opblock-body .right-side-wrapper pre span.token.bold,.swagger-ui .opblock-body .right-side-wrapper pre span.token.important{font-weight:700 !important}
 .swagger-ui .opblock-body .right-side-wrapper pre span.token.italic{font-style:italic !important}
 .swagger-ui .opblock-body .right-side-wrapper pre span.token.entity{cursor:help !important} */
-
-
-.swagger-ui .opblock-summary-get.opblock-summary .opblock-summary-method {
-  background: var(--blue-500);
-}
-
-.swagger-ui .opblock-summary-delete.opblock-summary .opblock-summary-method {
-  background-color: var(--red-600);
-}
-
-.swagger-ui .opblock-summary-patch.opblock-summary .opblock-summary-method {
-  background-color: var(--green-300);
-  color: var(--black-400) !important;
-}
-
-.swagger-ui .opblock-summary-post.opblock-summary .opblock-summary-method {
-  background-color: var(--green-500);
-  color: var(--white);
-}
-.swagger-ui .opblock-summary-put.opblock-summary .opblock-summary-method {
-  background-color: var(--yellow-400);
-  color: var(--black-400) !important;
-}
-
-.swagger-ui .opblock.opblock-deprecated .opblock-summary-method {
-  background-color: var(--steel-600);
-  color: var(--black-100);
-}
 
 /*******************************************************************************
  * Code Snippet Theme - Dracula
