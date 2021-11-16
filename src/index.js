@@ -28,7 +28,7 @@ const SwaggerUIKongTheme = (system) => {
       },
       operation : (Original, system) => (props) => {
         return (
-          <div className='opperations-augment-wrapper'>
+          <div className='operations-augment-wrapper'>
             <AugmentingOperation {...props} system={system} />
             <Original { ...props}  />
           </div>
