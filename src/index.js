@@ -1,5 +1,4 @@
 import React from 'react'
-import style from './styles.css'
 import KongLayout from './components/Layout'
 import AugmentingInfo from './components/AugmentingInfo.js'
 import AugmentingResponses from './components/AugmentingResponses'
@@ -46,4 +45,4 @@ const SwaggerUIKongTheme = (system) => {
   }
 }
 
-export { SwaggerUIKongTheme, style, KongLayout }
+export { SwaggerUIKongTheme, KongLayout }
