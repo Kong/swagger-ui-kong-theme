@@ -33,7 +33,9 @@
   --green-200: #C0F2D5;
   --green-300: #84E5AE;
   --green-400: #42D782;
-  --green-500: #14B59A;
+  --green-500: #07A88D;
+  --green-600: #008871;
+  --green-700: #13755E;
 
   --yellow-100: #FFF3D8;
   --yellow-200: #FFE6BA;
@@ -411,6 +413,10 @@
 
 .swagger-ui .info-augment-wrapper .info .title small {
   background: var(--black-400);
+}
+
+.swagger-ui .info-augment-wrapper .info .title small.oas-version {
+  background: var(--green-700) !important;
 }
 
 .swagger-ui .info-augment-wrapper .info a {
