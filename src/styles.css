@@ -129,7 +129,7 @@
 .sidebar-list .method a {
   cursor: pointer;
   position: relative;
-  padding-left: 40px;
+  padding-left: 8px;
 }
 .sidebar-list ul li {
   padding: 0.3rem 0.2rem 0.3rem 0;
@@ -193,12 +193,23 @@
   overflow: hidden;
 }
 .sidebar-list ul li .submenu-items a {
+  position:relative;
+  border-style: solid;
+  border-width: 2px;
+  border-color: transparent;
   line-height: 1.2;
   font-weight: normal;
-  padding-left: 6px;
-  vertical-align: top;
+  text-align: start;
+  white-space: break-spaces;
+  color:var(--blue-500);
+  text-transform: unset;
+  height: unset;
   display: inline-block;
   width: calc(100% - 45px);
+}
+.sidebar-list ul li .submenu-items a:focus,
+.sidebar-list ul li .submenu-items a:active {
+  border-style: solid;
 }
 .sidebar-list ul li .submenu-items li.active > a {
   font-weight: 500;
@@ -216,17 +227,59 @@
   text-align: center;
   display: inline-block;
 }
-.sidebar-list ul li .method-post:before,
-.sidebar-list ul li .method-put:before,
-.sidebar-list ul li .method-get:before,
-.sidebar-list ul li .method-delete:before,
-.sidebar-list ul li .method-patch:before,
-.sidebar-list ul li .method-head:before,
-.sidebar-list ul li .method-options:before {
-  display: none !important;
+.sidebar-list ul li a:before {
+  color: var(--white);
+  font-size: 9px;
+  padding: .28rem .1rem;
+  position: absolute;
+  top: 2px;
+  left: 1rem;
+  border-radius: 3px;
+  font-weight: 600;
+  width: 38px;
+  display: inline-block;
+  text-align: center;
+  font-family: monospace;
+  margin-right: 5px;
+}
+.sidebar-list ul li.method {
+  display: flex;
+  align-items: center;
 }
 
 /* colors below should match kong-portal-templates colors for summary methods */
+.swagger-ui .opblock-summary.opblock-summary-post span.opblock-summary-method,
+.sidebar-list ul li .method-post:before {
+  background-color: var(--green-500);
+  color: var(--white);
+}
+.swagger-ui .opblock-summary.opblock-summary-put span.opblock-summary-method,
+.sidebar-list ul li .method-put:before {
+  background-color: var(--yellow-400);
+  color: var(--black-400) !important;
+}
+.swagger-ui .opblock-summary.opblock-summary-get span.opblock-summary-method,
+.sidebar-list ul li .method-get:before {
+  background: var(--blue-500);
+}
+.swagger-ui .opblock-summary.opblock-summary-delete span.opblock-summary-method,
+.sidebar-list ul li .method-delete:before {
+  background-color: var(--red-600);
+}
+.swagger-ui .opblock-summary.opblock-summary-patch span.opblock-summary-method,
+.sidebar-list ul li .method-patch:before {
+  background-color: var(--green-300);
+  color: var(--black-400) !important;
+}
+.swagger-ui .opblock-summary.opblock-summary-head span.opblock-summary-method,
+.sidebar-list ul li .method-head:before {
+  background: #9012fe;
+}
+.swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method,
+.sidebar-list ul li .method-options:before {
+  background: #0d5aa7;
+}
+
 .swagger-ui .opblock-summary.opblock-summary-post span.opblock-summary-method,
 .sidebar-list ul li .method-tag-post {
   background-color: var(--green-400);
@@ -439,12 +492,12 @@
   padding: 0 12px;
 }
 
-.info-augment-wrapper {
+.swagger-ui .info-augment-wrapper {
   padding-bottom: 30px;
   margin-bottom: 30px;
 }
 
-.info-augment-wrapper .info {
+.swagger-ui .info-augment-wrapper .info {
   margin-bottom: 0;
 }
 
@@ -555,6 +608,25 @@
 
 .swagger-ui .opblock-body pre span{
   color: unset !important
+}
+.swagger-ui .opblock-body pre {
+  font-size: 12px;
+  margin: 0;
+  padding: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  border-radius: 4px;
+  background: #41444e;
+  background-color: rgb(65, 68, 78);
+  overflow-wrap: break-word;
+  font-family: monospace;
+  font-weight: 600;
+  color: #fff;
 }
 
 .swagger-ui .opblock-section pre{
@@ -1128,6 +1200,34 @@
   align-items: center;
   top: 0;
   bottom: 0;
+}
+
+.swagger-ui .opblock-summary-get.opblock-summary .opblock-summary-method {
+  background: var(--blue-500);
+}
+
+.swagger-ui .opblock-summary-delete.opblock-summary .opblock-summary-method {
+  background-color: var(--red-600);
+}
+
+.swagger-ui .opblock-summary-patch.opblock-summary .opblock-summary-method {
+  background-color: var(--green-300);
+  color: var(--black-400) !important;
+}
+
+.swagger-ui .opblock-summary-post.opblock-summary .opblock-summary-method {
+  background-color: var(--green-500);
+  color: var(--white);
+}
+
+.swagger-ui .opblock-summary-put.opblock-summary .opblock-summary-method {
+  background-color: var(--yellow-400);
+  color: var(--black-400) !important;
+}
+
+.swagger-ui .opblock.opblock-deprecated .opblock-summary-method {
+  background-color: var(--steel-600);
+  color: var(--black-100);
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
