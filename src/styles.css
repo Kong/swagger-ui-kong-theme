@@ -1105,7 +1105,7 @@
 }
 
 
-.swagger-ui .code-snippet .overlay h3{
+.swagger-ui .code-snippet .overlay p {
   text-align: center;
   margin: 30px;
   font-size: 1.17em;
