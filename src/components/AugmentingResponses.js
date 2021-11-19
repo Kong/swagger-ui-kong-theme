@@ -174,7 +174,7 @@ export default class AugmentingResponses extends React.Component {
          { !mutatedRequest &&
           <div className={`overlay ${this.state.overlay}`}>
             <span aria-label="close" role="button" className='close' onKeyUp={(e) => handleCloseKeyup(e.key)} onClick={() => this.handleClose()}>x</span>
-            <h3>Use 'Try it Out' to see completed code snippet</h3>
+            <p>Use 'Try it Out' to see completed code snippet</p>
           </div>
           }
           <CodeSnippetWidget har={har} snippets={languages}/>
