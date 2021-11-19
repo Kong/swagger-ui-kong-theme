@@ -968,7 +968,7 @@
   background-color: var(--white);
 }
 
-.swagger-ui .callbacks-container h2 {
+.swagger-ui .callbacks-container h1 {
   font-size: 20px;
   margin: 10px 0 0 0;
 }
