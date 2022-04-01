@@ -1,4 +1,5 @@
 /**
+ * Original file: https://github.com/swagger-api/swagger-ui/blob/3.x/src/core/components/examples-select.jsx
  * @prettier
  */
 
