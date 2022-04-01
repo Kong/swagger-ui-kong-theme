@@ -1,3 +1,8 @@
+/**
+ * Original file: https://github.com/swagger-api/swagger-ui/blob/3.x/src/core/components/model-collapse.jsx
+ * @prettier
+ */
+
 import React, { Component } from "react"
 
 export default class ModelCollapse extends Component {
@@ -52,8 +57,8 @@ export default class ModelCollapse extends Component {
       <div className={classes || ""}>
         {this.state.expanded && this.props.hideSelfOnExpand ? this.props.children : (
           <div>
-            { title && 
-              <div 
+            {title &&
+              <div
                 role="button"
                 aria-pressed={this.state.expanded}
                 onClick={this.toggleCollapsed}
@@ -62,10 +67,10 @@ export default class ModelCollapse extends Component {
                 style={{ "cursor": "pointer", "display": "inline-block" }}
               >{title}</div>
             }
-            <span onClick={ this.toggleCollapsed } style={{ "cursor": "pointer" }}>
-              <span className={ "model-toggle" + ( this.state.expanded ? "" : " collapsed" ) }></span>
+            <span onClick={this.toggleCollapsed} style={{ "cursor": "pointer" }}>
+              <span className={"model-toggle" + (this.state.expanded ? "" : " collapsed")}></span>
             </span>
-            { this.state.expanded ? this.props.children :this.state.collapsedContent }
+            {this.state.expanded ? this.props.children : this.state.collapsedContent}
           </div>
         )}
       </div>

@@ -1,3 +1,8 @@
+/**
+ * Original file: https://github.com/swagger-api/swagger-ui/blob/3.x/src/core/components/models.jsx
+ * @prettier
+ */
+
 import React, { Component } from "react"
 import Im, { Map } from "immutable"
 
@@ -14,7 +19,7 @@ export default class Models extends Component {
   handleToggle = (name, isExpanded) => {
     const { layoutActions } = this.props
     layoutActions.show(["models", name], isExpanded)
-    if(isExpanded) {
+    if (isExpanded) {
       this.props.specActions.requestResolvedSubtree([...this.getSchemaBasePath(), name])
     }
   }
@@ -26,7 +31,7 @@ export default class Models extends Component {
     }
   }
 
-  render(){
+  render() {
     let { specSelectors, getComponent, layoutSelectors, layoutActions, getConfigs } = this.props
     let definitions = specSelectors.definitions()
     let { docExpansion, defaultModelsExpandDepth } = getConfigs()
@@ -41,8 +46,8 @@ export default class Models extends Component {
     const ModelCollapse = getComponent("ModelCollapse")
     const JumpToPath = getComponent("JumpToPath")
 
-    return <section className={ showModels ? "models is-open" : "models"}>
-      <div 
+    return <section className={showModels ? "models is-open" : "models"}>
+      <div
         role="button"
         aria-pressed={showModels}
         onClick={() => layoutActions.show("models", !showModels)}
@@ -50,7 +55,7 @@ export default class Models extends Component {
         tabIndex={0}
       >
         <h1>
-          <span>{isOAS3 ? "Schemas" : "Models" }</span>
+          <span>{isOAS3 ? "Schemas" : "Models"}</span>
           <svg width="20" height="20">
             <use xlinkHref={showModels ? "#large-arrow-down" : "#large-arrow"} />
           </svg>
@@ -58,7 +63,7 @@ export default class Models extends Component {
       </div>
       <Collapse isOpened={showModels}>
         {
-          definitions.entrySeq().map(([name])=>{
+          definitions.entrySeq().map(([name]) => {
 
             const fullPath = [...specPathBase, name]
 
@@ -69,10 +74,10 @@ export default class Models extends Component {
             const rawSchema = Map.isMap(rawSchemaValue) ? rawSchemaValue : Im.Map()
 
             const displayName = schema.get("title") || rawSchema.get("title") || name
-            const isShown = layoutSelectors.isShown( ["models", name], false )
+            const isShown = layoutSelectors.isShown(["models", name], false)
             const isExpanded = defaultModelsExpandDepth > 0 && isShown
 
-            if( isShown && (schema.size === 0 && rawSchema.size > 0) ) {
+            if (isShown && (schema.size === 0 && rawSchema.size > 0)) {
               // Firing an action in a container render is not great,
               // but it works for now.
               this.props.specActions.requestResolvedSubtree([...this.getSchemaBasePath(), name])
@@ -80,16 +85,16 @@ export default class Models extends Component {
 
             const specPath = Im.List([...specPathBase, name])
 
-            const content = <ModelWrapper name={ name }
-              expandDepth={ defaultModelsExpandDepth }
-              schema={ schema || Im.Map() }
+            const content = <ModelWrapper name={name}
+              expandDepth={defaultModelsExpandDepth}
+              schema={schema || Im.Map()}
               displayName={displayName}
               specPath={specPath}
-              getComponent={ getComponent }
-              specSelectors={ specSelectors }
-              getConfigs = {getConfigs}
-              layoutSelectors = {layoutSelectors}
-              layoutActions = {layoutActions}/>
+              getComponent={getComponent}
+              specSelectors={specSelectors}
+              getConfigs={getConfigs}
+              layoutSelectors={layoutSelectors}
+              layoutActions={layoutActions} />
 
             const title = <span className="model-box">
               <span className="model model-title">
@@ -97,7 +102,7 @@ export default class Models extends Component {
               </span>
             </span>
 
-            return <div id={ `model-${name}` } className="model-container" key={ `models-section-${name}` }>
+            return <div id={`model-${name}`} className="model-container" key={`models-section-${name}`}>
               <span className="models-jump-to-path"><JumpToPath specPath={specPath} /></span>
               <ModelCollapse
                 classes="model-box"
@@ -108,8 +113,8 @@ export default class Models extends Component {
                 modelName={name}
                 hideSelfOnExpand={true}
                 expanded={isExpanded}
-                >{content}</ModelCollapse>
-              </div>
+              >{content}</ModelCollapse>
+            </div>
           }).toArray()
         }
       </Collapse>
