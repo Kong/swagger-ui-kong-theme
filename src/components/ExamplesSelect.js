@@ -85,7 +85,7 @@
            ) : null
          }
          <select
-           aria-label="Select a example response"
+           aria-label="Select an example response"
            onChange={this._onDomSelect}
            value={
              isModifiedValueAvailable && isValueModified
