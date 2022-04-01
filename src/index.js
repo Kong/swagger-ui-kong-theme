@@ -7,6 +7,8 @@ import Sidebar from './components/Sidebar'
 import SidebarList from './components/SidebarList'
 import ContentType from './components/ContentType'
 import ExamplesSelect from './components/ExamplesSelect'
+import Models from './components/Models'
+import ModelCollapse from './components/ModelCollapse'
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
@@ -17,7 +19,9 @@ const SwaggerUIKongTheme = (system) => {
       Sidebar: Sidebar,
       SidebarList: SidebarList,
       contentType: ContentType,
-      ExamplesSelect: ExamplesSelect
+      ExamplesSelect: ExamplesSelect,
+      Models: Models,
+      ModelCollapse: ModelCollapse
     },
     wrapComponents: {
       responses: (Original, system) => (props) => {
