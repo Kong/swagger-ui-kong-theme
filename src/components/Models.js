@@ -1,5 +1,5 @@
 /**
- * Original file: https://github.com/swagger-api/swagger-ui/blob/3.x/src/core/components/models.jsx
+ * Original file: https://github.com/Kong/swagger-ui/blob/main/src/core/components/models.jsx
  * @prettier
  */
 
