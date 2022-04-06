@@ -9,6 +9,7 @@ import ContentType from './components/ContentType'
 import ExamplesSelect from './components/ExamplesSelect'
 import Models from './components/Models'
 import ModelCollapse from './components/ModelCollapse'
+import OperationTag from './components/OperationTag'
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
@@ -21,7 +22,8 @@ const SwaggerUIKongTheme = (system) => {
       contentType: ContentType,
       ExamplesSelect: ExamplesSelect,
       Models: Models,
-      ModelCollapse: ModelCollapse
+      ModelCollapse: ModelCollapse,
+      OperationTag: OperationTag
     },
     wrapComponents: {
       responses: (Original, system) => (props) => {

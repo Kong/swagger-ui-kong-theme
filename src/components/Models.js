@@ -51,7 +51,7 @@ export default class Models extends Component {
         role="button"
         aria-pressed={showModels}
         onClick={() => layoutActions.show("models", !showModels)}
-        onKeyDown={(e) => this.handleKeypress(e, showModels)}
+        onKeyUp={(e) => this.handleKeypress(e, showModels)}
         tabIndex={0}
       >
         <h1>
