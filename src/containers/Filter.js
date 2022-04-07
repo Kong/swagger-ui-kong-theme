@@ -1,3 +1,8 @@
+/**
+ * Original file: https://github.com/Kong/swagger-ui/blob/main/src/core/containers/filter.jsx
+ * @prettier
+ */
+
 import React from "react"
 import DebounceInput from "react-debounce-input"
 
