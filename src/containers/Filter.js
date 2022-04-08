@@ -1,4 +1,10 @@
+/**
+ * Original file: https://github.com/Kong/swagger-ui/blob/main/src/core/containers/filter.jsx
+ * @prettier
+ */
+
 import React from "react"
+import DebounceInput from "react-debounce-input"
 
 export default class FilterContainer extends React.Component {
   onFilterChange = (e) => {
@@ -23,9 +29,14 @@ export default class FilterContainer extends React.Component {
         {filter === null || filter === false ? null :
           <div className="filter-container">
             <Col className="filter wrapper" mobile={12}>
-              <input className="operation-filter-input" aria-label="Input for filtering by tag" placeholder="Filter by tag" type="text"
-                     onChange={this.onFilterChange} value={filter === true || filter === "true" ? "" : filter}
-                     disabled={isLoading} style={inputStyle}/>
+            <DebounceInput
+              aria-label="Input for filtering by tag"
+              type="text"
+              className="operation-filter-input"
+              value={filter === true || filter === "true" ? "" : filter}
+              debounceTimeout={1000}
+              placeholder="Filter by tag"
+              onChange={this.onFilterChange} />
             </Col>
           </div>
         }
