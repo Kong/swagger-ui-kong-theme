@@ -82,7 +82,7 @@ export default class SidebarList extends React.Component {
   }
 
   sidebarAnchorKeyup(key, tag, op) {
-    if (key === 'Enter') {
+    if (key === 'Enter' || key === ' ') {
       this.sidebarAnchorSelected(tag, op)
     }
   }
@@ -165,23 +165,24 @@ export default class SidebarList extends React.Component {
               >
                 {tag}
               </span>
-              <ul className="submenu-items" role="menu" hidden={!this.isTagActive(tag)}>
+              <ul className="submenu-items" hidden={!this.isTagActive(tag)}>
                 {sidebarItem.get("operations").map(op =>
-                  <li
-                    role="menuitem"
-                    className={"method" + this.getActiveClass(op)}
-                    tabIndex={this.isTagActive(tag) ? 0 : -1}
-                    onKeyUp={(e) => this.sidebarAnchorKeyup(e.key, tag, op)}
-                    onClick={() => this.sidebarAnchorClicked(tag, op)}
-
-                  >
-                    <span className={"method-tag method-tag-"+op.get("method")}>{op.get("method")}</span>
-                    <a
-                      className={"method-" + op.get("method")}
-                      role="none"
+                  <li className={"method" + this.getActiveClass(op)}>
+                    <div 
+                      role="button"
+                      className="method-button-wrapper"
+                      tabIndex={this.isTagActive(tag) ? 0 : -1}
+                      onKeyUp={(e) => this.sidebarAnchorKeyup(e.key, tag, op)}
+                      onClick={() => this.sidebarAnchorClicked(tag, op)}
                     >
-                      {this.summaryOrPath(op)}
-                    </a>
+                      <span className={"method-tag method-tag-"+op.get("method")}>{op.get("method")}</span>
+                      <a
+                        className={"method-" + op.get("method")}
+                        role="none"
+                      >
+                        {this.summaryOrPath(op)}
+                      </a>
+                    </div>
                   </li>
                 )}
 
