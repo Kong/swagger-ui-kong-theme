@@ -36,7 +36,9 @@
     "@braintree/sanitize-url": "^2.0.2",
     "curl-to-har": "^1.0.1",
     "immutable": "^3.x.x",
+    "js-file-download": "^0.4.1",
     "react-apiembed": "^0.1.4",
+    "react-debounce-input": "^3.2.0",
     "swagger2har": "git+https://github.com/Kong/swagger2har.git#8409def1fd72311f44b1d34e669af76226cb4f59"
   },
   "devDependencies": {
