@@ -1,3 +1,9 @@
+/**
+ * Original file: https://github.com/Kong/swagger-ui/blob/main/src/core/components/model-wrapper.jsx
+ * @prettier
+ */
+
+
 import React, { Component, } from "react"
 
 export default class ModelWrapper extends Component {

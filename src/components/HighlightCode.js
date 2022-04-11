@@ -1,3 +1,8 @@
+/**
+ * Original file: https://github.com/Kong/swagger-ui/blob/main/src/core/components/highlight-code.jsx
+ * @prettier
+ */
+
 import React, { Component } from "react"
 import { highlight } from "../helpers/helpers"
 import saveAs from "js-file-download"
@@ -45,7 +50,12 @@ export default class HighlightCode extends Component {
     return (
       <div className="highlight-code" tabIndex={0}>
         { !downloadable ? null :
-          <div className="download-contents" onClick={this.downloadText}>
+          <div
+            role="button"
+            aria-label="download contents"
+            className="download-contents"
+            onClick={this.downloadText}
+          >
             Download
           </div>
         }
