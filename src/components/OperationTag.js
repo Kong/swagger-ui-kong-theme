@@ -42,7 +42,7 @@ export default class OperationTag extends React.Component {
     let showTag = layoutSelectors.isShown(isShownKey, docExpansion === "full" || docExpansion === "list")
 
     return (
-      <div
+      <section
         className={showTag ? "opblock-tag-section is-open" : "opblock-tag-section"}
         aria-expanded={showTag}
         >
@@ -98,7 +98,7 @@ export default class OperationTag extends React.Component {
         <Collapse isOpened={showTag}>
           {children}
         </Collapse>
-      </div>
+      </section>
     )
   }
 }
