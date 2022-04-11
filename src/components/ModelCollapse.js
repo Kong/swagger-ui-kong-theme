@@ -33,7 +33,7 @@ export default class ModelCollapse extends Component {
     }
   }
 
-  handleKeyDownToggle = (event) => {
+  handleKeypress = (event) => {
     if (event.nativeEvent.code === "Enter" || event.nativeEvent.code === "Space") {
       this.toggleCollapsed()
     }
@@ -62,7 +62,7 @@ export default class ModelCollapse extends Component {
                 role="button"
                 aria-pressed={this.state.expanded}
                 onClick={this.toggleCollapsed}
-                onKeyDown={(e) => this.handleKeyDownToggle(e)}
+                onKeyUp={(e) => this.handleKeypress(e)}
                 tabIndex={0}
                 style={{ "cursor": "pointer", "display": "inline-block" }}
               >{title}</div>

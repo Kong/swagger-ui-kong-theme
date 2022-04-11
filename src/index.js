@@ -9,6 +9,7 @@ import ContentType from './components/ContentType'
 import ExamplesSelect from './components/ExamplesSelect'
 import Models from './components/Models'
 import ModelCollapse from './components/ModelCollapse'
+import OperationTag from './components/OperationTag'
 import FilterContainer from './containers/Filter'
 import Operations from './components/Operations'
 import ModelExample from './components/ModelExample'
@@ -27,6 +28,7 @@ const SwaggerUIKongTheme = (system) => {
       ExamplesSelect: ExamplesSelect,
       Models: Models,
       ModelCollapse: ModelCollapse,
+      OperationTag: OperationTag,
       FilterContainer: FilterContainer,
       operations: Operations,
       modelExample: ModelExample,
