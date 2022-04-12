@@ -15,6 +15,7 @@ import Operations from './components/Operations'
 import ModelExample from './components/ModelExample'
 import ModelWrapper from './components/ModelWrapper'
 import HighlightCode from './components/HighlightCode'
+import TryItOutButton from './components/TryItOutButton'
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
@@ -33,7 +34,8 @@ const SwaggerUIKongTheme = (system) => {
       operations: Operations,
       modelExample: ModelExample,
       ModelWrapper: ModelWrapper,
-      highlightCode: HighlightCode
+      highlightCode: HighlightCode,
+      TryItOutButton: TryItOutButton
     },
     wrapComponents: {
       responses: (Original, system) => (props) => {
