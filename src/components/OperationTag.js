@@ -44,7 +44,6 @@ export default class OperationTag extends React.Component {
     return (
       <div
         className={showTag ? "opblock-tag-section is-open" : "opblock-tag-section"}
-        aria-expanded={showTag}
         >
         <h1
           className={!tagDescription ? "opblock-tag no-desc" : "opblock-tag" }
@@ -87,6 +86,7 @@ export default class OperationTag extends React.Component {
               className="expand-operation"
               title={showTag ? "Collapse operation": "Expand operation"}
               onClick={() => layoutActions.show(isShownKey, !showTag)}
+              aria-expanded={showTag}
               tabIndex={-1}
               >
 
