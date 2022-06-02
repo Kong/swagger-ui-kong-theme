@@ -57,15 +57,15 @@ module.exports = ({mode = "development"}) => {
         plugins: [
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, 'public', 'index.html'),
-                favicon: './public/favicon.ico',
                 filename: 'index.html',
-                manifest: './public/manifest.json',
+                manifest: path.resolve('manifest.json'),
             }),
             new InterpolateHtmlPlugin({
                 PUBLIC_URL: 'public'
             }),
             new webpack.ProvidePlugin({
-                process: 'process/browser'
+                process: 'process/browser',
+                Buffer: ['buffer', 'Buffer']
             })
         ],
         devServer: {
@@ -73,7 +73,8 @@ module.exports = ({mode = "development"}) => {
                 directory: path.join(__dirname, 'public'),
             },
             compress: true,
-            port: 8000,
+            port: 3000,
+            historyApiFallback: true
         },
         resolve: {
             fallback: {

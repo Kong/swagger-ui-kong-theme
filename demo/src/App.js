@@ -11,7 +11,7 @@ const App = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path={ROUTE.HOME} element={<Configurator/>}/>
-                    {/*<Route path={Route.CONFIG} element={<SwaggerLoader/>}/>*/}
+                    <Route path={ROUTE.CONFIG} element={<SwaggerLoader/>}/>
                 </Routes>
             </BrowserRouter>
         </React.Suspense>

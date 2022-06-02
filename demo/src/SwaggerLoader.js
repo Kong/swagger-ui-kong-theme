@@ -1,9 +1,12 @@
-import React, {useEffect} from 'react';
-import SwaggerUI from 'swagger-ui';
+import React, {useEffect, useState} from 'react';
+import {SwaggerUIBundle} from 'swagger-ui-dist';
 import SwaggerParser from 'swagger-parser'
 import YAML from 'yaml-js'
 import 'swagger-ui/dist/swagger-ui.css';
 import {SwaggerUIKongTheme} from 'swagger-ui-kong-theme'
+import {useParams, useNavigate} from 'react-router-dom';
+import {Route as ROUTE} from './routes';
+import './SwaggerLoader.css';
 
 let swaggerUIOptions = {
 
@@ -12,20 +15,31 @@ let swaggerUIOptions = {
     deepLinking: true, // Enables dynamic deep linking for tags and operations
     filter: true,
     presets: [
-        SwaggerUI.presets.apis,
-        SwaggerUI.SwaggerUIStandalonePreset
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIBundle.SwaggerUIStandalonePreset
     ],
     plugins: [
         SwaggerUIKongTheme,
-        SwaggerUI.plugins.DownloadUrl
+        SwaggerUIBundle.plugins.DownloadUrl
     ],
     layout: 'KongLayout',
 }
 
-const SwaggerLoader = (props) => {
-    useEffect(() => {
-        const {match: {params: {specUrl, config}}} = props;
+const SwaggerLoader = () => {
+    const navigate = useNavigate();
+    const {specUrl, config} = useParams();
+    //error
+    const [hasError, setError] = useState(false);
 
+    useEffect(() => {
+        return () => {
+            loadSwaggerUI();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const loadSwaggerUI = async () => {
+        setError(false);
         const parseSpec = (contents) => {
             let parsedSpec //set empty var to hold spec
             let errorArray = [];
@@ -53,9 +67,11 @@ const SwaggerLoader = (props) => {
 
         const loadSpec = async (url) => {
             try {
-                return parseSpec(await (await fetch(url)).text())
+                return parseSpec(await (await fetch(`${window.location.origin}/${url}`
+                )).text())
             } catch (e) {
-                return e
+                setError(true);
+                console.log(`error: ${e}`);
             }
         };
 
@@ -68,23 +84,40 @@ const SwaggerLoader = (props) => {
                         ...JSON.parse(decodeURIComponent(config))
                     }
                 }
-                swaggerUIOptions.spec = await loadSpec(url);
-                return swaggerUIOptions;
+                try {
+                    swaggerUIOptions.spec = await loadSpec(url);
+                    return swaggerUIOptions;
+                } catch (e) {
+                    console.log(`error: ${e}`);
+                    setError(true);
+                }
             } else {
-                console.log('failed to load');
+                throw new Error('Failed to load');
             }
         };
 
-        loadUrlConfig(specUrl, config).then(options => {
+        try {
+            const options = await loadUrlConfig(specUrl, config);
             if (options) {
-                console.log("-> options", options);
-                SwaggerUI(options);
+                SwaggerUIBundle(options);
             }
-        });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        } catch (e) {
+            setError(true);
+        }
+    }
 
-    return <div id="ui-wrapper"/>;
+    return (<div>
+        <div className='btn-panel'>
+            <button onClick={() => {
+                navigate(ROUTE.HOME)
+            }}>Back
+            </button>
+        </div>
+        <div className='btn-panel'>
+            {hasError && <button onClick={loadSwaggerUI}>Try Again</button>}
+        </div>
+        <div id="ui-wrapper"/>
+    </div>);
 }
 
 export default SwaggerLoader;
