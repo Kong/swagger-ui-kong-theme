@@ -1,42 +1,43 @@
-import {useState} from 'react';
-import SwaggerUI from 'swagger-ui';
-import 'swagger-ui/dist/swagger-ui.css';
+import React, {useEffect, useState} from 'react';
+import {SwaggerUIBundle} from 'swagger-ui-dist';
 import SwaggerParser from 'swagger-parser'
-import SwaggerUIKongTheme from 'swagger-ui-kong-theme/dist/bundle';
-import {useParams, useNavigate} from 'react-router-dom';
 import YAML from 'yaml-js'
+import 'swagger-ui/dist/swagger-ui.css';
+import {SwaggerUIKongTheme} from 'swagger-ui-kong-theme'
+import {useParams, useNavigate} from 'react-router-dom';
 import {Route as ROUTE} from './routes';
+import './SwaggerLoader.css';
 
-const SwaggerSpec = () => {
+let swaggerUIOptions = {
 
-    //parse url
+    dom_id: '#ui-wrapper', // Determine what element to load swagger ui
+    docExpansion: 'list',
+    deepLinking: true, // Enables dynamic deep linking for tags and operations
+    filter: true,
+    presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIBundle.SwaggerUIStandalonePreset
+    ],
+    plugins: [
+        SwaggerUIKongTheme,
+        SwaggerUIBundle.plugins.DownloadUrl
+    ],
+    layout: 'KongLayout',
+}
+
+const SwaggerLoader = () => {
     const navigate = useNavigate();
     const {specUrl, config} = useParams();
-
-    //initial config
-    let uiSpecConfig = SwaggerUI({
-        url: "https://petstore.swagger.io/v2/swagger.json",
-        deepLinking: true,
-        filter: true,
-        presets: [
-            SwaggerUI.presets.apis,
-        ],
-        plugins: [
-            SwaggerUIKongTheme.SwaggerUIKongTheme,
-            SwaggerUI.plugins.DownloadUrl,
-        ],
-        layout: 'KongLayout'
-    });
-
     //error
-    const [hasError, setHasError] = useState(false);
-    //effects
+    const [hasError, setError] = useState(false);
+
+    useEffect(() => {
+            loadSwaggerUI();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const loadSwaggerUI = async () => {
-        if (hasError) {
-            setHasError(false)
-        }
-
+        setError(false);
         const parseSpec = (contents) => {
             let parsedSpec //set empty var to hold spec
             let errorArray = [];
@@ -67,7 +68,7 @@ const SwaggerSpec = () => {
                 return parseSpec(await (await fetch(`${window.location.origin}/${url}`
                 )).text())
             } catch (e) {
-                setHasError(true);
+                setError(true);
                 console.log(`error: ${e}`);
             }
         };
@@ -76,48 +77,45 @@ const SwaggerSpec = () => {
             if (specUrl) {
                 const url = decodeURIComponent(specUrl);
                 if (config) {
-                    let uiSpecConfig = {
-                        // eslint-disable-next-line no-use-before-define
-                        ...uiSpecConfig,
+                    swaggerUIOptions = {
+                        ...swaggerUIOptions,
                         ...JSON.parse(decodeURIComponent(config))
                     }
                 }
                 try {
-                    uiSpecConfig.spec = await loadSpec(url);
-                    return uiSpecConfig;
+                    swaggerUIOptions.spec = await loadSpec(url);
+                    return swaggerUIOptions;
                 } catch (e) {
                     console.log(`error: ${e}`);
-                    setHasError(true);
+                    setError(true);
                 }
             } else {
                 throw new Error('Failed to load');
             }
         };
+
         try {
             const options = await loadUrlConfig(specUrl, config);
             if (options) {
-                SwaggerUI(options);
+                SwaggerUIBundle(options);
             }
         } catch (e) {
-            setHasError(true);
+            setError(true);
         }
     }
 
-
-    return (
-        <div>
-            <div className='btn-panel'>
-                <button onClick={() => {
-                    navigate(ROUTE.HOME)
-                }}>Back
-                </button>
-            </div>
-            <div className='btn-panel'>
-                {hasError && <button onClick={loadSwaggerUI}>Try Again</button>}
-            </div>
-            <div id="ui-wrapper"/>
+    return (<div>
+        <div className='btn-panel'>
+            <button onClick={() => {
+                navigate(ROUTE.HOME)
+            }}>Back
+            </button>
         </div>
-    )
-};
+        <div className='btn-panel'>
+            {hasError && <button onClick={loadSwaggerUI}>Try Again</button>}
+        </div>
+        <div id="ui-wrapper"/>
+    </div>);
+}
 
-export default SwaggerSpec;
+export default SwaggerLoader;
