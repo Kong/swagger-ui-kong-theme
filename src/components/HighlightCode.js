@@ -2,71 +2,65 @@
  * Original file: https://github.com/Kong/swagger-ui/blob/main/src/core/components/highlight-code.jsx
  * @prettier
  */
+import { highlight } from "../helpers/helpers";
+import saveAs from "js-file-download";
+import { useEffect, useRef } from "react/cjs/react.production.min";
 
-import React, { Component } from "react"
-import { highlight } from "../helpers/helpers"
-import saveAs from "js-file-download"
+export default function HighlightCode({
+                                        value,
+                                        className,
+                                        fileName,
+                                        downloadable,
+                                      }) {
+  const el = useRef();
 
-export default class HighlightCode extends Component {
-  componentDidMount() {
-    highlight(this.el)
-  }
+  useEffect(() => {
+    highlight(el);
+  }, [el]);
 
-  componentDidUpdate() {
-    highlight(this.el)
-  }
+  const downloadText = () => {
+    saveAs(value, fileName || "response.txt");
+  };
 
-  initializeComponent = (c) => {
-    this.el = c
-  }
+  const preventYScrollingBeyondElement = (e) => {
+    const target = e.target;
 
-  downloadText = () => {
-    saveAs(this.props.value, this.props.fileName || "response.txt")
-  }
+    var deltaY = e.nativeEvent.deltaY;
+    var contentHeight = target.scrollHeight;
+    var visibleHeight = target.offsetHeight;
+    var scrollTop = target.scrollTop;
 
-  preventYScrollingBeyondElement = (e) => {
-    const target = e.target
+    const scrollOffset = visibleHeight + scrollTop;
 
-    var deltaY = e.nativeEvent.deltaY
-    var contentHeight = target.scrollHeight
-    var visibleHeight = target.offsetHeight
-    var scrollTop = target.scrollTop
-
-    const scrollOffset = visibleHeight + scrollTop
-
-    const isElementScrollable = contentHeight > visibleHeight
-    const isScrollingPastTop = scrollTop === 0 && deltaY < 0
-    const isScrollingPastBottom = scrollOffset >= contentHeight && deltaY > 0
+    const isElementScrollable = contentHeight > visibleHeight;
+    const isScrollingPastTop = scrollTop === 0 && deltaY < 0;
+    const isScrollingPastBottom = scrollOffset >= contentHeight && deltaY > 0;
 
     if (isElementScrollable && (isScrollingPastTop || isScrollingPastBottom)) {
-      e.preventDefault()
+      e.preventDefault();
     }
-  }
+  };
 
-  render () {
-    let { value, className, downloadable } = this.props
-    className = className || ""
-
-    return (
+  return (
       <div className="highlight-code" tabIndex={0}>
-        { !downloadable ? null :
-          <div
-            role="button"
-            aria-label="download contents"
-            className="download-contents"
-            onClick={this.downloadText}
-          >
-            Download
-          </div>
-        }
+        {!downloadable ? null : (
+            <div
+                role="button"
+                aria-label="download contents"
+                className="download-contents"
+                onClick={downloadText}
+            >
+              Download
+            </div>
+        )}
         <pre
-          ref={this.initializeComponent}
-          onWheel={this.preventYScrollingBeyondElement}
-          className={className + " microlight"}
-          tabIndex="0">
-          {value}
-        </pre>
+            ref={el}
+            onWheel={preventYScrollingBeyondElement}
+            className={(className || "") + " microlight"}
+            tabIndex="0"
+        >
+        {value}
+      </pre>
       </div>
-    )
-  }
+  );
 }

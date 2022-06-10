@@ -3,77 +3,79 @@
  * @prettier
  */
 
-import React, { Component } from "react"
+import { useEffect, useState } from "react/cjs/react.production.min";
 
-export default class ModelCollapse extends Component {
-  constructor(props, context) {
-    super(props, context)
+export default function ModelCollapse({
+                                        title,
+                                        classes,
+                                        expanded,
+                                        collapsedContent,
+                                        onToggle,
+                                        modelName,
+                                        hideSelfOnExpand,
+                                        children,
+                                      }) {
+  const [expandedState, setExpanded] = useState(expanded);
+  const [collapsedContentState, setCollapsedContent] = useState(
+      collapsedContent || ModelCollapse.defaultProps.collapsedContent
+  );
 
-    let { expanded, collapsedContent } = this.props
-
-    this.state = {
-      expanded: expanded,
-      collapsedContent: collapsedContent || ModelCollapse.defaultProps.collapsedContent
-    }
-  }
-
-  componentDidMount() {
-    const { hideSelfOnExpand, expanded, modelName } = this.props
+  useEffect(() => {
     if (hideSelfOnExpand && expanded) {
       // We just mounted pre-expanded, and we won't be going back..
       // So let's give our parent an `onToggle` call..
       // Since otherwise it will never be called.
-      this.props.onToggle(modelName, expanded)
+      onToggle(modelName, expanded);
     }
-  }
+  }, [hideSelfOnExpand, expanded, modelName, onToggle]);
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.expanded !== nextProps.expanded) {
-      this.setState({ expanded: nextProps.expanded })
+  useEffect(() => {
+    setExpanded(expanded);
+  }, [expanded]);
+
+  const handleKeypress = (event) => {
+    if (
+        event.nativeEvent.code === "Enter" ||
+        event.nativeEvent.code === "Space"
+    ) {
+      toggleCollapsed();
     }
-  }
+  };
 
-  handleKeypress = (event) => {
-    if (event.nativeEvent.code === "Enter" || event.nativeEvent.code === "Space") {
-      this.toggleCollapsed()
-    }
-  }
-
-  toggleCollapsed = () => {
-    if (this.props.onToggle) {
-      this.props.onToggle(this.props.modelName, !this.state.expanded)
+  const toggleCollapsed = () => {
+    if (onToggle) {
+      onToggle(modelName, expandedState);
     }
 
-    this.setState({
-      expanded: !this.state.expanded
-    })
-  }
+    setExpanded((prev) => !prev);
+  };
 
-  render() {
-    const { title, classes } = this.props
-
-
-    return (
+  return (
       <div className={classes || ""}>
-        {this.state.expanded && this.props.hideSelfOnExpand ? this.props.children : (
-          <div>
-            {title &&
-              <div
-                role="button"
-                aria-pressed={this.state.expanded}
-                onClick={this.toggleCollapsed}
-                onKeyUp={(e) => this.handleKeypress(e)}
-                tabIndex={0}
-                style={{ "cursor": "pointer", "display": "inline-block" }}
-              >{title}</div>
-            }
-            <span onClick={this.toggleCollapsed} style={{ "cursor": "pointer" }}>
-              <span className={"model-toggle" + (this.state.expanded ? "" : " collapsed")}></span>
-            </span>
-            {this.state.expanded ? this.props.children : this.state.collapsedContent}
-          </div>
+        {expandedState && hideSelfOnExpand ? (
+            children
+        ) : (
+            <div>
+              {title && (
+                  <div
+                      role="button"
+                      aria-pressed={expandedState}
+                      onClick={toggleCollapsed}
+                      onKeyUp={handleKeypress}
+                      tabIndex={0}
+                      style={{ cursor: "pointer", display: "inline-block" }}
+                  >
+                    {title}
+                  </div>
+              )}
+              <span onClick={toggleCollapsed} style={{ cursor: "pointer" }}>
+            <span
+                className={"model-toggle" + (expandedState ? "" : " collapsed")}
+            ></span>
+          </span>
+              {expandedState ? children : collapsedContentStae}
+            </div>
         )}
       </div>
-    )
-  }
+  );
 }
