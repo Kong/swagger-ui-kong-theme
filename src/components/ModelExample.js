@@ -3,7 +3,7 @@
  * @prettier
  */
 
-import {useEffect} from "react/cjs/react.production.min";
+import {useEffect} from "react";
 
 export default function ModelExample({
                                          getComponent,

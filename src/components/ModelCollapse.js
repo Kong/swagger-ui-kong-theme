@@ -3,21 +3,21 @@
  * @prettier
  */
 
-import { useEffect, useState } from "react/cjs/react.production.min";
+import { useEffect, useState } from "react";
 
 export default function ModelCollapse({
-                                        title,
-                                        classes,
-                                        expanded,
-                                        collapsedContent,
-                                        onToggle,
-                                        modelName,
-                                        hideSelfOnExpand,
-                                        children,
-                                      }) {
+  title,
+  classes,
+  expanded,
+  collapsedContent,
+  onToggle,
+  modelName,
+  hideSelfOnExpand,
+  children,
+}) {
   const [expandedState, setExpanded] = useState(expanded);
-  const [collapsedContentState, setCollapsedContent] = useState(
-      collapsedContent || ModelCollapse.defaultProps.collapsedContent
+  const [collapsedContentState] = useState(
+    collapsedContent || ModelCollapse.defaultProps.collapsedContent
   );
 
   useEffect(() => {
@@ -35,8 +35,8 @@ export default function ModelCollapse({
 
   const handleKeypress = (event) => {
     if (
-        event.nativeEvent.code === "Enter" ||
-        event.nativeEvent.code === "Space"
+      event.nativeEvent.code === "Enter" ||
+      event.nativeEvent.code === "Space"
     ) {
       toggleCollapsed();
     }
@@ -51,31 +51,31 @@ export default function ModelCollapse({
   };
 
   return (
-      <div className={classes || ""}>
-        {expandedState && hideSelfOnExpand ? (
-            children
-        ) : (
-            <div>
-              {title && (
-                  <div
-                      role="button"
-                      aria-pressed={expandedState}
-                      onClick={toggleCollapsed}
-                      onKeyUp={handleKeypress}
-                      tabIndex={0}
-                      style={{ cursor: "pointer", display: "inline-block" }}
-                  >
-                    {title}
-                  </div>
-              )}
-              <span onClick={toggleCollapsed} style={{ cursor: "pointer" }}>
+    <div className={classes || ""}>
+      {expandedState && hideSelfOnExpand ? (
+        children
+      ) : (
+        <div>
+          {title && (
+            <div
+              role="button"
+              aria-pressed={expandedState}
+              onClick={toggleCollapsed}
+              onKeyUp={handleKeypress}
+              tabIndex={0}
+              style={{ cursor: "pointer", display: "inline-block" }}
+            >
+              {title}
+            </div>
+          )}
+          <span onClick={toggleCollapsed} style={{ cursor: "pointer" }}>
             <span
-                className={"model-toggle" + (expandedState ? "" : " collapsed")}
+              className={"model-toggle" + (expandedState ? "" : " collapsed")}
             ></span>
           </span>
-              {expandedState ? children : collapsedContentStae}
-            </div>
-        )}
-      </div>
+          {expandedState ? children : collapsedContentState}
+        </div>
+      )}
+    </div>
   );
 }

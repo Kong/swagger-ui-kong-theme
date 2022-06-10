@@ -62,6 +62,7 @@ module.exports = (env, argv) => {
         commonjs2: "react",
         commonjs: "react",
         amd: "react",
+        umd: "react"
       }
     },
     resolve: {
@@ -73,9 +74,9 @@ module.exports = (env, argv) => {
         url: require.resolve("url/"),
         querystring: require.resolve("querystring-es3"),
       },
-      alias: {
-        process: "process/browser",
-      },
+      modules: [path.resolve(process.cwd(), 'src'), 'node_modules'],
+      symlinks: false,
+      cacheWithContext: false
     },
     output: outputs[argv.mode],
     devServer: {

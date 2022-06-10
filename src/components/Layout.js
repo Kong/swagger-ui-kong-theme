@@ -1,4 +1,4 @@
-import { useMemo } from "react/cjs/react.production.min";
+import { useMemo } from "react";
 
 function RegisterBtnContainer() {
   function handleRegisterClick() {
@@ -8,19 +8,19 @@ function RegisterBtnContainer() {
   }
 
   return (
-      <div className="register-wrapper">
-        <button onClick={handleRegisterClick}>Register</button>
-      </div>
+    <div className="register-wrapper">
+      <button onClick={handleRegisterClick}>Register</button>
+    </div>
   );
 }
 
 // Create the layout component
 export default function KongLayout({
-                                     errSelectors,
-                                     specSelectors,
-                                     getComponent,
-                                     getConfigs,
-                                   }) {
+  errSelectors,
+  specSelectors,
+  getComponent,
+  getConfigs,
+}) {
   let SvgAssets = getComponent("SvgAssets");
   let InfoContainer = getComponent("InfoContainer", true);
   let VersionPragmaFilter = getComponent("VersionPragmaFilter");
@@ -41,39 +41,39 @@ export default function KongLayout({
   const loadingMessage = useMemo(() => {
     const stateMessageMap = {
       loading: () => (
-          <div className="info">
-            <div className="loading-container">
-              <div className="loading"></div>
-            </div>
+        <div className="info">
+          <div className="loading-container">
+            <div className="loading"></div>
           </div>
+        </div>
       ),
       failed: () => (
-          <div className="info">
-            <div className="loading-container">
-              <h4 className="title">Failed to load API definition.</h4>
-              <Errors />
-            </div>
+        <div className="info">
+          <div className="loading-container">
+            <h4 className="title">Failed to load API definition.</h4>
+            <Errors />
           </div>
+        </div>
       ),
       failedConfig: () => {
         const lastErr = errSelectors.lastError();
         const lastErrMsg = lastErr ? lastErr.get("message") : "";
 
         return (
-            <div
-                className="info"
-                style={{
-                  maxWidth: "880px",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                  textAlign: "center",
-                }}
-            >
-              <div className="loading-container">
-                <h4 className="title">Failed to load remote configuration.</h4>
-                <p>{lastErrMsg}</p>
-              </div>
+          <div
+            className="info"
+            style={{
+              maxWidth: "880px",
+              marginLeft: "auto",
+              marginRight: "auto",
+              textAlign: "center",
+            }}
+          >
+            <div className="loading-container">
+              <h4 className="title">Failed to load remote configuration.</h4>
+              <p>{lastErrMsg}</p>
             </div>
+          </div>
         );
       },
     };
@@ -103,41 +103,41 @@ export default function KongLayout({
 
   if (loadingMessage) {
     return (
-        <div className="swagger-ui">
-          <div className="loading-container">{loadingMessage}</div>
-        </div>
+      <div className="swagger-ui">
+        <div className="loading-container">{loadingMessage}</div>
+      </div>
     );
   }
 
   return (
-      <div className="wide" style={swaggerAbsoluteTop}>
-        {hasSidebar && <Sidebar getConfigs={getConfigs} />}
-        <div className={"swagger-ui " + (hasSidebar && "has-sidebar")}>
-          <SvgAssets />
-          <VersionPragmaFilter
-              isSwagger2={isSwagger2}
-              isOAS3={isOAS3}
-              alsoShow={<Errors />}
-          >
-            <div className="scheme-container">
-              <Col className="schemes wrapper" mobile={12}>
-                {hasServers ? <ServersContainer /> : null}
-                {hasSchemes ? <SchemesContainer /> : null}
-                <div className="actions">
-                  {hasSecurityDefinitions ? <AuthorizeBtnContainer /> : null}
-                  {hasRegistration ? <RegisterBtnContainer /> : null}
-                </div>
-              </Col>
-            </div>
+    <div className="wide" style={swaggerAbsoluteTop}>
+      {hasSidebar && <Sidebar getConfigs={getConfigs} />}
+      <div className={"swagger-ui " + (hasSidebar && "has-sidebar")}>
+        <SvgAssets />
+        <VersionPragmaFilter
+          isSwagger2={isSwagger2}
+          isOAS3={isOAS3}
+          alsoShow={<Errors />}
+        >
+          <div className="scheme-container">
+            <Col className="schemes wrapper" mobile={12}>
+              {hasServers ? <ServersContainer /> : null}
+              {hasSchemes ? <SchemesContainer /> : null}
+              <div className="actions">
+                {hasSecurityDefinitions ? <AuthorizeBtnContainer /> : null}
+                {hasRegistration ? <RegisterBtnContainer /> : null}
+              </div>
+            </Col>
+          </div>
 
-            <Errors />
-            <div className="main-container">
-              <InfoContainer />
-              <Operations />
-              <Models />
-            </div>
-          </VersionPragmaFilter>
-        </div>
+          <Errors />
+          <div className="main-container">
+            <InfoContainer />
+            <Operations />
+            <Models />
+          </div>
+        </VersionPragmaFilter>
       </div>
+    </div>
   );
 }

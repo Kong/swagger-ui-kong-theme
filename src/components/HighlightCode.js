@@ -4,7 +4,7 @@
  */
 import { highlight } from "../helpers/helpers";
 import saveAs from "js-file-download";
-import { useEffect, useRef } from "react/cjs/react.production.min";
+import { useEffect, useRef } from "react";
 
 export default function HighlightCode({
                                         value,
