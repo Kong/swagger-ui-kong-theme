@@ -1,12 +1,5 @@
 const path = require("path");
 
-const hash = require("child_process")
-  .execSync("git rev-parse --short HEAD")
-  .toString()
-  .replace(/(\r\n|\n|\r)/gm, "");
-
-const webpack = require("webpack");
-
 const outputs = {
   development: {
     path: path.join(__dirname, "dist"),
@@ -21,9 +14,7 @@ const outputs = {
       "/../kong-portal-templates/workspaces/default/themes/base/assets/js"
     ),
     publicPath: "/",
-    filename: `swagger-ui-kong-theme-${hash}.${
-      process.env.DEBUG ? "debug" : "min"
-    }.js`,
+    filename: 'static.js',
     library: "SwaggerUIKongTheme",
     libraryTarget: "umd",
   },
@@ -33,12 +24,7 @@ module.exports = (env, argv) => {
   return {
     entry: "./src/index.js",
     watch: true,
-    devtool: process.env.DEBUG ? "eval-source-map" : undefined,
-    plugins: [
-      new webpack.ProvidePlugin({
-        process: "process/browser",
-      }),
-    ],
+    devtool: 'eval',
     module: {
       rules: [
         {
@@ -72,19 +58,14 @@ module.exports = (env, argv) => {
         util: require.resolve("util/"),
         url: require.resolve("url/"),
         querystring: require.resolve("querystring-es3"),
-      },
-      alias: {
-        process: "process/browser",
-      },
+      }
     },
     output: outputs[argv.mode],
     devServer: {
-      contentBase: "./dist",
+      contentBase: "dist/",
     },
-    optimization: process.env.DEBUG
-      ? {
-          minimize: false,
-        }
-      : undefined,
+    optimization: {
+      chunkIds: 'deterministic'
+    }
   };
 };

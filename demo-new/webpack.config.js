@@ -5,8 +5,6 @@ const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 const webpack = require('webpack');
 
 module.exports = ({mode = "development"}) => {
-    console.log("-> __dirname", __dirname);
-    console.log("-> process.cwd(", process.cwd());
     return {
         mode,
         context: __dirname,
