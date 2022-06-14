@@ -61,11 +61,33 @@
   --black-500: #1D1D1D;
 
   --white: #ffffff;
+
+  /*custom variables*/
+  --white-color: #eee;
+  --dark-shade-grey: #262626;
+  --dark-shade-grey-95: hsl(205, 13%, 95%);
+  --dark-shade-grey-40: hsl(205, 13%, 40%);
+  --dark-shade-grey-30: hsl(205, 13%, 40%);
+  --dark-shade-grey-20: hsl(205, 13%, 20%);
+  --dark-shade-light-70: hsl(205, 10%, 70%);
+
+  --purple-background-color: #9012fe;
+  --blue-background-color: #0d5aa7;
+  --white-shadow: #E6E6E6;
+  --white-background-color:#ebf7ff;
+
+  --blue-rgb: rgb(0, 149, 255);
+  --white-rgb-255: rgb(255, 255, 255);
+  --white-rgb-250: rgb(250, 250, 250);
+  --white-rgb-245: rgb(245, 245, 245);
+  --white-rgb-230: rgb(230, 230, 230);
+  --white-rgb-224: rgb(224, 224, 224);
+
 }
 
 .wide {
   width: 100%;
-  left: 0px;
+  left: 0;
 }
 
 /* sidebar */
@@ -86,14 +108,15 @@
   height: calc(100vh - 80px);
   background: var(--white);
   overflow-y: auto;
-  border-right: 1px solid #eee;
+  border-right: 1px solid var(--white-color);
 }
+
 #sidebar #spec-sidebar {
   padding-bottom: 100px;
 }
 #sidebar .sidebar-list li.list-title {
   font-weight: bold;
-  color: #262626;
+  color: var(--dark-shade-grey);
   font-size: 16px;
 }
 #sidebar .sidebar-list li.spec.list-title {
@@ -123,7 +146,7 @@
 .sidebar-list .method{
   border-radius: 3px;
   margin-left: 0.4rem;
-  padding: 0.4rem 0rem 0.5rem 1.6rem;
+  padding: 0.4rem 0 0.5rem 1.6rem;
 }
 .sidebar-list .method:hover {
   background-color: rgba(237, 30, 30, 0.12);
@@ -137,14 +160,14 @@
   padding: 0.3rem 0.2rem 0.3rem 0;
   font-size: 14px;
   font-weight: 400;
-  color: hsl(205, 13%, 40%);
+  color: var(--dark-shade-grey-40);
 }
 .sidebar-list ul li a {
-  color: hsl(205, 13%, 40%);
+  color: var(--dark-shade-grey-40);
   word-wrap: break-word;
 }
 .sidebar-list ul li a:hover {
-  color: hsl(205, 13%, 20%);
+  color: var(--dark-shade-grey-20);
 }
 .sidebar-list ul li.submenu {
   padding: .3rem .2rem;
@@ -158,17 +181,19 @@
   position: relative;
   display: block;
   font-weight: 500;
-  color: hsl(205, 13%, 30%);
+  color: var(--dark-shade-grey-30);
   cursor: pointer;
   padding: 0.3rem 0.3rem 0.3rem 2.3rem;
   border-radius: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .sidebar-list ul li .submenu-title:hover{
-  color: hsl(205, 13%, 20%);
-  background: hsl(205, 13%, 95%);
+  color: var(--dark-shade-grey-20);
+  background: var(--dark-shade-grey-95);
 }
+
 .sidebar-list ul li .submenu-title:before {
   position: absolute;
   display: block;
@@ -180,13 +205,13 @@
   right: auto;
   border-top: 4px solid transparent;
   border-bottom: 4px solid transparent;
-  border-left: 4px solid hsl(205, 10%, 70%);
+  border-left: 4px solid var(--dark-shade-light-70);
 }
 .sidebar-list ul li.active .submenu-title:before {
   border-bottom: 4px solid transparent;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 4px solid hsl(205, 10%, 70%);
+  border-top: 4px solid var(--dark-shade-light-70);
   top: 12px;
   left: 10px;
 }
@@ -280,11 +305,11 @@
 }
 .swagger-ui .opblock-summary.opblock-summary-head span.opblock-summary-method,
 .sidebar-list ul li .method-head:before {
-  background: #9012fe;
+  background: var(--purple-background-color);
 }
 .swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method,
 .sidebar-list ul li .method-options:before {
-  background: #0d5aa7;
+  background: var(--blue-background-color);
 }
 
 .swagger-ui .opblock-summary.opblock-summary-post span.opblock-summary-method,
@@ -317,15 +342,15 @@
 }
 .swagger-ui .opblock-summary.opblock-summary-head span.opblock-summary-method,
 .sidebar-list ul li .method-tag-head {
-  background-color: #9012fe;
+  background-color: var(--purple-background-color);
 }
 .swagger-ui .opblock-summary.opblock-summary-trace span.opblock-summary-method,
 .sidebar-list ul li .method-tag-trace {
-  background-color: #9012fe;
+  background-color: var(--purple-background-color);
 }
 .swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method,
 .sidebar-list ul li .method-tag-options {
-  background-color: #0d5aa7;
+  background-color: var(--blue-background-color);
 }
 
 @media all and (max-width: 1200px) {
@@ -415,18 +440,18 @@
 }
 
 .swagger-ui .btn.authorize {
-  color: rgb(0, 149, 255);
-  border: 1px rgb(0, 149, 255) solid;
+  color: var(--blue-rgb);
+  border: 1px var(--blue-rgb) solid;
 }
 
 .swagger-ui .btn.authorize svg {
-  fill: rgb(0, 149, 255);
+  fill: var(--blue-rgb);
 }
 
 .swagger-ui .register-wrapper button {
-  background-color: rgb(0, 149, 255);
+  background-color: var(--blue-rgb);
   color: var(--white);
-  border-color: rgb(0, 149, 255);
+  border-color: var(--blue-rgb);
 }
 
 .swagger-ui .main-container {
@@ -438,8 +463,8 @@
 }
 
 .swagger-ui .scheme-container {
-  background-color: rgb(250, 250, 250);
-  border-bottom: 1px rgb(240, 240, 240) solid;
+  background-color: var(--white-rgb-250);
+  border-bottom: 1px var(--white-rgb-250) solid;
   padding: 32px 0;
 }
 
@@ -455,9 +480,9 @@
 }
 
 .swagger-ui .scheme-container .schemes select {
-  background-color: rgb(250, 250, 250);
+  background-color: var(--white-rgb-250);
   border-radius: 3px;
-  border: 1px solid rgb(224, 224, 224);
+  border: 1px solid var(--white-rgb-224);
   box-shadow: none;
 }
 
@@ -495,8 +520,8 @@
 }
 
 .swagger-ui .main .header button {
-  border: 1px solid rgb(224, 224, 224);
-  background-color: rgb(250, 250, 250);
+  border: 1px solid var(--white-rgb-224);
+  background-color: var(--white-rgb-250);
   border-radius: 3px;
   font-size: 16px;
   font-weight: normal;
@@ -515,7 +540,7 @@
 .swagger-ui .opblock {
   border: 0;
   border-radius: 0;
-  border-bottom: 1px solid #E6E6E6 !important;;
+  border-bottom: 1px solid var(--white-shadow) !important;
   -webkit-box-shadow: none;
   box-shadow: none;
   margin-top: 32px;
@@ -551,7 +576,7 @@
 
 /* this one just applies to parameters (left side) */
 .swagger-ui .opblock .opblock-section > .opblock-section-header {
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid var(--white-shadow);
   padding-right: 0;
 }
 
@@ -562,7 +587,7 @@
 .swagger-ui .download-contents {
   right: 20px;
   word-break: normal;
-  padding: 4px 0px;
+  padding: 4px 0;
   background-color: var(--black-400);
 }
 
@@ -601,9 +626,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: rgb(245, 245, 245);
+  background-color: var(--white-rgb-245);
   border-radius: 3px 3px 0 0;
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px solid var(--white-rgb-230);
   margin: 0;
   padding: 8px 10px 8px 16px;
   font-size: 13px;
@@ -627,13 +652,11 @@
   padding: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
-  word-break: break-all;
   word-break: break-word;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
   border-radius: 4px;
-  background: #41444e;
   background-color: rgb(65, 68, 78);
   overflow-wrap: break-word;
   font-family: monospace;
@@ -645,7 +668,7 @@
   background-color: var(--white);
   color: var(--black-70);
   border-radius: 0 0 3px;
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px solid var(--white-rgb-230);
 }
 
 /*  needed to remove  max width on small screen width*/
@@ -657,9 +680,9 @@
 .swagger-ui .opblock textarea,
 .swagger-ui textarea[disabled]{
   color: var(--black-70);
-  background-color: rgb(250, 250, 250);
+  background-color: var(--white-rgb-250);
   border-radius: 0 0 3px;
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px solid var(--white-rgb-230);
   margin: 0;
 }
 
@@ -761,21 +784,18 @@
 .swagger-ui .parameters input[type=text],
 .swagger-ui .parameters textarea {
   width: 100%;
-  padding: 8px 0px 8px 10px;
+  padding: 8px 0 8px 10px;
   max-width: unset;
 }
 
 .swagger-ui .parameters input[type=file] {
   /* needed because without calc width overflows at least on chrome */
   width: calc(100% - 10px);
-  padding: 8px 0px 8px 10px;
+  padding: 8px 0 8px 10px;
   max-width: unset;
 }
 
-
-
 .swagger-ui .opblock-body .responses-wrapper pre {
-  background-color: #ebf7ff;
   color: var(--black-70);
   background: rgba(0,0,0,.1);
 }
@@ -892,7 +912,7 @@
 
 .swagger-ui .opblock-body .right-side-wrapper pre span {
   color: inherit !important;
-  color: unset !important;
+  /*color: unset !important;*/
 }
 
 .swagger-ui .opblock .opblock-summary {
@@ -1110,7 +1130,7 @@
   cursor: pointer;
   position: absolute;
   top: 25%;
-  right: 0%;
+  right: 0;
   padding: 12px 16px;
   transform: translate(0%, -50%);
 }
@@ -1134,7 +1154,7 @@
   flex-direction: row;
   justify-content: space-around;
   min-height: 30px;
-  border-radius: 3px 0px 0px;
+  border-radius: 3px 0 0;
   background-color: rgb(0, 48, 82);
   list-style: none;
   padding: 0;
@@ -1147,13 +1167,13 @@
 }
 
 .swagger-ui .code-snippet .tabs-component a {
-  color: rgb(255, 255, 255);
+  color: var(--white-rgb-255);
   font-size: 14px;
   font-weight: normal;
 }
 
 .swagger-ui .code-snippet .tabs-component .is-active a {
-  color: rgb(255, 255, 255);
+  color: var(--white-rgb-255);
   font-size: 14px;
   font-weight: 800;
 }
