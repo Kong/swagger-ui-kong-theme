@@ -1,176 +1,171 @@
-import React, {useCallback, useState} from "react"
-import { createHar } from "swagger2har"
-import { CodeSnippetWidget } from 'react-apiembed'
+import React, { memo, useCallback, useMemo, useState } from "react";
+import { createHar } from "swagger2har";
+import { CodeSnippetWidget } from "react-apiembed";
 
-const hashIdx = "_**[]"
-const AugmentingResponses = (props) => {
-  const {
-    system,
-    specSelectors,
-    getConfigs,
-    //    callback props
-    tryItOutResponse,
-    responses,
-    produces,
-    producesValue,
-    displayRequestDuration,
-    path,
-    method
-  } = props;
+import { defaultLanguages } from "../../constants/languages";
 
-  const [overlay, setOverlay] = useState('on');
+const hashIdx = "_**[]";
+const AugmentingResponses = ({
+  system,
+  specSelectors,
+  getConfigs,
+  specPath,
+  path,
+  method,
+}) => {
+  const [overlay, setOverlay] = useState("on");
+  const config = getConfigs();
 
   // Duplicate keys are hashed with "[key]_**[][index]"
   // This helper extracts the key from the hashed key
   // see extractKey https://github.com/swagger-api/swagger-ui/blob/master/src/core/plugins/request-snippets/fn.js
   const extractKey = (hashedKey) => {
-    return hashedKey.indexOf(hashIdx) < 0 ?
-        hashedKey : hashedKey.split(hashIdx)[0].trim();
-  }
-
-
+    return hashedKey.indexOf(hashIdx) < 0
+      ? hashedKey
+      : hashedKey.split(hashIdx)[0].trim();
+  };
 
   const handleClose = () => {
-    setOverlay('');
+    setOverlay("");
   };
 
   const handleCloseKeyUp = (key) => {
-    if(key === 'Enter'){
-      setOverlay('');
+    if (key === "Enter") {
+      setOverlay("");
     } else {
       return void 0;
     }
-  }
+  };
 
+  const specPathSegments = specPath.toArray();
 
-  const specPathSegments = this.props.specPath.toArray()
-
-  if(specPathSegments?.length > 0&& specPathSegments[3] === 'callbacks'){
+  if (specPathSegments?.length > 0 && specPathSegments[3] === "callbacks") {
     return null;
   }
 
-  const spec = specSelectors.specJson().toJS()
-  const selectedServer = system.oas3Selectors.selectedServer()
-  const scheme = specSelectors.operationScheme() || 'http'
-  const host = specSelectors.host() || 'example.com'
-  const basePath = specSelectors.basePath() || ''
+  const mutatedRequest = specSelectors.mutatedRequestFor(path, method);
 
-  const mutatedRequest = specSelectors?.mutatedRequestFor(path, method)
-  let har = createHar(spec, path, method, selectedServer || `${scheme}://${host}${basePath}`)
+  const har = useMemo(() => {
+    const selectedServer = system.oas3Selectors.selectedServer();
+    const spec = specSelectors.specJson().toJS();
+    const host = specSelectors.host() || "example.com";
+    const scheme = specSelectors.operationScheme() || "http";
+    const basePath = specSelectors.basePath() || "";
 
-  if (mutatedRequest) {
-    let mutatedRequest = specSelectors?.mutatedRequestFor(path, method)
-    mutatedRequest = mutatedRequest.toJS()
+    const initHar = createHar(
+      spec,
+      path,
+      method,
+      selectedServer || `${scheme}://${host}${basePath}`
+    );
 
-    // url
-    har.url = mutatedRequest.url
-    har.queryString = []
+    if (mutatedRequest) {
+      const mutatedRequestJS = specSelectors
+        ?.mutatedRequestFor(path, method)
+        .toJS();
 
-    // body
-    if (mutatedRequest.body) {
-      har.postData = har.postData || {}
-      try {
-        const parsed = typeof mutatedRequest.body === "string" ?
-            JSON.parse(mutatedRequest.body) :
-            mutatedRequest.body
+      // url
+      initHar.url = mutatedRequestJS.url;
+      initHar.queryString = [];
 
-        har.postData.jsonObj = parsed
-        har.postData.text = JSON.stringify(parsed)
+      // body
+      if (mutatedRequestJS.body) {
+        initHar.postData = initHar.postData || {};
+        try {
+          const parsed =
+            typeof mutatedRequestJS.body === "string"
+              ? JSON.parse(mutatedRequestJS.body)
+              : mutatedRequestJS.body;
 
-        har.postData.mimeType = mutatedRequest.headers['Content-Type']
-        if (har.postData.mimeType === 'multipart/form-data' && har.postData.jsonObj) {
-          har.postData.params = Object.keys(har.postData.jsonObj).map(hashedKey => {
-            const value = har.postData.jsonObj[hashedKey]
-            const name = extractKey(hashedKey)
-            const param = { name }
+          initHar.postData.jsonObj = parsed;
+          initHar.postData.text = JSON.stringify(parsed);
 
-            if (value instanceof File) {
-              param.fileName = `${value.name};type=${value.type}`
-            } else {
-              param.value = value
-            }
+          initHar.postData.mimeType = mutatedRequestJS.headers["Content-Type"];
+          if (
+            initHar.postData.mimeType === "multipart/form-data" &&
+            initHar.postData.jsonObj
+          ) {
+            initHar.postData.params = Object.keys(initHar.postData.jsonObj).map(
+              (hashedKey) => {
+                const value = initHar.postData.jsonObj[hashedKey];
+                const name = extractKey(hashedKey);
+                const param = { name };
 
-            return param
-          })
-        }
+                if (value instanceof File) {
+                  param.fileName = `${value.name};type=${value.type}`;
+                } else {
+                  param.value = value;
+                }
 
-      } catch(e) {
-        // catch probably means xml
-        har.postData.jsonObj = undefined
-        // TODO fix clean up
-        // this is probably bad practice and will screw over people to want new lines in their xml
-        if (typeof mutatedRequest.body === 'string') {
-          har.postData.text = mutatedRequest.body.replace(/\n|\t/g, '')
+                return param;
+              }
+            );
+          }
+        } catch (e) {
+          // catch probably means xml
+          initHar.postData.jsonObj = undefined;
+          // TODO fix clean up
+          // this is probably bad practice and will screw over people to want new lines in their xml
+          if (typeof mutatedRequestJS.body === "string") {
+            initHar.postData.text = mutatedRequestJS.body.replace(/\n|\t/g, "");
+          }
         }
       }
+
+      // headers
+      initHar.headers = Object.keys(mutatedRequestJS.headers).map(
+        (headerkey) => {
+          return {
+            name: headerkey,
+            value: mutatedRequestJS.headers[headerkey],
+          };
+        }
+      );
+
+      setOverlay("");
+    } else {
+      // for some reason for scheme host basePath urls we sometimes get function header values instead of string
+      // CodeSnippets only wants string headers ¯\_(ツ)_/¯
+      initHar?.headers.forEach((header) => {
+        if (typeof header.value !== "string") {
+          header.value = "";
+        }
+      });
+
+      // replace '{' '}' delimiters which render escaped in a codesnippet context with ':'
+      initHar.url = initHar?.url?.replace(/{/g, ":").replace(/}/g, "");
     }
 
-    // headers
-    har.headers = Object.keys(mutatedRequest.headers).map(headerkey => {
-      return {
-        name : headerkey,
-        value: mutatedRequest.headers[headerkey]
-      }
-    })
+    return initHar;
+  }, [specSelectors, system.oas3Selectors, path, method, mutatedRequest]);
 
-    setOverlay('');
+  const languages = useMemo(
+    () =>
+      config.theme && config.theme.languages
+        ? config.theme.languages
+        : defaultLanguages,
+    [config]
+  );
 
-  } else {
-    // for some reason for scheme host basePath urls we sometimes get function header values instead of string
-    // CodeSnippets only wants string headers ¯\_(ツ)_/¯
-    har.headers.forEach(header => {
-      if (typeof header.value !== 'string') {
-        header.value = ''
-      }
-    })
-
-    // replace '{' '}' delimiters which render escaped in a codesnippet context with ':'
-    har.url = har.url.replace(/{/g, ":").replace(/}/g, "")
-  }
-
-  let languages
-  const config = getConfigs()
-
-  if (config.theme && config.theme.languages) {
-    languages = config.theme.languages
-  } else {
-    languages = [
-      {
-        prismLanguage: 'bash',
-        target: 'shell',
-        client: 'curl'
-      },
-      {
-        prismLanguage: 'javascript',
-        target: 'javascript',
-        client: 'xhr'
-      },
-      {
-        prismLanguage: 'python',
-        target: 'python'
-      },{
-        prismLanguage: 'ruby',
-        target: 'ruby'
-      }
-    ]
-  }
-
-
-  useCallback(() => {
-    return (
-        <div className={'code-snippet'}>
-          { !mutatedRequest &&
-              <div className={`overlay ${overlay}`}>
-                <span aria-label="close" role="button" className='close' onKeyUp={({key}) => handleCloseKeyUp(key)} onClick={() => handleClose()}>x</span>
-                <p>Use 'Try it Out' to see completed code snippet</p>
-              </div>
-          }
-          <CodeSnippetWidget har={har} snippets={languages}/>
+  return (
+    <div className={"code-snippet"}>
+      {!mutatedRequest && (
+        <div className={`overlay ${overlay}`}>
+          <span
+            aria-label="close"
+            role="button"
+            className="close"
+            onKeyUp={({ key }) => handleCloseKeyUp(key)}
+            onClick={() => handleClose()}
+          >
+            x
+          </span>
+          <p>Use 'Try it Out' to see completed code snippet</p>
         </div>
-    )
-  }, [tryItOutResponse, responses, produces, producesValue, displayRequestDuration, path, method, overlay])
+      )}
+      <CodeSnippetWidget har={har} snippets={languages} />
+    </div>
+  );
+};
 
-
-}
-
-export default AugmentingResponses;
+export default memo(AugmentingResponses);
