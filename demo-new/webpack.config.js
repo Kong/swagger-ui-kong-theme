@@ -2,9 +2,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('interpolate-html-plugin');
-const webpack = require('webpack');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
-module.exports = ({mode = "development"}) => {
+
+module.exports = ({ mode = "development" }) => {
     return {
         mode,
         context: __dirname,
@@ -13,7 +14,7 @@ module.exports = ({mode = "development"}) => {
             filename: '[name].bundle.js',
             path: path.resolve(__dirname, "public"),
             publicPath: "/",
-        },
+        },       
         devtool: 'source-map',
         module: {
             rules: [
@@ -62,10 +63,7 @@ module.exports = ({mode = "development"}) => {
             new InterpolateHtmlPlugin({
                 PUBLIC_URL: 'public'
             }),
-            new webpack.ProvidePlugin({
-                process: 'process/browser',
-                Buffer: ['buffer', 'Buffer']
-            })
+            new NodePolyfillPlugin(),
         ],
         devServer: {
             static: {
@@ -76,10 +74,10 @@ module.exports = ({mode = "development"}) => {
             historyApiFallback: true
         },
         resolve: {
-            fallback: {
-                "https": require.resolve('https-browserify'),
-                "http": require.resolve('stream-http')
-            }
+            alias: {
+                react: path.resolve('./node_modules/react'),
+                'react-dom': path.resolve('./node_modules/react-dom'),
+            },            
         }
     }
 }

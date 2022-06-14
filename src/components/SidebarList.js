@@ -1,201 +1,193 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { opId } from '../helpers/helpers'
-export default class SidebarList extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      sidebarData: [],
-      filteredSidebarData: [],
-      activeTags: [],
-      oldTags: [],
-      isFiltered: false,
-      activeId: null,
-      filter: true,
-    }
-  }
 
-  componentDidMount() {
-    const taggedOps = this.props.specSelectors.taggedOperations()
-    this.setState({
-      sidebarData: taggedOps,
-      filteredSidebarData: taggedOps
-    })
-  }
+const SidebarList = (props) => {
 
-  componentDidUpdate(prevProps, prevState) {
-    const filter = this.props.layoutSelectors.currentFilter()
-    if (prevState.filter !== filter) {
-      this.updatefilteredSidebarData(filter)
-    }
+  const {specSelectors, layoutSelectors, fn, layoutActions, getComponent} = props;
+  //state
+  const [sideBarData, setSideBarData] = useState([]);
+  const [filteredSideBarData, setFilteredSideBarData] = useState([]);
+  const [activeTags, setActiveTags] = useState([]);
+  const [oldTags, setOldTags] = useState([]);
+  const [isFiltered, setIsFiltered] = useState(false);
+  const [activeId, setActiveId] = useState(null);
+  const[filter, setFilter] = useState(true);
 
-  }
-  updatefilteredSidebarData(filter) {
+  useEffect(() => {
+    return () => {
+      const taggedOps = specSelectors.taggedOperations();
+      setSideBarData(taggedOps);
+      setFilteredSideBarData(taggedOps);
+    };
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      const currentFilter = layoutSelectors.currentFilter();
+      updateFilteredSidebarData(currentFilter);
+    };
+  }, [filter]);
+
+  const updateFilteredSidebarData = (filterValue) => {
     // on a search all tags are active, when the search is removed we go back to old state
-    if (!this.state.isFiltered && filter !== "") {
-      const newActiveTags = this.state.sidebarData.map((sidebarItem, tag) => tag)
-      this.setState({
-        oldTags: this.state.activeTags,
-        activeTags: newActiveTags,
-        isFiltered: true
-      })
+    if (!isFiltered && filterValue !== '') {
+      const newActiveTags = sideBarData.map((sidebarItem, tag) => tag);
+      setOldTags(activeTags);
+      setActiveTags(newActiveTags);
+      setIsFiltered(true);
     }
-    else if (this.state.isFiltered && filter === "") {
-      this.setState({
-        activeTags: this.state.oldTags,
-        isFiltered: false
-      })
+    else if (isFiltered && filterValue === "") {
+      setActiveTags(oldTags);
+      setIsFiltered(false);
     }
-
-    const filteredSidebarData = this.props.fn.opsFilter(this.state.sidebarData, filter)
-    this.setState({ filter, filteredSidebarData })
+    const filteredSidebarData = fn.opsFilter(sidebarData, filter);
+    setFilter(filter);
+    setFilteredSideBarData(filteredSidebarData);
+  }
+  const buildSidebarURL = (stringValue) => {
+    return stringValue
+        .replace(/\//, '')
+        .replace(/([{|}])/g, '_')
+        .replace(/\//g, '_')
+        .replace(/-/, '_')
+        .replace(/\s/g, '_')
+        .replace(/\./g, '\\.')
   }
 
-  buildSidebarURL(string) {
-    return string
-      .replace(/\//, '')
-      .replace(/({|})/g, '_')
-      .replace(/\//g, '_')
-      .replace(/-/, '_')
-      .replace(/\s/g, '_')
-      .replace(/\./g, '\\.')
+  const moveToAnchor = (destination) => {
+    window.scrollTo(0, destination.offsetTop - 120);
   }
 
-  moveToAnchor(destination) {
-    window.scrollTo(0, destination.offsetTop - 120)
+  const isIdActive = (id) => {
+    return activeId === id;
   }
 
-  isIdActive(id) {
-    return this.state.activeId === id
+  const isTagActive = (tag) => {
+    return activeTags.includes(tag);
   }
 
-  isTagActive(tag) {
-    return this.state.activeTags.includes(tag)
+  const isActive = (boolValue) => {
+    return boolValue ? 'active' : '';
   }
 
-  ifActive(bool) {
-    return bool ? " active" : ""
+  const sideBarAnchorClicked = (tag, op) => {
+    sideBarAnchorSelected(tag, op);
   }
 
-
-  sidebarAnchorClicked(tag, op) {
-    this.sidebarAnchorSelected(tag, op)
-  }
-
-  sidebarAnchorKeyup(key, tag, op) {
-    if (key === 'Enter' || key === ' ') {
-      this.sidebarAnchorSelected(tag, op)
+  const sideBarAnchorKeyUp = (key, tag, op) => {
+    if (key === 'Enter') {
+      sideBarAnchorSelected(tag, op);
     }
   }
 
-  sidebarAnchorSelected(tag, op) {
-    let id = getOperationId(op)
-    this.setState({
-      activeTags: [...this.state.activeTags, tag],
-      activeId: id
-    })
-    this.props.layoutActions.show(["operations-tag", tag], true)
-    this.props.layoutActions.show(["operations", tag, id], true)
+  const sideBarAnchorSelected = (tag, op) => {
+    let id = getOperationId(op);
+    setActiveTags([...activeTags, tag]);
+    setActiveId(id);
+    layoutActions.show(["operations-tag", tag], true)
+    layoutActions.show(["operations", tag, id], true)
     let anchorPath = `operations-${tag}-${id}`
-    let encodedPath = `operations-${this.buildSidebarURL(tag)}-${this.buildSidebarURL(id)}`
+    let encodedPath = `operations-${buildSidebarURL(tag)}-${buildSidebarURL(id)}`
     // this is needed because escaping is inconsistent
     let anchor = document.getElementById(anchorPath) || document.getElementById(encodedPath)
 
     if (anchor) {
-      this.moveToAnchor(anchor)
+      moveToAnchor(anchor)
     }
   }
-
-  removeFromActiveTags(tag) {
-    this.setState({ activeTags: this.state.activeTags.filter(activeTag => activeTag !== tag) })
+  const removeFromActiveTags = (tag) => {
+    const newActiveTags = activeTags.filter(aT => aT !== tag);
+    setActiveTags(newActiveTags);
   }
 
-  addToActiveTags(tag) {
-    this.setState({ activeTags: [...this.state.activeTags, tag] })
+  const addToActiveTags = (tag) => {
+    const newActiveTags = [...activeTags, tag];
+    setActiveTags(newActiveTags);
   }
 
-  toggleActiveTags(tag) {
-    if (this.isTagActive(tag)) {
-      this.removeFromActiveTags(tag)
+  const toggleActiveTags = (tag) => {
+    if(isTagActive(tag)){
+      removeFromActiveTags(tag)
     } else {
-      this.addToActiveTags(tag)
+      addToActiveTags(tag);
     }
   }
 
-  subMenuClicked(tag) {
-    this.toggleActiveTags(tag)
+  const subMenuClicked = (tag) => {
+    toggleActiveTags(tag)
   }
 
-  subMenuKeyup(key, tag) {
+  const subMenuKeyup = (key, tag) => {
     switch (key) {
       case 'Enter':
-        this.toggleActiveTags(tag)
+        toggleActiveTags(tag)
         break;
       case 'ArrowRight':
-        !this.isTagActive(tag) && this.addToActiveTags(tag)
+        !isTagActive(tag) && addToActiveTags(tag)
         break;
       case 'ArrowLeft':
-        this.isTagActive(tag) && this.removeFromActiveTags(tag)
+        isTagActive(tag) && removeFromActiveTags(tag)
         break;
     }
   }
 
-  summaryOrPath(op) {
+  const summaryOrPath = (op) => {
     return op.getIn(['operation', 'summary']) || op.get("path")
   }
 
-  getActiveClass(op) {
-    return this.ifActive(this.isIdActive(getOperationId(op)))
+  const getActiveClass = (op)  => {
+    return isActive(isIdActive(getOperationId(op)))
   }
 
-  render() {
-    const FilterContainer = this.props.getComponent("FilterContainer", true)
+  const FilterContainer = getComponent("FilterContainer", true);
 
-    return (
+  return (
       <div className="spec sidebar-list" id="spec-sidebar-list">
         <ul>
           <li role="none" className="spec list-title">Resources</li>
           <li role="none"><FilterContainer /></li>
-          {this.state.filteredSidebarData.map((sidebarItem, tag) =>
-            <li className={"submenu" + this.ifActive(this.isTagActive(tag))} >
+          {filteredSideBarData.map((sidebarItem, tag) =>
+              <li className={`submenu ${isActive(isTagActive(tag))}`} >
               <span
-                role="button"
-                className="submenu-title" tabIndex={0}
-                onClick={() => this.subMenuClicked(tag)}
-                onKeyUp={(e) => this.subMenuKeyup(e.key, tag)}
+                  role="button"
+                  className="submenu-title" tabIndex={0}
+                  onClick={() => subMenuClicked(tag)}
+                  onKeyUp={({key}) => subMenuKeyup(key, tag)}
               >
                 {tag}
               </span>
-              <ul className="submenu-items" hidden={!this.isTagActive(tag)}>
-                {sidebarItem.get("operations").map(op =>
-                  <li className={"method" + this.getActiveClass(op)}>
-                    <div 
-                      role="button"
-                      className="method-button-wrapper"
-                      tabIndex={this.isTagActive(tag) ? 0 : -1}
-                      onKeyUp={(e) => this.sidebarAnchorKeyup(e.key, tag, op)}
-                      onClick={() => this.sidebarAnchorClicked(tag, op)}
-                    >
-                      <span className={"method-tag method-tag-"+op.get("method")}>{op.get("method")}</span>
-                      <a
-                        className={"method-" + op.get("method")}
-                        role="none"
-                      >
-                        {this.summaryOrPath(op)}
-                      </a>
-                    </div>
-                  </li>
-                )}
+                <ul className="submenu-items" hidden={!isTagActive(tag)}>
+                  {sidebarItem.get("operations").map(op =>
+                      <li className={`method ${getActiveClass(op)}`}>
+                        <div
+                            role="button"
+                            className="method-button-wrapper"
+                            tabIndex={isTagActive(tag) ? 0 : -1}
+                            onKeyUp={({key}) => sideBarAnchorKeyUp(key, tag, op)}
+                            onClick={() => sideBarAnchorClicked(tag, op)}
+                        >
+                          <span className={"method-tag method-tag-"+op.get("method")}>{op.get("method")}</span>
+                          <a
+                              className={"method-" + op.get("method")}
+                              role="none"
+                          >
+                            {summaryOrPath(op)}
+                          </a>
+                        </div>
+                      </li>
+                  )}
 
-              </ul>
-            </li>)}
+                </ul>
+              </li>)}
 
         </ul>
       </div>
-    )
-  }
+  );
 }
 
 function getOperationId(op) {
   // this order is crucial to get the correct id
   return op.getIn(["operation", "__originalOperationId"]) || op.getIn(["operation", "operationId"]) || opId(op.get("operation"), op.get("path"), op.get('method')) || op.get("id")
 }
+
+export default SidebarList;

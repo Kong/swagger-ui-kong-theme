@@ -3,38 +3,29 @@
  * @prettier
  */
 
+export default function ModelWrapper(props) {
+  const { layoutActions, layoutSelectors, getComponent, expandDepth } = props;
 
-import React, { Component, } from "react"
-
-export default class ModelWrapper extends Component {
-  onToggle = (name,isShown) => {
+  const onToggle = (name, isShown) => {
     // If this prop is present, we'll have deepLinking for it
-    if(this.props.layoutActions) {
-      this.props.layoutActions.show(["models", name],isShown)
-    }
-  }
+    layoutActions?.show(["models", name], isShown);
+  };
 
-  render(){
-    let { getComponent, getConfigs } = this.props
-    const Model = getComponent("Model")
+  const Model = getComponent("Model");
 
-    let expanded
-    if (this.props.layoutSelectors) {
-      // If this is prop is present, we'll have deepLinking for it
-      expanded = this.props.layoutSelectors.isShown(["models",this.props.name])
-    }
+  // If this is prop is present, we'll have deepLinking for it
+  const expanded =
+      layoutSelectors?.isShown(["models", this.props.name]) || false;
 
-    return (
+  return (
       <div className="model-box" tabIndex={0}>
         <Model
-          { ...this.props }
-          getConfigs={ getConfigs }
-          expanded={expanded}
-          depth={ 1 }
-          onToggle={ this.onToggle }
-          expandDepth={ this.props.expandDepth || 0 }
+            {...props}
+            expanded={expanded}
+            depth={1}
+            onToggle={onToggle}
+            expandDepth={expandDepth || 0}
         />
       </div>
-    )
-  }
+  );
 }

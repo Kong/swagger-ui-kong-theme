@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {SwaggerUIBundle} from 'swagger-ui-dist';
+import SwaggerUIBundle from 'swagger-ui';
 import SwaggerParser from 'swagger-parser'
 import YAML from 'yaml-js'
 import 'swagger-ui/dist/swagger-ui.css';
