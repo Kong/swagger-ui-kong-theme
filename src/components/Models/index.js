@@ -2,7 +2,7 @@
  * Original file: https://github.com/Kong/swagger-ui/blob/main/src/core/components/models.jsx
  * @prettier
  */
-import React from "react";
+import React, { useCallback } from "react";
 import Im, { Map } from "immutable";
 
 export default function Models({
@@ -13,21 +13,25 @@ export default function Models({
   getConfigs,
   specActions,
 }) {
-  const getSchemaBasePath = () => {
+  const getSchemaBasePath = useCallback(() => {
     const isOAS3 = specSelectors.isOAS3();
     return isOAS3 ? ["components", "schemas"] : ["definitions"];
-  };
+  }, [specSelectors]);
 
   const getCollapsedContent = () => {
     return " ";
   };
 
-  const handleToggle = (name, isExpanded) => {
-    layoutActions.show(["models", name], isExpanded);
-    if (isExpanded) {
-      specActions.requestResolvedSubtree([getSchemaBasePath(), name]);
-    }
-  };
+  const handleToggle = useCallback(
+    (name, isExpanded) => {
+      layoutActions.show(["models", name], isExpanded);
+
+      if (isExpanded) {
+        specActions.requestResolvedSubtree([getSchemaBasePath(), name]);
+      }
+    },
+    [specActions, layoutActions]
+  );
 
   const handleKeypress = (event, showModels) => {
     if (
@@ -94,7 +98,7 @@ export default function Models({
             if (isShown && schema.size === 0 && rawSchema.size > 0) {
               // Firing an action in a container render is not great,
               // but it works for now.
-              props.specActions.requestResolvedSubtree([
+              specActions.requestResolvedSubtree([
                 ...getSchemaBasePath(),
                 name,
               ]);

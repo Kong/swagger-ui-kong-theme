@@ -4,7 +4,7 @@
  */
 import { highlight } from "../../helpers/helpers";
 import saveAs from "js-file-download";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function HighlightCode({
   value,
@@ -15,8 +15,8 @@ export default function HighlightCode({
   const el = useRef();
 
   useEffect(() => {
-    highlight(el);
-  }, [el]);
+    highlight(el.current);
+  }, [el.current]);
 
   const downloadText = () => {
     saveAs(value, fileName || "response.txt");
