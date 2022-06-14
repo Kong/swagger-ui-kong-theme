@@ -1,14 +1,6 @@
 const path = require("path");
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
-const hash = require("child_process")
-  .execSync("git rev-parse --short HEAD")
-  .toString()
-  .replace(/(\r\n|\n|\r)/gm, "");
-
-
-
-
 module.exports = (env, argv) => {
   return {
     entry: "./src/index.js",

@@ -100,7 +100,7 @@ const ViewSpec = () => {
 };
 
 const Info = (props) => {
-  const { info, url, basePath, getComponent, externalDocs } = props;
+  const { info, url, basePath, host, getComponent, externalDocs } = props;
   const version = info.get("version");
   const description = info.get("description");
   const title = info.get("title");
