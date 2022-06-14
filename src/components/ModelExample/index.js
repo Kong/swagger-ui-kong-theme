@@ -3,7 +3,7 @@
  * @prettier
  */
 
-import { useEffect } from "react";
+import React,  { useEffect, useState } from "react";
 
 export default function ModelExample({
   getComponent,
