@@ -1,6 +1,7 @@
 import React from "react";
-import { sanitizeUrl } from "../../helpers/helpers";
 import { fromJS } from "immutable";
+
+import { sanitizeUrl } from "../../helpers/helpers";
 
 import styles from './styles.module.css';
 

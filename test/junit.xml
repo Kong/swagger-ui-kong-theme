@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<testsuites name="jest tests" tests="0" failures="0" errors="0" time="1.454">
-=======
-<testsuites name="jest tests" tests="12" failures="0" errors="0" time="2.321">
-  <testsuite name="&lt;SideBar/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-24T12:18:28" time="1.665" tests="12">
-    <testcase classname="&lt;SideBar/&gt; was rendered" name="&lt;SideBar/&gt; was rendered" time="0.02">
+<testsuites name="jest tests" tests="7" failures="1" errors="0" time="1.313">
+  <testsuite name="&lt;TryItOutButton/&gt;" errors="0" failures="1" skipped="0" timestamp="2022-07-08T20:42:34" time="0.96" tests="7">
+    <testcase classname="&lt;TryItOutButton/&gt; was rendered" name="&lt;TryItOutButton/&gt; was rendered" time="0.026">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; has className sidebar-toggle" name="&lt;SideBar/&gt; has className sidebar-toggle" time="0.006">
+    <testcase classname="&lt;TryItOutButton/&gt; can render content when servers not empty" name="&lt;TryItOutButton/&gt; can render content when servers not empty" time="0.011">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; has a role button" name="&lt;SideBar/&gt; has a role button" time="0.043">
+    <testcase classname="&lt;TryItOutButton/&gt; has no content when servers are empty" name="&lt;TryItOutButton/&gt; has no content when servers are empty" time="0.004">
+      <failure>Error: expect(received).toBeNull()
+
+Received: &lt;button aria-label=&quot;Try sending an example request&quot; class=&quot;btn try-out__btn&quot;&gt;Try it out &lt;/button&gt;
+    at toBeNull (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/test/unit/common/components/TryItOutButton/TryItOutButton.test.js:45:20)
+    at tryCatch (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/test/unit/common/components/TryItOutButton/TryItOutButton.test.js:13:2404)
+    at Generator._invoke (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/test/unit/common/components/TryItOutButton/TryItOutButton.test.js:13:1964)
+    at Generator.next (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/test/unit/common/components/TryItOutButton/TryItOutButton.test.js:13:3255)
+    at asyncGeneratorStep (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/test/unit/common/components/TryItOutButton/TryItOutButton.test.js:21:103)
+    at _next (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/test/unit/common/components/TryItOutButton/TryItOutButton.test.js:23:194)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)</failure>
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; has `Open Sidebar` title" name="&lt;SideBar/&gt; has `Open Sidebar` title" time="0.019">
+    <testcase classname="&lt;TryItOutButton/&gt; has button `Try it out`" name="&lt;TryItOutButton/&gt; has button `Try it out`" time="0.002">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens" name="&lt;SideBar/&gt; can be clicked: sidebar opens" time="0.052">
+    <testcase classname="&lt;TryItOutButton/&gt; has an aria label text: `Try sending an example request`" name="&lt;TryItOutButton/&gt; has an aria label text: `Try sending an example request`" time="0.002">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; has `overlay open` classname" name="&lt;SideBar/&gt; has `overlay open` classname" time="0.022">
+    <testcase classname="&lt;TryItOutButton/&gt; has button `Cancel`" name="&lt;TryItOutButton/&gt; has button `Cancel`" time="0.002">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; has `overlay close` classname" name="&lt;SideBar/&gt; has `overlay close` classname" time="0.003">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" name="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" time="0.064">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" name="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" time="0.046">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; on `Space` press opens sidebar" name="&lt;SideBar/&gt; on `Space` press opens sidebar" time="0.013">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; on `Enter` press close sidebar" name="&lt;SideBar/&gt; on `Enter` press close sidebar" time="0.011">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; on `Return` press close sidebar" name="&lt;SideBar/&gt; on `Return` press close sidebar" time="0.012">
+    <testcase classname="&lt;TryItOutButton/&gt; has an aria label text: `Cancel sending an example request`" name="&lt;TryItOutButton/&gt; has an aria label text: `Cancel sending an example request`" time="0.001">
     </testcase>
   </testsuite>
->>>>>>> 4de08be (feat/kong-theme-unit-tests-update(AugmentingInfo, Sidebar))
 </testsuites>
