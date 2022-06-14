@@ -486,55 +486,12 @@
   box-shadow: none;
 }
 
-.swagger-ui .wrapper{
-  max-width: none;
-}
-
 .swagger-ui .info {
   word-break: break-word !important;
 }
 
-.swagger-ui .info-augment-wrapper .info .title small {
-  background: var(--black-400);
-}
-
-.swagger-ui .info-augment-wrapper .info .title small.oas-version {
-  background: var(--green-700) !important;
-}
-
-.swagger-ui .info-augment-wrapper .info a {
-  color: var(--blue-500);
-}
-
-.swagger-ui .main .title {
-  font-size: 38px;
-  font-weight: 300;
-  border-bottom-width: 0;
-  padding-bottom: 0;
-}
-
-.swagger-ui .main .header {
-  padding-bottom: 30px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.swagger-ui .main .header button {
-  border: 1px solid var(--white-rgb-224);
-  background-color: var(--white-rgb-250);
-  border-radius: 3px;
-  font-size: 16px;
-  font-weight: normal;
-  padding: 0 12px;
-}
-
-.swagger-ui .info-augment-wrapper {
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-}
-
-.swagger-ui .info-augment-wrapper .info {
-  margin-bottom: 0;
+.swagger-ui .wrapper{
+  max-width: none;
 }
 
 .swagger-ui .opblock {

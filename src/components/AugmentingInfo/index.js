@@ -1,6 +1,8 @@
 import React from "react";
-import { sanitizeUrl } from "../helpers/helpers";
+import { sanitizeUrl } from "../../helpers/helpers";
 import { fromJS } from "immutable";
+
+import styles from './styles.module.css';
 
 const EyeSVG = () => (
   <svg
@@ -99,7 +101,7 @@ const ViewSpec = () => {
   );
 };
 
-const Info = (props) => {
+export const AugmentingInfo = (props) => {
   const { info, url, basePath, host, getComponent, externalDocs } = props;
   const version = info.get("version");
   const description = info.get("description");
@@ -114,10 +116,10 @@ const Info = (props) => {
   const VersionStamp = getComponent("VersionStamp");
 
   return (
-    <div className="info">
-      <hgroup className="main">
-        <div className="header">
-          <h2 className="title">
+    <div className={styles.info}>
+      <hgroup className={styles.main}>
+        <div className={styles.header}>
+          <h2 className={styles.title}>
             {title}
             {version && <VersionStamp version={version} />}
           </h2>
@@ -131,7 +133,7 @@ const Info = (props) => {
         )}
       </hgroup>
 
-      <div className="description">
+      <div className={styles.description}>
         <Markdown source={description} />
       </div>
 
@@ -154,4 +156,12 @@ const Info = (props) => {
   );
 };
 
-export default Info;
+const infoWrapper = (Original, system) => (props) => {
+  return (
+    <div className={styles.infoAugmentWrapper}>
+      <AugmentingInfo {...props} system={system} />
+    </div>
+  );
+};
+
+export default infoWrapper;

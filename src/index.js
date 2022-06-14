@@ -1,6 +1,6 @@
 import React from 'react'
 import KongLayout from './components/Layout'
-import AugmentingInfo from './components/AugmentingInfo.js'
+import infoWrapper from './components/AugmentingInfo'
 import AugmentingResponses from './components/AugmentingResponses'
 import AugmentingOperation from './components/AugmentingOperation.js'
 import Sidebar from './components/Sidebar'
@@ -54,13 +54,7 @@ const SwaggerUIKongTheme = (system) => {
           </div>
         )
       },
-      info : (Original, system) => (props) => {
-        return (
-          <div className='info-augment-wrapper'>
-            <AugmentingInfo {...props} system={system} />
-          </div>
-        )
-      }
+      info : infoWrapper
     }
   }
 }
