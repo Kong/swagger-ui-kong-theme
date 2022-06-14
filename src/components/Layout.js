@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
 function RegisterBtnContainer() {
   function handleRegisterClick() {
@@ -40,6 +40,7 @@ export default function KongLayout({
 
   const loadingMessage = useMemo(() => {
     const stateMessageMap = {
+      success: () => null,
       loading: () => (
         <div className="info">
           <div className="loading-container">

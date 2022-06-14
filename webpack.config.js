@@ -1,31 +1,13 @@
 const path = require("path");
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 const hash = require("child_process")
   .execSync("git rev-parse --short HEAD")
   .toString()
   .replace(/(\r\n|\n|\r)/gm, "");
 
-const webpack = require("webpack");
 
-const outputs = {
-  development: {
-    path: path.join(__dirname, "dist"),
-    publicPath: "/",
-    filename: `bundle.js`,
-    library: "SwaggerUIKongTheme",
-    libraryTarget: "umd",
-  },
-  production: {
-    path: path.join(
-      __dirname,
-      "/../kong-portal-templates/workspaces/default/themes/base/assets/js"
-    ),
-    publicPath: "/",
-    filename: 'static.js',
-    library: "SwaggerUIKongTheme",
-    libraryTarget: "umd",
-  },
-};
+
 
 module.exports = (env, argv) => {
   return {
@@ -51,32 +33,39 @@ module.exports = (env, argv) => {
     },
     externals: {
       react: {
-        root: "React",
-        commonjs2: "react",
-        commonjs: "react",
-        amd: "react",
-        umd: "react"
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react'
+      },
+      'react-dom': {
+        root: 'ReactDOM',
+        commonjs2: 'react-dom',
+        commonjs: 'react-dom',
+        amd: 'react-dom'
       }
     },
     resolve: {
-      extensions: ["*", ".js", ".jsx"],
-      fallback: {
-        stream: require.resolve("stream-browserify"),
-        buffer: require.resolve("buffer/"),
-        util: require.resolve("util/"),
-        url: require.resolve("url/"),
-        querystring: require.resolve("querystring-es3"),
-      },
+      extensions: ["*", ".js", ".jsx"],      
       modules: [path.resolve(process.cwd(), 'src'), 'node_modules'],
       symlinks: false,
       cacheWithContext: false
     },
-    output: outputs[argv.mode],
+    output: {
+      path: path.join(__dirname, "dist"),
+      publicPath: "/",
+      filename: `bundle.js`,
+      library: "SwaggerUIKongTheme",
+      libraryTarget: "umd",
+    },
     devServer: {
       contentBase: "dist/",
     },
     optimization: {
       chunkIds: 'deterministic'
-    }
+    },
+    plugins: [
+      new NodePolyfillPlugin(),
+    ],
   };
 };
