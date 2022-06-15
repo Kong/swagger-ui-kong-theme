@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import styles from './styles.module.css';
 
 const Sidebar = ({ getConfigs, getComponent }) => {
   const [sideBarOpen, setSideBarOpen] = useState("");
 
   const handleToggleSidebar = () => {
     const value = sideBarOpen === "open" ? "close" : "open";
+    console.log("-> value", value);
     setSideBarOpen(value);
   };
 
@@ -29,7 +31,7 @@ const Sidebar = ({ getConfigs, getComponent }) => {
   const SidebarList = getComponent("SidebarList", true);
 
   return (
-    <div>
+    <div className='sideBarWrapper'>
       <div
         className="sidebar-toggle"
         role="button"

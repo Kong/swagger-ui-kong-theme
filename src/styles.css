@@ -352,7 +352,7 @@
 .sidebar-list ul li .method-tag-options {
   background-color: var(--blue-background-color);
 }
-
+/****HERE *****/
 @media all and (max-width: 1200px) {
   #sidebar {
     position: fixed;

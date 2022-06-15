@@ -17,6 +17,8 @@ import ModelWrapper from './components/ModelWrapper'
 import HighlightCode from './components/HighlightCode'
 import TryItOutButton from './components/TryItOutButton'
 
+import styles from './styles.module.css';
+
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
   return {
@@ -41,7 +43,7 @@ const SwaggerUIKongTheme = (system) => {
       responses: (Original, system) => (props) => {
         return (
           <div className="right-side-wrapper">
-            <AugmentingResponses {...props} system={system} />
+            {/*<AugmentingResponses {...props} system={system} />*/}
             <Original { ...props} />
           </div>
         )
