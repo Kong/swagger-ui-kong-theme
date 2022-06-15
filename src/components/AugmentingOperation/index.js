@@ -1,8 +1,7 @@
 import React from "react";
 import { escapeDeepLinkPath } from "../../helpers/helpers";
 
-const AugmentingOperation = (props) => {
-  let { response, operation: operationProps } = props;
+export const AugmentingOperation = ({ response, operation: operationProps }) => {
   const { tag, operationId } = operationProps.toJS();
 
   const operation = operationProps.getIn(["op"]);
@@ -24,7 +23,17 @@ const AugmentingOperation = (props) => {
   if ($exampleResponse) {
     $exampleResponse.style.display = response ? "none" : "table";
   }
+
   return <div className="empty" />;
 };
 
-export default AugmentingOperation;
+const operationWrapper =(Original, system) => (props) => {
+  return (
+    <div className='operations-augment-wrapper'>
+      <AugmentingOperation {...props} system={system} />
+      <Original { ...props}  />
+    </div>
+  )
+};
+
+export default operationWrapper;
