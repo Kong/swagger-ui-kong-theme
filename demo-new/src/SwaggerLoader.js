@@ -16,8 +16,6 @@ let swaggerUIOptions = {
     filter: true,
     presets: [
         SwaggerUI.presets.apis,
-        // SwaggerUI.SwaggerUIKongTheme
-        // SwaggerUI.SwaggerUIStandalonePreset
     ],
     plugins: [
         SwaggerUIKongTheme,
