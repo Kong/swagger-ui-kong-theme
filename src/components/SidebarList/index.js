@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { opId } from "../../helpers/helpers";
-
+import { opId } from "helpers/helpers";
+import styles from './styles.module.css';
 const SidebarList = (props) => {
   const { specSelectors, layoutSelectors, fn, layoutActions, getComponent } =
     props;

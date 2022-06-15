@@ -1,0 +1,37 @@
+.sideBarListWrapper .sidebar-toggle {
+    position: fixed;
+    display: flex;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    justify-content: left;
+    background: #eee;
+    z-index: 2;
+    transition: background 300ms ease;
+    cursor: pointer;
+}
+
+.sideBarListWrapper .sidebar-toggle:hover {
+    background: #f6f6f6;
+}
+
+.sideBarListWrapper .sidebar-toggle > p {
+    margin: 0 32px;
+}
+
+@media all and (min-width: 1201px) {
+    .sidebar-toggle {
+        display: none;
+    }
+    .overlay.on {
+        display: none;
+    }
+    .swagger-ui {
+        margin-top: 0;
+    }
+    .swagger-ui.has-sidebar {
+        margin-left: 260px;
+    }
+}

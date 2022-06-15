@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import SwaggerUIBundle from 'swagger-ui';
+import SwaggerUI from 'swagger-ui';
 import SwaggerParser from 'swagger-parser'
 import YAML from 'yaml-js'
 import 'swagger-ui/dist/swagger-ui.css';
@@ -15,12 +15,11 @@ let swaggerUIOptions = {
     deepLinking: true, // Enables dynamic deep linking for tags and operations
     filter: true,
     presets: [
-        SwaggerUIBundle.presets.apis,
-        SwaggerUIBundle.SwaggerUIStandalonePreset
+        SwaggerUI.presets.apis,
     ],
     plugins: [
         SwaggerUIKongTheme,
-        SwaggerUIBundle.plugins.DownloadUrl
+        SwaggerUI.plugins.DownloadUrl
     ],
     layout: 'KongLayout',
 }
@@ -97,7 +96,7 @@ const SwaggerLoader = () => {
         try {
             const options = await loadUrlConfig(specUrl, config);
             if (options) {
-                SwaggerUIBundle(options);
+                SwaggerUI(options);
             }
         } catch (e) {
             setError(true);
