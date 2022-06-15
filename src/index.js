@@ -22,6 +22,8 @@ import Fallback from "./components/ErrorBoundary/fallback";
 
 import "./styles.css";
 
+import styles from './styles.module.css';
+
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
   const { withErrorBoundary } = system.fn;

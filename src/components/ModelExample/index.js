@@ -3,17 +3,19 @@
  * @prettier
  */
 
-import React,  { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export default function ModelExample({
-  getComponent,
-  specSelectors,
-  schema,
-  specPath,
-  getConfigs,
-  isExecute,
-  example,
-}) {
+const ModelExample = (props) => {
+  const {
+    getComponent,
+        specSelectors,
+        schema,
+        specPath,
+        getConfigs,
+        isExecute,
+        example,
+  } = props;
+
   const [activeTab, setActiveTab] = useState(() => {
     const { defaultModelRendering } = getConfigs();
 
@@ -31,7 +33,7 @@ export default function ModelExample({
     return defaultModelRendering;
   });
 
-  const onTabchange = (e) => {
+  const onTabChange = (e) => {
     const {
       target: {
         dataset: { name },
@@ -76,9 +78,9 @@ export default function ModelExample({
             onKeyUp={handleKeypress}
             className="tablinks"
             data-name="example"
-            onClick={onTabchange}
+            onClick={onTabChange}
           >
-            {isExecute ? "Edit Value" : "Example Value"}
+            {`${isExecute ? "Edit" : "Example"} Value`}
           </a>
         </li>
         {schema ? (
@@ -94,7 +96,7 @@ export default function ModelExample({
               onKeyUp={handleKeypress}
               className={"tablinks" + (isExecute ? " inactive" : "")}
               data-name="model"
-              onClick={onTabchange}
+              onClick={onTabChange}
             >
               {isOAS3 ? "Schema" : "Model"}
             </a>
@@ -122,4 +124,6 @@ export default function ModelExample({
       </div>
     </div>
   );
-}
+};
+
+export default ModelExample;
