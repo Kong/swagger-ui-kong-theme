@@ -1,6 +1,5 @@
 import React from "react";
 import KongLayout from "./components/Layout";
-import AugmentingResponses from "./components/AugmentingResponses";
 import Sidebar from "./components/Sidebar";
 import SidebarList from "./components/SidebarList";
 import ContentType from "./components/ContentType";
@@ -17,6 +16,7 @@ import TryItOutButton from "./components/TryItOutButton";
 
 import infoWrapper from "./components/AugmentingInfo";
 import operationWrapper from "./components/AugmentingOperation";
+import responsesWrapper from "./components/AugmentingResponses";
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
@@ -39,14 +39,7 @@ const SwaggerUIKongTheme = (system) => {
       TryItOutButton: TryItOutButton,
     },
     wrapComponents: {
-      responses: (Original, system) => (props) => {
-        return (
-          <div className="right-side-wrapper">
-            <AugmentingResponses {...props} system={system} />
-            <Original {...props} />
-          </div>
-        );
-      },
+      responses: responsesWrapper,
       operation: operationWrapper,
       info: infoWrapper,
     },
