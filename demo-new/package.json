@@ -30,7 +30,6 @@
     "stream-http": "^3.2.0",
     "swagger-parser": "^10.0.3",
     "swagger-ui": "^4.12.0",
-    "swagger-ui-dist": "^4.12.0",
     "swagger-ui-kong-theme": "../",
     "web-vitals": "^2.1.4",
     "webpack": "^5.73.0",
