@@ -1,53 +1,52 @@
-import React from "react"
+import React, { useState } from "react";
 
-export default class Sidebar extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      sidebarOpen: ""
-    };
-    this.handleToggleSidebar = this.handleToggleSidebar.bind(this)
+const Sidebar = ({ getConfigs, getComponent }) => {
+  const [sideBarOpen, setSideBarOpen] = useState("");
 
-  }
+  const handleToggleSidebar = () => {
+    const value = sideBarOpen === "open" ? "close" : "open";
+    setSideBarOpen(value);
+  };
 
-  handleToggleSidebar() {
-    this.state.sidebarOpen === "open" ?
-      this.setState({sidebarOpen: "close"}) :
-      this.setState({sidebarOpen: "open"})
-  }
-
-  handleKeyToggleSidebar(e) {
-    if (e && e.code && ['Space', 'Enter', 'Return'].includes(e.code)) {
-      this.handleToggleSidebar()
+  const handleKeyToggleSidebar = (e) => {
+    if (e) {
+      const { code } = e;
+      if (code && ["Space", "Enter", "Return"].includes(code)) {
+        handleToggleSidebar();
+      }
     }
-  }
+  };
 
-  sidebarToggleText() {
-    return `${this.state.sidebarOpen === "open" ? "Close" : "Open"} Sidebar`
-  }
+  const sidebarToggleText = () => {
+    return `${sideBarOpen === "open" ? "Close" : "Open"} Sidebar`;
+  };
 
-  render() {
-    const config = this.props.getConfigs()
-    const swaggerAbsoluteTop = {
-      top: config.theme && config.theme.swaggerAbsoluteTop || '0'
-    }
+  const config = getConfigs();
+  const swaggerAbsoluteTop = {
+    top: (config.theme && config.theme?.swaggerAbsoluteTop) || "0",
+  };
 
-    const { getComponent } = this.props
-    const SidebarList = getComponent("SidebarList", true)
+  const SidebarList = getComponent("SidebarList", true);
 
-    return (
-      <div>
-        <div className="sidebar-toggle" role="button" style={swaggerAbsoluteTop} onClick={this.handleToggleSidebar} onKeyUp={this.handleKeyToggleSidebar} >
-          <p>{this.sidebarToggleText()}</p>
-        </div>
-        <div className={"overlay " + this.state.sidebarOpen}></div>
-        <div id="sidebar" className={this.state.sidebarOpen}>
-          <div className="sidebar-menu" style={swaggerAbsoluteTop}>
-            <SidebarList title="Resources" />
-          </div>
+  return (
+    <div>
+      <div
+        className="sidebar-toggle"
+        role="button"
+        style={swaggerAbsoluteTop}
+        onClick={handleToggleSidebar}
+        onKeyUp={handleKeyToggleSidebar}
+      >
+        <p>{sidebarToggleText()}</p>
+      </div>
+      <div className={`overlay ${sideBarOpen}`} />
+      <div id="sidebar" className={sideBarOpen}>
+        <div className="sidebar-menu" style={swaggerAbsoluteTop}>
+          <SidebarList title="Resources" />
         </div>
       </div>
-    )
-  }
-}
+    </div>
+  );
+};
 
+export default Sidebar;
