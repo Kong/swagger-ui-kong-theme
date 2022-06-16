@@ -4,7 +4,8 @@
   "description": "Plugin to theme Swagger-UI with 3 columns",
   "main": "dist/bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test-empty": "jest --passWithNoTests",
     "build": "webpack --mode=production",
     "copy-styles": "cp src/styles.css ../kong-portal-templates/workspaces/default/themes/base/assets/styles/swagger-ui-kong-theme.$(git rev-parse --short HEAD).css",
     "dev": "webpack --mode=development"
@@ -35,12 +36,22 @@
   },
   "dependencies": {
     "@braintree/sanitize-url": "^2.0.2",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^14.2.0",
     "curl-to-har": "^1.0.1",
     "immutable": "^3.x.x",
+    "jest": "^28.1.1",
+    "jest-dom": "^4.0.0",
+    "jest-environment-jsdom": "^28.1.1",
+    "jest-junit": "^13.2.0",
+    "jest-reporters": "^0.0.2",
+    "jest-unit": "^0.0.1",
     "js-file-download": "^0.4.1",
     "react-apiembed": "^0.1.4",
     "react-debounce-input": "^3.2.0",
-    "swagger2har": "git+https://github.com/Kong/swagger2har.git#8409def1fd72311f44b1d34e669af76226cb4f59"
+    "swagger2har": "git+https://github.com/Kong/swagger2har.git#8409def1fd72311f44b1d34e669af76226cb4f59",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.3"
   },
   "devDependencies": {
     "@babel/code-frame": "^7.16.7",
