@@ -6,15 +6,24 @@ describe('<OperationTag/>', () => {
     let component;
 
     beforeAll(() => {
-        const OperationTagProps = {};
-        render(<OperationTag {...OperationTagProps}/>);
+        const OperationTagProps = {
+            layoutActions: undefined,
+            tagObj: undefined,
+            tag: undefined,
+            children: undefined,
+            layoutSelectors: undefined,
+            getConfigs: jest.fn(),
+            getComponent: jest.fn()
+        };
+
+        component = render(<OperationTag {...OperationTagProps}/>);
     });
 
     it('was rendered', () => {
         expect(component).toBeInTheDocument();
     })
 
-    afterAll(()=>{
+    afterAll(() => {
         component = null;
     })
 })
