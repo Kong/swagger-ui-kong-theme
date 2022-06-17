@@ -1,10 +1,11 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import ContentType from "src/components/ContentType";
+import KongLayout from "components/Layout";
 
-describe( '<ContentType/>', () => {
 
-    const ContentTypeProps = {
+describe( '<KongLayout/>', () => {
+
+    const LayoutProps = {
         onChange: jest.fn(),
         contentTypes: undefined,
         ariaControls: undefined,
@@ -13,16 +14,12 @@ describe( '<ContentType/>', () => {
         controlId: '',
         value: '',
     };
-    let component;
-    beforeAll(() => {
-        component = render(<ContentType {...ContentTypeProps}/>);
+
+    beforeEach(() => {
+        render(<KongLayout {...LayoutProps}/>);
     });
 
     it('was rendered', () => {
         expect(screen).toBeVisible();
-    });
-
-    afterAll(()=>{
-        component = null;
     })
 });

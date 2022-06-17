@@ -3,7 +3,7 @@
  * @prettier
  */
 
-export default function ModelWrapper(props) {
+const ModelWrapper = (props) => {
   const { layoutActions, layoutSelectors, getComponent, expandDepth } = props;
 
   const onToggle = (name, isShown) => {
@@ -29,3 +29,5 @@ export default function ModelWrapper(props) {
       </div>
   );
 }
+
+export default ModelWrapper;

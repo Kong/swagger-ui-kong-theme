@@ -1,10 +1,10 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import ContentType from "src/components/ContentType";
+import ExamplesSelect from "components/ExamplesSelect";
 
-describe( '<ContentType/>', () => {
+describe( '<ExamplesSelect/>', () => {
 
-    const ContentTypeProps = {
+    const ExamplesSelectProps = {
         onChange: jest.fn(),
         contentTypes: undefined,
         ariaControls: undefined,
@@ -13,9 +13,11 @@ describe( '<ContentType/>', () => {
         controlId: '',
         value: '',
     };
+
     let component;
+
     beforeAll(() => {
-        component = render(<ContentType {...ContentTypeProps}/>);
+        component = render(<ExamplesSelect {...ExamplesSelectProps}/>);
     });
 
     it('was rendered', () => {

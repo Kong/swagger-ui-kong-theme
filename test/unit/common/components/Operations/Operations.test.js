@@ -1,11 +1,16 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import Operations from "components/Operations";
 
 describe('<Operations/>', () => {
-   const OperationsProps = {};
+   let component;
+    const OperationsProps = {};
 
    beforeAll(()=>{
-       render(<Operations {...OperationsProps}/>)
+       component = render(<Operations {...OperationsProps}/>)
+   });
+
+   afterAll(()=>{
+       component = null;
    })
 });

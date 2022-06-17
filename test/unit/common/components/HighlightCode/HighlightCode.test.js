@@ -1,10 +1,12 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import ContentType from "src/components/ContentType";
+import HighlightCode from 'components/HighlightCode';
 
-describe( '<ContentType/>', () => {
+describe( '<HighlightCode/>', () => {
 
-    const ContentTypeProps = {
+    let component;
+
+    const HighlightCodeProps = {
         onChange: jest.fn(),
         contentTypes: undefined,
         ariaControls: undefined,
@@ -13,9 +15,9 @@ describe( '<ContentType/>', () => {
         controlId: '',
         value: '',
     };
-    let component;
-    beforeAll(() => {
-        component = render(<ContentType {...ContentTypeProps}/>);
+
+    beforeEach(() => {
+        component = render(<HighlightCode {...HighlightCodeProps}/>);
     });
 
     it('was rendered', () => {

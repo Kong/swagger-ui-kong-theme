@@ -1,9 +1,13 @@
 const config = {
-    'roots': ['<rootDir>/test/unit'],
+    'verbose': true,
+    'bail': true,
+    'displayName': {
+        name: 'KongTheme Component',
+        color: '#3a5fff'
+    },
+    'moduleDirectories': ['node_modules'],
+    'roots': ['<rootDir>'],
     'modulePaths': ['<rootDir>/src'],
-    'moduleDirectories': [
-        'node_modules',
-    ],
     'moduleFileExtensions': [
         'js',
         'json',
@@ -12,12 +16,8 @@ const config = {
         '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
         '@common/(.*)': '<rootDir>/../common/src/$1',
         'test/(.*)': '<rootDir>/test/$1',
-        'components':'<rootDir>/src/components'
+        'components':'<rootDir>/src'
     },
-    'transform': {
-        '^.+\\.(t|j)sx?$': 'ts-jest'
-    },
-    'preset': 'ts-jest',
     'testEnvironment': 'jsdom',
     'testRegex': '(/__tests__/.*|(\\.|/)(test|spec))\\.js?$',
     'reporters': ['default', ['jest-junit', {outputDirectory: 'test'}]]

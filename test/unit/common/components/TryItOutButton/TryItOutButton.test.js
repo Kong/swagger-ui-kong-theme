@@ -8,7 +8,7 @@ describe('<TryItOutButton/>', () => {
     const onCancelClickMock = jest.fn();
 
     describe('`enabled: false`', () => {
-        beforeEach(() => {
+        beforeAll(() => {
             render(<TryItOutButton onTryoutClick={onTryOutClickMock} onCancelClick={onCancelClickMock} enabled/>);
         });
 
@@ -27,7 +27,7 @@ describe('<TryItOutButton/>', () => {
     });
 
     describe('`enabled: true`', () => {
-        beforeEach(() => {
+        beforeAll(() => {
             render(<TryItOutButton onTryoutClick={onTryOutClickMock} onCancelClick={onCancelClickMock}
                                    enabled={false}/>);
         });

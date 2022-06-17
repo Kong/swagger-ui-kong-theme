@@ -1,3 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="0" failures="0" errors="0" time="1.314">
+<testsuites name="jest tests" tests="1" failures="1" errors="0" time="8.409">
+  <testsuite name="&lt;Sidebar/&gt;" errors="0" failures="1" skipped="0" timestamp="2022-06-17T09:56:52" time="4.714" tests="1">
+    <testcase classname="&lt;Sidebar/&gt; was rendered" name="&lt;Sidebar/&gt; was rendered" time="0.015">
+      <failure>Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it&apos;s defined in, or you might have mixed up default and named imports.
+    at createFiberFromTypeAndProps (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:25058:21)
+    at createFiberFromElement (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:25086:15)
+    at reconcileSingleElement (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:14052:23)
+    at reconcileChildFibers (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:14112:35)
+    at reconcileChildren (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:16997:28)
+    at updateHostRoot (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:17599:5)
+    at beginWork (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:19077:14)
+    at HTMLUnknownElement.callCallback (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:3945:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (C:\Projects\swagger-ui-kong-theme\node_modules\jsdom\lib\jsdom\living\generated\EventListener.js:26:30)
+    at innerInvokeEventListeners (C:\Projects\swagger-ui-kong-theme\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:340:25)
+    at invokeEventListeners (C:\Projects\swagger-ui-kong-theme\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:276:3)
+    at HTMLUnknownElementImpl._dispatch (C:\Projects\swagger-ui-kong-theme\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:223:9)
+    at HTMLUnknownElementImpl.dispatchEvent (C:\Projects\swagger-ui-kong-theme\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:94:17)
+    at HTMLUnknownElement.dispatchEvent (C:\Projects\swagger-ui-kong-theme\node_modules\jsdom\lib\jsdom\living\generated\EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:3994:16)
+    at invokeGuardedCallback (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:4056:31)
+    at beginWork$1 (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:23964:7)
+    at performUnitOfWork (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:22779:12)
+    at workLoopSync (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:22707:5)
+    at renderRootSync (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:22670:7)
+    at performSyncWorkOnRoot (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:22293:18)
+    at scheduleUpdateOnFiber (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:21881:7)
+    at updateContainer (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:25482:3)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:26021:7
+    at unbatchedUpdates (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:22431:12)
+    at legacyRenderSubtreeIntoContainer (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:26020:5)
+    at Object.render (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:26103:10)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\react\dist\pure.js:101:25
+    at batchedUpdates$1 (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:22380:12)
+    at act (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom-test-utils.development.js:1042:14)
+    at render (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\react\dist\pure.js:97:26)
+    at Object.&lt;anonymous&gt; (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\Sidebar\Sidebar.test.js:8:9)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusHook (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:240:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:56:7)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+  </testsuite>
 </testsuites>

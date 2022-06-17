@@ -1,20 +1,20 @@
 import React from 'react';
 import {render} from '@testing-library/react';
-import OperationTag from "components/OperationTag";
+import Models from "components/Models";
 
-describe('<OperationTag/>', () => {
+describe('<Models/>', ()=>{
     let component;
-
-    beforeAll(() => {
-        const OperationTagProps = {};
-        render(<OperationTag {...OperationTagProps}/>);
+    const ModelsProps = {};
+    beforeAll(()=>{
+        component = render(<Models {...ModelsProps}/>);
     });
 
     it('was rendered', () => {
         expect(component).toBeInTheDocument();
-    })
+    });
 
     afterAll(()=>{
         component = null;
     })
-})
+
+});

@@ -1,17 +1,18 @@
 import React from 'react';
 import {render} from '@testing-library/react';
-import ModelWrapper from 'src/components/ModelWrapper';
+import AugmentingInfo from "components/AugmentingInfo";
 
-describe('<ModelWrapper/>', () => {
-    const ModelWrapperProps = {};
-
+describe('<AugmentingInfo/>', () => {
+    const AugmentingInfoProps = {};
     let component;
-    beforeAll(() => {
-        component = render(<ModelWrapper {...ModelWrapperProps}/>);
-    });
+    beforeAll(()=> {
+        component = render(<AugmentingInfo {...AugmentingInfoProps}/>);
+    })
+
     it('was rendered', () => {
         expect(component).toBeInTheDocument();
     });
+
     afterAll(() => {
         component = null;
     })
