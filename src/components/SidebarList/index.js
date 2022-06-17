@@ -13,17 +13,21 @@ const SidebarList = ({
   const [oldTags, setOldTags] = useState([]);
   const [activeId, setActiveId] = useState(null);
 
-  const sidebarData = specSelectors.taggedOperations();
   const currentFilter = layoutSelectors.currentFilter();
 
   const filteredSidebarData = useMemo(() => {
+    const sidebarData = specSelectors.taggedOperations();
+
     // on a search all tags are active, when the search is removed we go back to old state
     if (typeof currentFilter === "string") {
+      debugger;
       if (currentFilter !== "") {
+        debugger;
         const newActiveTags = sidebarData.map((sidebarItem, tag) => tag);
         setOldTags(activeTags);
         setActiveTags(newActiveTags);
       } else {
+        debugger;
         setActiveTags(oldTags);
       }
 
@@ -31,7 +35,7 @@ const SidebarList = ({
     } else {
       return sidebarData;
     }
-  }, [currentFilter, sidebarData]);
+  }, [currentFilter, specSelectors]);
 
   const buildSidebarURL = (stringValue) => {
     return stringValue
