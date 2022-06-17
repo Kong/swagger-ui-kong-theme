@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
+
 
 const Sidebar = ({ getConfigs, getComponent }) => {
-  const [sideBarOpen, setSideBarOpen] = useState("");
+  const [sidebarOpen, setSidebarOpen] = useState("");
 
   const handleToggleSidebar = () => {
-    const value = sideBarOpen === "open" ? "close" : "open";
-    console.log("-> value", value);
-    setSideBarOpen(value);
+    const value = sidebarOpen === styles.open ? "" : styles.open;
+
+    setSidebarOpen(value);
   };
 
   const handleKeyToggleSidebar = (e) => {
@@ -20,10 +21,11 @@ const Sidebar = ({ getConfigs, getComponent }) => {
   };
 
   const sidebarToggleText = () => {
-    return `${sideBarOpen === "open" ? "Close" : "Open"} Sidebar`;
+    return `${sidebarOpen === styles.open ? "Close" : "Open"} Sidebar`;
   };
 
   const config = getConfigs();
+
   const swaggerAbsoluteTop = {
     top: (config.theme && config.theme?.swaggerAbsoluteTop) || "0",
   };
@@ -31,9 +33,9 @@ const Sidebar = ({ getConfigs, getComponent }) => {
   const SidebarList = getComponent("SidebarList", true);
 
   return (
-    <div className='sideBarWrapper'>
+    <div className={styles.sidebarWrapper}>
       <div
-        className="sidebar-toggle"
+        className={styles.sidebarToggle}
         role="button"
         style={swaggerAbsoluteTop}
         onClick={handleToggleSidebar}
@@ -41,9 +43,9 @@ const Sidebar = ({ getConfigs, getComponent }) => {
       >
         <p>{sidebarToggleText()}</p>
       </div>
-      <div className={`overlay ${sideBarOpen}`} />
-      <div id="sidebar" className={sideBarOpen}>
-        <div className="sidebar-menu" style={swaggerAbsoluteTop}>
+      <div className={`${styles.overlay} ${sidebarOpen}`} />
+      <div id={styles.sidebar} className={sidebarOpen}>
+        <div className={styles.sidebarMenu} style={swaggerAbsoluteTop}>
           <SidebarList title="Resources" />
         </div>
       </div>
