@@ -6,6 +6,8 @@
 import React from "react"
 import DebounceInput from "react-debounce-input"
 
+import styles from './styles.module.css'
+
 export default class FilterContainer extends React.Component {
   onFilterChange = (e) => {
     const {target: {value}} = e
@@ -27,7 +29,7 @@ export default class FilterContainer extends React.Component {
     return (
       <div>
         {filter === null || filter === false ? null :
-          <div className="filter-container">
+          <div className={styles.filterContainer}>
             <Col className="filter wrapper" mobile={12}>
             <DebounceInput
               aria-label="Input for filtering by tag"

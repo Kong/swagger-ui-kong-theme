@@ -4,10 +4,12 @@ import { CodeSnippetWidget } from "react-apiembed";
 
 import { defaultLanguages } from "../../constants/languages";
 
+import styles from './styles.module.css';
+
 const hashIdx = "_**[]";
 const AugmentingResponses = memo((props) => {
   const { system, specSelectors, getConfigs, specPath, path, method } = props;
-  console.log("-> props", props);
+
   const [overlay, setOverlay] = useState("on");
   const config = getConfigs();
 

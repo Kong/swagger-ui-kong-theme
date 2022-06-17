@@ -1,5 +1,7 @@
 import React, { useMemo } from "react";
 
+import styles from "./styles.module.css";
+
 function RegisterBtnContainer() {
   function handleRegisterClick() {
     if (window.onRegisterClick) {
@@ -21,13 +23,13 @@ export default function KongLayout({
   getComponent,
   getConfigs,
 }) {
-  let SvgAssets = getComponent("SvgAssets");
-  let InfoContainer = getComponent("InfoContainer", true);
-  let VersionPragmaFilter = getComponent("VersionPragmaFilter");
-  let Operations = getComponent("operations", true);
-  let Models = getComponent("Models", true);
-  let Col = getComponent("Col");
-  let Errors = getComponent("errors", true);
+  const SvgAssets = getComponent("SvgAssets");
+  const InfoContainer = getComponent("InfoContainer", true);
+  const VersionPragmaFilter = getComponent("VersionPragmaFilter");
+  const Operations = getComponent("operations", true);
+  const Models = getComponent("Models", true);
+  const Col = getComponent("Col");
+  const Errors = getComponent("errors", true);
   const ServersContainer = getComponent("ServersContainer", true);
   const SchemesContainer = getComponent("SchemesContainer", true);
   const AuthorizeBtnContainer = getComponent("AuthorizeBtnContainer", true);
@@ -88,7 +90,7 @@ export default function KongLayout({
   const swaggerAbsoluteTop = {
     top: (config.theme && config.theme.swaggerAbsoluteTop) || "0",
   };
-  const hasSidebar = config.theme && config.theme.hasSidebar;
+  const hasSidebar = config.theme?.hasSidebar;
 
   const servers = specSelectors.servers();
   const schemes = specSelectors.schemes();
@@ -113,7 +115,7 @@ export default function KongLayout({
   return (
     <div className="wide" style={swaggerAbsoluteTop}>
       {hasSidebar && <Sidebar getConfigs={getConfigs} />}
-      <div className={"swagger-ui " + (hasSidebar && "has-sidebar")}>
+      <div className={"swagger-ui " + (hasSidebar && styles.hasSidebar)}>
         <SvgAssets />
         <VersionPragmaFilter
           isSwagger2={isSwagger2}
@@ -141,4 +143,4 @@ export default function KongLayout({
       </div>
     </div>
   );
-};
+}
