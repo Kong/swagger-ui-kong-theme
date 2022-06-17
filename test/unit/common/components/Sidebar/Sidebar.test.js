@@ -1,14 +1,22 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import Sidebar from "components/Sidebar";
 
 describe('<Sidebar/>', () => {
-    const SidebarProps = {};
+    let component;
+    const SidebarProps = {
+        getConfigs: jest.fn(),
+        getComponent: jest.fn()
+    };
     beforeAll(() => {
-        render(<Sidebar {...SidebarProps}/>);
+        component = render(<Sidebar {...SidebarProps}/>);
     });
 
     it('was rendered', () => {
+        expect(component).toBeInTheDocument();
+    });
 
+    afterAll(() => {
+        component = null;
     });
 })

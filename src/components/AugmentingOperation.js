@@ -1,5 +1,5 @@
 import React from 'react'
-import { escapeDeepLinkPath } from '../helpers/helpers'
+import { escapeDeepLinkPath } from 'helpers/helpers'
 
 
 const AugmentingOperation = (props) => {

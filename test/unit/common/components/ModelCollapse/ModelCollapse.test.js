@@ -1,12 +1,21 @@
 import React from 'react';
 import {render} from '@testing-library/react';
-import AugmentingResponses from "components/AugmentingResponses";
+import ModelCollapse from "components/ModelCollapse";
 
-describe('<AugmentingResponses/>', ()=>{
+describe('<ModelCollapse/>', ()=>{
     let component;
-    const AugmentingResponsesProps = {};
+    const ModelCollapseProps = {
+        title: 'Model Collapse title mock',
+        classes: undefined,
+        expanded: undefined,
+        collapsedContent: undefined,
+        onToggle: jest.fn(),
+        modelName: undefined,
+        hideSelfOnExpand: jest.fn(),
+        children: undefined,
+    };
     beforeAll(()=>{
-        component = render(<AugmentingResponses {...AugmentingResponsesProps}/>);
+        component = render(<ModelCollapse {...ModelCollapseProps}/>);
     });
 
     it('was rendered', () => {

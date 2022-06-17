@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="1" failures="1" errors="0" time="8.409">
-  <testsuite name="&lt;Sidebar/&gt;" errors="0" failures="1" skipped="0" timestamp="2022-06-17T09:56:52" time="4.714" tests="1">
-    <testcase classname="&lt;Sidebar/&gt; was rendered" name="&lt;Sidebar/&gt; was rendered" time="0.015">
+<testsuites name="jest tests" tests="1" failures="1" errors="0" time="8.298">
+  <testsuite name="&lt;ContentType/&gt;" errors="0" failures="1" skipped="0" timestamp="2022-06-17T13:31:10" time="4.21" tests="1">
+    <testcase classname="&lt;ContentType/&gt; was rendered" name="&lt;ContentType/&gt; was rendered" time="0.016">
       <failure>Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it&apos;s defined in, or you might have mixed up default and named imports.
     at createFiberFromTypeAndProps (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:25058:21)
     at createFiberFromElement (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:25086:15)
@@ -34,7 +34,7 @@
     at batchedUpdates$1 (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom.development.js:22380:12)
     at act (C:\Projects\swagger-ui-kong-theme\node_modules\react-dom\cjs\react-dom-test-utils.development.js:1042:14)
     at render (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\react\dist\pure.js:97:26)
-    at Object.&lt;anonymous&gt; (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\Sidebar\Sidebar.test.js:8:9)
+    at Object.&lt;anonymous&gt; (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\ContentType\ContentType.test.js:18:21)
     at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
     at new Promise (&lt;anonymous&gt;)
     at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)

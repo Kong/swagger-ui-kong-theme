@@ -2,10 +2,14 @@ import React from 'react';
 import {render} from '@testing-library/react';
 import AugmentingOperation from "components/AugmentingOperation";
 
-describe('<AugmentingOperation/>', ()=>{
+describe('<AugmentingOperation/>', () => {
     let component;
-    const AugmentingOperationProps = {};
-    beforeAll(()=>{
+    const AugmentingOperationProps = {
+        response: undefined,
+        operationProps: undefined
+    };
+
+    beforeAll(() => {
         component = render(<AugmentingOperation {...AugmentingOperationProps}/>);
     });
 
@@ -13,7 +17,7 @@ describe('<AugmentingOperation/>', ()=>{
         expect(component).toBeInTheDocument();
     });
 
-    afterAll(()=>{
+    afterAll(() => {
         component = null;
     })
 

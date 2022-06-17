@@ -1,5 +1,5 @@
 import React from "react";
-import { sanitizeUrl } from "../helpers/helpers";
+import { sanitizeUrl } from "helpers/helpers";
 import { fromJS } from "immutable";
 
 const EyeSVG = () => (

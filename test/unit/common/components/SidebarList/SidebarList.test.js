@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import SidebarList from "components/SidebarList";
 
 describe('<SidebarList/>', () => {
@@ -13,11 +13,11 @@ describe('<SidebarList/>', () => {
     };
 
     beforeEach(() => {
-        render(<SidebarList {...SidebarListProps} />);
+        component = render(<SidebarList {...SidebarListProps} />);
     });
 
     it('was rendered', () => {
-        expect(screen).toBeVisible()
+        expect(component).toBeInTheDocument()
     });
 
     afterAll(() => {

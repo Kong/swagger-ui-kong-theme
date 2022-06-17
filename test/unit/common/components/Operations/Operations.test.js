@@ -4,10 +4,21 @@ import Operations from "components/Operations";
 
 describe('<Operations/>', () => {
    let component;
-    const OperationsProps = {};
+    const OperationsProps = {
+        specSelectors: undefined,
+        getComponent: jest.fn(),
+        layoutSelectors: undefined,
+        layoutActions: undefined,
+        getConfigs: jest.fn(),
+        fn: jest.fn()
+    };
 
    beforeAll(()=>{
        component = render(<Operations {...OperationsProps}/>)
+   });
+
+   it('was rendered', () => {
+       expect(component).toBeInTheDocument();
    });
 
    afterAll(()=>{

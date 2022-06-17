@@ -4,7 +4,13 @@ import Models from "components/Models";
 
 describe('<Models/>', ()=>{
     let component;
-    const ModelsProps = {};
+    const ModelsProps = {
+        specSelectors: undefined,
+        getComponent: jest.fn(),
+        layoutSelectors: undefined,
+        getConfigs: jest.fn(),
+        specActions: undefined
+    };
     beforeAll(()=>{
         component = render(<Models {...ModelsProps}/>);
     });

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { opId } from '../helpers/helpers'
+import { opId } from 'helpers/helpers'
 
 const SidebarList = (props) => {
 

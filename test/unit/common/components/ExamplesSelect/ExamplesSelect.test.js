@@ -5,13 +5,12 @@ import ExamplesSelect from "components/ExamplesSelect";
 describe( '<ExamplesSelect/>', () => {
 
     const ExamplesSelectProps = {
-        onChange: jest.fn(),
-        contentTypes: undefined,
-        ariaControls: undefined,
-        ariaLabel: 'Content type',
-        className: '',
-        controlId: '',
-        value: '',
+        onSelect: jest.fn(),
+        examples: undefined,
+        currentExampleKey: undefined,
+        isValueModified: undefined,
+        isModifiedValueAvailable: undefined,
+        showLabels: undefined
     };
 
     let component;
