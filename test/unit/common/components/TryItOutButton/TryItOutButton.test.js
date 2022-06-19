@@ -7,24 +7,27 @@ describe('<TryItOutButton/>', () => {
     const onTryOutClickMock = jest.fn();
     const onCancelClickMock = jest.fn();
 
-    describe('`enabled: false`', () => {
-        beforeAll(() => {
-            render(<TryItOutButton onTryoutClick={onTryOutClickMock} onCancelClick={onCancelClickMock} enabled/>);
+    describe('enabled: false', () => {
+        beforeEach(() => {
+            render(<TryItOutButton onTryoutClick={onTryOutClickMock} onCancelClick={onCancelClickMock} enabled={false}/>);
         });
 
         it('was rendered', () => {
-            expect(screen).toBeVisible();
+            const tryOutBtn = screen.getByRole('button');
+            expect(tryOutBtn).toBeVisible();
         });
 
-        it('tryOutButton functionality', () => {
-            const tryOutBtn = screen.getByRole('img', {name: 'Try it out'});
+        it('tryOutButton functionality', async () => {
+            const tryOutBtn = screen.getByRole('button');
             expect(tryOutBtn).toBeInTheDocument();
             expect(tryOutBtn).toBeVisible();
-            user.click(tryOutBtn);
+            await user.click(tryOutBtn);
             expect(onTryOutClickMock).toHaveBeenCalledTimes(1);
         });
 
     });
+});
+
 
     describe('`enabled: true`', () => {
         beforeAll(() => {

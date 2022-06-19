@@ -1,16 +1,16 @@
 // Sync object
 /** @type {import('@jest/types').Config.InitialOptions} */
 const config = {
-    verbose: true,
     bail: true,
     displayName: {
         name: 'KongTheme Component',
         color: '#3a5fff'
     },
     modulePaths: ['<rootDir>/src/'],    
+    reporters: ['default', ['jest-junit', {outputDirectory: 'test'}]],
+    setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
     testEnvironment: 'jsdom',
-    reporters: ['default', ['jest-junit', {outputDirectory: 'test'}]]
-
+    verbose: true,
 };
 
 module.exports = config;
