@@ -32,6 +32,8 @@ describe('<TryItOutButton/>', () => {
         const button = screen.getByRole('button');
         expect(button).toBeTruthy();
     });
+});
+
 
     it('has no content when servers are empty', async () => {
         renderComponent({
