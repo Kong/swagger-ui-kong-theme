@@ -3,7 +3,20 @@ import {render, screen} from '@testing-library/react';
 import TryItOutButton from "components/TryItOutButton";
 
 
+<<<<<<< HEAD
 describe('<TryItOutButton/>', () => {
+=======
+xdescribe('<TryItOutButton/>', () => {
+    const onTryOutClickMock = jest.fn();
+    const onCancelClickMock = jest.fn();
+
+    describe('enabled: false', () => {
+        let tryOutBtn;
+        beforeEach(() => {
+            render(<TryItOutButton onTryoutClick={onTryOutClickMock} onCancelClick={onCancelClickMock} enabled={false}/>);
+            tryOutBtn = screen.getByRole('button');
+        });
+>>>>>>> 52a7baf (feat/kong-theme-unit-tests-HighlightCode.test.js)
 
     const TryItOutButtonProps = {
         onTryOutClickMock: jest.fn(),
