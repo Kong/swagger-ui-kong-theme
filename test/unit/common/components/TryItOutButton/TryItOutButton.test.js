@@ -2,6 +2,7 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import TryItOutButton from "components/TryItOutButton";
 
+
 describe('<TryItOutButton/>', () => {
 
     const TryItOutButtonProps = {
@@ -32,7 +33,6 @@ describe('<TryItOutButton/>', () => {
         const button = screen.getByRole('button');
         expect(button).toBeTruthy();
     });
-});
 
 
     it('has no content when servers are empty', async () => {
