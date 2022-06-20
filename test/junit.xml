@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="15" failures="1" errors="0" time="2.996">
-  <testsuite name="&lt;TryItOutButton/&gt;" errors="0" failures="0" skipped="6" timestamp="2022-06-20T11:13:07" time="1.359" tests="6">
+<testsuites name="jest tests" tests="22" failures="0" errors="0" time="4.357">
+  <testsuite name="&lt;HighlightCode/&gt;" errors="0" failures="0" skipped="1" timestamp="2022-06-20T13:26:56" time="2.338" tests="9">
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: false has no content" name="&lt;HighlightCode/&gt; downloadable: false has no content" time="0.033">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has been rendered" name="&lt;HighlightCode/&gt; downloadable: true has been rendered" time="0.08">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has a button text" name="&lt;HighlightCode/&gt; downloadable: true has a button text" time="0.03">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has classname `download-contents`" name="&lt;HighlightCode/&gt; downloadable: true has classname `download-contents`" time="0.04">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has aria label: `download contents`" name="&lt;HighlightCode/&gt; downloadable: true has aria label: `download contents`" time="0.026">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true fires action on btn click" name="&lt;HighlightCode/&gt; downloadable: true fires action on btn click" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; `pre` element was rendered" name="&lt;HighlightCode/&gt; `pre` element was rendered" time="0.005">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; `pre` element has default text value displayed" name="&lt;HighlightCode/&gt; `pre` element has default text value displayed" time="0.008">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; `pre` element has correct classname" name="&lt;HighlightCode/&gt; `pre` element has correct classname" time="0.009">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;ContentType/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-20T13:26:56" time="2.44" tests="7">
+    <testcase classname="&lt;ContentType/&gt; was rendered" name="&lt;ContentType/&gt; was rendered" time="0.084">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; has default classname &amp; passed classname" name="&lt;ContentType/&gt; has default classname &amp; passed classname" time="0.007">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; has passed aria-label" name="&lt;ContentType/&gt; has passed aria-label" time="0.012">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; has a select element " name="&lt;ContentType/&gt; has a select element " time="0.038">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; select element has preselected value" name="&lt;ContentType/&gt; select element has preselected value" time="0.087">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; select element can show more values" name="&lt;ContentType/&gt; select element can show more values" time="0.079">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; select element can change value" name="&lt;ContentType/&gt; select element can change value" time="0.035">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;TryItOutButton/&gt;" errors="0" failures="0" skipped="6" timestamp="2022-06-20T13:26:56" time="2.63" tests="6">
     <testcase classname="&lt;TryItOutButton/&gt; enabled: false was rendered" name="&lt;TryItOutButton/&gt; enabled: false was rendered" time="0">
       <skipped/>
     </testcase>
@@ -18,36 +55,6 @@
     </testcase>
     <testcase classname="&lt;TryItOutButton/&gt; `enabled: true` tryOutButton functionality" name="&lt;TryItOutButton/&gt; `enabled: true` tryOutButton functionality" time="0">
       <skipped/>
-    </testcase>
-  </testsuite>
-  <testsuite name="&lt;HighlightCode/&gt;" errors="0" failures="1" skipped="0" timestamp="2022-06-20T11:13:07" time="1.681" tests="9">
-    <testcase classname="&lt;HighlightCode/&gt; downloadable: false has no content" name="&lt;HighlightCode/&gt; downloadable: false has no content" time="0.026">
-    </testcase>
-    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has been rendered" name="&lt;HighlightCode/&gt; downloadable: true has been rendered" time="0.091">
-    </testcase>
-    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has a button text" name="&lt;HighlightCode/&gt; downloadable: true has a button text" time="0.025">
-    </testcase>
-    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has classname `download-contents`" name="&lt;HighlightCode/&gt; downloadable: true has classname `download-contents`" time="0.014">
-    </testcase>
-    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has aria label: `download contents`" name="&lt;HighlightCode/&gt; downloadable: true has aria label: `download contents`" time="0.019">
-    </testcase>
-    <testcase classname="&lt;HighlightCode/&gt; downloadable: true fires action on btn click" name="&lt;HighlightCode/&gt; downloadable: true fires action on btn click" time="0.082">
-      <failure>Error: expect(jest.fn()).toBeCalled()
-
-Expected number of calls: &gt;= 1
-Received number of calls:    0
-    at toBeCalled (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\HighlightCode\HighlightCode.test.js:62:37)
-    at tryCatch (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\HighlightCode\HighlightCode.test.js:17:2404)
-    at Generator._invoke (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\HighlightCode\HighlightCode.test.js:17:1964)
-    at Generator.next (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\HighlightCode\HighlightCode.test.js:17:3255)
-    at asyncGeneratorStep (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\HighlightCode\HighlightCode.test.js:30:103)
-    at _next (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\HighlightCode\HighlightCode.test.js:32:194)</failure>
-    </testcase>
-    <testcase classname="&lt;HighlightCode/&gt; `pre` element was rendered" name="&lt;HighlightCode/&gt; `pre` element was rendered" time="0.003">
-    </testcase>
-    <testcase classname="&lt;HighlightCode/&gt; `pre` element has default text value displayed" name="&lt;HighlightCode/&gt; `pre` element has default text value displayed" time="0.004">
-    </testcase>
-    <testcase classname="&lt;HighlightCode/&gt; `pre` element has correct classname" name="&lt;HighlightCode/&gt; `pre` element has correct classname" time="0.004">
     </testcase>
   </testsuite>
 </testsuites>
