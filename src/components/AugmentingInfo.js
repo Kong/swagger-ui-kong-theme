@@ -30,17 +30,16 @@ const EyeSVG = () => (
   </svg>
 );
 
-const Path = (props) => {
+export const Path = (props) => {
   const { host, basePath } = props;
   return (
     <pre className="base-url">
-      [Base Url: {host}
-      {basePath}
+      [Base Url: {host}{basePath}]
     </pre>
   );
 };
 
-const Contact = (props) => {
+export const Contact = (props) => {
   const { data } = props;
   const THE_DEVELOPER = "the developer";
   const name = data.get("name") || THE_DEVELOPER;
@@ -63,7 +62,7 @@ const Contact = (props) => {
   );
 };
 
-const Licence = (props) => {
+export const Licence = (props) => {
   const { licence } = props;
   const LICENCE = "LICENCE";
   const name = licence.get("name") || LICENCE;
@@ -82,7 +81,8 @@ const Licence = (props) => {
   );
 };
 
-const ViewSpec = () => {
+
+export const ViewSpec = () => {
   const handleVieViewSpec = () => {
     if (window.onViewSpecClick) {
       window.onViewSpecClick();
@@ -107,8 +107,7 @@ const Info = (props) => {
   const termsOfService = info.get("termsOfService");
   const contact = info.get("contact");
   const licence = info.get("licence");
-  const { url: externalDocsUrl, description: externalDocsDescription } =
-    externalDocs || fromJS({}).toJS();
+  const { url: externalDocsUrl, description: externalDocsDescription } = externalDocs || fromJS({}).toJS();
 
   const Markdown = getComponent("Markdown");
   const VersionStamp = getComponent("VersionStamp");
