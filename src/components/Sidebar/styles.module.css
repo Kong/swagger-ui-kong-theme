@@ -70,7 +70,7 @@
   .sidebarToggle {
     display: none;
   }
-  .overlay.on {
+  .overlay.open {
     display: none;
   }
   :global(.swagger-ui) {

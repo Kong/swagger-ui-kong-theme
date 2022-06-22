@@ -1,17 +1,13 @@
+.rightSideWrapper {
+  grid-column-start: 2!important;
+  grid-row-start: 1!important;
+  grid-row-end: 5!important;
+  -ms-grid-row-span: 4!important;
+}
+
 .rightSideWrapper pre span {
   color: inherit !important;
   /*color: unset !important;*/
-}
-
-.rightSideWrapper {
-  grid-column-start: 2;
-  grid-row-start: 1;
-  grid-row-end: 5;
-  grid-column: 3;
-  grid-row: 1;
-  -ms-grid-column: 3;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 4;
 }
 
 @media (min-width: 1000px) {
@@ -172,10 +168,4 @@
   padding: 0 0.5em;
   margin-right: 0.5em;
   color: #888;
-}
-
-@media all and (min-width: 1201px) {
-  .codeSnippet .overlay.on {
-    display: none;
-  }
 }

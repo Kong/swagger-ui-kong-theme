@@ -608,7 +608,8 @@
   display: none;
 }
 
-.swagger-ui .opblock .opblock-summary {
+
+.swagger-ui .opblock .opblock-summary > button {
   display: grid !important;
   display: -ms-grid !important;
   grid-template-columns: 80px auto 30px;
