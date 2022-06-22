@@ -4,13 +4,13 @@ import { CodeSnippetWidget } from "react-apiembed";
 
 import { defaultLanguages } from "../../constants/languages";
 
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 const hashIdx = "_**[]";
 const AugmentingResponses = memo((props) => {
   const { system, specSelectors, getConfigs, specPath, path, method } = props;
 
-  const [overlay, setOverlay] = useState("on");
+  const [overlay, setOverlay] = useState(styles.on);
   const config = getConfigs();
 
   // Duplicate keys are hashed with "[key]_**[][index]"
@@ -145,13 +145,13 @@ const AugmentingResponses = memo((props) => {
   );
 
   return (
-    <div className={"code-snippet"}>
+    <div className={styles.codeSnippet}>
       {!mutatedRequest && (
-        <div className={`overlay ${overlay}`}>
+        <div className={`${styles.overlay} ${overlay}`}>
           <span
             aria-label="close"
             role="button"
-            className="close"
+            className={styles.close}
             onKeyUp={({ key }) => handleCloseKeyUp(key)}
             onClick={() => handleClose()}
           >

@@ -20,14 +20,11 @@ const SidebarList = ({
 
     // on a search all tags are active, when the search is removed we go back to old state
     if (typeof currentFilter === "string") {
-      debugger;
       if (currentFilter !== "") {
-        debugger;
         const newActiveTags = sidebarData.map((sidebarItem, tag) => tag);
         setOldTags(activeTags);
         setActiveTags(newActiveTags);
       } else {
-        debugger;
         setActiveTags(oldTags);
       }
 
