@@ -4,7 +4,7 @@ import { CodeSnippetWidget } from "react-apiembed";
 
 import { defaultLanguages } from "../../constants/languages";
 
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 const hashIdx = "_**[]";
 const AugmentingResponses = memo(
