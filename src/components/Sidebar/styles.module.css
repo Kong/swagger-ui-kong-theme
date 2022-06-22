@@ -68,7 +68,7 @@
 
 @media all and (min-width: 1201px) {
   .sidebarToggle {
-    display: none;
+    display: none!important;
   }
   .overlay.open {
     display: none;
