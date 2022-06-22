@@ -9,7 +9,7 @@ const TryItOutButton = (props) => {
       {enabled ? (
         <button
           aria-label="Cancel sending an example request"
-          className={styles.btnCancel}
+          className={`${styles.btnCancel} btn`}
           onClick={onCancelClick}
         >
           Cancel
@@ -17,7 +17,7 @@ const TryItOutButton = (props) => {
       ) : (
         <button
           aria-label="Try sending an example request"
-          className={styles.btnTryOut}
+          className={`${styles.btnTryOut} btn`}
           onClick={onTryoutClick}
         >
           Try it out

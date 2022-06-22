@@ -146,6 +146,8 @@
   color: var(--white-rgb-255);
   font-size: 14px;
   font-weight: normal;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .codeSnippet :global(.tabs-component) :global(.is-active) a {
