@@ -3,36 +3,36 @@
   margin-bottom: 30px;
 }
 
-.infoAugmentWrapper .info {
+.infoAugmentWrapper :global(.info) {
   margin-bottom: 0;
 }
 
-.infoAugmentWrapper .info .title small {
+.infoAugmentWrapper :global(.info) :global(.title) small {
   background: var(--black-400);
 }
 
-.infoAugmentWrapper .info .title small.oas-version {
+.infoAugmentWrapper :global(.info) :global(.title) small:class(.oas-version) {
   background: var(--green-700) !important;
 }
 
-.infoAugmentWrapper .info a {
+.infoAugmentWrapper :global(.info) a {
   color: var(--blue-500);
 }
 
-.infoAugmentWrapper .main .title {
+.infoAugmentWrapper :global(.main) :global(.title) {
   font-size: 38px;
   font-weight: 300;
   border-bottom-width: 0;
   padding-bottom: 0;
 }
 
-.infoAugmentWrapper .main .header {
+.infoAugmentWrapper :global(.main) :global(.header) {
   padding-bottom: 30px;
   display: flex;
   justify-content: space-between;
 }
 
-.infoAugmentWrapper .main .header button {
+.infoAugmentWrapper :global(.main) :global(.header) button {
   border: 1px solid var(--white-rgb-224);
   background-color: var(--white-rgb-250);
   border-radius: 3px;
