@@ -117,10 +117,10 @@ export const AugmentingInfo = (props) => {
   const VersionStamp = getComponent("VersionStamp");
 
   return (
-    <div className={styles.info}>
-      <hgroup className={styles.main}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>
+    <div className="info">
+      <hgroup className="main">
+        <div className="header">
+          <h2 className="title">
             {title}
             {version && <VersionStamp version={version} />}
           </h2>
@@ -134,7 +134,7 @@ export const AugmentingInfo = (props) => {
         )}
       </hgroup>
 
-      <div className={styles.description}>
+      <div className="description">
         <Markdown source={description} />
       </div>
 
