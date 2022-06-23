@@ -299,6 +299,7 @@
   font-size: 14px;
   color: var(--black-70);
   padding-left: 10px;
+  flex: auto;
 }
 
 .swagger-ui .opblock-tag small p {
@@ -608,11 +609,6 @@
 /* hides the "Responses", "Url", "Server Response" above the example responses hidden by js when live response is active   */
 .swagger-ui .responses-inner > div > h4 {
   display: none;
-}
-
-
-.swagger-ui .opblock .opblock-summary {
-    align-items: flex-start;
 }
 
 .swagger-ui .opblock .opblock-summary > button.opblock-summary-control {
