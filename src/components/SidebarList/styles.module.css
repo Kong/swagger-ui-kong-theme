@@ -118,6 +118,7 @@
   color: var(--white);
   font-size: 9px;
   width: 38px;
+  height: max-content;
   padding: 0.3rem 0.3rem;
   border-radius: 3px;
   font-weight: 600;
@@ -149,6 +150,10 @@
   display: flex;
   width: 100%;
   align-items: center;
+}
+
+.methodButtonWrapper {
+  display: flex ;
 }
 
 /* colors below should match kong-portal-templates colors for summary methods */
