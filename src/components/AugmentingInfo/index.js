@@ -93,7 +93,7 @@ const ViewSpec = () => {
   };
 
   return (
-    <button onClick={handleVieViewSpec}>
+    <button disabled={!window.onViewSpecClick} onClick={handleVieViewSpec}>
       <>
         <EyeSVG />
         View Raw

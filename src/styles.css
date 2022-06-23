@@ -5,11 +5,11 @@
 
 :root {
   /* kong colors https://kongponents.konghq.com/style-guide/colors.html*/
-  --blue-100: #F2F6FE;
-  --blue-200: #BDD3F9;
-  --blue-300: #5888DB;
-  --blue-400: #2E6EE0;
-  --blue-500: #1155CB;
+  --blue-100: #f2f6fe;
+  --blue-200: #bdd3f9;
+  --blue-300: #5888db;
+  --blue-400: #2e6ee0;
+  --blue-500: #1155cb;
   --blue-600: #003694;
   --blue-700: #0a2b66;
 
@@ -17,48 +17,48 @@
   --steel-200: #dae3f2;
   --steel-300: #a3b6d9;
   --steel-400: #7d91b3;
-  --steel-500: #727E94;
+  --steel-500: #727e94;
   --steel-600: #395380;
   --steel-700: #273c61;
 
-  --red-100: #FFDEDE;
-  --red-200: #FFCCCC;
-  --red-300: #FF9A99;
-  --red-400: #FF7877;
-  --red-500: #EB5A3B;
-  --red-600: #E50000;
+  --red-100: #ffdede;
+  --red-200: #ffcccc;
+  --red-300: #ff9a99;
+  --red-400: #ff7877;
+  --red-500: #eb5a3b;
+  --red-600: #e50000;
   --red-700: #922021;
 
-  --green-100: #E8F8F5;
-  --green-200: #C0F2D5;
-  --green-300: #84E5AE;
-  --green-400: #42D782;
-  --green-500: #07A88D;
+  --green-100: #e8f8f5;
+  --green-200: #c0f2d5;
+  --green-300: #84e5ae;
+  --green-400: #42d782;
+  --green-500: #07a88d;
   --green-600: #008871;
-  --green-700: #13755E;
+  --green-700: #13755e;
 
-  --yellow-100: #FFF3D8;
-  --yellow-200: #FFE6BA;
-  --yellow-300: #FFD68C;
-  --yellow-400: #FABE5F;
-  --yellow-500: #C67C06;
+  --yellow-100: #fff3d8;
+  --yellow-200: #ffe6ba;
+  --yellow-300: #ffd68c;
+  --yellow-400: #fabe5f;
+  --yellow-500: #c67c06;
 
-  --grey-100: #F8F8FA;
-  --grey-200: #F1F1F5;
-  --grey-300: #E7E7EC;
-  --grey-400: #B6B6BD;
+  --grey-100: #f8f8fa;
+  --grey-200: #f1f1f5;
+  --grey-300: #e7e7ec;
+  --grey-400: #b6b6bd;
 
-  --black-85: rgba(0, 0, 0, .85);
-  --black-70: rgba(0, 0, 0, .70);
-  --black-45: rgba(0, 0, 0, .45);
-  --black-25: rgba(0, 0, 0, .25);
-  --black-10: rgba(0, 0, 0, .10);
+  --black-85: rgba(0, 0, 0, 0.85);
+  --black-70: rgba(0, 0, 0, 0.7);
+  --black-45: rgba(0, 0, 0, 0.45);
+  --black-25: rgba(0, 0, 0, 0.25);
+  --black-10: rgba(0, 0, 0, 0.1);
 
-  --black-100: #DFDFDF;
-  --black-200: #B1B2B1;
+  --black-100: #dfdfdf;
+  --black-200: #b1b2b1;
   --black-300: #797979;
-  --black-400: #3B3B3B;
-  --black-500: #1D1D1D;
+  --black-400: #3b3b3b;
+  --black-500: #1d1d1d;
 
   --white: #ffffff;
 
@@ -73,8 +73,8 @@
 
   --purple-background-color: #9012fe;
   --blue-background-color: #0d5aa7;
-  --white-shadow: #E6E6E6;
-  --white-background-color:#ebf7ff;
+  --white-shadow: #e6e6e6;
+  --white-background-color: #ebf7ff;
 
   --blue-rgb: rgb(0, 149, 255);
   --white-rgb-255: rgb(255, 255, 255);
@@ -82,7 +82,6 @@
   --white-rgb-245: rgb(245, 245, 245);
   --white-rgb-230: rgb(230, 230, 230);
   --white-rgb-224: rgb(224, 224, 224);
-
 }
 
 .wide {
@@ -91,89 +90,77 @@
 }
 
 /* colors below should match kong-portal-templates colors for summary methods */
-.swagger-ui .opblock-summary.opblock-summary-post span.opblock-summary-method,
-.sidebar-list ul li .method-post:before {
+.swagger-ui .opblock-summary.opblock-summary-post span.opblock-summary-method {
   background-color: var(--green-500);
   color: var(--white);
 }
-.swagger-ui .opblock-summary.opblock-summary-put span.opblock-summary-method,
-.sidebar-list ul li .method-put:before {
+.swagger-ui .opblock-summary.opblock-summary-put span.opblock-summary-method {
   background-color: var(--yellow-400);
   color: var(--black-400) !important;
 }
-.swagger-ui .opblock-summary.opblock-summary-get span.opblock-summary-method,
-.sidebar-list ul li .method-get:before {
+.swagger-ui .opblock-summary.opblock-summary-get span.opblock-summary-method {
   background: var(--blue-500);
 }
-.swagger-ui .opblock-summary.opblock-summary-delete span.opblock-summary-method,
-.sidebar-list ul li .method-delete:before {
+.swagger-ui
+  .opblock-summary.opblock-summary-delete
+  span.opblock-summary-method {
   background-color: var(--red-600);
 }
-.swagger-ui .opblock-summary.opblock-summary-patch span.opblock-summary-method,
-.sidebar-list ul li .method-patch:before {
+.swagger-ui .opblock-summary.opblock-summary-patch span.opblock-summary-method {
   background-color: var(--green-300);
   color: var(--black-400) !important;
 }
-.swagger-ui .opblock-summary.opblock-summary-head span.opblock-summary-method,
-.sidebar-list ul li .method-head:before {
+.swagger-ui .opblock-summary.opblock-summary-head span.opblock-summary-method {
   background: var(--purple-background-color);
 }
-.swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method,
-.sidebar-list ul li .method-options:before {
+.swagger-ui
+  .opblock-summary.opblock-summary-options
+  span.opblock-summary-method {
   background: var(--blue-background-color);
 }
-
-.swagger-ui .opblock-summary.opblock-summary-post span.opblock-summary-method,
-.sidebar-list ul li .method-tag-post {
+.swagger-ui .opblock-summary.opblock-summary-post span.opblock-summary-method {
   background-color: var(--green-400);
   color: var(--black-70);
 }
-.swagger-ui .opblock-summary.opblock-summary-put span.opblock-summary-method,
-.sidebar-list ul li .method-tag-put {
+.swagger-ui .opblock-summary.opblock-summary-put span.opblock-summary-method {
   background-color: var(--yellow-400);
   color: var(--black-400);
 }
-.swagger-ui .opblock-summary.opblock-summary-get span.opblock-summary-method,
-.sidebar-list ul li .method-tag-get {
+.swagger-ui .opblock-summary.opblock-summary-get span.opblock-summary-method {
   background: var(--blue-500);
 }
 .swagger-ui .opblock-summary.opblock-summary-delete span.opblock-summary-method,
 .sidebar-list ul li .method-tag-delete {
   background-color: var(--red-600);
 }
-.swagger-ui .opblock-summary.opblock-summary-patch span.opblock-summary-method,
-.sidebar-list ul li .method-tag-patch {
+.swagger-ui .opblock-summary.opblock-summary-patch span.opblock-summary-method {
   background-color: var(--green-200);
   color: var(--black-500);
 }
-.swagger-ui .opblock-summary.opblock-summary-deprecated span.opblock-summary-method,
-.sidebar-list ul li .method-tag-deprecated {
+.swagger-ui
+  .opblock-summary.opblock-summary-deprecated
+  span.opblock-summary-method {
   background-color: var(--steel-600);
   color: var(--black-100);
 }
-.swagger-ui .opblock-summary.opblock-summary-head span.opblock-summary-method,
-.sidebar-list ul li .method-tag-head {
+.swagger-ui .opblock-summary.opblock-summary-head span.opblock-summary-method {
   background-color: var(--purple-background-color);
 }
-.swagger-ui .opblock-summary.opblock-summary-trace span.opblock-summary-method,
-.sidebar-list ul li .method-tag-trace {
+.swagger-ui .opblock-summary.opblock-summary-trace span.opblock-summary-method {
   background-color: var(--purple-background-color);
 }
-.swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method,
-.sidebar-list ul li .method-tag-options {
+.swagger-ui
+  .opblock-summary.opblock-summary-options
+  span.opblock-summary-method {
   background-color: var(--blue-background-color);
 }
+
 /****HERE *****/
 @media all and (min-width: 1201px) {
-
   .swagger-ui {
     margin-top: 0;
   }
-
 }
-
-
-
 /* main */
 
 .swagger-ui .scheme-container {
@@ -231,7 +218,7 @@
   word-break: break-word !important;
 }
 
-.swagger-ui .wrapper{
+.swagger-ui .wrapper {
   max-width: none;
 }
 
@@ -244,7 +231,6 @@
   margin-top: 32px;
   padding-bottom: 5px;
   background-color: var(--white) !important;
-
 }
 
 .swagger-ui .opblock-body .opblock-description-wrapper,
@@ -265,7 +251,7 @@
 
 /* opblock-section-header is used for both parameters and responses
   this one applies to  both */
-.swagger-ui .opblock .opblock-section-header{
+.swagger-ui .opblock .opblock-section-header {
   -webkit-box-shadow: none;
   box-shadow: none;
   padding-left: 0;
@@ -278,7 +264,7 @@
   padding-right: 0;
 }
 
-.swagger-ui .opblock .responses-wrapper .opblock-section-header > label > span{
+.swagger-ui .opblock .responses-wrapper .opblock-section-header > label > span {
   display: none;
 }
 
@@ -307,7 +293,6 @@
   font-size: 24px;
   font-weight: normal;
 }
-
 
 .swagger-ui .opblock-tag small {
   font-family: sans-serif;
@@ -341,8 +326,8 @@
   margin-right: 5px;
 }
 
-.swagger-ui .opblock-body pre span{
-  color: unset !important
+.swagger-ui .opblock-body pre span {
+  color: unset !important;
 }
 .swagger-ui .opblock-body pre {
   font-size: 12px;
@@ -362,7 +347,7 @@
   color: #fff;
 }
 
-.swagger-ui .opblock-section pre{
+.swagger-ui .opblock-section pre {
   background-color: var(--white);
   color: var(--black-70);
   border-radius: 0 0 3px;
@@ -371,12 +356,17 @@
 
 /*  needed to remove  max width on small screen width*/
 @media (max-width: 768px) {
-  .swagger-ui input[type=email], .swagger-ui input[type=file], .swagger-ui input[type=password], .swagger-ui input[type=search], .swagger-ui input[type=text], .swagger-ui textarea {
-      max-width: unset;
+  .swagger-ui input[type="email"],
+  .swagger-ui input[type="file"],
+  .swagger-ui input[type="password"],
+  .swagger-ui input[type="search"],
+  .swagger-ui input[type="text"],
+  .swagger-ui textarea {
+    max-width: unset;
   }
 }
 .swagger-ui .opblock textarea,
-.swagger-ui textarea[disabled]{
+.swagger-ui textarea[disabled] {
   color: var(--black-70);
   background-color: var(--white-rgb-250);
   border-radius: 0 0 3px;
@@ -396,7 +386,7 @@
 
 @media (max-width: 768px) {
   .swagger-ui .parameters {
-    table-layout: auto
+    table-layout: auto;
   }
 }
 
@@ -416,7 +406,7 @@
   padding-right: 32px;
 }
 
-.swagger-ui .parameters .parameters-col_name .parameter__name{
+.swagger-ui .parameters .parameters-col_name .parameter__name {
   margin-right: 0;
   overflow-wrap: break-word;
   font-family: monospace;
@@ -425,10 +415,9 @@
   font-weight: 500;
 }
 
-.swagger-ui .parameters .parameters-col_name .parameter__name:not(.required){
+.swagger-ui .parameters .parameters-col_name .parameter__name:not(.required) {
   margin-bottom: 4px;
 }
-
 
 .swagger-ui .parameters .parameters-col_name .parameter__name.required {
   display: flex;
@@ -455,7 +444,7 @@
   color: var(--black-400);
 }
 
-.swagger-ui .parameters .parameters-col_name .prop-format{
+.swagger-ui .parameters .parameters-col_name .prop-format {
   color: inherit;
   font-family: sans-serif;
 }
@@ -476,17 +465,17 @@
   width: 100%;
 }
 
-.swagger-ui .parameters input[type=email],
-.swagger-ui .parameters input[type=password],
-.swagger-ui .parameters input[type=search],
-.swagger-ui .parameters input[type=text],
+.swagger-ui .parameters input[type="email"],
+.swagger-ui .parameters input[type="password"],
+.swagger-ui .parameters input[type="search"],
+.swagger-ui .parameters input[type="text"],
 .swagger-ui .parameters textarea {
   width: 100%;
   padding: 8px 0 8px 10px;
   max-width: unset;
 }
 
-.swagger-ui .parameters input[type=file] {
+.swagger-ui .parameters input[type="file"] {
   /* needed because without calc width overflows at least on chrome */
   width: calc(100% - 10px);
   padding: 8px 0 8px 10px;
@@ -495,7 +484,7 @@
 
 .swagger-ui .opblock-body .responses-wrapper pre {
   color: var(--black-70);
-  background: rgba(0,0,0,.1);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .swagger-ui .swagger-ui .responses-table {
@@ -507,18 +496,18 @@
   display: none;
 }
 
-.swagger-ui .opblock-body .live-responses-table tr{
+.swagger-ui .opblock-body .live-responses-table tr {
   display: flex;
   flex-direction: row;
 }
 
-.swagger-ui .opblock-body .live-responses-table thead tr td{
+.swagger-ui .opblock-body .live-responses-table thead tr td {
   border-radius: 4px;
   border: 0.5em solid white;
   font-family: monospace;
 }
 
-.swagger-ui .opblock-body .responses-table .response-col_status  {
+.swagger-ui .opblock-body .responses-table .response-col_status {
   background-color: #ebf7ff;
   display: flex;
   justify-content: center;
@@ -532,7 +521,7 @@
   /* this padding is not perfect, less than a pixel of alignment from right side */
   padding: 9px 0;
 }
-.swagger-ui .opblock-body .live-responses-table .response-col_status  {
+.swagger-ui .opblock-body .live-responses-table .response-col_status {
   display: flex;
   text-align: center;
   padding-left: 30px;
@@ -541,7 +530,11 @@
   display: none;
 }
 
-.swagger-ui .opblock-body .live-responses-table .response-col_description .highlight-code{
+.swagger-ui
+  .opblock-body
+  .live-responses-table
+  .response-col_description
+  .highlight-code {
   margin-bottom: 1em;
 }
 
@@ -557,7 +550,13 @@
   width: 100%;
 }
 
-.swagger-ui .opblock-body .responses-table .response-col_description .response-col_description__inner .renderedMarkdown > p {
+.swagger-ui
+  .opblock-body
+  .responses-table
+  .response-col_description
+  .response-col_description__inner
+  .renderedMarkdown
+  > p {
   margin-top: 10px;
 }
 
@@ -565,11 +564,14 @@
   display: none;
 }
 
-.swagger-ui .opblock-body .responses-table .response-col_description div > h5{
+.swagger-ui .opblock-body .responses-table .response-col_description div > h5 {
   display: none;
 }
 
-.swagger-ui .responses-inner .responses-table:not(.live-responses-table) tr.response{
+.swagger-ui
+  .responses-inner
+  .responses-table:not(.live-responses-table)
+  tr.response {
   display: flex;
   border-radius: 4px;
   border-bottom: 30px solid transparent;
@@ -586,16 +588,16 @@
   font-size: 15px;
 }
 
-.swagger-ui .responses-inner{
+.swagger-ui .responses-inner {
   padding-left: 0;
   padding-right: 0;
 }
 
-.swagger-ui .responses-inner .request-url{
+.swagger-ui .responses-inner .request-url {
   margin-bottom: 30px;
 }
 
-.swagger-ui .responses-inner .request-url pre{
+.swagger-ui .responses-inner .request-url pre {
   background-color: #ebf7ff;
   font-size: 15px;
 }
@@ -609,7 +611,11 @@
 }
 
 
-.swagger-ui .opblock .opblock-summary > button {
+.swagger-ui .opblock .opblock-summary {
+    align-items: flex-start;
+}
+
+.swagger-ui .opblock .opblock-summary > button.opblock-summary-control {
   display: grid !important;
   display: -ms-grid !important;
   grid-template-columns: 80px auto 30px;
@@ -621,13 +627,15 @@
   background-color: var(--white) !important;
   padding-left: 0;
   padding-right: 0;
-  padding-bottom: 33px;
 }
 
 .swagger-ui .opblock .opblock-summary .opblock-summary-method {
   grid-column-start: 1;
+  grid-column: 1;
+
   -ms-grid-column: 1;
   grid-row-start: 2;
+  grid-row: 2;
   -ms-grid-row: 2;
 
   /* not tested in ie, but makes method centered */
@@ -644,14 +652,16 @@
   padding: 0;
 }
 
-.swagger-ui .opblock .opblock-summary .opblock-summary-description{
+.swagger-ui .opblock .opblock-summary .opblock-summary-description {
+  grid-column: 1;
   grid-column-start: 1;
   grid-column-end: 3;
-  grid-row-start: 1;
-
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
+
+  grid-row: 1;
   -ms-grid-row: 1;
+  grid-row-start: 1;
 
   /* font-family: Roboto !important; */
   font-size: 20px;
@@ -663,23 +673,28 @@
   grid-column-start: 3;
   grid-row-start: 1;
 
+  grid-column: 3;
   -ms-grid-column: 3;
-  -ms-grid-row: 1
+  grid-row: 1;
+  -ms-grid-row: 1;
 }
 
 .swagger-ui .opblock .opblock-summary .opblock-summary-path,
 .swagger-ui .opblock .opblock-summary .opblock-summary-path__deprecated {
+  grid-column: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
   grid-column-start: 2;
   grid-column-end: 4;
 
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
+  grid-row: 2;
   -ms-grid-row: 2;
 
   background-color: rgb(245, 245, 245);
   padding: 10px 10px;
   font-size: 16px;
   word-break: break-all;
+  max-width: 100% !important;
 }
 
 .swagger-ui .opblock-body {
@@ -698,7 +713,7 @@
 }
 
 .swagger-ui .callbacks-container .opblock-summary * {
-  font-size: 12px
+  font-size: 12px;
 }
 
 .swagger-ui .callbacks-container .opblock-summary {
@@ -707,7 +722,7 @@
 }
 
 .swagger-ui .opblock-body .callbacks-container.opblock-description-wrapper {
-  box-shadow: 0 0 50px 10px rgba(0,0,0,0.04);
+  box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.04);
   padding: 20px;
 }
 
@@ -728,13 +743,14 @@
     -ms-grid-columns: 45% 64px 55%;
     -ms-grid-rows: min-content min-content min-content min-content min-content;
   }
-
 }
 
 .swagger-ui .opblock-body .btn-group {
   /* grid-row-start: 3; */
+  grid-row: 3;
   -ms-grid-row: 3;
   grid-column-start: 1;
+  grid-column: 1;
   -ms-grid-column: 1;
   padding: 16px 0 20px 13em;
   height: 71px;
@@ -751,8 +767,10 @@
 
 .swagger-ui .opblock-body .execute-wrapper {
   /* grid-row-start: 3; */
+  grid-row: 3;
   -ms-grid-row: 3;
   grid-column-start: 1;
+  grid-column: 1;
   -ms-grid-column: 1;
   padding-top: 16px;
   padding-right: 0;
@@ -768,39 +786,38 @@
 
 .swagger-ui .opblock-section {
   grid-column-start: 1;
+  grid-column: 1;
   -ms-grid-column: 1;
   /* having this grid row seems to make it stack in some specs  */
   /* grid-row-start: 2; */
+  grid-row: 2;
   -ms-grid-row: 2;
 }
 
 .swagger-ui .loading-container {
   grid-column-start: 1;
   grid-row-start: 3;
+  grid-column: 1;
   -ms-grid-column: 1;
+  grid-row: 4;
   -ms-grid-row: 4;
   word-break: normal;
 }
 
-
 .swagger-ui .opblock-body {
-  width: 100%
+  width: 100%;
 }
 
-
 /* code snippets */
-
 
 .swagger-ui .parameters-col_description > select {
   height: unset;
 }
 
-
 /**************************************************************************
  * From templates repo, not sure if needed, consildating all css in one spot before removing
  * swagger-ui container
  */
-
 
 .swagger-ui .information-container *,
 .swagger-ui .operations-container .col:not(.end) *,
@@ -881,16 +898,22 @@
 /**************************************************************************
  * swagger-ui operation panel theming
  */
-.swagger-ui .side-panel { background: hsl(220, 8%, 19%); }
-.swagger-ui .model-example-wrapper { overflow: auto; }
-.swagger-ui .code-block { background: hsla(220, 8%, 10%, 1); }
-.swagger-ui .operations-container select { border-color: rgba(255,255,255,0.1); }
+.swagger-ui .side-panel {
+  background: hsl(220, 8%, 19%);
+}
+.swagger-ui .model-example-wrapper {
+  overflow: auto;
+}
+.swagger-ui .code-block {
+  background: hsla(220, 8%, 10%, 1);
+}
+.swagger-ui .operations-container select {
+  border-color: rgba(255, 255, 255, 0.1);
+}
 
 /**************************************************************************
  * swagger-ui operation panel fixes
  */
-.swagger-ui .code-block { max-height: 600px !important }
-
-
-
-
+.swagger-ui .code-block {
+  max-height: 600px !important;
+}
