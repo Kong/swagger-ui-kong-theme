@@ -28,12 +28,12 @@ const ContentType = (props) => {
     }
   },[contentTypes?.length])
 
-  const onChangeWrapper = ({target: {value}}) => onChange(value)
+  const onChangeHandler = ({target: {value}}) => onChange(value)
 
   return (
       <div className={"content-type-wrapper " + (className || "")}>
-        <select aria-controls={ariaControls} aria-label={ariaLabel} className="content-type" id={controlId} onChange={onChangeWrapper} value={value || ""} >
-          {contentTypes.map((val) => {
+        <select aria-controls={ariaControls} aria-label={ariaLabel} className="content-type" id={controlId} onChange={onChangeHandler} value={value || ""} >
+          {contentTypes && contentTypes.map((val) => {
             return <option key={val} value={val}>{val}</option>
           })}
         </select>

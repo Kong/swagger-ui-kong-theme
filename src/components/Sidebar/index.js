@@ -27,7 +27,7 @@ const Sidebar = ({ getConfigs, getComponent }) => {
   const config = getConfigs();
 
   const swaggerAbsoluteTop = {
-    top: (config.theme && config.theme?.swaggerAbsoluteTop) || "0",
+    top: (config?.theme && config.theme?.swaggerAbsoluteTop) || "0",
   };
 
   const SidebarList = getComponent("SidebarList", true);
@@ -39,7 +39,7 @@ const Sidebar = ({ getConfigs, getComponent }) => {
         role="button"
         style={swaggerAbsoluteTop}
         onClick={handleToggleSidebar}
-        onKeyUp={handleKeyToggleSidebar}
+        onKeyDown={handleKeyToggleSidebar}
       >
         <p>{sidebarToggleText()}</p>
       </div>
