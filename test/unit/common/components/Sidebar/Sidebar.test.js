@@ -3,6 +3,8 @@ import {fireEvent, render, screen} from '@testing-library/react';
 import user from '@testing-library/user-event';
 import Sidebar from "components/Sidebar";
 
+import styles from "components/Sidebar/styles.module.css";
+
 describe('<SideBar/>', () => {
         const MockedSidebarListComponent = () => <div> Mock SidebarList Component</div>;
         const SideBarProps = {
