@@ -63,10 +63,10 @@ export const Contact = (props) => {
 };
 
 export const Licence = (props) => {
-  const { licence } = props;
+  const { data } = props;
   const LICENCE = "LICENCE";
-  const name = licence.get("name") || LICENCE;
-  const url = licence.get("url");
+  const name = data.get("name") || LICENCE;
+  const url = data.get("url");
 
   return (
     <div>
@@ -143,7 +143,7 @@ const Info = (props) => {
       )}
 
       {contact && contact.size ? <Contact data={contact} /> : null}
-      {licence && licence.size ? <Licence license={licence} /> : null}
+      {licence && licence.size ? <Licence data={licence} /> : null}
       {externalDocsUrl ? (
         <a target="_blank" href={sanitizeUrl(externalDocsUrl)}>
           {externalDocsDescription || externalDocsUrl}

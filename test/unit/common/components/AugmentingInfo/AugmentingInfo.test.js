@@ -3,16 +3,35 @@ import {render, screen} from '@testing-library/react';
 import AugmentingInfo from 'components/AugmentingInfo';
 
 describe('<AugmentingInfo/>', () => {
+
+    const mockedMarkdownComponent = () => <div>Mocked Markdown Component</div>;
+    const mockedVersionStampComponent = () => <div>Mocked Version Stamp Component</div>;
+
     const AugmentingInfoProps = {
         info: {
             version: 'MOCK_VERSION',
             description: 'MOCK_DESCRIPTION',
             title: 'MOCK_TITLE',
             termsOfService: 'MOCK_TERMS_OF_SERVICE',
-            contact: 'MOCK_CONTACT',
-            licence: 'MOCK_LICENCE',
-            get: function (property) {
-                return this[property]
+            contact: {
+                name: 'MOCK_CONTACT',
+                url: 'MOCK_URL',
+                email: 'MOCK_EMAIL',
+                size: 'MOCK_SIZE',
+                get: function (val) {
+                    return this[val];
+                }
+            },
+            licence: {
+                name: 'MOCK_LICENCE',
+                url: 'MOCK_URL',
+                size: 'MOCK_SIZE',
+                get: function (val) {
+                    return this[val]
+                },
+            },
+            get: function (val) {
+                return this[val]
             }
         },
         url: 'MOCK_URL',
@@ -21,10 +40,12 @@ describe('<AugmentingInfo/>', () => {
             description: 'MOCK_externalDocsDescription',
             url: 'MOCK_EXTERNAL_URL'
         },
-        getComponent: jest.fn()
+        getComponent: jest.fn((param) => {
+            return param === 'Markdown' ? mockedMarkdownComponent : mockedVersionStampComponent
+        })
     };
 
-    const renderComponent = (props) => {
+    const renderComponent = (props=AugmentingInfoProps) => {
         const {container} = render(<AugmentingInfo {...props} />);
         return container;
     }
@@ -35,37 +56,43 @@ describe('<AugmentingInfo/>', () => {
     });
 
     it('has className `info`', () => {
-        const container = renderComponent(AugmentingInfoProps);
+        const container = renderComponent();
         const el = container.getElementsByClassName(`info`);
         expect(el.length).toEqual(1);
     });
 
     it('has className `main`', () => {
-        const container = renderComponent(AugmentingInfoProps);
+        const container = renderComponent();
         const el = container.getElementsByClassName(`main`);
         expect(el.length).toEqual(1);
     });
 
     it('has className `header`', () => {
-        const container = renderComponent(AugmentingInfoProps);
+        const container = renderComponent();
         const el = container.getElementsByClassName(`header`);
         expect(el.length).toEqual(1);
     });
 
     it('has className `title`', () => {
-        const container = renderComponent(AugmentingInfoProps);
+        const container = renderComponent();
         const el = container.getElementsByClassName(`title`);
         expect(el.length).toEqual(1);
     });
 
     it('`title` prop is passed', () => {
-        renderComponent(AugmentingInfoProps);
+        renderComponent();
         const el = screen.getByText(AugmentingInfoProps.info.title);
         expect(el).toBeInTheDocument();
     });
 
+    it('`Version Stamp` component rendered', () => {
+        renderComponent();
+        const el = screen.getByText('Mocked Version Stamp Component');
+        expect(el).toBeInTheDocument();
+    })
+
     it('`ViewSpec` component is rendered', () => {
-        renderComponent(AugmentingInfoProps);
+        renderComponent();
         const el = screen.getByText('View Raw');
         expect(el).toBeInTheDocument();
         expect(screen.getByTitle('0DC50B50-D286-4889-B1DA-07E43925811F@1.00x')).toBeInTheDocument();
@@ -86,7 +113,7 @@ describe('<AugmentingInfo/>', () => {
         });
 
         it('has `a href` link', () => {
-            renderComponent(AugmentingInfoProps);
+            renderComponent();
             expect(screen.getByText(AugmentingInfoProps.url).closest('a')).toBeTruthy();
         });
 
@@ -96,10 +123,9 @@ describe('<AugmentingInfo/>', () => {
                 const el = container.getElementsByClassName(`title`);
                 expect(el).toBeTruthy();
             });
-            //todo: uncomment when mock component render fixed
-            xit('has `Markdown` component rendered', () => {
-                const container = renderComponent(AugmentingInfoProps);
-                const el = container.getElementsByTagName("Markdown");
+            it('has `Markdown` component rendered', () => {
+                renderComponent(AugmentingInfoProps);
+                const el = screen.getByText("Mocked Markdown Component");
                 expect(el).toBeTruthy();
             });
 
@@ -110,18 +136,20 @@ describe('<AugmentingInfo/>', () => {
                 });
 
                 it('contains `href`', () => {
-                    renderComponent(AugmentingInfoProps);
+                    renderComponent();
                     expect(screen.getByText('Terms of service').closest('a')).toBeTruthy();
                 });
             });
 
-            xit('has rendered `contact` section', () => {
+            it('has rendered `contact` section', () => {
                 renderComponent();
+                const el = screen.getByText(`${AugmentingInfoProps.info.contact.name} - Website`);
                 expect(el).toBeInTheDocument();
             });
 
-            xit('has rendered `licence` section', () => {
+            it('has rendered `licence` section', () => {
                 renderComponent();
+                const el = screen.getByText(AugmentingInfoProps.info.licence.name);
                 expect(el).toBeInTheDocument();
             });
 

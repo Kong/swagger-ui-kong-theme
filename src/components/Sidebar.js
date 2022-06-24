@@ -2,11 +2,10 @@ import React, { useState } from "react";
 
 const Sidebar = (props) => {
   const { getConfigs, getComponent } = props;
-  const [sideBarOpen, setSideBarOpen] = useState("");
+  const [sideBarOpen, setSideBarOpen] = useState(false);
 
   const handleToggleSidebar = () => {
-    const value = sideBarOpen === "open" ? "close" : "open";
-    setSideBarOpen(value);
+    setSideBarOpen(!sideBarOpen);
   };
 
   const handleKeyToggleSidebar = (e) => {
@@ -19,7 +18,7 @@ const Sidebar = (props) => {
   };
 
   const sidebarToggleText = () => {
-    return `${sideBarOpen === "open" ? "Close" : "Open"} Sidebar`;
+    return `${sideBarOpen ? "Close" : "Open"} Sidebar`;
   };
 
   const config = getConfigs();
@@ -36,12 +35,12 @@ const Sidebar = (props) => {
         role="button"
         style={swaggerAbsoluteTop}
         onClick={handleToggleSidebar}
-        onKeyUp={handleKeyToggleSidebar}
+        onKeyDown={handleKeyToggleSidebar}
       >
         <p>{sidebarToggleText()}</p>
       </div>
-      <div className={`overlay ${sideBarOpen}`} />
-      <div id="sidebar" className={sideBarOpen}>
+      <div className={`overlay ${sideBarOpen ? 'open': 'close'}`} />
+      <div id="sidebar" className={sideBarOpen ? 'open': 'close'}>
         <div className="sidebar-menu" style={swaggerAbsoluteTop}>
           <SidebarList title="Resources" />
         </div>
