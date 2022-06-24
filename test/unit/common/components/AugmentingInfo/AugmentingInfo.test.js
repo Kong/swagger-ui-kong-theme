@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import AugmentingInfo from 'components/AugmentingInfo';
+import {AugmentingInfo} from 'components/AugmentingInfo';
 
 describe('<AugmentingInfo/>', () => {
 

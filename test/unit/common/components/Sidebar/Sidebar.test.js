@@ -3,6 +3,8 @@ import {fireEvent, render, screen} from '@testing-library/react';
 import user from '@testing-library/user-event';
 import Sidebar from "components/Sidebar";
 
+import styles from "components/Sidebar/styles.module.css";
+
 describe('<SideBar/>', () => {
         const MockedSidebarListComponent = () => <div> Mock SidebarList Component</div>;
         const SideBarProps = {
@@ -28,7 +30,7 @@ describe('<SideBar/>', () => {
 
         it('has className sidebar-toggle', () => {
             const container = renderComponent();
-            const el = container.getElementsByClassName('sidebar-toggle');
+            const el = container.getElementsByClassName(styles.sidebarToggle);
             expect(el.length).toBe(1);
         });
 
@@ -55,14 +57,16 @@ describe('<SideBar/>', () => {
         it('has `overlay open` classname', async () => {
             const container = renderComponent();
             await user.click(screen.getByRole('button'));
-            const el = container.getElementsByClassName('overlay open');
+
+            const el = container.getElementsByClassName(`${styles.overlay} ${styles.open}`);
             expect(el.length).toBe(1);
         });
 
         it('has `overlay close` classname', () => {
             const container = renderComponent();
-            const el = container.getElementsByClassName('overlay close')
-            expect(el.length).toBe(1);
+
+            const el = container.getElementsByClassName(`${styles.overlay} ${styles.open}`);
+            expect(el.length).toBe(0);
         })
 
         it('can be clicked: sidebar opens & closes', async () => {

@@ -5,6 +5,7 @@
   "main": "dist/bundle.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "build": "webpack --mode=production",
     "copy-styles": "cp src/styles.css ../kong-portal-templates/workspaces/default/themes/base/assets/styles/swagger-ui-kong-theme.$(git rev-parse --short HEAD).css",
     "dev": "webpack --mode=development"
