@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-const Sidebar = ({ getConfigs, getComponent }) => {
+const Sidebar = (props) => {
+  const { getConfigs, getComponent } = props;
   const [sideBarOpen, setSideBarOpen] = useState("");
 
   const handleToggleSidebar = () => {
@@ -23,7 +24,7 @@ const Sidebar = ({ getConfigs, getComponent }) => {
 
   const config = getConfigs();
   const swaggerAbsoluteTop = {
-    top: (config.theme && config.theme?.swaggerAbsoluteTop) || "0",
+    top: (config?.theme && config.theme?.swaggerAbsoluteTop) || "0",
   };
 
   const SidebarList = getComponent("SidebarList", true);
