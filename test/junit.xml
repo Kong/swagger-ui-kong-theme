@@ -1,3 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuites name="jest tests" tests="0" failures="0" errors="0" time="1.454">
+=======
+<testsuites name="jest tests" tests="12" failures="0" errors="0" time="2.321">
+  <testsuite name="&lt;SideBar/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-24T12:18:28" time="1.665" tests="12">
+    <testcase classname="&lt;SideBar/&gt; was rendered" name="&lt;SideBar/&gt; was rendered" time="0.02">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has className sidebar-toggle" name="&lt;SideBar/&gt; has className sidebar-toggle" time="0.006">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has a role button" name="&lt;SideBar/&gt; has a role button" time="0.043">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has `Open Sidebar` title" name="&lt;SideBar/&gt; has `Open Sidebar` title" time="0.019">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens" name="&lt;SideBar/&gt; can be clicked: sidebar opens" time="0.052">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has `overlay open` classname" name="&lt;SideBar/&gt; has `overlay open` classname" time="0.022">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has `overlay close` classname" name="&lt;SideBar/&gt; has `overlay close` classname" time="0.003">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" name="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" time="0.064">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" name="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" time="0.046">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; on `Space` press opens sidebar" name="&lt;SideBar/&gt; on `Space` press opens sidebar" time="0.013">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; on `Enter` press close sidebar" name="&lt;SideBar/&gt; on `Enter` press close sidebar" time="0.011">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; on `Return` press close sidebar" name="&lt;SideBar/&gt; on `Return` press close sidebar" time="0.012">
+    </testcase>
+  </testsuite>
+>>>>>>> 4de08be (feat/kong-theme-unit-tests-update(AugmentingInfo, Sidebar))
 </testsuites>
