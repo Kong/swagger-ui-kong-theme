@@ -1,0 +1,216 @@
+.sidebarList ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarList li.listTitle {
+  font-weight: bold;
+  color: #262626;
+  font-size: 16px;
+}
+.sidebarList :global(.spec).listTitle {
+  padding-left: 1.8rem;
+}
+.sidebarList .method {
+  border-radius: 3px;
+  margin-left: 0.4rem;
+  padding: 0.4rem 0 0.5rem 1.6rem;
+}
+.sidebarList .method:hover {
+  background-color: rgba(237, 30, 30, 0.12);
+}
+.sidebarList .method a {
+  cursor: pointer;
+  position: relative;
+  padding-left: 8px;
+}
+.sidebarList ul li {
+  padding: 0.3rem 0.2rem 0.3rem 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--dark-shade-grey-40);
+}
+.sidebarList ul li a {
+  color: var(--dark-shade-grey-40);
+  word-wrap: break-word;
+}
+.sidebarList ul li a:hover {
+  color: var(--dark-shade-grey-20);
+}
+.sidebarList ul li.submenu {
+  padding: 0.3rem 0.2rem;
+}
+
+.sidebarList ul li .submenuTitle {
+  position: relative;
+  display: block;
+  font-weight: 500;
+  color: var(--dark-shade-grey-30);
+  cursor: pointer;
+  padding: 0.3rem 0.3rem 0.3rem 2.3rem;
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebarList ul li .submenuTitle:hover {
+  color: var(--dark-shade-grey-20);
+  background: var(--dark-shade-grey-95);
+}
+
+.sidebarList ul li .submenuTitle:before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  top: 8px;
+  left: 10px;
+  right: auto;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid var(--dark-shade-light-70);
+}
+.sidebarList ul li.active .submenuTitle:before {
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid var(--dark-shade-light-70);
+  top: 12px;
+  left: 10px;
+}
+
+.sidebarList ul li.submenu.active .submenuItems {
+  height: auto;
+  max-height: 9999px;
+  padding-top: 0.5rem;
+}
+
+.sidebarList ul li.submenu .submenuItems {
+  max-height: 0;
+  overflow: hidden;
+}
+.sidebarList ul li .submenuItems a {
+  position: relative;
+  border-style: solid;
+  border-width: 2px;
+  border-color: transparent;
+  line-height: 1.2;
+  font-weight: normal;
+  text-align: start;
+  white-space: break-spaces;
+  color: var(--blue-500);
+  text-transform: unset;
+  height: unset;
+  display: inline-block;
+  width: calc(100% - 45px);
+}
+.sidebarList ul li .submenuItems a:focus,
+.sidebarList ul li .submenuItems a:active {
+  border-style: solid;
+}
+.sidebarList ul li .submenuItems li.active a {
+  font-weight: 500;
+}
+
+.sidebarList ul li :global(.method-tag) {
+  color: var(--white);
+  font-size: 9px;
+  width: 38px;
+  height: max-content;
+  padding: 0.3rem 0.3rem;
+  border-radius: 3px;
+  font-weight: 600;
+  font-family: monospace;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+}
+.sidebarList ul li a:before {
+  color: var(--white);
+  font-size: 9px;
+  padding: 0.28rem 0.1rem;
+  position: absolute;
+  top: 2px;
+  left: 1rem;
+  border-radius: 3px;
+  font-weight: 600;
+  width: 38px;
+  display: inline-block;
+  text-align: center;
+  font-family: monospace;
+  margin-right: 5px;
+}
+.sidebarList ul li.method {
+  display: flex;
+  align-items: center;
+}
+.sidebarList ul li.method div:global(.method-button-wrapper) {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.methodButtonWrapper {
+  display: flex ;
+}
+
+/* colors below should match kong-portal-templates colors for summary methods */
+
+.sidebarList ul li :global(.method-post):before {
+  background-color: var(--green-500);
+  color: var(--white);
+}
+.sidebarList ul li :global(.method-put):before {
+  background-color: var(--yellow-400);
+  color: var(--black-400) !important;
+}
+.sidebarList ul li :global(.method-get):before {
+  background: var(--blue-500);
+}
+.sidebarList ul li :global(.method-delete):before {
+  background-color: var(--red-600);
+}
+.sidebarList ul li :global(.method-patch):before {
+  background-color: var(--green-300);
+  color: var(--black-400) !important;
+}
+.sidebarList ul li :global(.method-head):before {
+  background: var(--purple-background-color);
+}
+.sidebarList ul li :global(.method-options):before {
+  background: var(--blue-background-color);
+}
+
+.sidebarList ul li :global(.method-tag-post) {
+  background-color: var(--green-400);
+  color: var(--black-70);
+}
+.sidebarList ul li :global(.method-tag-put) {
+  background-color: var(--yellow-400);
+  color: var(--black-400);
+}
+.sidebarList ul li :global(.method-tag-get) {
+  background: var(--blue-500);
+}
+.sidebarList ul li :global(.method-tag-delete) {
+  background-color: var(--red-600);
+}
+.sidebarList ul li :global(.method-tag-patch) {
+  background-color: var(--green-200);
+  color: var(--black-500);
+}
+.sidebarList ul li :global(.method-tag-deprecated) {
+  background-color: var(--steel-600);
+  color: var(--black-100);
+}
+.sidebarList ul li :global(.method-tag-head) {
+  background-color: var(--purple-background-color);
+}
+.sidebarList ul li :global(.method-tag-trace) {
+  background-color: var(--purple-background-color);
+}
+.sidebarList ul li :global(.method-tag-options) {
+  background-color: var(--blue-background-color);
+}

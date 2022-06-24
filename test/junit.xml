@@ -1,29 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="12" failures="0" errors="0" time="2.321">
-  <testsuite name="&lt;SideBar/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-24T12:18:28" time="1.665" tests="12">
-    <testcase classname="&lt;SideBar/&gt; was rendered" name="&lt;SideBar/&gt; was rendered" time="0.02">
+<testsuites name="jest tests" tests="34" failures="2" errors="0" time="0.914">
+  <testsuite name="&lt;HighlightCode/&gt;" errors="0" failures="0" skipped="1" timestamp="2022-06-24T21:31:06" time="0.281" tests="9">
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: false has no content" name="&lt;HighlightCode/&gt; downloadable: false has no content" time="0.012">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; has className sidebar-toggle" name="&lt;SideBar/&gt; has className sidebar-toggle" time="0.006">
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has been rendered" name="&lt;HighlightCode/&gt; downloadable: true has been rendered" time="0.025">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; has a role button" name="&lt;SideBar/&gt; has a role button" time="0.043">
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has a button text" name="&lt;HighlightCode/&gt; downloadable: true has a button text" time="0.006">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; has `Open Sidebar` title" name="&lt;SideBar/&gt; has `Open Sidebar` title" time="0.019">
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has classname `download-contents`" name="&lt;HighlightCode/&gt; downloadable: true has classname `download-contents`" time="0.006">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens" name="&lt;SideBar/&gt; can be clicked: sidebar opens" time="0.052">
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has aria label: `download contents`" name="&lt;HighlightCode/&gt; downloadable: true has aria label: `download contents`" time="0.005">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; has `overlay open` classname" name="&lt;SideBar/&gt; has `overlay open` classname" time="0.022">
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true fires action on btn click" name="&lt;HighlightCode/&gt; downloadable: true fires action on btn click" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; has `overlay close` classname" name="&lt;SideBar/&gt; has `overlay close` classname" time="0.003">
+    <testcase classname="&lt;HighlightCode/&gt; `pre` element was rendered" name="&lt;HighlightCode/&gt; `pre` element was rendered" time="0.001">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" name="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" time="0.064">
+    <testcase classname="&lt;HighlightCode/&gt; `pre` element has default text value displayed" name="&lt;HighlightCode/&gt; `pre` element has default text value displayed" time="0.002">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" name="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" time="0.046">
+    <testcase classname="&lt;HighlightCode/&gt; `pre` element has correct classname" name="&lt;HighlightCode/&gt; `pre` element has correct classname" time="0.003">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; on `Space` press opens sidebar" name="&lt;SideBar/&gt; on `Space` press opens sidebar" time="0.013">
+  </testsuite>
+  <testsuite name="&lt;ContentType/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-24T21:31:07" time="0.159" tests="7">
+    <testcase classname="&lt;ContentType/&gt; was rendered" name="&lt;ContentType/&gt; was rendered" time="0.014">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; on `Enter` press close sidebar" name="&lt;SideBar/&gt; on `Enter` press close sidebar" time="0.011">
+    <testcase classname="&lt;ContentType/&gt; has default classname &amp; passed classname" name="&lt;ContentType/&gt; has default classname &amp; passed classname" time="0.001">
     </testcase>
-    <testcase classname="&lt;SideBar/&gt; on `Return` press close sidebar" name="&lt;SideBar/&gt; on `Return` press close sidebar" time="0.012">
+    <testcase classname="&lt;ContentType/&gt; has passed aria-label" name="&lt;ContentType/&gt; has passed aria-label" time="0.002">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; has a select element " name="&lt;ContentType/&gt; has a select element " time="0.007">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; select element has preselected value" name="&lt;ContentType/&gt; select element has preselected value" time="0.012">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; select element can show more values" name="&lt;ContentType/&gt; select element can show more values" time="0.018">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; select element can change value" name="&lt;ContentType/&gt; select element can change value" time="0.009">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;TryItOutButton/&gt;" errors="0" failures="0" skipped="6" timestamp="2022-06-24T21:31:07" time="0.094" tests="6">
+    <testcase classname="&lt;TryItOutButton/&gt; enabled: false was rendered" name="&lt;TryItOutButton/&gt; enabled: false was rendered" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; enabled: false has an aria label text: `Try sending an example request`" name="&lt;TryItOutButton/&gt; enabled: false has an aria label text: `Try sending an example request`" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; enabled: false tryOutButton functionality" name="&lt;TryItOutButton/&gt; enabled: false tryOutButton functionality" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; `enabled: true` was rendered" name="&lt;TryItOutButton/&gt; `enabled: true` was rendered" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; `enabled: true` has an aria label text: `Cancel sending an example request`" name="&lt;TryItOutButton/&gt; `enabled: true` has an aria label text: `Cancel sending an example request`" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; `enabled: true` tryOutButton functionality" name="&lt;TryItOutButton/&gt; `enabled: true` tryOutButton functionality" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;SideBar/&gt;" errors="0" failures="2" skipped="0" timestamp="2022-06-24T21:31:07" time="0.192" tests="12">
+    <testcase classname="&lt;SideBar/&gt; was rendered" name="&lt;SideBar/&gt; was rendered" time="0.007">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has className sidebar-toggle" name="&lt;SideBar/&gt; has className sidebar-toggle" time="0.003">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 1
+Received: 0
+    at Object.toBe (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/test/unit/common/components/Sidebar/Sidebar.test.js:32:31)
+    at Promise.then.completed (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/utils.js:259:10)
+    at _callCircusTest (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:277:40)
+    at _runTest (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:209:3)
+    at _runTestsForDescribeBlock (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:97:9)
+    at _runTestsForDescribeBlock (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:91:9)
+    at run (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:31:3)
+    at runAndTransformResultsToJestFormat (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:135:21)
+    at jestAdapter (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:92:19)
+    at runTestInternal (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-runner/build/runTest.js:411:16)
+    at runTest (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-runner/build/runTest.js:499:34)</failure>
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has a role button" name="&lt;SideBar/&gt; has a role button" time="0.005">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has `Open Sidebar` title" name="&lt;SideBar/&gt; has `Open Sidebar` title" time="0.003">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens" name="&lt;SideBar/&gt; can be clicked: sidebar opens" time="0.016">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has `overlay open` classname" name="&lt;SideBar/&gt; has `overlay open` classname" time="0.01">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has `overlay close` classname" name="&lt;SideBar/&gt; has `overlay close` classname" time="0.002">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 1
+Received: 0
+    at Object.toBe (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/test/unit/common/components/Sidebar/Sidebar.test.js:65:31)
+    at Promise.then.completed (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/utils.js:259:10)
+    at _callCircusTest (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:277:40)
+    at _runTest (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:209:3)
+    at _runTestsForDescribeBlock (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:97:9)
+    at _runTestsForDescribeBlock (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:91:9)
+    at run (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:31:3)
+    at runAndTransformResultsToJestFormat (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:135:21)
+    at jestAdapter (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:92:19)
+    at runTestInternal (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-runner/build/runTest.js:411:16)
+    at runTest (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-runner/build/runTest.js:499:34)</failure>
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" name="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" time="0.017">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" name="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" time="0.01">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; on `Space` press opens sidebar" name="&lt;SideBar/&gt; on `Space` press opens sidebar" time="0.004">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; on `Enter` press close sidebar" name="&lt;SideBar/&gt; on `Enter` press close sidebar" time="0.004">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; on `Return` press close sidebar" name="&lt;SideBar/&gt; on `Return` press close sidebar" time="0.004">
     </testcase>
   </testsuite>
 </testsuites>

@@ -1,21 +1,24 @@
-import React from 'react'
-import KongLayout from './components/Layout'
-import AugmentingInfo from './components/AugmentingInfo.js'
-import AugmentingResponses from './components/AugmentingResponses'
-import AugmentingOperation from './components/AugmentingOperation.js'
-import Sidebar from './components/Sidebar'
-import SidebarList from './components/SidebarList'
-import ContentType from './components/ContentType'
-import ExamplesSelect from './components/ExamplesSelect'
-import Models from './components/Models'
-import ModelCollapse from './components/ModelCollapse'
-import OperationTag from './components/OperationTag'
-import FilterContainer from './containers/Filter'
-import Operations from './components/Operations'
-import ModelExample from './components/ModelExample'
-import ModelWrapper from './components/ModelWrapper'
-import HighlightCode from './components/HighlightCode'
-import TryItOutButton from './components/TryItOutButton'
+import React from "react";
+import KongLayout from "./components/Layout";
+import Sidebar from "./components/Sidebar";
+import SidebarList from "./components/SidebarList";
+import ContentType from "./components/ContentType";
+import ExamplesSelect from "./components/ExamplesSelect";
+import Models from "./components/Models";
+import ModelCollapse from "./components/ModelCollapse";
+import OperationTag from "./components/OperationTag";
+import FilterContainer from "./containers/Filter";
+import Operations from "./components/Operations";
+import ModelExample from "./components/ModelExample";
+import ModelWrapper from "./components/ModelWrapper";
+import HighlightCode from "./components/HighlightCode";
+import TryItOutButton from "./components/TryItOutButton";
+
+import infoWrapper from "./components/AugmentingInfo";
+import operationWrapper from "./components/AugmentingOperation";
+import responsesWrapper from "./components/AugmentingResponses";
+
+import './styles.css';
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
@@ -35,34 +38,14 @@ const SwaggerUIKongTheme = (system) => {
       modelExample: ModelExample,
       ModelWrapper: ModelWrapper,
       highlightCode: HighlightCode,
-      TryItOutButton: TryItOutButton
+      TryItOutButton: TryItOutButton,
     },
     wrapComponents: {
-      responses: (Original, system) => (props) => {
-        return (
-          <div className="right-side-wrapper">
-            <AugmentingResponses {...props} system={system} />
-            <Original { ...props} />
-          </div>
-        )
-      },
-      operation : (Original, system) => (props) => {
-        return (
-          <div className='operations-augment-wrapper'>
-            <AugmentingOperation {...props} system={system} />
-            <Original { ...props}  />
-          </div>
-        )
-      },
-      info : (Original, system) => (props) => {
-        return (
-          <div className='info-augment-wrapper'>
-            <AugmentingInfo {...props} system={system} />
-          </div>
-        )
-      }
-    }
-  }
-}
+      responses: responsesWrapper,
+      operation: operationWrapper,
+      info: infoWrapper,
+    },
+  };
+};
 
-export { SwaggerUIKongTheme, KongLayout }
+export { SwaggerUIKongTheme, KongLayout };

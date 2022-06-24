@@ -16,18 +16,10 @@ export default function ModelCollapse({
   children,
 }) {
   const [expandedState, setExpanded] = useState(expanded);
+
   const [collapsedContentState] = useState(
     collapsedContent || ModelCollapse.defaultProps.collapsedContent
   );
-
-  useEffect(() => {
-    if (hideSelfOnExpand && expanded) {
-      // We just mounted pre-expanded, and we won't be going back..
-      // So let's give our parent an `onToggle` call..
-      // Since otherwise it will never be called.
-      onToggle(modelName, expanded);
-    }
-  }, [hideSelfOnExpand, expanded, modelName, onToggle]);
 
   useEffect(() => {
     setExpanded(expanded);
@@ -44,7 +36,7 @@ export default function ModelCollapse({
 
   const toggleCollapsed = () => {
     if (onToggle) {
-      onToggle(modelName, expandedState);
+      onToggle(modelName, !expandedState);
     }
 
     setExpanded((prev) => !prev);
