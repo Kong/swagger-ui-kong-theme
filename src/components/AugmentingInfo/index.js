@@ -1,6 +1,9 @@
 import React from "react";
-import { sanitizeUrl } from "../helpers/helpers";
 import { fromJS } from "immutable";
+
+import { sanitizeUrl } from "../../helpers/helpers";
+
+import styles from './styles.module.css';
 
 const EyeSVG = () => (
   <svg
@@ -90,7 +93,7 @@ const ViewSpec = () => {
   };
 
   return (
-    <button onClick={handleVieViewSpec}>
+    <button disabled={!window.onViewSpecClick} onClick={handleVieViewSpec}>
       <>
         <EyeSVG />
         View Raw
@@ -99,7 +102,7 @@ const ViewSpec = () => {
   );
 };
 
-const Info = (props) => {
+export const AugmentingInfo = (props) => {
   const { info, url, basePath, host, getComponent, externalDocs } = props;
   const version = info.get("version");
   const description = info.get("description");
@@ -154,4 +157,12 @@ const Info = (props) => {
   );
 };
 
-export default Info;
+const infoWrapper = (Original, system) => (props) => {
+  return (
+    <div className={styles.infoAugmentWrapper}>
+      <AugmentingInfo {...props} system={system} />
+    </div>
+  );
+};
+
+export default infoWrapper;

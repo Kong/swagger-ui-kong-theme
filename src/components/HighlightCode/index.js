@@ -2,21 +2,21 @@
  * Original file: https://github.com/Kong/swagger-ui/blob/main/src/core/components/highlight-code.jsx
  * @prettier
  */
-import { highlight } from "../helpers/helpers";
+import { highlight } from "../../helpers/helpers";
 import saveAs from "js-file-download";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function HighlightCode({
-                                        value,
-                                        className,
-                                        fileName,
-                                        downloadable,
-                                      }) {
+  value,
+  className,
+  fileName,
+  downloadable,
+}) {
   const el = useRef();
 
   useEffect(() => {
-    highlight(el);
-  }, [el]);
+    highlight(el.current);
+  }, [el.current]);
 
   const downloadText = () => {
     saveAs(value, fileName || "response.txt");
@@ -42,25 +42,25 @@ export default function HighlightCode({
   };
 
   return (
-      <div className="highlight-code" tabIndex={0}>
-        {!downloadable ? null : (
-            <div
-                role="button"
-                aria-label="download contents"
-                className="download-contents"
-                onClick={downloadText}
-            >
-              Download
-            </div>
-        )}
-        <pre
-            ref={el}
-            onWheel={preventYScrollingBeyondElement}
-            className={(className || "") + " microlight"}
-            tabIndex="0"
+    <div className="highlight-code" tabIndex={0}>
+      {!downloadable ? null : (
+        <div
+          role="button"
+          aria-label="download contents"
+          className="download-contents"
+          onClick={downloadText}
         >
+          Download
+        </div>
+      )}
+      <pre
+        ref={el}
+        onWheel={preventYScrollingBeyondElement}
+        className={(className || "") + " microlight"}
+        tabIndex="0"
+      >
         {value}
       </pre>
-      </div>
+    </div>
   );
 }
