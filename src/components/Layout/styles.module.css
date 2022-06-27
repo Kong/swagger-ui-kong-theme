@@ -1,3 +1,9 @@
+:global(.swagger-ui) .registerWrapper button {
+  background-color: var(--register-button-background-color);
+  color: var(--register-button-color);
+  border-color: var(--register-button-border-color);
+}
+
 @media all and (max-width: 1200px) {
   :global(.swagger-ui).hasSidebar {
     margin-top: 40px;

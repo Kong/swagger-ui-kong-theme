@@ -33,10 +33,10 @@
 }
 
 .infoAugmentWrapper :global(.main) :global(.header) button {
-  border: 1px solid var(--white-rgb-224);
-  background-color: var(--white-rgb-250);
-  border-radius: 3px;
-  font-size: 16px;
-  font-weight: normal;
-  padding: 0 12px;
+  border: var(--view-raw-button-border);
+  background-color:var(--view-raw-button-background-color);
+  border-radius: var(--view-raw-button-border-radius);
+  font-size: var(--view-raw-button-font-size);
+  font-weight: var(--view-raw-button-font-weight);
+  padding:  var(--view-raw-button-padding);
 }
