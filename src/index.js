@@ -18,7 +18,8 @@ import infoWrapper from "./components/AugmentingInfo";
 import operationWrapper from "./components/AugmentingOperation";
 import responsesWrapper from "./components/AugmentingResponses";
 
-import './styles.css';
+import './styles/variables.css'
+import './styles/main.css';
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {

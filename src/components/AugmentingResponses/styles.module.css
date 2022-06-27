@@ -16,73 +16,6 @@
     margin-right: 64px;
   }
 }
-
-.rightSideWrapper pre span.token.cdata,
-.rightSideWrapper pre span.token.comment,
-.rightSideWrapper pre span.token.doctype,
-.rightSideWrapper pre span.token.prolog {
-  color: #6272a4 !important;
-}
-.rightSideWrapper pre span.token.punctuation {
-  color: #f8f8f2 !important;
-}
-.rightSideWrapper pre span.namespace {
-  opacity: 0.7 !important;
-}
-.rightSideWrapper pre span.token.constant,
-.rightSideWrapper pre span.token.deleted,
-.rightSideWrapper pre span.token.property,
-.rightSideWrapper pre span.token.symbol,
-.rightSideWrapper pre span.token.tag {
-  color: #ff79c6 !important;
-}
-
-.rightSideWrapper pre span.token.boolean,
-.rightSideWrapper pre span.token.number {
-  color: #bd93f9 !important;
-}
-
-.rightSideWrapper pre span.token.attr-name,
-.rightSideWrapper pre span.token.builtin,
-.rightSideWrapper pre span.token.char,
-.rightSideWrapper pre span.token.inserted,
-.rightSideWrapper pre span.token.selector,
-.rightSideWrapper pre span.token.string {
-  color: #50fa7b !important;
-}
-
-.rightSideWrapper pre.language-css span.token.string,
-.rightSideWrapper pre.style span.token.string,
-.rightSideWrapper pre span.token.entity,
-.rightSideWrapper pre span.token.operator,
-.rightSideWrapper pre span.token.url,
-.rightSideWrapper pre span.token.variable {
-  color: #f8f8f2 !important;
-}
-.rightSideWrapper pre span.token.atrule,
-.rightSideWrapper pre span.token.attr-value,
-.rightSideWrapper pre span.token.class-name,
-.rightSideWrapper pre span.token.function {
-  color: #f1fa8c !important;
-}
-.rightSideWrapper pre span.token.keyword {
-  color: #8be9fd !important;
-}
-.rightSideWrapper pre span.token.important,
-.rightSideWrapper pre span.token.regex {
-  color: #ffb86c !important;
-}
-.rightSideWrapper pre span.token.bold,
-.rightSideWrapper pre span.token.important {
-  font-weight: 700 !important;
-}
-.rightSideWrapper pre span.token.italic {
-  font-style: italic !important;
-}
-.rightSideWrapper pre span.token.entity {
-  cursor: help !important;
-}
-
 .codeSnippet {
   margin: 0 0 34px 0;
   position: relative;
@@ -170,4 +103,69 @@
   padding: 0 0.5em;
   margin-right: 0.5em;
   color: #888;
+}
+
+.codeSnippet pre span:global(.token).cdata,
+.codeSnippet pre span:global(.token):global(.comment),
+.codeSnippet pre span:global(.token):global(.doctype),
+.codeSnippet pre span:global(.token):global(.prolog) {
+  color: #6272a4 !important;
+}
+.codeSnippet pre span:global(.token):global(.punctuation) {
+  color: #f8f8f2 !important;
+}
+.codeSnippet pre span:global(.namespace) {
+  opacity: 0.7 !important;
+}
+.codeSnippet pre span:global(.token):global(.constant),
+.codeSnippet pre span:global(.token):global(.deleted),
+.codeSnippet pre span:global(.token):global(.property),
+.codeSnippet pre span:global(.token):global(.symbol),
+.codeSnippet pre span:global(.token):global(.tag) {
+  color: #ff79c6 !important;
+}
+
+.codeSnippet pre span:global(.token):global(.boolean),
+.codeSnippet pre span:global(.token):global(.number) {
+  color: #bd93f9 !important;
+}
+
+.codeSnippet pre span:global(.token):global(.attr-name),
+.codeSnippet pre span:global(.token):global(.builtin),
+.codeSnippet pre span:global(.token):global(.char),
+.codeSnippet pre span:global(.token):global(.inserted),
+.codeSnippet pre span:global(.token):global(.select) {
+  color: #50fa7b !important;
+}
+
+.codeSnippet pre.language-css span:global(.token):global(.string),
+.codeSnippet pre.style span:global(.token):global(.string),
+.codeSnippet pre span:global(.token):global(.entity),
+.codeSnippet pre span:global(.token):global(.operator),
+.codeSnippet pre span:global(.token):global(.url),
+.codeSnippet pre span:global(.token):global(.variable) {
+  color: #f8f8f2 !important;
+}
+.codeSnippet pre span:global(.token):global(.atrule),
+.codeSnippet pre span:global(.token):global(.attr-value),
+.codeSnippet pre span:global(.token):global(.class-name),
+.codeSnippet pre span:global(.token):global(.function) {
+  color: #f1fa8c !important;
+}
+.codeSnippet pre span:global(.token):global(.keyword) {
+  color: #8be9fd !important;
+}
+.codeSnippet pre span:global(.token):global(.important),
+.codeSnippet pre span:global(.token):global(.regex) {
+  color: #ffb86c !important;
+}
+.codeSnippet pre span:global(.token):global(.bold),
+.codeSnippet pre span:global(.token):global(.important) {
+  font-weight: 700 !important;
+}
+.codeSnippet pre span:global(.token):global(.italic) {
+  font-style: italic !important;
+}
+.codeSnippet pre span:global(.token):global(.entity) {
+  cursor: help !important;
 }
