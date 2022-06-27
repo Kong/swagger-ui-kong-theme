@@ -1,69 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="31" failures="0" errors="0" time="0.71">
-  <testsuite name="&lt;AugmentingInfo/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-24T22:01:52" time="0.382" tests="19">
-    <testcase classname="&lt;AugmentingInfo/&gt; was rendered" name="&lt;AugmentingInfo/&gt; was rendered" time="0.015">
+<testsuites name="jest tests" tests="6" failures="0" errors="0" time="2.42">
+  <testsuite name="&lt;ExamplesSelect/&gt;" errors="0" failures="0" skipped="2" timestamp="2022-06-27T16:49:23" time="1.549" tests="6">
+    <testcase classname="&lt;ExamplesSelect/&gt; was rendered" name="&lt;ExamplesSelect/&gt; was rendered" time="0.022">
     </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; has className `info`" name="&lt;AugmentingInfo/&gt; has className `info`" time="0.005">
+    <testcase classname="&lt;ExamplesSelect/&gt; has default classname `examples-select`" name="&lt;ExamplesSelect/&gt; has default classname `examples-select`" time="0.006">
     </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; has className `main`" name="&lt;AugmentingInfo/&gt; has className `main`" time="0.003">
+    <testcase classname="&lt;ExamplesSelect/&gt; has `labels` shown showLabels section has classname" name="&lt;ExamplesSelect/&gt; has `labels` shown showLabels section has classname" time="0.003">
     </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; has className `header`" name="&lt;AugmentingInfo/&gt; has className `header`" time="0.002">
+    <testcase classname="&lt;ExamplesSelect/&gt; no labels content" name="&lt;ExamplesSelect/&gt; no labels content" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; has className `title`" name="&lt;AugmentingInfo/&gt; has className `title`" time="0.002">
+    <testcase classname="&lt;ExamplesSelect/&gt; has select component with option `__MODIFIED_VALUE__`" name="&lt;ExamplesSelect/&gt; has select component with option `__MODIFIED_VALUE__`" time="0.018">
     </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `title` prop is passed" name="&lt;AugmentingInfo/&gt; `title` prop is passed" time="0.008">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `Version Stamp` component rendered" name="&lt;AugmentingInfo/&gt; `Version Stamp` component rendered" time="0.003">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `ViewSpec` component is rendered" name="&lt;AugmentingInfo/&gt; `ViewSpec` component is rendered" time="0.003">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; has `host path` element" name="&lt;AugmentingInfo/&gt; has `host path` element" time="0.002">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered has `url` text" name="&lt;AugmentingInfo/&gt; `url` section rendered has `url` text" time="0.003">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered has `a href` link" name="&lt;AugmentingInfo/&gt; `url` section rendered has `a href` link" time="0.002">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section it has `description` classname" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section it has `description` classname" time="0.003">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section has `Markdown` component rendered" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section has `Markdown` component rendered" time="0.002">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `terms of service` section contains text `Terms of service`" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `terms of service` section contains text `Terms of service`" time="0.002">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `terms of service` section contains `href`" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `terms of service` section contains `href`" time="0.001">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section has rendered `contact` section" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section has rendered `contact` section" time="0.002">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section has rendered `licence` section" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section has rendered `licence` section" time="0.003">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `externalDocsUrl` section has externalDocs rendered" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `externalDocsUrl` section has externalDocs rendered" time="0.002">
-    </testcase>
-    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `externalDocsUrl` section has `href` link" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `externalDocsUrl` section has `href` link" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="&lt;SideBar/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-24T22:01:52" time="0.43" tests="12">
-    <testcase classname="&lt;SideBar/&gt; was rendered" name="&lt;SideBar/&gt; was rendered" time="0.011">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; has className sidebar-toggle" name="&lt;SideBar/&gt; has className sidebar-toggle" time="0.003">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; has a role button" name="&lt;SideBar/&gt; has a role button" time="0.02">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; has `Open Sidebar` title" name="&lt;SideBar/&gt; has `Open Sidebar` title" time="0.007">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens" name="&lt;SideBar/&gt; can be clicked: sidebar opens" time="0.021">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; has `overlay open` classname" name="&lt;SideBar/&gt; has `overlay open` classname" time="0.011">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; has `overlay close` classname" name="&lt;SideBar/&gt; has `overlay close` classname" time="0.001">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" name="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" time="0.017">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" name="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" time="0.01">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; on `Space` press opens sidebar" name="&lt;SideBar/&gt; on `Space` press opens sidebar" time="0.004">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; on `Enter` press close sidebar" name="&lt;SideBar/&gt; on `Enter` press close sidebar" time="0.004">
-    </testcase>
-    <testcase classname="&lt;SideBar/&gt; on `Return` press close sidebar" name="&lt;SideBar/&gt; on `Return` press close sidebar" time="0.005">
+    <testcase classname="&lt;ExamplesSelect/&gt; select option has rendered values... " name="&lt;ExamplesSelect/&gt; select option has rendered values... " time="0">
+      <skipped/>
     </testcase>
   </testsuite>
 </testsuites>
