@@ -20,8 +20,6 @@ import OperationWrapper from "./components/AugmentingOperation";
 import ResponsesWrapper from "./components/AugmentingResponses";
 import Fallback from "./components/ErrorBoundary/fallback";
 
-import "./styles.css";
-
 import './styles.css';
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
