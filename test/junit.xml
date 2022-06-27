@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="3" failures="1" errors="0" time="1.211">
-  <testsuite name="&lt;Models /&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-08T21:01:09" time="0.737" tests="1">
+<testsuites name="jest tests" tests="3" failures="1" errors="0" time="1.142">
+  <testsuite name="&lt;Models /&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-08T21:03:34" time="0.728" tests="1">
     <testcase classname="&lt;Models /&gt; was rendered" name="&lt;Models /&gt; was rendered" time="0.008">
     </testcase>
   </testsuite>
-  <testsuite name="&lt;OperationsTag/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-08T21:01:09" time="0.797" tests="1">
-    <testcase classname="&lt;OperationsTag/&gt; was rendered" name="&lt;OperationsTag/&gt; was rendered" time="0.017">
+  <testsuite name="&lt;OperationsTag/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-08T21:03:34" time="0.768" tests="1">
+    <testcase classname="&lt;OperationsTag/&gt; was rendered" name="&lt;OperationsTag/&gt; was rendered" time="0.013">
     </testcase>
   </testsuite>
-  <testsuite name="&lt;Operations/&gt;" errors="0" failures="1" skipped="0" timestamp="2022-07-08T21:01:09" time="0.84" tests="1">
-    <testcase classname="&lt;Operations/&gt; was rendered" name="&lt;Operations/&gt; was rendered" time="0.063">
+  <testsuite name="&lt;Operations/&gt;" errors="0" failures="1" skipped="0" timestamp="2022-07-08T21:03:34" time="0.778" tests="1">
+    <testcase classname="&lt;Operations/&gt; was rendered" name="&lt;Operations/&gt; was rendered" time="0.046">
       <failure>TypeError: taggedOps.map(...).toArray is not a function
     at toArray (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/src/components/Operations/index.js:90:14)
     at renderWithHooks (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
