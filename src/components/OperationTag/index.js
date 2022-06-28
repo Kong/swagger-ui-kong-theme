@@ -43,7 +43,7 @@ const OperationTag = (props) => {
     "externalDocs",
     "description",
   ]);
-  let tagExternalDocsUrl = tagObj.getIn(["tagDetails", "externalDocs", "url"]);
+  let tagExternalDocsUrl = tagObj?.getIn(["tagDetails", "externalDocs", "url"], null);
 
   let isShownKey = ["operations-tag", tag];
   let showTag = layoutSelectors.isShown(

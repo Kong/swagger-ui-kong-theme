@@ -43,7 +43,7 @@ const Operations = (props) => {
   return (
       <div>
         {
-          taggedOps.map((tagObj, tag) => {
+          taggedOps.length > 0 && taggedOps.map((tagObj, tag) => {
             const operations = tagObj.get("operations")
             return (
                 <OperationTag
