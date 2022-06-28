@@ -1,19 +1,554 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="6" failures="0" errors="0" time="2.42">
-  <testsuite name="&lt;ExamplesSelect/&gt;" errors="0" failures="0" skipped="2" timestamp="2022-06-27T16:49:23" time="1.549" tests="6">
-    <testcase classname="&lt;ExamplesSelect/&gt; was rendered" name="&lt;ExamplesSelect/&gt; was rendered" time="0.022">
+<testsuites name="jest tests" tests="63" failures="16" errors="0" time="10.285">
+  <testsuite name="&lt;TryItOutButton/&gt;" errors="0" failures="0" skipped="6" timestamp="2022-06-28T09:51:58" time="4.988" tests="6">
+    <testcase classname="&lt;TryItOutButton/&gt; enabled: false was rendered" name="&lt;TryItOutButton/&gt; enabled: false was rendered" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="&lt;ExamplesSelect/&gt; has default classname `examples-select`" name="&lt;ExamplesSelect/&gt; has default classname `examples-select`" time="0.006">
+    <testcase classname="&lt;TryItOutButton/&gt; enabled: false has an aria label text: `Try sending an example request`" name="&lt;TryItOutButton/&gt; enabled: false has an aria label text: `Try sending an example request`" time="0">
+      <skipped/>
     </testcase>
-    <testcase classname="&lt;ExamplesSelect/&gt; has `labels` shown showLabels section has classname" name="&lt;ExamplesSelect/&gt; has `labels` shown showLabels section has classname" time="0.003">
+    <testcase classname="&lt;TryItOutButton/&gt; enabled: false tryOutButton functionality" name="&lt;TryItOutButton/&gt; enabled: false tryOutButton functionality" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; `enabled: true` was rendered" name="&lt;TryItOutButton/&gt; `enabled: true` was rendered" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; `enabled: true` has an aria label text: `Cancel sending an example request`" name="&lt;TryItOutButton/&gt; `enabled: true` has an aria label text: `Cancel sending an example request`" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; `enabled: true` tryOutButton functionality" name="&lt;TryItOutButton/&gt; `enabled: true` tryOutButton functionality" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;Path/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-28T09:51:58" time="5.049" tests="3">
+    <testcase classname="&lt;Path/&gt; was rendered" name="&lt;Path/&gt; was rendered" time="0.072">
+    </testcase>
+    <testcase classname="&lt;Path/&gt; has default classname" name="&lt;Path/&gt; has default classname" time="0.015">
+    </testcase>
+    <testcase classname="&lt;Path/&gt; has `host` &amp; `basePath` property rendered" name="&lt;Path/&gt; has `host` &amp; `basePath` property rendered" time="0.04">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;Contact/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-28T09:51:58" time="5.084" tests="4">
+    <testcase classname="&lt;Contact/&gt; `url` property contains `url link`" name="&lt;Contact/&gt; `url` property contains `url link`" time="0.107">
+    </testcase>
+    <testcase classname="&lt;Contact/&gt; `url` property renders `url` href link " name="&lt;Contact/&gt; `url` property renders `url` href link " time="0.018">
+    </testcase>
+    <testcase classname="&lt;Contact/&gt; no `url` property no url link" name="&lt;Contact/&gt; no `url` property no url link" time="0.011">
+    </testcase>
+    <testcase classname="&lt;Contact/&gt; no `url` property renders `no url` href link " name="&lt;Contact/&gt; no `url` property renders `no url` href link " time="0.011">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;ExamplesSelect/&gt;" errors="0" failures="0" skipped="2" timestamp="2022-06-28T09:51:58" time="5.109" tests="6">
+    <testcase classname="&lt;ExamplesSelect/&gt; was rendered" name="&lt;ExamplesSelect/&gt; was rendered" time="0.093">
+    </testcase>
+    <testcase classname="&lt;ExamplesSelect/&gt; has default classname `examples-select`" name="&lt;ExamplesSelect/&gt; has default classname `examples-select`" time="0.02">
+    </testcase>
+    <testcase classname="&lt;ExamplesSelect/&gt; has `labels` shown showLabels section has classname" name="&lt;ExamplesSelect/&gt; has `labels` shown showLabels section has classname" time="0.015">
     </testcase>
     <testcase classname="&lt;ExamplesSelect/&gt; no labels content" name="&lt;ExamplesSelect/&gt; no labels content" time="0">
       <skipped/>
     </testcase>
-    <testcase classname="&lt;ExamplesSelect/&gt; has select component with option `__MODIFIED_VALUE__`" name="&lt;ExamplesSelect/&gt; has select component with option `__MODIFIED_VALUE__`" time="0.018">
+    <testcase classname="&lt;ExamplesSelect/&gt; has select component with option `__MODIFIED_VALUE__`" name="&lt;ExamplesSelect/&gt; has select component with option `__MODIFIED_VALUE__`" time="0.062">
     </testcase>
     <testcase classname="&lt;ExamplesSelect/&gt; select option has rendered values... " name="&lt;ExamplesSelect/&gt; select option has rendered values... " time="0">
       <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;Licence/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-28T09:51:58" time="5.194" tests="2">
+    <testcase classname="&lt;Licence/&gt; `url` property renders `url` href link " name="&lt;Licence/&gt; `url` property renders `url` href link " time="0.255">
+    </testcase>
+    <testcase classname="&lt;Licence/&gt; `no url` property renders `no url` href link " name="&lt;Licence/&gt; `no url` property renders `no url` href link " time="0.016">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;ContentType/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-28T09:51:58" time="5.525" tests="7">
+    <testcase classname="&lt;ContentType/&gt; was rendered" name="&lt;ContentType/&gt; was rendered" time="0.214">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; has default classname &amp; passed classname" name="&lt;ContentType/&gt; has default classname &amp; passed classname" time="0.019">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; has passed aria-label" name="&lt;ContentType/&gt; has passed aria-label" time="0.022">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; has a select element " name="&lt;ContentType/&gt; has a select element " time="0.07">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; select element has preselected value" name="&lt;ContentType/&gt; select element has preselected value" time="0.104">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; select element can show more values" name="&lt;ContentType/&gt; select element can show more values" time="0.077">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; select element can change value" name="&lt;ContentType/&gt; select element can change value" time="0.067">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;ViewSpec/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-28T09:51:58" time="5.221" tests="3">
+    <testcase classname="&lt;ViewSpec/&gt; was rendered" name="&lt;ViewSpec/&gt; was rendered" time="0.119">
+    </testcase>
+    <testcase classname="&lt;ViewSpec/&gt; has a button" name="&lt;ViewSpec/&gt; has a button" time="0.167">
+    </testcase>
+    <testcase classname="&lt;ViewSpec/&gt; has an svg" name="&lt;ViewSpec/&gt; has an svg" time="0.017">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;AugmentingOperation/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-28T09:51:58" time="5.201" tests="4">
+    <testcase classname="&lt;AugmentingOperation/&gt; was rendered" name="&lt;AugmentingOperation/&gt; was rendered" time="0.234">
+    </testcase>
+    <testcase classname="&lt;AugmentingOperation/&gt; has classname `operations-augment-wrapper`" name="&lt;AugmentingOperation/&gt; has classname `operations-augment-wrapper`" time="0.011">
+    </testcase>
+    <testcase classname="&lt;AugmentingOperation/&gt; Empty response &lt;AugmentingOperation was rendered" name="&lt;AugmentingOperation/&gt; Empty response &lt;AugmentingOperation was rendered" time="0.008">
+    </testcase>
+    <testcase classname="&lt;AugmentingOperation/&gt; Empty response &lt;AugmentingOperation has classname `empty`" name="&lt;AugmentingOperation/&gt; Empty response &lt;AugmentingOperation has classname `empty`" time="0.006">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;HighlightCode/&gt;" errors="0" failures="0" skipped="1" timestamp="2022-06-28T09:51:58" time="5.372" tests="9">
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: false has no content" name="&lt;HighlightCode/&gt; downloadable: false has no content" time="0.093">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has been rendered" name="&lt;HighlightCode/&gt; downloadable: true has been rendered" time="0.211">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has a button text" name="&lt;HighlightCode/&gt; downloadable: true has a button text" time="0.052">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has classname `download-contents`" name="&lt;HighlightCode/&gt; downloadable: true has classname `download-contents`" time="0.045">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has aria label: `download contents`" name="&lt;HighlightCode/&gt; downloadable: true has aria label: `download contents`" time="0.041">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true fires action on btn click" name="&lt;HighlightCode/&gt; downloadable: true fires action on btn click" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; `pre` element was rendered" name="&lt;HighlightCode/&gt; `pre` element was rendered" time="0.009">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; `pre` element has default text value displayed" name="&lt;HighlightCode/&gt; `pre` element has default text value displayed" time="0.012">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; `pre` element has correct classname" name="&lt;HighlightCode/&gt; `pre` element has correct classname" time="0.019">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;AugmentingInfo/&gt;" errors="0" failures="16" skipped="0" timestamp="2022-06-28T09:51:58" time="5.588" tests="19">
+    <testcase classname="&lt;AugmentingInfo/&gt; was rendered" name="&lt;AugmentingInfo/&gt; was rendered" time="0.246">
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; has className `info`" name="&lt;AugmentingInfo/&gt; has className `info`" time="0.015">
+      <failure>Error: expect(received).toEqual(expected) // deep equality
+
+Expected: 1
+Received: 0
+    at Object.toEqual (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:61:27)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; has className `main`" name="&lt;AugmentingInfo/&gt; has className `main`" time="0.008">
+      <failure>Error: expect(received).toEqual(expected) // deep equality
+
+Expected: 1
+Received: 0
+    at Object.toEqual (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:67:27)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; has className `header`" name="&lt;AugmentingInfo/&gt; has className `header`" time="0.005">
+      <failure>Error: expect(received).toEqual(expected) // deep equality
+
+Expected: 1
+Received: 0
+    at Object.toEqual (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:73:27)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; has className `title`" name="&lt;AugmentingInfo/&gt; has className `title`" time="0.007">
+      <failure>Error: expect(received).toEqual(expected) // deep equality
+
+Expected: 1
+Received: 0
+    at Object.toEqual (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:79:27)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `title` prop is passed" name="&lt;AugmentingInfo/&gt; `title` prop is passed" time="0.031">
+      <failure>TestingLibraryElementError: Unable to find an element with the text: MOCK_TITLE. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, &lt;script /&gt;, &lt;style /&gt;
+&lt;body&gt;
+  &lt;div /&gt;
+&lt;/body&gt;
+    at Object.getElementError (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\config.js:40:19)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:90:38
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:62:17
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:111:19
+    at Object.getByText (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:84:27)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `Version Stamp` component rendered" name="&lt;AugmentingInfo/&gt; `Version Stamp` component rendered" time="0.007">
+      <failure>TestingLibraryElementError: Unable to find an element with the text: Mocked Version Stamp Component. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, &lt;script /&gt;, &lt;style /&gt;
+&lt;body&gt;
+  &lt;div /&gt;
+&lt;/body&gt;
+    at Object.getElementError (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\config.js:40:19)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:90:38
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:62:17
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:111:19
+    at Object.getByText (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:90:27)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `ViewSpec` component is rendered" name="&lt;AugmentingInfo/&gt; `ViewSpec` component is rendered" time="0.007">
+      <failure>TestingLibraryElementError: Unable to find an element with the text: View Raw. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, &lt;script /&gt;, &lt;style /&gt;
+&lt;body&gt;
+  &lt;div /&gt;
+&lt;/body&gt;
+    at Object.getElementError (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\config.js:40:19)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:90:38
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:62:17
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:111:19
+    at Object.getByText (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:96:27)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; has `host path` element" name="&lt;AugmentingInfo/&gt; has `host path` element" time="0.006">
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered has `url` text" name="&lt;AugmentingInfo/&gt; `url` section rendered has `url` text" time="0.006">
+      <failure>TestingLibraryElementError: Unable to find an element with the text: MOCK_URL. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, &lt;script /&gt;, &lt;style /&gt;
+&lt;body&gt;
+  &lt;div /&gt;
+&lt;/body&gt;
+    at Object.getElementError (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\config.js:40:19)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:90:38
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:62:17
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:111:19
+    at Object.getByText (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:111:31)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered has `a href` link" name="&lt;AugmentingInfo/&gt; `url` section rendered has `a href` link" time="0.006">
+      <failure>TestingLibraryElementError: Unable to find an element with the text: MOCK_URL. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, &lt;script /&gt;, &lt;style /&gt;
+&lt;body&gt;
+  &lt;div /&gt;
+&lt;/body&gt;
+    at Object.getElementError (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\config.js:40:19)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:90:38
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:62:17
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:111:19
+    at Object.getByText (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:117:27)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section it has `description` classname" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section it has `description` classname" time="0.006">
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section has `Markdown` component rendered" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section has `Markdown` component rendered" time="0.006">
+      <failure>TestingLibraryElementError: Unable to find an element with the text: Mocked Markdown Component. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, &lt;script /&gt;, &lt;style /&gt;
+&lt;body&gt;
+  &lt;div /&gt;
+&lt;/body&gt;
+    at Object.getElementError (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\config.js:40:19)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:90:38
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:62:17
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:111:19
+    at Object.getByText (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:128:35)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `terms of service` section contains text `Terms of service`" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `terms of service` section contains text `Terms of service`" time="0.005">
+      <failure>TestingLibraryElementError: Unable to find an element with the text: Terms of service. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, &lt;script /&gt;, &lt;style /&gt;
+&lt;body&gt;
+  &lt;div /&gt;
+&lt;/body&gt;
+    at Object.getElementError (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\config.js:40:19)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:90:38
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:62:17
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:111:19
+    at Object.getByText (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:135:35)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `terms of service` section contains `href`" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `terms of service` section contains `href`" time="0.005">
+      <failure>TestingLibraryElementError: Unable to find an element with the text: Terms of service. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, &lt;script /&gt;, &lt;style /&gt;
+&lt;body&gt;
+  &lt;div /&gt;
+&lt;/body&gt;
+    at Object.getElementError (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\config.js:40:19)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:90:38
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:62:17
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:111:19
+    at Object.getByText (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:140:35)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section has rendered `contact` section" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section has rendered `contact` section" time="0.009">
+      <failure>TestingLibraryElementError: Unable to find an element with the text: MOCK_CONTACT - Website. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, &lt;script /&gt;, &lt;style /&gt;
+&lt;body&gt;
+  &lt;div /&gt;
+&lt;/body&gt;
+    at Object.getElementError (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\config.js:40:19)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:90:38
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:62:17
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:111:19
+    at Object.getByText (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:146:35)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section has rendered `licence` section" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section has rendered `licence` section" time="0.006">
+      <failure>TestingLibraryElementError: Unable to find an element with the text: MOCK_LICENCE. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, &lt;script /&gt;, &lt;style /&gt;
+&lt;body&gt;
+  &lt;div /&gt;
+&lt;/body&gt;
+    at Object.getElementError (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\config.js:40:19)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:90:38
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:62:17
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:111:19
+    at Object.getByText (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:152:35)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:209:3)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `externalDocsUrl` section has externalDocs rendered" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `externalDocsUrl` section has externalDocs rendered" time="0.004">
+      <failure>TestingLibraryElementError: Unable to find an element with the text: MOCK_externalDocsDescription. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, &lt;script /&gt;, &lt;style /&gt;
+&lt;body&gt;
+  &lt;div /&gt;
+&lt;/body&gt;
+    at Object.getElementError (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\config.js:40:19)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:90:38
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:62:17
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:111:19
+    at Object.getByText (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:160:33)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusHook (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:240:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:202:5)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `externalDocsUrl` section has `href` link" name="&lt;AugmentingInfo/&gt; `url` section rendered `description` section `externalDocsUrl` section has `href` link" time="0.004">
+      <failure>TestingLibraryElementError: Unable to find an element with the text: MOCK_externalDocsDescription. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, &lt;script /&gt;, &lt;style /&gt;
+&lt;body&gt;
+  &lt;div /&gt;
+&lt;/body&gt;
+    at Object.getElementError (C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\config.js:40:19)
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:90:38
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:62:17
+    at C:\Projects\swagger-ui-kong-theme\node_modules\@testing-library\dom\dist\query-helpers.js:111:19
+    at Object.getByText (C:\Projects\swagger-ui-kong-theme\test\unit\common\components\AugmentingInfo\AugmentingInfo.test.js:160:33)
+    at Promise.then.completed (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\utils.js:259:10)
+    at _callCircusHook (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:240:40)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at _runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:202:5)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:97:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at _runTestsForDescribeBlock (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:91:9)
+    at run (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\run.js:31:3)
+    at runAndTransformResultsToJestFormat (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:135:21)
+    at jestAdapter (C:\Projects\swagger-ui-kong-theme\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:92:19)
+    at runTestInternal (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:411:16)
+    at runTest (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\runTest.js:499:34)
+    at Object.worker (C:\Projects\swagger-ui-kong-theme\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
     </testcase>
   </testsuite>
 </testsuites>

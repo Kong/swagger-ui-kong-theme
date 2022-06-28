@@ -16,7 +16,7 @@ import TryItOutButton from "./components/TryItOutButton";
 
 import infoWrapper from "./components/AugmentingInfo";
 import OperationWrapper from "./components/AugmentingOperation";
-import responsesWrapper from "./components/AugmentingResponses";
+import ResponsesWrapper from "./components/AugmentingResponses";
 
 import './styles.css';
 
@@ -41,7 +41,7 @@ const SwaggerUIKongTheme = (system) => {
       TryItOutButton: TryItOutButton,
     },
     wrapComponents: {
-      responses: responsesWrapper,
+      responses: ResponsesWrapper,
       operation: OperationWrapper,
       info: infoWrapper,
     },
