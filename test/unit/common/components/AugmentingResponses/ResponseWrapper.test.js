@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react';
 import ResponsesWrapper from "components/AugmentingResponses";
 
 
-xdescribe('<ResponsesWrapper/>', () => {
+describe('<ResponsesWrapper/>', () => {
     const ResponseWrapperProps = {
         Original: jest.fn(() => (<div>ORIGINAL MOCK COMPONENT</div>)),
         system: jest.fn(() => {
@@ -23,7 +23,7 @@ xdescribe('<ResponsesWrapper/>', () => {
     //TODO: check classname getting
     xit('has className `rightSideWrapper`', () => {
         const container = renderComponent();
-        const classNames = container.getElementsByClassName('operations-augment-wrapper');
+        const classNames = container.getElementsByClassName('rightSideWrapper');
         expect(classNames).toEqual(1);
     });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import AugmentingResponses from "components/AugmentingResponses";
 
 describe('<AugmentingResponses />', () => {
@@ -47,5 +47,23 @@ describe('<AugmentingResponses />', () => {
     it('was rendered', () => {
        const container = renderComponent();
        expect(container).toBeInTheDocument();
+    });
+
+    xit('has a button `close`', () => {
+        renderComponent();
+        const el =  screen.getByRole('button');
+        expect(el).toBeTruthy();
+    });
+
+    xit('has info section', async () => {
+        renderComponent();
+        const el = await screen.findByText('Use \'Try it Out\' to see completed code snippet');
+        expect(el).toBeInTheDocument()
+    });
+
+    xit('has codeSnippetWidget', async () => {
+        renderComponent();
+        const el = await screen.findByText('javascript');
+        expect(el).toBeInTheDocument();
     });
 })

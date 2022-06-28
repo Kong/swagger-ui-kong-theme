@@ -26,12 +26,6 @@ describe('<SideBar/>', () => {
             expect(container).toBeInTheDocument();
         });
 
-        it('has className sidebar-toggle', () => {
-            const container = renderComponent();
-            const el = container.getElementsByClassName('sidebar-toggle');
-            expect(el.length).toBe(1);
-        });
-
         it('has a role button', () => {
             renderComponent();
             const btn = screen.getByRole('button');
@@ -51,19 +45,6 @@ describe('<SideBar/>', () => {
             const btnTitle = screen.getByText('Close Sidebar');
             expect(btnTitle).toBeVisible();
         });
-
-        it('has `overlay open` classname', async () => {
-            const container = renderComponent();
-            await user.click(screen.getByRole('button'));
-            const el = container.getElementsByClassName('overlay open');
-            expect(el.length).toBe(1);
-        });
-
-        it('has `overlay close` classname', () => {
-            const container = renderComponent();
-            const el = container.getElementsByClassName('overlay close')
-            expect(el.length).toBe(1);
-        })
 
         it('can be clicked: sidebar opens & closes', async () => {
             renderComponent();
