@@ -8,7 +8,7 @@ import {
   createDeepLinkPath,
   escapeDeepLinkPath,
   sanitizeUrl,
-} from "../../helpers/helpers";
+} from "helpers/helpers";
 
 const OperationTag = (props) => {
   const {
