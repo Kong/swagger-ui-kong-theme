@@ -13,10 +13,12 @@ import ModelExample from "./components/ModelExample";
 import ModelWrapper from "./components/ModelWrapper";
 import HighlightCode from "./components/HighlightCode";
 import TryItOutButton from "./components/TryItOutButton";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 import infoWrapper from "./components/AugmentingInfo";
 import operationWrapper from "./components/AugmentingOperation";
 import responsesWrapper from "./components/AugmentingResponses";
+import Fallback from './components/ErrorBoundary/fallback';
 
 import './styles.css';
 
@@ -39,6 +41,8 @@ const SwaggerUIKongTheme = (system) => {
       ModelWrapper: ModelWrapper,
       highlightCode: HighlightCode,
       TryItOutButton: TryItOutButton,
+      ErrorBoundary,
+      Fallback
     },
     wrapComponents: {
       responses: responsesWrapper,

@@ -95,6 +95,7 @@ const Operations = (props) => {
   )
 }
 
+Operations.displayName = "Operations"
 
 Operations.propTypes = {
   layoutActions: PropTypes.object.isRequired,
