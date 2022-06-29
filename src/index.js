@@ -12,19 +12,27 @@ import Operations from "./components/Operations";
 import ModelExample from "./components/ModelExample";
 import ModelWrapper from "./components/ModelWrapper";
 import HighlightCode from "./components/HighlightCode";
-import TryItOutButton from "./components/TryItOutButton";
+import TryItOutButton, { tryItOutWrapper } from "./components/TryItOutButton";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 import infoWrapper from "./components/AugmentingInfo";
 import operationWrapper from "./components/AugmentingOperation";
 import responsesWrapper from "./components/AugmentingResponses";
-import Fallback from './components/ErrorBoundary/fallback';
+import Fallback from "./components/ErrorBoundary/fallback";
 
-import './styles.css';
+import "./styles.css";
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
+  console.log(system.specSelectors.servers())
   return {
+    statePlugins: {
+      spec: {
+        wrapSelectors: {
+          allowTryItOutFor: () => () => false
+        }
+      }
+    },
     components: {
       curl: () => null,
       KongLayout: KongLayout,
@@ -42,12 +50,13 @@ const SwaggerUIKongTheme = (system) => {
       highlightCode: HighlightCode,
       TryItOutButton: TryItOutButton,
       ErrorBoundary,
-      Fallback
+      Fallback,
     },
     wrapComponents: {
       responses: responsesWrapper,
       operation: operationWrapper,
       info: infoWrapper,
+      TryItOutButton: tryItOutWrapper,
     },
   };
 };

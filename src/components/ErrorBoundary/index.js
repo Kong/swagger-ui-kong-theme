@@ -6,7 +6,6 @@ import Fallback from "./fallback"
 
 export class ErrorBoundary extends Component {
   static getDerivedStateFromError(error) {
-    console.log(error)
     return { hasError: true, error }
   }
 
@@ -16,7 +15,6 @@ export class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.log("info", errorInfo)
     this.props.fn.componentDidCatch(error, errorInfo)
   }
 
