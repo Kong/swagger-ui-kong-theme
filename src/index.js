@@ -12,7 +12,7 @@ import Operations from "./components/Operations";
 import ModelExample from "./components/ModelExample";
 import ModelWrapper from "./components/ModelWrapper";
 import HighlightCode from "./components/HighlightCode";
-import TryItOutButton from "./components/TryItOutButton";
+import TryItOutButton, { tryItOutWrapper } from "./components/TryItOutButton";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 import infoWrapper from "./components/AugmentingInfo";
@@ -20,13 +20,20 @@ import OperationWrapper from "./components/AugmentingOperation";
 import ResponsesWrapper from "./components/AugmentingResponses";
 import Fallback from "./components/ErrorBoundary/fallback";
 
-import './styles.css';
+import "./styles.css";
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
   const { withErrorBoundary } = system.fn;
 
   return {
+    statePlugins: {
+      spec: {
+        wrapSelectors: {
+          allowTryItOutFor: () => () => false
+        }
+      }
+    },
     components: {
       curl: () => null,
       KongLayout: KongLayout,
@@ -52,6 +59,7 @@ const SwaggerUIKongTheme = (system) => {
       responses: ResponsesWrapper,
       operation: OperationWrapper,
       info: infoWrapper,
+      TryItOutButton: tryItOutWrapper,
     },
   };
 };
