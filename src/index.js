@@ -15,8 +15,8 @@ import HighlightCode from "./components/HighlightCode";
 import TryItOutButton from "./components/TryItOutButton";
 
 import infoWrapper from "./components/AugmentingInfo";
-import operationWrapper from "./components/AugmentingOperation";
-import responsesWrapper from "./components/AugmentingResponses";
+import OperationWrapper from "./components/AugmentingOperation";
+import ResponsesWrapper from "./components/AugmentingResponses";
 
 import './styles.css';
 
@@ -41,8 +41,8 @@ const SwaggerUIKongTheme = (system) => {
       TryItOutButton: TryItOutButton,
     },
     wrapComponents: {
-      responses: responsesWrapper,
-      operation: operationWrapper,
+      responses: ResponsesWrapper,
+      operation: OperationWrapper,
       info: infoWrapper,
     },
   };

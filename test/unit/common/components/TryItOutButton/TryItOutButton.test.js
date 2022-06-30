@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react';
 import user from '@testing-library/user-event';
 import TryItOutButton from 'components/TryItOutButton';
 
-xdescribe('<TryItOutButton/>', () => {
+describe('<TryItOutButton/>', () => {
     const onTryOutClickMock = jest.fn();
     const onCancelClickMock = jest.fn();
 

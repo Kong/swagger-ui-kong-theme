@@ -3,7 +3,7 @@
 const config = {
   bail: true,
   displayName: {
-    name: "KongTheme Component",
+    name: "component",
     color: "#3a5fff",
   },
   moduleNameMapper: {
