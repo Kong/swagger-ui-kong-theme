@@ -12,14 +12,12 @@ import Operations from "./components/Operations";
 import ModelExample from "./components/ModelExample";
 import ModelWrapper from "./components/ModelWrapper";
 import HighlightCode from "./components/HighlightCode";
-import TryItOutButton, { tryItOutWrapper } from "./components/TryItOutButton";
+import TryItOutButton, {TryItOutWrapper} from "./components/TryItOutButton";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 import infoWrapper from "./components/AugmentingInfo";
 import OperationWrapper from "./components/AugmentingOperation";
 import ResponsesWrapper from "./components/AugmentingResponses";
-import operationWrapper from "./components/AugmentingOperation";
-import responsesWrapper from "./components/AugmentingResponses";
 import Fallback from "./components/ErrorBoundary/fallback";
 
 import "./styles.css";
