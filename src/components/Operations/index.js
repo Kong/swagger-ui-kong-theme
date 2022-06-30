@@ -6,6 +6,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Im from "immutable"
+import { convertToObject } from "typescript"
 
 const SWAGGER2_OPERATION_METHODS = [
   "get", "put", "post", "delete", "options", "head", "patch"
@@ -39,12 +40,17 @@ const Operations = (props) => {
   if (maxDisplayedTags && !isNaN(maxDisplayedTags) && maxDisplayedTags >= 0) {
     taggedOps = taggedOps.slice(0, maxDisplayedTags)
   }
-
+  console.log("aca", taggedOps.size)
   return (
       <div>
         {
-          taggedOps.length > 0 && taggedOps.map((tagObj, tag) => {
+          taggedOps.size > 0 && taggedOps.map((tagObj, tag) => {
             const operations = tagObj.get("operations")
+            console.log("tag", tag)
+
+            console.log("ops", operations)
+
+
             return (
                 <OperationTag
                     key={"operation-" + tag}
@@ -94,8 +100,6 @@ const Operations = (props) => {
       </div>
   )
 }
-
-Operations.displayName = "Operations"
 
 Operations.propTypes = {
   layoutActions: PropTypes.object.isRequired,
