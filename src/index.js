@@ -12,7 +12,7 @@ import Operations from "./components/Operations";
 import ModelExample from "./components/ModelExample";
 import ModelWrapper from "./components/ModelWrapper";
 import HighlightCode from "./components/HighlightCode";
-import TryItOutButton, {TryItOutWrapper} from "./components/TryItOutButton";
+import TryItOutButton from "./components/TryItOutButton";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 import infoWrapper from "./components/AugmentingInfo";

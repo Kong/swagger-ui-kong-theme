@@ -4,7 +4,11 @@ info:
   title: httpbin
   description: An unofficial OpenAPI definition for [httpbin.org](https://httpbin.org).
 
-
+servers:
+  - url: https://httpbin.org
+  - url: http://httpbin.org
+  - url: https://eu.httpbin.org
+  - url: http://eu.httpbin.org
 
 tags:
   - name: auth

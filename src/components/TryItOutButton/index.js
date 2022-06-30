@@ -30,12 +30,5 @@ const TryItOutButton = (props) => {
   ) : null;
 };
 
-export const TryItOutWrapper = (Original, system) => (props) => {
-  return (
-    <div>
-      <Original {...props} system={system} />
-    </div>
-  );
-};
 
 export default TryItOutButton;
