@@ -34,6 +34,11 @@ describe('<TryItOutButton/>', () => {
         expect(button).toBeTruthy();
     });
 
+    it('can render content when servers not empty', () => {
+        renderComponent();
+        const button = screen.getByRole('button');
+        expect(button).toBeTruthy();
+    });
 
     it('has no content when servers are empty', async () => {
         renderComponent({
