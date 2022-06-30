@@ -27,13 +27,6 @@ const SwaggerUIKongTheme = (system) => {
   const { withErrorBoundary } = system.fn;
 
   return {
-    statePlugins: {
-      spec: {
-        wrapSelectors: {
-          allowTryItOutFor: () => () => false
-        }
-      }
-    },
     components: {
       curl: () => null,
       KongLayout: KongLayout,
@@ -59,7 +52,6 @@ const SwaggerUIKongTheme = (system) => {
       responses: ResponsesWrapper,
       operation: OperationWrapper,
       info: infoWrapper,
-      TryItOutButton: tryItOutWrapper,
     },
   };
 };

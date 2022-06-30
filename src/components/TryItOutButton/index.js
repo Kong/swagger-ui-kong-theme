@@ -3,12 +3,12 @@ import styles from "./styles.module.css";
 
 const TryItOutButton = (props) => {
   const { onTryoutClick, onCancelClick, enabled, specSelectors } = props;
-  console.log(props.system);
 
   const servers = specSelectors?.servers();
-  const hasServers = servers && servers?.size;
+  const hasServers = !!(servers && servers?.size);
+  console.log(hasServers);
 
-  return true ? (
+  return hasServers ? (
     <div className={styles.tryOutWrapper}>
       {enabled ? (
         <button
