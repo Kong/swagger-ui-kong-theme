@@ -2,9 +2,12 @@ import React from "react";
 import styles from "./styles.module.css";
 
 const TryItOutButton = (props) => {
-  const { onTryoutClick, onCancelClick, enabled } = props;
+  const { onTryoutClick, onCancelClick, enabled, specSelectors } = props;
 
-  return (
+  const servers = specSelectors?.servers();
+  const hasServers = !!(servers && servers?.size);
+
+  return hasServers ? (
     <div className={styles.tryOutWrapper}>
       {enabled ? (
         <button
@@ -23,6 +26,15 @@ const TryItOutButton = (props) => {
           Try it out
         </button>
       )}
+    </div>
+  ) : null;
+};
+
+export const tryItOutWrapper = (Original, system) => (props) => {
+  console.log("something")
+  return (
+    <div>
+      <Original {...props} system={system} />
     </div>
   );
 };
