@@ -24,6 +24,7 @@ import "./styles.css";
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
+  const { withErrorBoundary } = system.fn;
 
   return {
     components: {
@@ -33,17 +34,19 @@ const SwaggerUIKongTheme = (system) => {
       SidebarList: SidebarList,
       contentType: ContentType,
       ExamplesSelect: ExamplesSelect,
-      Models: Models,
+      Models: withErrorBoundary(Models),
       ModelCollapse: ModelCollapse,
       OperationTag: OperationTag,
       FilterContainer: FilterContainer,
-      operations: Operations,
+      operations: withErrorBoundary(Operations),
       modelExample: ModelExample,
       ModelWrapper: ModelWrapper,
       highlightCode: HighlightCode,
-      TryItOutButton: (props) => (
+      TryItOutButton: withErrorBoundary( (props) => (
         <TryItOutButton {...props} specSelectors={system.specSelectors} />
-      )
+      )),
+      Fallback,
+      ErrorBoundary
     },
     wrapComponents: {
       responses: responsesWrapper,
