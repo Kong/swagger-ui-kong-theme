@@ -45,21 +45,28 @@ const SwaggerLoader = () => {
                 //parse spec as JSON
                 //if failed push json error msg into error array
                 parsedSpec = JSON.parse(contents);
-            } catch (jsonError) {
+            } catch (error) {
                 const errorMsg = (libraryMsg) => `Error trying to parse ${libraryMsg}:<br>`;
-                errorArray.push(errorMsg('JSON'), jsonError)
-                //    try to parse as YAML
-                try {
-                    parsedSpec = YAML.load(contents);
-                } catch (yamlError) {
-                    errorArray.push(errorMsg('YAML'), yamlError)
+                errorArray.push(errorMsg('JSON'), error)
+                //    try to parse as YAML, if JSON parser failed
+                if (errorMsg) {
+                    try {
+                        parsedSpec = YAML.load(contents);
+                    } catch (yamlError) {
+                        errorArray.push(errorMsg('YAML'), yamlError)
+                    }
                 }
             }
-            SwaggerParser.validate(parsedSpec, (err) => {
-                return err && console.error(err);
+            SwaggerParser.validate(parsedSpec,{
+                continueOnError: true
+            }, () => {
+                let errorMessage;
+                if(errorArray.length > 0) {
+                    errorMessage = errorArray[errorArray.length - 1];
+                    console.error(errorMessage);
+                }
             });
-
-            return parsedSpec ? parsedSpec : errorArray;
+            return parsedSpec && parsedSpec;
         };
 
         const loadSpec = async (url) => {

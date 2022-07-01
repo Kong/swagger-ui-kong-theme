@@ -9,7 +9,6 @@ import styles from "./styles.module.css";
 const hashIdx = "_**[]";
 const AugmentingResponses = memo((props) => {
   const { system, specSelectors, getConfigs, specPath, path, method } = props;
-
   const [overlay, setOverlay] = useState(styles.on);
   const config = getConfigs();
 
