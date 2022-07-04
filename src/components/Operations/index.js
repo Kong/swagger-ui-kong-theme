@@ -6,7 +6,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Im from "immutable"
-import { convertToObject } from "typescript"
 
 const SWAGGER2_OPERATION_METHODS = [
   "get", "put", "post", "delete", "options", "head", "patch"
@@ -40,7 +39,6 @@ const Operations = (props) => {
   if (maxDisplayedTags && !isNaN(maxDisplayedTags) && maxDisplayedTags >= 0) {
     taggedOps = taggedOps.slice(0, maxDisplayedTags)
   }
-
   return (
       <div>
         {
@@ -62,7 +60,6 @@ const Operations = (props) => {
                       const method = op.get("method")
                       const specPath = Im.List(["paths", path, method])
 
-
                       // FIXME: (someday) this logic should probably be in a selector,
                       // but doing so would require further opening up
                       // selectors to the plugin system, to allow for dynamic
@@ -82,6 +79,7 @@ const Operations = (props) => {
                           path={path}
                           method={method}
                           tag={tag}
+                          responses={[]}
                       />
                     }).toArray()
                   }

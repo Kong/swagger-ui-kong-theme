@@ -480,6 +480,13 @@
   background: rgba(0, 0, 0, 0.1);
 }
 
+.swagger-ui .opblock-body .no-responses {
+  color: var(--black-70);
+  background: rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+
 .swagger-ui .swagger-ui .responses-table {
   color: var(--white) !important;
   padding-left: 0;
