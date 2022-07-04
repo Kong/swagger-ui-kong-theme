@@ -21,6 +21,7 @@ import ResponsesWrapper from "./components/AugmentingResponses";
 import Fallback from "./components/ErrorBoundary/fallback";
 
 import "./styles.css";
+import Responses from "components/Responses";
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
@@ -39,6 +40,7 @@ const SwaggerUIKongTheme = (system) => {
       OperationTag: OperationTag,
       FilterContainer: FilterContainer,
       operations: withErrorBoundary(Operations),
+      responses: Responses,
       modelExample: ModelExample,
       ModelWrapper: ModelWrapper,
       highlightCode: HighlightCode,
