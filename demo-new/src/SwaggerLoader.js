@@ -17,11 +17,11 @@ let swaggerUIOptions = {
     presets: [
         SwaggerUI.presets.apis,
     ],
-    plugins: [
+     plugins: [
         SwaggerUIKongTheme,
         SwaggerUI.plugins.DownloadUrl
     ],
-    layout: 'KongLayout',
+    layout: 'KongLayout', 
 }
 
 const SwaggerLoader = () => {
@@ -55,9 +55,9 @@ const SwaggerLoader = () => {
                     errorArray.push(errorMsg('YAML'), yamlError)
                 }
             }
-            SwaggerParser.validate(parsedSpec, (err) => {
+             SwaggerParser.validate(parsedSpec, (err) => {
                 return err && console.error(err);
-            });
+            }); 
 
             return parsedSpec ? parsedSpec : errorArray;
         };
@@ -78,7 +78,7 @@ const SwaggerLoader = () => {
                 if (config) {
                     swaggerUIOptions = {
                         ...swaggerUIOptions,
-                        ...JSON.parse(decodeURIComponent(config))
+                       ...JSON.parse(decodeURIComponent(config))
                     }
                 }
                 try {
@@ -95,10 +95,11 @@ const SwaggerLoader = () => {
 
         try {
             const options = await loadUrlConfig(specUrl, config);
+
             if (options) {
                 SwaggerUI(options);
             }
-        } catch (e) {
+        } catch (e) {   
             setError(true);
         }
     }

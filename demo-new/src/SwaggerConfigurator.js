@@ -66,8 +66,10 @@ const SwaggerConfigurator = () => {
                     <Link to={createLink("/specs/uber.json")}>uber.json</Link>
                 </li>
                 <li>
+                    <Link to={createLink("/specs/generated-spec.json")}>generated-spec.json</Link>
+                </li>
+                <li>
                     <input type="text" value={swaggerUrl} onChange={handleUrlChange}/>
-
                     <Link to={createLink(swaggerUrl)}>Your Url</Link>
                 </li>
             </ul>

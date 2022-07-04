@@ -40,16 +40,12 @@ const Operations = (props) => {
   if (maxDisplayedTags && !isNaN(maxDisplayedTags) && maxDisplayedTags >= 0) {
     taggedOps = taggedOps.slice(0, maxDisplayedTags)
   }
-  console.log("aca", taggedOps.size)
+
   return (
       <div>
         {
           taggedOps.size > 0 && taggedOps.map((tagObj, tag) => {
             const operations = tagObj.get("operations")
-            console.log("tag", tag)
-
-            console.log("ops", operations)
-
 
             return (
                 <OperationTag
