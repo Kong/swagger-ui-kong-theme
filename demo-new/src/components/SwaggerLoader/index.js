@@ -20,7 +20,7 @@ const SwaggerLoader = () => {
 
   useEffect(() => {
     setError(false);
-    loadSwagger(selectedSpec).then(setUi).catch(setError)
+    loadSwagger(selectedSpec).then(setUi).catch(setError);
   }, [selectedSpec]);
 
   const App = ui?.getComponent("App", "root");
@@ -28,6 +28,9 @@ const SwaggerLoader = () => {
   return (
     <div>
       <div className="btn-panel">
+        {hasError && <button onClick={loadSwagger}>Try Again</button>}
+        
+        <label> Specs: </label>
         <select
           style={{ width: "200px" }}
           value={selectedSpec}
@@ -39,9 +42,6 @@ const SwaggerLoader = () => {
             </option>
           ))}
         </select>
-      </div>
-      <div className="btn-panel">
-        {hasError && <button onClick={loadSwagger}>Try Again</button>}
       </div>
       {App && <App />}
     </div>
