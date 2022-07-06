@@ -20,7 +20,7 @@ const SwaggerLoader = () => {
 
   useEffect(() => {
     setError(false);
-    loadSwagger(selectedSpec).then(setUi)
+    loadSwagger(selectedSpec).then(setUi).catch(setError)
   }, [selectedSpec]);
 
   const App = ui?.getComponent("App", "root");
