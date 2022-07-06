@@ -480,13 +480,6 @@
   background: rgba(0, 0, 0, 0.1);
 }
 
-.swagger-ui .opblock-body .no-responses {
-  color: var(--black-70);
-  background: rgba(0, 0, 0, 0.1);
-  display: block;
-}
-
-
 .swagger-ui .swagger-ui .responses-table {
   color: var(--white) !important;
   padding-left: 0;
@@ -903,4 +896,41 @@
  */
 .swagger-ui .code-block {
   max-height: 600px !important;
+}
+
+.swagger-ui .alert-message {
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  border-radius: 4px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  margin: 1rem 0;
+}
+
+.alert-message-info {
+  color: var(--blue-700);
+  border-color: var(--blue-300);
+  background-color: var(--blue-200);
+}
+
+.alert-message-warning {
+  color: var(--yellow-400);
+  border-color: var(--yellow-200);
+  background-color: var(--yellow-100);
+}
+
+.alert-message-success {
+  color: var(--green-500);
+  border-color: var(--green-200);
+  background-color: var(--green-100);
+}
+
+.alert-message-danger {
+  color: var(--red-700);
+  border-color: var(--red-300);
+  background-color: var(--red-200);
 }
