@@ -1,0 +1,173 @@
+.rightSideWrapper {
+  grid-column-start: 2!important;
+  grid-row-start: 1!important;
+  grid-row-end: 5!important;
+  -ms-grid-row-span: 4!important;
+}
+
+.rightSideWrapper pre span {
+  color: inherit !important;
+  /*color: unset !important;*/
+}
+
+@media (min-width: 1000px) {
+  .rightSideWrapper {
+    /* 64 pixes to compensate for grid col gap */
+    margin-right: 64px;
+  }
+}
+
+.rightSideWrapper pre span.token.cdata,
+.rightSideWrapper pre span.token.comment,
+.rightSideWrapper pre span.token.doctype,
+.rightSideWrapper pre span.token.prolog {
+  color: #6272a4 !important;
+}
+.rightSideWrapper pre span.token.punctuation {
+  color: #f8f8f2 !important;
+}
+.rightSideWrapper pre span.namespace {
+  opacity: 0.7 !important;
+}
+.rightSideWrapper pre span.token.constant,
+.rightSideWrapper pre span.token.deleted,
+.rightSideWrapper pre span.token.property,
+.rightSideWrapper pre span.token.symbol,
+.rightSideWrapper pre span.token.tag {
+  color: #ff79c6 !important;
+}
+
+.rightSideWrapper pre span.token.boolean,
+.rightSideWrapper pre span.token.number {
+  color: #bd93f9 !important;
+}
+
+.rightSideWrapper pre span.token.attr-name,
+.rightSideWrapper pre span.token.builtin,
+.rightSideWrapper pre span.token.char,
+.rightSideWrapper pre span.token.inserted,
+.rightSideWrapper pre span.token.selector,
+.rightSideWrapper pre span.token.string {
+  color: #50fa7b !important;
+}
+
+.rightSideWrapper pre.language-css span.token.string,
+.rightSideWrapper pre.style span.token.string,
+.rightSideWrapper pre span.token.entity,
+.rightSideWrapper pre span.token.operator,
+.rightSideWrapper pre span.token.url,
+.rightSideWrapper pre span.token.variable {
+  color: #f8f8f2 !important;
+}
+.rightSideWrapper pre span.token.atrule,
+.rightSideWrapper pre span.token.attr-value,
+.rightSideWrapper pre span.token.class-name,
+.rightSideWrapper pre span.token.function {
+  color: #f1fa8c !important;
+}
+.rightSideWrapper pre span.token.keyword {
+  color: #8be9fd !important;
+}
+.rightSideWrapper pre span.token.important,
+.rightSideWrapper pre span.token.regex {
+  color: #ffb86c !important;
+}
+.rightSideWrapper pre span.token.bold,
+.rightSideWrapper pre span.token.important {
+  font-weight: 700 !important;
+}
+.rightSideWrapper pre span.token.italic {
+  font-style: italic !important;
+}
+.rightSideWrapper pre span.token.entity {
+  cursor: help !important;
+}
+
+.codeSnippet {
+  margin: 0 0 34px 0;
+  position: relative;
+}
+
+.codeSnippet .overlay {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.codeSnippet .overlay.on {
+  display: flex;
+}
+
+.codeSnippet .overlay .close {
+  color: rgba(0, 0, 0, 1);
+  cursor: pointer;
+  position: absolute;
+  top: 25%;
+  right: 0;
+  padding: 12px 16px;
+  transform: translate(0%, -50%);
+}
+
+.codeSnippet .overlay .close:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.codeSnippet .overlay p {
+  text-align: center;
+  margin: 30px;
+  font-size: 1.17em;
+  font-weight: bold;
+  color: rgb(59, 65, 81);
+}
+
+.codeSnippet :global(.tabs-component) ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 30px;
+  border-radius: 3px 0 0;
+  background-color: rgb(0, 48, 82);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.codeSnippet :global(.tabs-component) li {
+  line-height: 2.5;
+  display: inline;
+  margin: 0 5px 0 0;
+}
+
+.codeSnippet :global(.tabs-component) a {
+  color: var(--white-rgb-255);
+  font-size: 14px;
+  font-weight: normal;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.codeSnippet :global(.tabs-component) :global(.is-active) a {
+  color: var(--white-rgb-255);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.codeSnippet :global(.tabs-component-panels) > section > pre {
+  border-radius: 0 0 3px;
+  background-color: rgb(0, 36, 61);
+  overflow-x: auto;
+}
+
+.codeSnippet :global(.tabs-component-panels) > section > pre span :before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  border-right: 1px solid #ddd;
+  padding: 0 0.5em;
+  margin-right: 0.5em;
+  color: #888;
+}

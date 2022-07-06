@@ -1,0 +1,42 @@
+.infoAugmentWrapper {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.infoAugmentWrapper :global(.info) {
+  margin-bottom: 0;
+}
+
+.infoAugmentWrapper :global(.info) :global(.title) small {
+  background: var(--black-400);
+}
+
+.infoAugmentWrapper :global(.info) :global(.title) small:class(.oas-version) {
+  background: var(--green-700) !important;
+}
+
+.infoAugmentWrapper :global(.info) a {
+  color: var(--blue-500);
+}
+
+.infoAugmentWrapper :global(.main) :global(.title) {
+  font-size: 38px;
+  font-weight: 300;
+  border-bottom-width: 0;
+  padding-bottom: 0;
+}
+
+.infoAugmentWrapper :global(.main) :global(.header) {
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.infoAugmentWrapper :global(.main) :global(.header) button {
+  border: 1px solid var(--white-rgb-224);
+  background-color: var(--white-rgb-250);
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 0 12px;
+}

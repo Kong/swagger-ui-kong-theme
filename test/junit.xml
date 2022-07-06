@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="87" failures="0" errors="0" time="1.505">
+  <testsuite name="&lt;ExamplesSelect/&gt;" errors="0" failures="0" skipped="2" timestamp="2022-06-30T21:55:31" time="0.604" tests="6">
+    <testcase classname="&lt;ExamplesSelect/&gt; was rendered" name="&lt;ExamplesSelect/&gt; was rendered" time="0.025">
+    </testcase>
+    <testcase classname="&lt;ExamplesSelect/&gt; has default classname `examples-select`" name="&lt;ExamplesSelect/&gt; has default classname `examples-select`" time="0.004">
+    </testcase>
+    <testcase classname="&lt;ExamplesSelect/&gt; has `labels` shown showLabels section has classname" name="&lt;ExamplesSelect/&gt; has `labels` shown showLabels section has classname" time="0.002">
+    </testcase>
+    <testcase classname="&lt;ExamplesSelect/&gt; no labels content" name="&lt;ExamplesSelect/&gt; no labels content" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;ExamplesSelect/&gt; has select component with option `__MODIFIED_VALUE__`" name="&lt;ExamplesSelect/&gt; has select component with option `__MODIFIED_VALUE__`" time="0.009">
+    </testcase>
+    <testcase classname="&lt;ExamplesSelect/&gt; select option has rendered values... " name="&lt;ExamplesSelect/&gt; select option has rendered values... " time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;Contact/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:31" time="0.607" tests="4">
+    <testcase classname="&lt;Contact/&gt; `url` property contains `url link`" name="&lt;Contact/&gt; `url` property contains `url link`" time="0.015">
+    </testcase>
+    <testcase classname="&lt;Contact/&gt; `url` property renders `url` href link " name="&lt;Contact/&gt; `url` property renders `url` href link " time="0.003">
+    </testcase>
+    <testcase classname="&lt;Contact/&gt; no `url` property no url link" name="&lt;Contact/&gt; no `url` property no url link" time="0.002">
+    </testcase>
+    <testcase classname="&lt;Contact/&gt; no `url` property renders `no url` href link " name="&lt;Contact/&gt; no `url` property renders `no url` href link " time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;ModelExample/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:31" time="0.613" tests="13">
+    <testcase classname="&lt;ModelExample/&gt; was rendered" name="&lt;ModelExample/&gt; was rendered" time="0.012">
+    </testcase>
+    <testcase classname="&lt;ModelExample/&gt; has classname `model-example`" name="&lt;ModelExample/&gt; has classname `model-example`" time="0.004">
+    </testcase>
+    <testcase classname="&lt;ModelExample/&gt; has classname `tab`" name="&lt;ModelExample/&gt; has classname `tab`" time="0.003">
+    </testcase>
+    <testcase classname="&lt;ModelExample/&gt; has li element" name="&lt;ModelExample/&gt; has li element" time="0.001">
+    </testcase>
+    <testcase classname="&lt;ModelExample/&gt; li elements have classname `tabitem`" name="&lt;ModelExample/&gt; li elements have classname `tabitem`" time="0.001">
+    </testcase>
+    <testcase classname="&lt;ModelExample/&gt; has button `Edit value` &amp; `Schema`" name="&lt;ModelExample/&gt; has button `Edit value` &amp; `Schema`" time="0.03">
+    </testcase>
+    <testcase classname="&lt;ModelExample/&gt; button `Edit Value` exists" name="&lt;ModelExample/&gt; button `Edit Value` exists" time="0.006">
+    </testcase>
+    <testcase classname="&lt;ModelExample/&gt; button `Edit Value` has aria label correct" name="&lt;ModelExample/&gt; button `Edit Value` has aria label correct" time="0.002">
+    </testcase>
+    <testcase classname="&lt;ModelExample/&gt; button `Schema` exists" name="&lt;ModelExample/&gt; button `Schema` exists" time="0.003">
+    </testcase>
+    <testcase classname="&lt;ModelExample/&gt; button `Schema` has aria label correct" name="&lt;ModelExample/&gt; button `Schema` has aria label correct" time="0.002">
+    </testcase>
+    <testcase classname="&lt;ModelExample/&gt; buttons have classname" name="&lt;ModelExample/&gt; buttons have classname" time="0.002">
+    </testcase>
+    <testcase classname="&lt;ModelExample/&gt; schema is `true`" name="&lt;ModelExample/&gt; schema is `true`" time="0.002">
+    </testcase>
+    <testcase classname="&lt;ModelExample/&gt; highlight component is rendered" name="&lt;ModelExample/&gt; highlight component is rendered" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;TryItOutButton/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:31" time="0.637" tests="7">
+    <testcase classname="&lt;TryItOutButton/&gt; was rendered" name="&lt;TryItOutButton/&gt; was rendered" time="0.03">
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; can render content when servers not empty" name="&lt;TryItOutButton/&gt; can render content when servers not empty" time="0.011">
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; has no content when servers are empty" name="&lt;TryItOutButton/&gt; has no content when servers are empty" time="0.003">
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; has button `Try it out`" name="&lt;TryItOutButton/&gt; has button `Try it out`" time="0.001">
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; has an aria label text: `Try sending an example request`" name="&lt;TryItOutButton/&gt; has an aria label text: `Try sending an example request`" time="0.003">
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; has button `Cancel`" name="&lt;TryItOutButton/&gt; has button `Cancel`" time="0.002">
+    </testcase>
+    <testcase classname="&lt;TryItOutButton/&gt; has an aria label text: `Cancel sending an example request`" name="&lt;TryItOutButton/&gt; has an aria label text: `Cancel sending an example request`" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;ContentType/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:31" time="0.684" tests="7">
+    <testcase classname="&lt;ContentType/&gt; was rendered" name="&lt;ContentType/&gt; was rendered" time="0.028">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; has default classname &amp; passed classname" name="&lt;ContentType/&gt; has default classname &amp; passed classname" time="0.003">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; has passed aria-label" name="&lt;ContentType/&gt; has passed aria-label" time="0.005">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; has a select element " name="&lt;ContentType/&gt; has a select element " time="0.01">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; select element has preselected value" name="&lt;ContentType/&gt; select element has preselected value" time="0.013">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; select element can show more values" name="&lt;ContentType/&gt; select element can show more values" time="0.024">
+    </testcase>
+    <testcase classname="&lt;ContentType/&gt; select element can change value" name="&lt;ContentType/&gt; select element can change value" time="0.011">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;HighlightCode/&gt;" errors="0" failures="0" skipped="1" timestamp="2022-06-30T21:55:31" time="0.706" tests="9">
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: false has no content" name="&lt;HighlightCode/&gt; downloadable: false has no content" time="0.03">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has been rendered" name="&lt;HighlightCode/&gt; downloadable: true has been rendered" time="0.034">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has a button text" name="&lt;HighlightCode/&gt; downloadable: true has a button text" time="0.007">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has classname `download-contents`" name="&lt;HighlightCode/&gt; downloadable: true has classname `download-contents`" time="0.007">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true has aria label: `download contents`" name="&lt;HighlightCode/&gt; downloadable: true has aria label: `download contents`" time="0.005">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; downloadable: true fires action on btn click" name="&lt;HighlightCode/&gt; downloadable: true fires action on btn click" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; `pre` element was rendered" name="&lt;HighlightCode/&gt; `pre` element was rendered" time="0.001">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; `pre` element has default text value displayed" name="&lt;HighlightCode/&gt; `pre` element has default text value displayed" time="0.005">
+    </testcase>
+    <testcase classname="&lt;HighlightCode/&gt; `pre` element has correct classname" name="&lt;HighlightCode/&gt; `pre` element has correct classname" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;AugmentingResponses /&gt;" errors="0" failures="0" skipped="3" timestamp="2022-06-30T21:55:31" time="0.693" tests="4">
+    <testcase classname="&lt;AugmentingResponses /&gt; was rendered" name="&lt;AugmentingResponses /&gt; was rendered" time="0.042">
+    </testcase>
+    <testcase classname="&lt;AugmentingResponses /&gt; has a button `close`" name="&lt;AugmentingResponses /&gt; has a button `close`" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;AugmentingResponses /&gt; has info section" name="&lt;AugmentingResponses /&gt; has info section" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;AugmentingResponses /&gt; has codeSnippetWidget" name="&lt;AugmentingResponses /&gt; has codeSnippetWidget" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;SideBar/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:31" time="0.743" tests="9">
+    <testcase classname="&lt;SideBar/&gt; was rendered" name="&lt;SideBar/&gt; was rendered" time="0.015">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has a role button" name="&lt;SideBar/&gt; has a role button" time="0.023">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has `Open Sidebar` title" name="&lt;SideBar/&gt; has `Open Sidebar` title" time="0.008">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens" name="&lt;SideBar/&gt; can be clicked: sidebar opens" time="0.028">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" name="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" time="0.054">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" name="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" time="0.014">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; on `Space` press opens sidebar" name="&lt;SideBar/&gt; on `Space` press opens sidebar" time="0.007">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; on `Enter` press close sidebar" name="&lt;SideBar/&gt; on `Enter` press close sidebar" time="0.004">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; on `Return` press close sidebar" name="&lt;SideBar/&gt; on `Return` press close sidebar" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;AugmentingInfo/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:32" time="0.183" tests="1">
+    <testcase classname="&lt;AugmentingInfo/&gt; was rendered" name="&lt;AugmentingInfo/&gt; was rendered" time="0.04">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;Licence/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:32" time="0.187" tests="2">
+    <testcase classname="&lt;Licence/&gt; `url` property renders `url` href link " name="&lt;Licence/&gt; `url` property renders `url` href link " time="0.02">
+    </testcase>
+    <testcase classname="&lt;Licence/&gt; `no url` property renders `no url` href link " name="&lt;Licence/&gt; `no url` property renders `no url` href link " time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;AugmentingOperation/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:32" time="0.223" tests="4">
+    <testcase classname="&lt;AugmentingOperation/&gt; was rendered" name="&lt;AugmentingOperation/&gt; was rendered" time="0.042">
+    </testcase>
+    <testcase classname="&lt;AugmentingOperation/&gt; has classname `operations-augment-wrapper`" name="&lt;AugmentingOperation/&gt; has classname `operations-augment-wrapper`" time="0.001">
+    </testcase>
+    <testcase classname="&lt;AugmentingOperation/&gt; Empty response &lt;AugmentingOperation was rendered" name="&lt;AugmentingOperation/&gt; Empty response &lt;AugmentingOperation was rendered" time="0.001">
+    </testcase>
+    <testcase classname="&lt;AugmentingOperation/&gt; Empty response &lt;AugmentingOperation has classname `empty`" name="&lt;AugmentingOperation/&gt; Empty response &lt;AugmentingOperation has classname `empty`" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;operationWrapper/&gt;" errors="0" failures="0" skipped="3" timestamp="2022-06-30T21:55:32" time="0.175" tests="4">
+    <testcase classname="&lt;operationWrapper/&gt; was rendered" name="&lt;operationWrapper/&gt; was rendered" time="0.03">
+    </testcase>
+    <testcase classname="&lt;operationWrapper/&gt; has className `operations-augment-wrapper`" name="&lt;operationWrapper/&gt; has className `operations-augment-wrapper`" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;operationWrapper/&gt; has rendered `Original` component" name="&lt;operationWrapper/&gt; has rendered `Original` component" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;operationWrapper/&gt; has rendered Augmenting Operation" name="&lt;operationWrapper/&gt; has rendered Augmenting Operation" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;ResponsesWrapper/&gt;" errors="0" failures="0" skipped="3" timestamp="2022-06-30T21:55:32" time="0.257" tests="4">
+    <testcase classname="&lt;ResponsesWrapper/&gt; was rendered" name="&lt;ResponsesWrapper/&gt; was rendered" time="0.032">
+    </testcase>
+    <testcase classname="&lt;ResponsesWrapper/&gt; has className `rightSideWrapper`" name="&lt;ResponsesWrapper/&gt; has className `rightSideWrapper`" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;ResponsesWrapper/&gt; has rendered `Original` component" name="&lt;ResponsesWrapper/&gt; has rendered `Original` component" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="&lt;ResponsesWrapper/&gt; has rendered Augmenting Responses" name="&lt;ResponsesWrapper/&gt; has rendered Augmenting Responses" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;Layout /&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:31" time="0.894" tests="1">
+    <testcase classname="&lt;Layout /&gt; was rendered" name="&lt;Layout /&gt; was rendered" time="0.045">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;OperationsTag/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:32" time="0.196" tests="1">
+    <testcase classname="&lt;OperationsTag/&gt; was rendered" name="&lt;OperationsTag/&gt; was rendered" time="0.016">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;ViewSpec/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:32" time="0.175" tests="3">
+    <testcase classname="&lt;ViewSpec/&gt; was rendered" name="&lt;ViewSpec/&gt; was rendered" time="0.01">
+    </testcase>
+    <testcase classname="&lt;ViewSpec/&gt; has a button" name="&lt;ViewSpec/&gt; has a button" time="0.012">
+    </testcase>
+    <testcase classname="&lt;ViewSpec/&gt; has an svg" name="&lt;ViewSpec/&gt; has an svg" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;SidebarList/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:32" time="0.145" tests="1">
+    <testcase classname="&lt;SidebarList/&gt; was rendered" name="&lt;SidebarList/&gt; was rendered" time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;ModelCollapse /&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:32" time="0.133" tests="1">
+    <testcase classname="&lt;ModelCollapse /&gt; was rendered" name="&lt;ModelCollapse /&gt; was rendered" time="0.009">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;Path/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:32" time="0.147" tests="3">
+    <testcase classname="&lt;Path/&gt; was rendered" name="&lt;Path/&gt; was rendered" time="0.007">
+    </testcase>
+    <testcase classname="&lt;Path/&gt; has default classname" name="&lt;Path/&gt; has default classname" time="0.001">
+    </testcase>
+    <testcase classname="&lt;Path/&gt; has `host` &amp; `basePath` property rendered" name="&lt;Path/&gt; has `host` &amp; `basePath` property rendered" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;ModelWrapper /&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:32" time="0.117" tests="1">
+    <testcase classname="&lt;ModelWrapper /&gt; was rendered" name="&lt;ModelWrapper /&gt; was rendered" time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;Models /&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:32" time="0.137" tests="1">
+    <testcase classname="&lt;Models /&gt; was rendered" name="&lt;Models /&gt; was rendered" time="0.01">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;Operations/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-06-30T21:55:32" time="0.314" tests="1">
+    <testcase classname="&lt;Operations/&gt; was rendered" name="&lt;Operations/&gt; was rendered" time="0.037">
+    </testcase>
+  </testsuite>
+</testsuites>
