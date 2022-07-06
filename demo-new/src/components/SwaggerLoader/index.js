@@ -14,13 +14,16 @@ const specs = [
 
 const SwaggerLoader = () => {
   const [selectedSpec, setSelectedspec] = useState(specs[0]);
+  const [ui, setUi] = useState();
 
   const [hasError, setError] = useState(false);
 
   useEffect(() => {
     setError(false);
-    loadSwagger(selectedSpec);
+    loadSwagger(selectedSpec).then(setUi)
   }, [selectedSpec]);
+
+  const App = ui?.getComponent("App", "root");
 
   return (
     <div>
@@ -40,7 +43,7 @@ const SwaggerLoader = () => {
       <div className="btn-panel">
         {hasError && <button onClick={loadSwagger}>Try Again</button>}
       </div>
-      <div id="ui-wrapper" />
+      {App && <App />}
     </div>
   );
 };

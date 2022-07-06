@@ -1,4 +1,4 @@
-import SwaggerUI, { swaggerUIConstructor } from "swagger-ui";
+import { SwaggerUIBundle } from "swagger-ui-dist";
 import SwaggerParser from "swagger-parser";
 import YAML from "yaml-js";
 
@@ -34,9 +34,12 @@ export const fetchSpec = async (url) => {
 
 export const loadSwagger = async (selectedSpec) => {
   const options = window.swaggerUIOptions;
+
+  if (!options) return;
+
   const spec = await fetchSpec(selectedSpec);
 
   options.spec = await parseSpec(spec);
 
-  if (options) SwaggerUI(options);
+  return SwaggerUIBundle(options);
 };
