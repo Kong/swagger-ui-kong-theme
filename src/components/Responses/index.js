@@ -46,7 +46,8 @@ const defaultStatusCode = (responses) => {
 
 const Responses = (props) => {
     const {
-        specActions, responses,
+        specActions,
+        responses,
         tryItOutResponse,
         getComponent,
         getConfigs,
