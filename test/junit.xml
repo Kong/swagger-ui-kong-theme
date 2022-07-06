@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="5" failures="0" errors="0" time="2.534">
-  <testsuite name="&lt;AugmentingResponses /&gt;" errors="0" failures="0" skipped="3" timestamp="2022-07-06T08:48:54" time="1.453" tests="4">
-    <testcase classname="&lt;AugmentingResponses /&gt; was rendered" name="&lt;AugmentingResponses /&gt; was rendered" time="0.065">
-    </testcase>
-    <testcase classname="&lt;AugmentingResponses /&gt; has a button `close`" name="&lt;AugmentingResponses /&gt; has a button `close`" time="0">
-      <skipped/>
-    </testcase>
-    <testcase classname="&lt;AugmentingResponses /&gt; has info section" name="&lt;AugmentingResponses /&gt; has info section" time="0">
-      <skipped/>
-    </testcase>
-    <testcase classname="&lt;AugmentingResponses /&gt; has codeSnippetWidget" name="&lt;AugmentingResponses /&gt; has codeSnippetWidget" time="0">
-      <skipped/>
-    </testcase>
-  </testsuite>
-  <testsuite name="&lt;Responses/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-06T08:48:54" time="1.462" tests="1">
-    <testcase classname="&lt;Responses/&gt; was rendered" name="&lt;Responses/&gt; was rendered" time="0.108">
+<testsuites name="jest tests" tests="1" failures="0" errors="0" time="1.727">
+  <testsuite name="&lt;InfoAlert" errors="0" failures="0" skipped="0" timestamp="2022-07-06T13:46:06" time="1.088" tests="1">
+    <testcase classname="&lt;InfoAlert was rendered" name="&lt;InfoAlert was rendered" time="0.019">
     </testcase>
   </testsuite>
 </testsuites>

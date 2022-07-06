@@ -90,12 +90,12 @@ const Responses = (props) => {
         }
     }
 
-
     let defaultCode = defaultStatusCode(responses)
 
     const ContentType = getComponent("contentType")
     const LiveResponse = getComponent("liveResponse")
     const Response = getComponent("response")
+    const InfoAlert = getComponent("infoAlert")
 
     let produces = _produces && _produces.size ? _produces : Responses.defaultProps.produces
 
@@ -181,9 +181,7 @@ const Responses = (props) => {
                 </div>
             </div>
         ) : (
-            <div className="no-responses">
-                <p>No responses found!</p>
-            </div>
+            <InfoAlert/>
         )
 };
 
