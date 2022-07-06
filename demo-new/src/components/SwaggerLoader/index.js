@@ -28,6 +28,9 @@ const SwaggerLoader = () => {
   return (
     <div>
       <div className="btn-panel">
+        {hasError && <button onClick={loadSwagger}>Try Again</button>}
+        
+        <label> Specs: </label>
         <select
           style={{ width: "200px" }}
           value={selectedSpec}
@@ -39,9 +42,6 @@ const SwaggerLoader = () => {
             </option>
           ))}
         </select>
-      </div>
-      <div className="btn-panel">
-        {hasError && <button onClick={loadSwagger}>Try Again</button>}
       </div>
       {App && <App />}
     </div>
