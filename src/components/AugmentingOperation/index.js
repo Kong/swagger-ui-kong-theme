@@ -1,5 +1,5 @@
 import React from "react";
-import { escapeDeepLinkPath } from "../../helpers/helpers";
+import { escapeDeepLinkPath } from "helpers/helpers";
 
 export const AugmentingOperation = ({ response, operation: operationProps }) => {
   const { tag, operationId } = operationProps.toJS();
@@ -27,7 +27,7 @@ export const AugmentingOperation = ({ response, operation: operationProps }) => 
   return <div className="empty" />;
 };
 
-const operationWrapper =(Original, system) => (props) => {
+const OperationWrapper =(Original, system) => (props) => {
   return (
     <div className='operations-augment-wrapper'>
       <AugmentingOperation {...props} system={system} />
@@ -36,4 +36,4 @@ const operationWrapper =(Original, system) => (props) => {
   )
 };
 
-export default operationWrapper;
+export default OperationWrapper;

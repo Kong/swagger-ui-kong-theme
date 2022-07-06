@@ -420,7 +420,6 @@ paths:
           description: >-
             Unautorized (the username and password used for Basic auth do not
             match those in the URL path.)
-
   /bearer:
     get:
       summary: Tests Bearer authentication
@@ -795,12 +794,8 @@ components:
       description: >
         Enter free-form query parameters in the JSON format
         `{ "param1": "value1", "param2": "value2", ... }`.
-
-
         Note that the parameters will be actually sent as
         `?param1=value1&param2=value2&...`
-
-
   responses:
     200BasicAuth:
       description: OK

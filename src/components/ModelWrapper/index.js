@@ -4,9 +4,8 @@
  */
 import React, { useCallback } from "react";
 
-export default function ModelWrapper(props) {
-  const { layoutActions, layoutSelectors, getComponent, expandDepth, name } =
-    props;
+const ModelWrapper = (props) => {
+  const { layoutActions, layoutSelectors, getComponent, expandDepth, name } = props;
 
   const onToggle = useCallback(
     (name, isShown) => {
@@ -23,6 +22,7 @@ export default function ModelWrapper(props) {
 
   return (
     <div className="model-box" tabIndex={0}>
+
       <Model
         {...props}
         expanded={expanded}
@@ -32,4 +32,5 @@ export default function ModelWrapper(props) {
       />
     </div>
   );
-}
+};
+export default ModelWrapper;

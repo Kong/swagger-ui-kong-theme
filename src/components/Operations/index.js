@@ -39,12 +39,12 @@ const Operations = (props) => {
   if (maxDisplayedTags && !isNaN(maxDisplayedTags) && maxDisplayedTags >= 0) {
     taggedOps = taggedOps.slice(0, maxDisplayedTags)
   }
-
   return (
       <div>
         {
-          taggedOps.map((tagObj, tag) => {
+          taggedOps.size > 0 && taggedOps.map((tagObj, tag) => {
             const operations = tagObj.get("operations")
+
             return (
                 <OperationTag
                     key={"operation-" + tag}
@@ -59,7 +59,6 @@ const Operations = (props) => {
                       const path = op.get("path")
                       const method = op.get("method")
                       const specPath = Im.List(["paths", path, method])
-
 
                       // FIXME: (someday) this logic should probably be in a selector,
                       // but doing so would require further opening up
@@ -80,6 +79,7 @@ const Operations = (props) => {
                           path={path}
                           method={method}
                           tag={tag}
+                          responses={[]}
                       />
                     }).toArray()
                   }
@@ -94,7 +94,6 @@ const Operations = (props) => {
       </div>
   )
 }
-
 
 Operations.propTypes = {
   layoutActions: PropTypes.object.isRequired,

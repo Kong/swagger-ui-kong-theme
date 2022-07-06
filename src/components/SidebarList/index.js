@@ -145,7 +145,7 @@ const SidebarList = ({
         <li role="none">
           <FilterContainer />
         </li>
-        {filteredSidebarData
+        {filteredSidebarData.size > 0 && filteredSidebarData
           .map((sidebarItem, tag) => (
             <li
               key={tag}

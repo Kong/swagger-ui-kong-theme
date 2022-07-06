@@ -2,14 +2,13 @@ import React, { memo, useMemo, useState } from "react";
 import { createHar } from "swagger2har";
 import { CodeSnippetWidget } from "react-apiembed";
 
-import { defaultLanguages } from "../../constants/languages";
+import { defaultLanguages } from "constants/languages";
 
 import styles from "./styles.module.css";
 
 const hashIdx = "_**[]";
 const AugmentingResponses = memo((props) => {
   const { system, specSelectors, getConfigs, specPath, path, method } = props;
-
   const [overlay, setOverlay] = useState(styles.on);
   const config = getConfigs();
 
@@ -165,7 +164,7 @@ const AugmentingResponses = memo((props) => {
   );
 });
 
-const responsesWrapper = (Original, system) => (props) => {
+const ResponsesWrapper = (Original, system) => (props) => {
   return (
     <div className={styles.rightSideWrapper}>
       <AugmentingResponses {...props} system={system} />
@@ -174,4 +173,4 @@ const responsesWrapper = (Original, system) => (props) => {
   );
 };
 
-export default responsesWrapper;
+export default ResponsesWrapper;

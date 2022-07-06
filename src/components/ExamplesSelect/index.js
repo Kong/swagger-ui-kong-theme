@@ -54,7 +54,8 @@ const ExamplesSelect = ({
     // `isSyntheticEvent`, but we should really be doing this in a selector.
     // TODO: clean this up
     // FIXME: should this only trigger if `currentExamplesKey` is nullish?
-    if (typeof onSelect === "function") {
+    //TODO reimagine added check for nullish value
+    if (typeof onSelect === "function" && examples?.length > 0) {
       const firstExample = examples.first();
       const firstExampleKey = examples.keyOf(firstExample);
 
@@ -67,7 +68,7 @@ const ExamplesSelect = ({
   return (
     <div className="examples-select">
       {showLabels ? (
-        <span className="examples-select__section-label">Examples: </span>
+        <span className="examples-select__section-label">Examples:</span>
       ) : null}
       <select
         aria-label="Select an example response"
@@ -81,7 +82,7 @@ const ExamplesSelect = ({
         {isModifiedValueAvailable ? (
           <option value="__MODIFIED__VALUE__">[Modified value]</option>
         ) : null}
-        {examples
+        {examples?.length > 0 && examples
           .map((example, exampleName) => {
             return (
               <option
