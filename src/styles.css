@@ -101,9 +101,7 @@
 .swagger-ui .opblock-summary.opblock-summary-get span.opblock-summary-method {
   background: var(--blue-500);
 }
-.swagger-ui
-  .opblock-summary.opblock-summary-delete
-  span.opblock-summary-method {
+.swagger-ui .opblock-summary.opblock-summary-delete span.opblock-summary-method {
   background-color: var(--red-600);
 }
 .swagger-ui .opblock-summary.opblock-summary-patch span.opblock-summary-method {
@@ -113,9 +111,7 @@
 .swagger-ui .opblock-summary.opblock-summary-head span.opblock-summary-method {
   background: var(--purple-background-color);
 }
-.swagger-ui
-  .opblock-summary.opblock-summary-options
-  span.opblock-summary-method {
+.swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method {
   background: var(--blue-background-color);
 }
 .swagger-ui .opblock-summary.opblock-summary-post span.opblock-summary-method {
@@ -137,9 +133,7 @@
   background-color: var(--green-200);
   color: var(--black-500);
 }
-.swagger-ui
-  .opblock-summary.opblock-summary-deprecated
-  span.opblock-summary-method {
+.swagger-ui .opblock-summary.opblock-summary-deprecated span.opblock-summary-method {
   background-color: var(--steel-600);
   color: var(--black-100);
 }
@@ -149,9 +143,7 @@
 .swagger-ui .opblock-summary.opblock-summary-trace span.opblock-summary-method {
   background-color: var(--purple-background-color);
 }
-.swagger-ui
-  .opblock-summary.opblock-summary-options
-  span.opblock-summary-method {
+.swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method {
   background-color: var(--blue-background-color);
 }
 
@@ -531,11 +523,7 @@
   display: none;
 }
 
-.swagger-ui
-  .opblock-body
-  .live-responses-table
-  .response-col_description
-  .highlight-code {
+.swagger-ui .opblock-body .live-responses-table .response-col_description .highlight-code {
   margin-bottom: 1em;
 }
 
@@ -551,13 +539,7 @@
   width: 100%;
 }
 
-.swagger-ui
-  .opblock-body
-  .responses-table
-  .response-col_description
-  .response-col_description__inner
-  .renderedMarkdown
-  > p {
+.swagger-ui .opblock-body .responses-table .response-col_description .response-col_description__inner .renderedMarkdown > p {
   margin-top: 10px;
 }
 
@@ -569,10 +551,7 @@
   display: none;
 }
 
-.swagger-ui
-  .responses-inner
-  .responses-table:not(.live-responses-table)
-  tr.response {
+.swagger-ui .responses-inner .responses-table:not(.live-responses-table) tr.response {
   display: flex;
   border-radius: 4px;
   border-bottom: 30px solid transparent;
@@ -663,6 +642,11 @@
   font-size: 20px;
   font-weight: 500;
   padding-bottom: 10px;
+}
+
+.swagger-ui .opblock .opblock-summary .arrow {
+  position: relative;
+  top: 2rem;
 }
 
 .swagger-ui .opblock .opblock-summary .authorization__btn {
@@ -912,4 +896,41 @@
  */
 .swagger-ui .code-block {
   max-height: 600px !important;
+}
+
+.swagger-ui .alert-message {
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  border-radius: 4px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  margin: 1rem 0;
+}
+
+.alert-message-info {
+  color: var(--blue-700);
+  border-color: var(--blue-300);
+  background-color: var(--blue-200);
+}
+
+.alert-message-warning {
+  color: var(--yellow-400);
+  border-color: var(--yellow-200);
+  background-color: var(--yellow-100);
+}
+
+.alert-message-success {
+  color: var(--green-500);
+  border-color: var(--green-200);
+  background-color: var(--green-100);
+}
+
+.alert-message-danger {
+  color: var(--red-700);
+  border-color: var(--red-300);
+  background-color: var(--red-200);
 }

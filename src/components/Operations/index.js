@@ -6,7 +6,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Im from "immutable"
-import { convertToObject } from "typescript"
 
 const SWAGGER2_OPERATION_METHODS = [
   "get", "put", "post", "delete", "options", "head", "patch"
@@ -40,16 +39,11 @@ const Operations = (props) => {
   if (maxDisplayedTags && !isNaN(maxDisplayedTags) && maxDisplayedTags >= 0) {
     taggedOps = taggedOps.slice(0, maxDisplayedTags)
   }
-  console.log("aca", taggedOps.size)
   return (
       <div>
         {
           taggedOps.size > 0 && taggedOps.map((tagObj, tag) => {
             const operations = tagObj.get("operations")
-            console.log("tag", tag)
-
-            console.log("ops", operations)
-
 
             return (
                 <OperationTag
@@ -65,7 +59,6 @@ const Operations = (props) => {
                       const path = op.get("path")
                       const method = op.get("method")
                       const specPath = Im.List(["paths", path, method])
-
 
                       // FIXME: (someday) this logic should probably be in a selector,
                       // but doing so would require further opening up
@@ -86,6 +79,7 @@ const Operations = (props) => {
                           path={path}
                           method={method}
                           tag={tag}
+                          responses={[]}
                       />
                     }).toArray()
                   }

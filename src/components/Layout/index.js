@@ -81,10 +81,9 @@ export default function KongLayout({
           );
         },
       };
+      const loadingStatus = specSelectors?.loadingStatus();
 
-      const loadingStatus = specSelectors.loadingStatus();
-
-      return stateMessageMap[loadingStatus]();
+      return  loadingStatus && stateMessageMap[loadingStatus]();
     }, [specSelectors, errSelectors]);
 
     const config = getConfigs();
@@ -102,7 +101,7 @@ export default function KongLayout({
     const hasRegistration = window.appRegistrationEnabled;
 
     if (!loadingMessage && isSpecEmpty) {
-      return <h4>No API definition provided.</h4>;
+      return <h4>No valid API definition provided.</h4>;
     }
 
     if (loadingMessage) {
@@ -146,6 +145,6 @@ export default function KongLayout({
       </div>
     );
   } catch (error) {
-    return <h1>An error has occurred</h1>;
+    return <h1>An error has occurred </h1>;
   }
 }
