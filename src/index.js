@@ -22,6 +22,7 @@ import Fallback from "./components/ErrorBoundary/fallback";
 
 import "./styles.css";
 import Responses from "components/Responses";
+import Parameters from "components/Parameters";
 import InfoAlert from "components/InfoAlert";
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
@@ -42,6 +43,7 @@ const SwaggerUIKongTheme = (system) => {
       FilterContainer: FilterContainer,
       operations: withErrorBoundary(Operations),
       responses: Responses,
+      parameters: Parameters,
       modelExample: ModelExample,
       ModelWrapper: ModelWrapper,
       highlightCode: HighlightCode,
