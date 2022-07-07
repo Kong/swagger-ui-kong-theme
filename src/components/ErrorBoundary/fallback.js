@@ -1,11 +1,10 @@
 import React from "react";
+import InfoAlert from "components/InfoAlert";
 
 function Fallback({ name, message }) {
   return (
     <div className="fallback">
-      <h3>
-        Error in {name} component with this error message: {message}{" "}
-      </h3>
+        <InfoAlert msg={`Error in ${name} component with this error message: ${message}{" "}`}/>
     </div>
   );
 }
