@@ -1,9 +1,9 @@
 import React from 'react';
 import {render} from '@testing-library/react';
-import {Map} from "immutable";
+import Immutable, {Map} from "immutable";
 import Parameters from "components/Parameters";
 
-xdescribe('<Parameters/>', () => {
+describe('<Parameters/>', () => {
 
     const mockedParameterRowComponent = () => <div>Mocked Parameter Row Component</div>;
     const mockedTryItOutComponent = () => <div>Mocked Parameter Row Component</div>;
@@ -11,8 +11,18 @@ xdescribe('<Parameters/>', () => {
     const mockedCallbacksComponent = () => <div>Mocked Callbacks Component</div>;
     const mockedRequestBodyComponent = () => <div>Mocked RequestBody Component</div>;
 
+    const list = new Immutable.List();
+    list.set(0, {
+        name: "start_latitude",
+        in: "query",
+        description: "Latitude component of start location.",
+        required: true,
+        type: "number",
+        format: "double"
+    });
+
     const ParametersProps = {
-        parameters: new Map({in: ['mock1']}),
+        parameters: list,
         operation: new Map({
                 requestBody: new Map({})
             })
@@ -39,16 +49,20 @@ xdescribe('<Parameters/>', () => {
             parameterWithMetaByIdentity: jest.fn()
         },
         oas3Selectors: {
+            requestBodyErrors: jest.fn(),
+            requestBodyInclusionSetting: jest.fn(),
             requestContentType: jest.fn(),
             hasUserEditedBody: jest.fn(),
             shouldRetainRequestBodyValue: jest.fn(() => true),
-            requestBodyValue: jest.fn(() => [])
+            requestBodyValue: jest.fn(() => []),
+            activeExamplesMember: jest.fn(),
         },
         oas3Actions: {
             setRequestContentType: jest.fn(),
             initRequestBodyValidateError: jest.fn(),
             setRequestBodyValue: jest.fn(),
-            setRetainRequestBodyValueFlag: jest.fn()
+            setRetainRequestBodyValueFlag: jest.fn(),
+            setRequestBodyInclusion: jest.fn()
         },
         fn: {},
         tryItOutEnabled: false,
@@ -56,7 +70,7 @@ xdescribe('<Parameters/>', () => {
         onTryoutClick: jest.fn(),
         onCancelClick: jest.fn(),
         onChangeKey: ["mock1", "mock2"],
-        pathMethod: ["mock1", "mock2"],
+        pathMethod: [],
         getConfigs: jest.fn(() => {}),
         specPath: ["mock1", "mock2"]
     };

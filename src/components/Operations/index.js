@@ -6,6 +6,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Im from "immutable";
+import InfoAlert from "components/InfoAlert";
 
 const SWAGGER2_OPERATION_METHODS = [
   "get",
@@ -83,8 +84,8 @@ const Operations = (props) => {
                     if (validMethods.indexOf(method) === -1) {
                       return null;
                     }
-
-                    return (
+                  return !path ? <InfoAlert msg='Path is missing!'/> :
+                     (
                       <OperationContainer
                         key={`${path}-${method}`}
                         specPath={specPath}
