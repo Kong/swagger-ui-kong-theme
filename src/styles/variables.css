@@ -79,7 +79,7 @@
     --white-rgb-224: rgb(224, 224, 224);
   
     --button-color: #3b4151; 
-    --button-font-size: 14px
+    --button-font-size: 14px;
     --button-font-weight: 700;
     --button-background: transparent;
     --button-padding:  5px 23px;;
@@ -101,8 +101,8 @@
     
     --paragraph-color: inherit; 
     --paragraph-font-size: 16px;
-    --paragraph-font-weigh: normal;
-    --paragraph-padding: initial 
+    --paragraph-font-weight: normal;
+    --paragraph-padding: initial;
     --paragraph-margin: initial;
     
     --headings-color: inherit;
@@ -161,4 +161,3 @@
     --summary-trace-background: var(--purple-background-color);
     --summary-trace-color: var(--white);
   }
-  

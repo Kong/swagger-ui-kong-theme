@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from '@testing-library/react';
-import InfoAlert from "components/InfoAlertMessage";
+import InfoAlert from "components/InfoAlert";
 
 
 describe('<InfoAlert', () => {

@@ -35,7 +35,7 @@ describe('<Responses/>', () => {
         specSelectors: {
             isOAS3: () => true,
         },
-        fn: null,
+        fn: jest.fn(),
         produces: null,
         producesValue: null,
         displayRequestDuration: true,
