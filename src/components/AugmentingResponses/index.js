@@ -94,7 +94,6 @@ const AugmentingResponses = memo(
                 } else {
                   param.value = value;
                 }
-            });
 
                 return param;
               });

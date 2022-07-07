@@ -3,7 +3,8 @@ import { fromJS } from "immutable";
 
 import { sanitizeUrl } from "../../helpers/helpers";
 
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
+import InfoAlert from "components/InfoAlert";
 
 const EyeSVG = () => (
   <svg

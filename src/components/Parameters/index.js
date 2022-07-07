@@ -25,9 +25,8 @@ const Parameters = (props) => {
 
     const {changeParamByIdentity, changeConsumesValue, clearResponse, clearRequest, clearValidateParams} = specActions;
     const {parameterWithMetaByIdentity, isOAS3} = specSelectors;
-    const {setRequestContentType, initRequestBodyValidateError, setRequestBodyValue, setRetainRequestBodyValueFlag, setActiveExamplesMember} = oas3Actions;
-    const {hasUserEditedBody, shouldRetainRequestBodyValue, requestBodyValue, requestBodyErrors, requestBodyInclusionSetting, activeExamplesMember} = oas3Selectors;
-
+    const {setRequestContentType, initRequestBodyValidateError, setRequestBodyValue, setRetainRequestBodyValueFlag, setActiveExamplesMember, setRequestBodyInclusion} = oas3Actions;
+    const {hasUserEditedBody, shouldRetainRequestBodyValue, requestBodyValue, requestBodyErrors, requestBodyInclusionSetting: requestBodyInclusionSettingFn, activeExamplesMember, requestContentType} = oas3Selectors;
 
     const [callBackVisible, setCallBackVisible] = useState(false);
     const [parametersVisible, setParametersVisible] = useState(true)
@@ -76,16 +75,15 @@ const Parameters = (props) => {
     const isExecute = tryItOutEnabled && allowTryItOut;
 
     const requestBody = operation.get("requestBody");
-
     const groupedParametersArr = Object.values(parameters
         .reduce((acc, x) => {
+            console.log("-> x", x, typeof x);
             const key = x.get("in")
             acc[key] ??= []
             acc[key].push(x)
             return acc
         }, {}))
         .reduce((acc, x) => acc.concat(x), []);
-
     const retainRequestBodyValueFlagForOperation = (f) => setRetainRequestBodyValueFlag({value: f, pathMethod});
 
     return (
@@ -176,7 +174,7 @@ const Parameters = (props) => {
                             body</h4>
                         <label>
                             <ContentType
-                                value={oas3Selectors.requestContentType(...pathMethod)}
+                                value={requestContentType(...pathMethod)}
                                 contentTypes={requestBody.get("content", List()).keySeq()}
                                 onChange={(value) => {
                                     onChangeMediaType({value, pathMethod})
@@ -192,7 +190,7 @@ const Parameters = (props) => {
                             specPath={specPath.slice(0, -1).push("requestBody")}
                             requestBody={requestBody}
                             requestBodyValue={requestBodyValue(...pathMethod)}
-                            requestBodyInclusionSetting={requestBodyInclusionSetting(...pathMethod)}
+                            requestBodyInclusionSetting={requestBodyInclusionSettingFn(...pathMethod)}
                             requestBodyErrors={requestBodyErrors(...pathMethod)}
                             isExecute={isExecute}
                             getConfigs={getConfigs}
@@ -204,7 +202,7 @@ const Parameters = (props) => {
                             updateActiveExamplesKey={key => {
                                 setActiveExamplesMember({
                                     name: key,
-                                    pathMethod: this.props.pathMethod,
+                                    pathMethod,
                                     contextType: "requestBody",
                                     contextName: "requestBody", // RBs are currently not stored per-mediaType
                                 })
@@ -212,7 +210,7 @@ const Parameters = (props) => {
                             }
                             onChange={(value, path) => {
                                 if (path) {
-                                    const lastValue = oas3Selectors.requestBodyValue(...pathMethod)
+                                    const lastValue = requestBodyValue(...pathMethod)
                                     const usableValue = Map.isMap(lastValue) ? lastValue : Map()
                                     return setRequestBodyValue({
                                         pathMethod,
