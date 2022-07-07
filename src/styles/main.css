@@ -41,7 +41,7 @@
 .swagger-ui h5,
 .swagger-ui h6 {
   color: var(--headings-color);
-  font-weight: var(--headings--font-weight);
+  font-weight: var(--headings-font-weight);
   padding: var(--headings-padding);
   margin: var(--headings-margin);
 }
@@ -73,7 +73,7 @@
   color: var(--button-color);
   font-size: var(--button-font-size);
   font-weight: var(--button-font-weight);
-  padding: (--button-padding);
+  padding: var(--button-padding);
 }
 .swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method {
   background-color: var(--blue-background-color);
@@ -568,9 +568,8 @@
   background: var(--summary-get-background);
   color: var(--summary-get-color);
 }
-.swagger-ui
-  .opblock-summary.opblock-summary-delete
-  span.opblock-summary-method {
+
+.swagger-ui .opblock-summary.opblock-summary-delete span.opblock-summary-method {
   background: var(--summary-delete-background);
   color: var(--summary-delete-color);
 }
@@ -583,16 +582,12 @@
   background: var(--summary-head-background);
   color: var(--summary-head-color);
 }
-.swagger-ui
-  .opblock-summary.opblock-summary-options
-  span.opblock-summary-method {
+.swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method {
   background: var(--summary-options-background);
   color: var(--summary-options-color);
 }
 
-.swagger-ui
-  .opblock-summary.opblock-summary-deprecated
-  span.opblock-summary-method {
+.swagger-ui .opblock-summary.opblock-summary-deprecated span.opblock-summary-method {
   background: var(--summary-deprecated-background);
   color: var(--summary-deprecated-color);
 }

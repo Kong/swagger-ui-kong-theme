@@ -9,6 +9,7 @@ const config = {
   moduleNameMapper: {
     "\\.(css|less)$": "identity-obj-proxy"
   },
+  modulePathIgnorePatterns: ['demo-new'],
   modulePaths: ["<rootDir>/src/"],
   reporters: ["default", ["jest-junit", { outputDirectory: "test" }]],
   setupFilesAfterEnv: ["<rootDir>/jest-setup.js"],
