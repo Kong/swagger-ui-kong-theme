@@ -10,7 +10,7 @@ function RegisterBtnContainer() {
   }
 
   return (
-    <div className="register-wrapper">
+    <div className={styles.registerWrapper}>
       <button onClick={handleRegisterClick}>Register</button>
     </div>
   );
