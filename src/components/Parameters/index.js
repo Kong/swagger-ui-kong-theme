@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import PropTypes from "prop-types"
 import {Map, List} from "immutable"
-import ImPropTypes from "react-immutable-proptypes"
+import ImPropTypes from "react-immutable-proptypes";
 
 const Parameters = (props) => {
     const {
@@ -77,7 +77,6 @@ const Parameters = (props) => {
     const requestBody = operation.get("requestBody");
     const groupedParametersArr = Object.values(parameters
         .reduce((acc, x) => {
-            console.log("-> x", x, typeof x);
             const key = x.get("in")
             acc[key] ??= []
             acc[key].push(x)
@@ -135,7 +134,8 @@ const Parameters = (props) => {
                             </thead>
                             <tbody>
                             {
-                                groupedParametersArr.map((parameter, i) => (
+                                groupedParametersArr.map((parameter, i) => {
+                                    return parameter.get("in") && parameter.get("name") ?
                                     <ParameterRow
                                         fn={fn}
                                         specPath={specPath.push(i.toString())}
@@ -151,8 +151,8 @@ const Parameters = (props) => {
                                         oas3Actions={oas3Actions}
                                         oas3Selectors={oas3Selectors}
                                         pathMethod={pathMethod}
-                                        isExecute={isExecute}/>
-                                ))
+                                        isExecute={isExecute}/> : <InfoAlert msg="Parameter format is incorrect" /> }
+                                )
                             }
                             </tbody>
                         </table>

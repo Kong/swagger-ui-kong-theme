@@ -157,7 +157,7 @@ export const AugmentingInfo = (props) => {
                 <a target="_blank" href={sanitizeUrl(externalDocsUrl)}>
                     {externalDocsDescription || externalDocsUrl}
                 </a>
-            ) : null}
+            ) : <InfoAlert msg="No externalDocsUrl found!" />}
         </div>
     ) : <InfoAlert msg='Info is missing'/>;
 };
