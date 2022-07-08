@@ -9,6 +9,7 @@ import {
   escapeDeepLinkPath,
   sanitizeUrl,
 } from "helpers/helpers";
+import InfoAlert from "components/InfoAlert";
 
 const OperationTag = (props) => {
   const {
@@ -94,7 +95,7 @@ const OperationTag = (props) => {
                 >
                   {tagExternalDocsUrl}
                 </Link>
-              ) : null}
+              ) : <InfoAlert msg="No url defined"/>}
             </small>
           )}
         </div>

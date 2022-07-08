@@ -20,6 +20,7 @@ import OperationWrapper from "./components/AugmentingOperation";
 import ResponsesWrapper from "./components/AugmentingResponses";
 import Fallback from "./components/ErrorBoundary/fallback";
 import Responses from "components/Responses";
+import Parameters from "components/Parameters";
 import InfoAlert from "components/InfoAlert";
 
 import './styles/variables.css'
@@ -42,7 +43,8 @@ const SwaggerUIKongTheme = (system) => {
       OperationTag: OperationTag,
       FilterContainer: FilterContainer,
       operations: withErrorBoundary(Operations),
-      responses: Responses,
+      responses: withErrorBoundary(Responses),
+      parameters: withErrorBoundary(Parameters),
       modelExample: ModelExample,
       ModelWrapper: ModelWrapper,
       highlightCode: HighlightCode,
