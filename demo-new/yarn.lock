@@ -9535,7 +9535,7 @@ react-hot-loader@^4.13.0:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
-react-immutable-proptypes@2.2.0:
+react-immutable-proptypes@2.2.0, react-immutable-proptypes@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/react-immutable-proptypes/-/react-immutable-proptypes-2.2.0.tgz#cce96d68cc3c18e89617cbf3092d08e35126af4a"
   integrity sha512-Vf4gBsePlwdGvSZoLSBfd4HAP93HDauMY4fDjXhreg/vg6F3Fj/MXDNyTbltPC/xZKmZc+cjLu3598DdYK6sgQ==
@@ -10703,8 +10703,13 @@ swagger-ui-kong-theme@../:
     jest-reporters "^0.0.2"
     jest-unit "^0.0.1"
     js-file-download "^0.4.12"
+<<<<<<< HEAD
+=======
+    prop-types "^15.8.1"
+>>>>>>> 30968dd (Small changes)
     react-apiembed "^0.1.4"
     react-debounce-input "^3.2.0"
+    react-immutable-proptypes "^2.2.0"
     swagger2har "git+https://github.com/Kong/swagger2har.git#8409def1fd72311f44b1d34e669af76226cb4f59"
     typescript "^4.7.3"
 
