@@ -27,7 +27,7 @@ const Sidebar = ({ getConfigs, getComponent }) => {
   const config = getConfigs();
 
   const swaggerAbsoluteTop = {
-    top: (config.theme && config.theme?.swaggerAbsoluteTop) || "0",
+    top: (config?.theme && config.theme?.swaggerAbsoluteTop) || "0",
   };
 
   const SidebarList = getComponent("SidebarList", true);
