@@ -7,7 +7,7 @@
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
     "@typescript-eslint/eslint-plugin": "5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
@@ -42,7 +42,7 @@
     "webpack-dev-server": "webpack-dev-server",
     "start": "webpack-dev-server --mode=development",
     "prod": "webpack --mode=production",
-    "test": "cd test/unit && jest",
+    "test:unit": "cd test/unit && jest",
     "test:e2e": "cd test/e2e && jest"
   },
   "eslintConfig": {

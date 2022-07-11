@@ -1,10 +1,10 @@
 import App from "components/App";
 
-import renderComponent from "../../utils/renderComponet";
+import renderComponent from "../../utils/renderComponent";
 
 describe("<App />", () => {
   it("was rendered", () => {
-    const container = renderComponent(App);
-    expect(container).toBeInTheDocument();
+    const view = renderComponent(App);
+    expect(view).toBeInTheDocument();
   });
 });

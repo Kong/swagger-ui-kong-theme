@@ -1927,7 +1927,7 @@
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
 
-"@testing-library/dom@^8.0.0", "@testing-library/dom@^8.5.0":
+"@testing-library/dom@^8.0.0":
   version "8.15.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.15.0.tgz#c7f8549dc4d094786a5bf1c241fbd0e0df9d1e74"
   integrity sha512-KtMhnUST7iUvZPl3LlRKH9V/JGbMIwgCxSeGno+c2VRRgC21l27Ky8rU8n/xRcfUAsO4w9fn3Z70Dq3Tcg6KAg==
@@ -1964,15 +1964,6 @@
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^8.0.0"
     "@types/react-dom" "<18.0.0"
-
-"@testing-library/react@^13.3.0":
-  version "13.3.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-13.3.0.tgz#bf298bfbc5589326bbcc8052b211f3bb097a97c5"
-  integrity sha512-DB79aA426+deFgGSjnf5grczDPiL4taK3hFaa+M5q7q20Kcve9eQottOG5kZ74KEr55v0tU2CQormSSDK87zYQ==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    "@testing-library/dom" "^8.5.0"
-    "@types/react-dom" "^18.0.0"
 
 "@testing-library/user-event@^13.5.0":
   version "13.5.0"
@@ -2250,13 +2241,6 @@
   integrity sha512-VjnqEmqGnasQKV0CWLevqMTXBYG9GbwuE6x3VetERLh0cq2LTptFE73MrQi2S7GkKXCf2GgwItB/melLnxfnsg==
   dependencies:
     "@types/react" "^17"
-
-"@types/react-dom@^18.0.0":
-  version "18.0.6"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.0.6.tgz#36652900024842b74607a17786b6662dd1e103a1"
-  integrity sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==
-  dependencies:
-    "@types/react" "*"
 
 "@types/react-redux@^7.1.20":
   version "7.1.24"
