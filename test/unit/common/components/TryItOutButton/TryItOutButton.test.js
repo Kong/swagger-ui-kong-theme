@@ -2,7 +2,6 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import TryItOutButton from "components/TryItOutButton";
 
-
 describe('<TryItOutButton/>', () => {
 
     const TryItOutButtonProps = {
@@ -26,12 +25,6 @@ describe('<TryItOutButton/>', () => {
         const container = renderComponent();
         expect(container).toBeInTheDocument();
         expect(container).toBeVisible();
-    });
-
-    it('can render content when servers not empty', () => {
-        renderComponent();
-        const button = screen.getByRole('button');
-        expect(button).toBeTruthy();
     });
 
     it('can render content when servers not empty', () => {

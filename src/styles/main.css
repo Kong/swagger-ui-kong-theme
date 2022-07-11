@@ -8,30 +8,24 @@
   left: 0;
 }
 
-/* colors below should match kong-portal-templates colors for summary methods */
-.swagger-ui .opblock-summary.opblock-summary-post span.opblock-summary-method {
-  background-color: var(--green-500);
-  color: var(--white);
+/* main */
+
+.swagger-ui input,
+.swagger-ui textarea {
+  color: var(--input-color);
+  font-size: var(--input-font-size);
+  font-weight: var(--input-font-weight);
+  background: var(--input-background);
+  padding: var(--input-padding);
+  border-radius: var(--input-border-radius);
 }
-.swagger-ui .opblock-summary.opblock-summary-put span.opblock-summary-method {
-  background-color: var(--yellow-400);
-  color: var(--black-400) !important;
-}
-.swagger-ui .opblock-summary.opblock-summary-get span.opblock-summary-method {
-  background: var(--blue-500);
-}
-.swagger-ui .opblock-summary.opblock-summary-delete span.opblock-summary-method {
-  background-color: var(--red-600);
-}
-.swagger-ui .opblock-summary.opblock-summary-patch span.opblock-summary-method {
-  background-color: var(--green-300);
-  color: var(--black-400) !important;
-}
-.swagger-ui .opblock-summary.opblock-summary-head span.opblock-summary-method {
-  background: var(--purple-background-color);
-}
-.swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method {
-  background: var(--blue-background-color);
+
+.swagger-ui p {
+  color: var(--paragraph-color);
+  font-size: var(--paragraph-font-size);
+  font-weight: var(--paragraph-font-weight);
+  padding: var(--paragraph-padding);
+  margin: var(--paragraph-margin);
 }
 
 .swagger-ui h1,
@@ -59,6 +53,9 @@
 .swagger-ui h4 {
   font-size: var(--headings-font-size-4);
 }
+.swagger-ui h5 {
+  font-size: var(--headings-font-size-5);
+}
 .swagger-ui .opblock-summary.opblock-summary-deprecated span.opblock-summary-method {
   background-color: var(--steel-600);
   color: var(--black-100);
@@ -75,8 +72,11 @@
   font-weight: var(--button-font-weight);
   padding: var(--button-padding);
 }
-.swagger-ui .opblock-summary.opblock-summary-options span.opblock-summary-method {
-  background-color: var(--blue-background-color);
+
+.swagger-ui .dialog-ux .modal-ux {
+  background: var(--modal-background);
+  color: var(--modal-color);
+  border-radius: var(--modal-border-radius);
 }
 
 .swagger-ui .dialog-ux .modal-ux-content {
@@ -838,6 +838,12 @@
  */
 .swagger-ui .code-block {
   max-height: 600px !important;
+}
+
+@media all and (min-width: 1201px) {
+  .swagger-ui {
+    margin-top: 0;
+  }
 }
 
 .swagger-ui .alert-message {

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import InfoAlert from "components/InfoAlert";
 
 /**
@@ -7,40 +7,60 @@ import InfoAlert from "components/InfoAlert";
  * as well a default aria label
  */
 const ContentType = (props) => {
+  const {
+    onChange,
+    contentTypes,
+    ariaControls,
+    ariaLabel = "Content type",
+    className,
+    controlId,
+    value,
+  } = props;
+  useEffect(() => {
+    return () => {
+      if (contentTypes) {
+        onChange(contentTypes[0]);
+      }
+    };
+  }, []);
 
-    const {onChange, contentTypes, ariaControls, ariaLabel = 'Content type', className, controlId, value} = props;
-    useEffect(() => {
-        return () => {
-            if (contentTypes) {
-                onChange(contentTypes[0]);
-            }
-        };
-    }, []);
+  useEffect(() => {
+    return () => {
+      if (!contentTypes?.length) {
+        return;
+      }
+      if (!contentTypes.includes(value)) {
+        onChange(contentTypes[0]);
+      }
+    };
+  }, [contentTypes?.length]);
 
-    useEffect(() => {
-        return () => {
-            if (!contentTypes?.length) {
-                return;
-            }
-            if (!contentTypes.includes(value)) {
-                onChange(contentTypes[0]);
-            }
-        }
-    }, [contentTypes?.length])
-
-    const onChangeHandler = ({target: {value}}) => onChange(value)
-
-  const onChangeWrapper = ({target: {value}}) => onChange(value)
+  const onChangeHandler = ({ target: { value } }) => onChange(value);
 
   return (
-      <div className={"content-type-wrapper " + (className || "")}>
-        <select aria-controls={ariaControls} aria-label={ariaLabel} className="content-type" id={controlId} onChange={onChangeWrapper} value={value || ""} >
+    <div className={"content-type-wrapper " + (className || "")}>
+      {contentTypes ? (
+        <select
+          aria-controls={ariaControls}
+          aria-label={ariaLabel}
+          className="content-type"
+          id={controlId}
+          onChange={onChangeHandler}
+          value={value || ""}
+        >
           {contentTypes.map((val) => {
-            return <option key={val} value={val}>{val}</option>
+            return (
+              <option key={val} value={val}>
+                {val}
+              </option>
+            );
           })}
         </select>
-      </div>
-  )
-}
+      ) : (
+        <InfoAlert msg="No content types !" />
+      )}
+    </div>
+  );
+};
 
 export default ContentType;

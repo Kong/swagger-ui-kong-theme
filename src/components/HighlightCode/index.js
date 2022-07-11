@@ -6,12 +6,7 @@ import { highlight } from "../../helpers/helpers";
 import saveAs from "js-file-download";
 import React, { useEffect, useRef } from "react";
 
-export default function HighlightCode({
-  value,
-  className,
-  fileName,
-  downloadable,
-}) {
+function HighlightCode({ value, className, fileName, downloadable }) {
   const el = useRef();
 
   useEffect(() => {
@@ -25,10 +20,10 @@ export default function HighlightCode({
   const preventYScrollingBeyondElement = (e) => {
     const target = e.target;
 
-    var deltaY = e.nativeEvent.deltaY;
-    var contentHeight = target.scrollHeight;
-    var visibleHeight = target.offsetHeight;
-    var scrollTop = target.scrollTop;
+    const deltaY = e.nativeEvent.deltaY;
+    const contentHeight = target.scrollHeight;
+    const visibleHeight = target.offsetHeight;
+    const scrollTop = target.scrollTop;
 
     const scrollOffset = visibleHeight + scrollTop;
 
@@ -64,3 +59,5 @@ export default function HighlightCode({
     </div>
   );
 }
+
+export default HighlightCode;
