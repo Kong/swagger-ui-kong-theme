@@ -42,7 +42,8 @@
     "webpack-dev-server": "webpack-dev-server",
     "start": "webpack-dev-server --mode=development",
     "prod": "webpack --mode=production",
-    "test": "react-scripts test"
+    "test": "cd test/unit && jest",
+    "test:e2e": "cd test/e2e && jest"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +54,12 @@
       "browser": true,
       "node": true
     }
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
   },
   "browserslist": {
     "production": [
@@ -66,54 +73,16 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ],
-    "setupFiles": [
-      "react-app-polyfill/jsdom"
-    ],
-    "setupFilesAfterEnv": [],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
-    ],
-    "testEnvironment": "jest-environment-jsdom-fourteen",
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
-    ],
-    "modulePaths": [],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-    },
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "web.ts",
-      "ts",
-      "web.tsx",
-      "tsx",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
-    ],
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ]
-  },
   "devDependencies": {
     "@webpack-cli/serve": "^1.7.0",
+    "jest": "^28.1.2",
+    "jest-environment-jsdom": "^28.1.2",
+    "jest-junit": "^14.0.0",
+    "jest-puppeteer": "^6.1.1",
+    "jest-reporters": "^0.0.2",
+    "jest-unit": "^0.0.1",
     "node-polyfill-webpack-plugin": "^1.1.4",
+    "puppeteer": "^15.3.2",
     "webpack-dev-server": "^4.9.2"
   },
   "resolutions": {
