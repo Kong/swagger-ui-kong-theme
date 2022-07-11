@@ -1,117 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="5" failures="2" errors="0" time="1.437">
-  <testsuite name="&lt;Models /&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-09T20:32:47" time="0.75" tests="1">
-    <testcase classname="&lt;Models /&gt; was rendered" name="&lt;Models /&gt; was rendered" time="0.007">
+<testsuites name="jest tests" tests="22" failures="0" errors="0" time="1.034">
+  <testsuite name="&lt;Path/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-11T21:17:35" time="0.592" tests="3">
+    <testcase classname="&lt;Path/&gt; was rendered" name="&lt;Path/&gt; was rendered" time="0.01">
+    </testcase>
+    <testcase classname="&lt;Path/&gt; has default classname" name="&lt;Path/&gt; has default classname" time="0.003">
+    </testcase>
+    <testcase classname="&lt;Path/&gt; has `host` &amp; `basePath` property rendered" name="&lt;Path/&gt; has `host` &amp; `basePath` property rendered" time="0.008">
     </testcase>
   </testsuite>
-  <testsuite name="&lt;SidebarList/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-09T20:32:47" time="0.752" tests="1">
-    <testcase classname="&lt;SidebarList/&gt; was rendered" name="&lt;SidebarList/&gt; was rendered" time="0.01">
-    </testcase>
-  </testsuite>
-  <testsuite name="&lt;OperationsTag/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-09T20:32:47" time="0.756" tests="1">
-    <testcase classname="&lt;OperationsTag/&gt; was rendered" name="&lt;OperationsTag/&gt; was rendered" time="0.011">
-    </testcase>
-  </testsuite>
-  <testsuite name="&lt;Licence/&gt;" errors="0" failures="2" skipped="0" timestamp="2022-07-09T20:32:47" time="0.797" tests="2">
-    <testcase classname="&lt;Licence/&gt; `url` property renders `url` href link " name="&lt;Licence/&gt; `url` property renders `url` href link " time="0.033">
-      <failure>Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it&apos;s defined in, or you might have mixed up default and named imports.
-    at createFiberFromTypeAndProps (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:25058:21)
-    at createFiberFromElement (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:25086:15)
-    at reconcileSingleElement (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:14052:23)
-    at reconcileChildFibers (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:14112:35)
-    at reconcileChildren (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:16997:28)
-    at updateHostRoot (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:17599:5)
-    at beginWork (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:19077:14)
-    at HTMLUnknownElement.callCallback (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-    at innerInvokeEventListeners (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:340:25)
-    at invokeEventListeners (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:276:3)
-    at HTMLUnknownElementImpl._dispatch (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:223:9)
-    at HTMLUnknownElementImpl.dispatchEvent (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-    at HTMLUnknownElement.dispatchEvent (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
-    at Object.invokeGuardedCallbackDev (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-    at invokeGuardedCallback (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-    at beginWork$1 (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-    at performUnitOfWork (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-    at workLoopSync (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-    at renderRootSync (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-    at performSyncWorkOnRoot (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-    at scheduleUpdateOnFiber (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-    at updateContainer (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-    at /Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:26021:7
-    at unbatchedUpdates (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-    at legacyRenderSubtreeIntoContainer (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-    at Object.render (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-    at /Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/@testing-library/react/dist/pure.js:101:25
-    at batchedUpdates$1 (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-    at act (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-    at render (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/@testing-library/react/dist/pure.js:97:26)
-    at Object.&lt;anonymous&gt; (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/test/unit/common/components/AugmentingInfo/Licence.test.js:18:13)
-    at Promise.then.completed (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/utils.js:333:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/utils.js:259:10)
-    at _callCircusTest (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:277:40)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-    at _runTest (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:209:3)
-    at _runTestsForDescribeBlock (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:97:9)
-    at _runTestsForDescribeBlock (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:91:9)
-    at _runTestsForDescribeBlock (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:91:9)
-    at run (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:31:3)
-    at runAndTransformResultsToJestFormat (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:135:21)
-    at jestAdapter (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:92:19)
-    at runTestInternal (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-runner/build/runTest.js:411:16)
-    at runTest (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-runner/build/runTest.js:499:34)
-    at Object.worker (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-runner/build/testWorker.js:133:12)</failure>
+  <testsuite name="&lt;Licence/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-11T21:17:35" time="0.608" tests="2">
+    <testcase classname="&lt;Licence/&gt; `url` property renders `url` href link " name="&lt;Licence/&gt; `url` property renders `url` href link " time="0.032">
     </testcase>
     <testcase classname="&lt;Licence/&gt; `no url` property renders `no url` href link " name="&lt;Licence/&gt; `no url` property renders `no url` href link " time="0.003">
-      <failure>Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it&apos;s defined in, or you might have mixed up default and named imports.
-    at createFiberFromTypeAndProps (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:25058:21)
-    at createFiberFromElement (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:25086:15)
-    at reconcileSingleElement (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:14052:23)
-    at reconcileChildFibers (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:14112:35)
-    at reconcileChildren (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:16997:28)
-    at updateHostRoot (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:17599:5)
-    at beginWork (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:19077:14)
-    at HTMLUnknownElement.callCallback (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-    at innerInvokeEventListeners (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:340:25)
-    at invokeEventListeners (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:276:3)
-    at HTMLUnknownElementImpl._dispatch (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:223:9)
-    at HTMLUnknownElementImpl.dispatchEvent (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-    at HTMLUnknownElement.dispatchEvent (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
-    at Object.invokeGuardedCallbackDev (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-    at invokeGuardedCallback (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-    at beginWork$1 (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-    at performUnitOfWork (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-    at workLoopSync (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-    at renderRootSync (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-    at performSyncWorkOnRoot (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-    at scheduleUpdateOnFiber (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-    at updateContainer (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-    at /Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:26021:7
-    at unbatchedUpdates (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-    at legacyRenderSubtreeIntoContainer (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-    at Object.render (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-    at /Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/@testing-library/react/dist/pure.js:101:25
-    at batchedUpdates$1 (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-    at act (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-    at render (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/@testing-library/react/dist/pure.js:97:26)
-    at Object.&lt;anonymous&gt; (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/test/unit/common/components/AugmentingInfo/Licence.test.js:36:13)
-    at Promise.then.completed (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/utils.js:333:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/utils.js:259:10)
-    at _callCircusTest (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:277:40)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-    at _runTest (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:209:3)
-    at _runTestsForDescribeBlock (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:97:9)
-    at _runTestsForDescribeBlock (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:91:9)
-    at _runTestsForDescribeBlock (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:91:9)
-    at run (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/run.js:31:3)
-    at runAndTransformResultsToJestFormat (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:135:21)
-    at jestAdapter (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:92:19)
-    at runTestInternal (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-runner/build/runTest.js:411:16)
-    at runTest (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-runner/build/runTest.js:499:34)
-    at Object.worker (/Users/julianestefan/Documents/projects/kong/swagger-ui-kong-theme/node_modules/jest-runner/build/testWorker.js:133:12)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;AugmentingInfo/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-11T21:17:35" time="0.604" tests="1">
+    <testcase classname="&lt;AugmentingInfo/&gt; was rendered" name="&lt;AugmentingInfo/&gt; was rendered" time="0.031">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;ViewSpec/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-11T21:17:35" time="0.612" tests="3">
+    <testcase classname="&lt;ViewSpec/&gt; was rendered" name="&lt;ViewSpec/&gt; was rendered" time="0.017">
+    </testcase>
+    <testcase classname="&lt;ViewSpec/&gt; has a button" name="&lt;ViewSpec/&gt; has a button" time="0.02">
+    </testcase>
+    <testcase classname="&lt;ViewSpec/&gt; has an svg" name="&lt;ViewSpec/&gt; has an svg" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;SideBar/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-11T21:17:35" time="0.678" tests="9">
+    <testcase classname="&lt;SideBar/&gt; was rendered" name="&lt;SideBar/&gt; was rendered" time="0.012">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has a role button" name="&lt;SideBar/&gt; has a role button" time="0.022">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; has `Open Sidebar` title" name="&lt;SideBar/&gt; has `Open Sidebar` title" time="0.009">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens" name="&lt;SideBar/&gt; can be clicked: sidebar opens" time="0.021">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" name="&lt;SideBar/&gt; can be clicked: sidebar opens &amp; closes" time="0.019">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" name="&lt;SideBar/&gt; can be clicked: Sidebar list is rendered" time="0.01">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; on `Space` press opens sidebar" name="&lt;SideBar/&gt; on `Space` press opens sidebar" time="0.004">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; on `Enter` press close sidebar" name="&lt;SideBar/&gt; on `Enter` press close sidebar" time="0.005">
+    </testcase>
+    <testcase classname="&lt;SideBar/&gt; on `Return` press close sidebar" name="&lt;SideBar/&gt; on `Return` press close sidebar" time="0.005">
+    </testcase>
+  </testsuite>
+  <testsuite name="&lt;Contact/&gt;" errors="0" failures="0" skipped="0" timestamp="2022-07-11T21:17:36" time="0.113" tests="4">
+    <testcase classname="&lt;Contact/&gt; `url` property contains `url link`" name="&lt;Contact/&gt; `url` property contains `url link`" time="0.009">
+    </testcase>
+    <testcase classname="&lt;Contact/&gt; `url` property renders `url` href link " name="&lt;Contact/&gt; `url` property renders `url` href link " time="0.003">
+    </testcase>
+    <testcase classname="&lt;Contact/&gt; no `url` property no url link" name="&lt;Contact/&gt; no `url` property no url link" time="0.001">
+    </testcase>
+    <testcase classname="&lt;Contact/&gt; no `url` property renders `no url` href link " name="&lt;Contact/&gt; no `url` property renders `no url` href link " time="0.001">
     </testcase>
   </testsuite>
 </testsuites>

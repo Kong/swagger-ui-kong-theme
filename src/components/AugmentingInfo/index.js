@@ -34,17 +34,17 @@ const EyeSVG = () => (
   </svg>
 );
 
-const Path = (props) => {
+export const Path = (props) => {
   const { host, basePath } = props;
   return (
     <pre className="base-url">
       [Base Url: {host}
-      {basePath}
+      {basePath}]
     </pre>
   );
 };
 
-const Contact = (props) => {
+export const Contact = (props) => {
   const { data } = props;
   const THE_DEVELOPER = "the developer";
   const name = data.get("name") || THE_DEVELOPER;
@@ -67,11 +67,13 @@ const Contact = (props) => {
   );
 };
 
-const Licence = (props) => {
-  const { licence } = props;
+export const Licence = (props) => {
+  const { data } = props;
+
   const LICENCE = "LICENCE";
-  const name = licence.get("name") || LICENCE;
-  const url = licence.get("url");
+
+  const name = data.get("name") || LICENCE;
+  const url = data.get("url");
 
   return (
     <div>
@@ -86,7 +88,7 @@ const Licence = (props) => {
   );
 };
 
-const ViewSpec = () => {
+export const ViewSpec = () => {
   const handleVieViewSpec = () => {
     if (window.onViewSpecClick) {
       window.onViewSpecClick();
@@ -117,14 +119,24 @@ export const AugmentingInfo = (props) => {
   const Markdown = getComponent("Markdown");
   const VersionStamp = getComponent("VersionStamp");
 
-  return (
+  return info ? (
     <div className="info">
       <hgroup className="main">
         <div className="header">
-          <h2 className="title">
-            {title}
-            {version && <VersionStamp version={version} />}
-          </h2>
+          {title ? (
+            <>
+              <h2 className="title">
+                {title}
+                {version ? (
+                  <VersionStamp version={version} />
+                ) : (
+                  <InfoAlert msg="Version is missing" />
+                )}
+              </h2>
+            </>
+          ) : (
+            <InfoAlert msg="Title is missing" />
+          )}
           <ViewSpec />
         </div>
         {host || basePath ? <Path host={host} basePath={basePath} /> : null}
@@ -148,13 +160,17 @@ export const AugmentingInfo = (props) => {
       )}
 
       {contact && contact.size ? <Contact data={contact} /> : null}
-      {licence && licence.size ? <Licence license={licence} /> : null}
+      {licence && licence.size ? <Licence data={licence} /> : null}
       {externalDocsUrl ? (
         <a target="_blank" href={sanitizeUrl(externalDocsUrl)}>
           {externalDocsDescription || externalDocsUrl}
         </a>
-      ) : null}
+      ) : (
+        <InfoAlert msg="No externalDocsUrl found!" />
+      )}
     </div>
+  ) : (
+    <InfoAlert msg="Info is missing" />
   );
 };
 

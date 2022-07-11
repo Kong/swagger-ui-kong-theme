@@ -89,4 +89,5 @@ describe("<SideBar/>", () => {
     });
     expect(screen.getByText("Close Sidebar")).toBeVisible();
   });
+  
 });
