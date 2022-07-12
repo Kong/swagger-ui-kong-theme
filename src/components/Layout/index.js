@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 
 import styles from "./styles.module.css";
 import InfoAlert from "components/InfoAlert";
+import {ViewSpecBtn} from "components/AugmentingInfo";
 
 function RegisterBtnContainer() {
   function handleRegisterClick() {
@@ -127,8 +128,9 @@ export default function KongLayout({
             <div className="scheme-container">
               <Col className="schemes wrapper" mobile={12}>
                 {hasServers ? <ServersContainer /> : <InfoAlert msg="No Servers found !"/>}
-                {hasSchemes ? <SchemesContainer /> : null}
+                {hasSchemes ? <SchemesContainer /> : <InfoAlert msg="No Schemes found !"/>}
                 <div className="actions">
+                  <ViewSpecBtn />
                   {hasSecurityDefinitions ? <AuthorizeBtnContainer /> : null}
                   {hasRegistration ? <RegisterBtnContainer /> : null}
                 </div>
