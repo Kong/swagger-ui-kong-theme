@@ -594,6 +594,12 @@
     padding-left: 0;
     padding-right: 0;
 }
+.swagger-ui .opblock .opblock-summary > button.opblock-summary-control > svg {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+  bottom: 5px;
+}
 
 .swagger-ui .opblock .opblock-summary .opblock-summary-method {
     grid-column-start: 1;
@@ -664,25 +670,34 @@
 }
 
 .swagger-ui .opblock .opblock-summary .opblock-summary-description {
-    grid-column: 1;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 3;
+  grid-column: 2;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
 
     grid-row: 1;
     -ms-grid-row: 1;
     grid-row-start: 1;
 
-    /* font-family: Roboto !important; */
-    font-size: 20px;
-    font-weight: 500;
-    padding-bottom: 10px;
+  /* font-family: Roboto !important; */
+  font-size: 20px;
+  font-weight: 500;
+  padding-bottom: 10px;
+  position: relative;
+  right: 50px;
+}
+
+.swagger-ui .expand-operation .arrow {
+  width: 25px;
+  height: 25px;
+  fill: var(--name-path-arrow-color);
 }
 
 .swagger-ui .opblock .opblock-summary .arrow {
-    position: relative;
-    top: 2rem;
+  width: 25px;
+  height: 25px;
+  fill: var(--summary-path-arrow-color);
 }
 
 .swagger-ui .opblock .opblock-summary .authorization__btn {

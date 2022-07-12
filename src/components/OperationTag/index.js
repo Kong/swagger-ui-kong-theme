@@ -67,6 +67,20 @@ const OperationTag = (props) => {
         data-is-open={showTag}
         tabIndex={0}
       >
+        <button
+            className="expand-operation"
+            title={showTag ? "Collapse operation" : "Expand operation"}
+            onClick={() => layoutActions.show(isShownKey, !showTag)}
+            aria-expanded={showTag}
+            tabIndex={-1}
+        >
+          <svg className="arrow" width="20" height="20">
+            <use
+                href={showTag ? "#large-arrow-down" : "#large-arrow"}
+                xlinkHref={showTag ? "#large-arrow-down" : "#large-arrow"}
+            />
+          </svg>
+        </button>
         <DeepLink
           tabIndex={-1}
           enabled={false} // Set to false, as we don't seem to be doing anything when deeplinking.
@@ -99,21 +113,6 @@ const OperationTag = (props) => {
             </small>
           )}
         </div>
-
-        <button
-          className="expand-operation"
-          title={showTag ? "Collapse operation" : "Expand operation"}
-          onClick={() => layoutActions.show(isShownKey, !showTag)}
-          aria-expanded={showTag}
-          tabIndex={-1}
-        >
-          <svg className="arrow" width="20" height="20">
-            <use
-              href={showTag ? "#large-arrow-down" : "#large-arrow"}
-              xlinkHref={showTag ? "#large-arrow-down" : "#large-arrow"}
-            />
-          </svg>
-        </button>
       </h1>
       <Collapse isOpened={showTag}>{children}</Collapse>
     </div>
