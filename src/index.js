@@ -23,8 +23,8 @@ import Responses from "components/Responses";
 import Parameters from "components/Parameters";
 import InfoAlert from "components/InfoAlert";
 
-import './styles/variables.css'
 import './styles/main.css';
+import './styles/variables.css';
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {

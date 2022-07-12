@@ -48,7 +48,7 @@ const Operations = (props) => {
   if (maxDisplayedTags && !isNaN(maxDisplayedTags) && maxDisplayedTags >= 0) {
     taggedOps = taggedOps.slice(0, maxDisplayedTags);
   }
-  
+
   return (
     <div>
       {taggedOps.size > 0 &&
@@ -84,8 +84,9 @@ const Operations = (props) => {
                     if (validMethods.indexOf(method) === -1) {
                       return null;
                     }
-                  return !path ? <InfoAlert msg='Path is missing!'/> :
-                     (
+                    return !path ? (
+                      <InfoAlert msg="Path is missing!" />
+                    ) : (
                       <OperationContainer
                         key={`${path}-${method}`}
                         specPath={specPath}
