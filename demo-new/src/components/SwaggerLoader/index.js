@@ -27,15 +27,13 @@ const SwaggerLoader = () => {
     <div>
       <div className="btn-panel">
         {hasError && <button onClick={loadSwagger}>Try Again</button>}
-        
-        <label> Specs: </label>
         <select
           style={{ width: "200px" }}
           value={selectedSpec}
           onChange={(event) => setSelectedspec(event.target.value)}
         >
           {specs.map((spec) => (
-            <option key={spec} value={spec}>
+            <option key={spec} value={spec} className="select-option">
               {spec}
             </option>
           ))}

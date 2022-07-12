@@ -1,12 +1,12 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import {ViewSpec} from "components/AugmentingInfo";
+import {ViewSpecBtn} from "components/AugmentingInfo";
 
 
-describe('<ViewSpec/>', () => {
+describe('<ViewSpecBtn/>', () => {
 
     beforeEach(() => {
-        render(<ViewSpec /> )
+        render(<ViewSpecBtn /> )
     })
 
     it('was rendered', () => {
@@ -16,9 +16,5 @@ describe('<ViewSpec/>', () => {
     it('has a button', () => {
         expect(screen.getByRole('button')).toBeInTheDocument();
     });
-
-    it('has an svg', () => {
-        expect(screen.getByTitle('0DC50B50-D286-4889-B1DA-07E43925811F@1.00x')).toBeInTheDocument();
-    })
 
 });
