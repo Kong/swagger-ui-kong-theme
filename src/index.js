@@ -45,7 +45,7 @@ const SwaggerUIKongTheme = (system) => {
       OperationTag: OperationTag,
       FilterContainer: FilterContainer,
       operations: withErrorBoundary(Operations),
-      responses: withErrorBoundary(Responses),
+   //   responses: withErrorBoundary(Responses),
       parameters: withErrorBoundary(Parameters),
       modelExample: ModelExample,
       ModelWrapper: ModelWrapper,

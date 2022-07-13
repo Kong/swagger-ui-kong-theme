@@ -1,8 +1,8 @@
 .rightSideWrapper {
-  grid-column-start: 2!important;
-  grid-row-start: 1!important;
-  grid-row-end: 5!important;
-  -ms-grid-row-span: 4!important;
+  grid-column-start: 2 !important;
+  grid-row-start: 1 !important;
+  grid-row-end: 5 !important;
+  -ms-grid-row-span: 4 !important;
 }
 
 .rightSideWrapper pre span {
@@ -134,12 +134,13 @@
 .codeSnippet pre span:global(.token):global(.builtin),
 .codeSnippet pre span:global(.token):global(.char),
 .codeSnippet pre span:global(.token):global(.inserted),
-.codeSnippet pre span:global(.token):global(.select) {
+.codeSnippet pre span:global(.token):global(.selector),
+.codeSnippet pre span:global(.token):global(.string) {
   color: #50fa7b !important;
 }
 
-.codeSnippet pre.language-css span:global(.token):global(.string),
-.codeSnippet pre.style span:global(.token):global(.string),
+.codeSnippet pre:global(.language-css) span:global(.token):global(.string),
+.codeSnippet pre:global(.style) span:global(.token):global(.string),
 .codeSnippet pre span:global(.token):global(.entity),
 .codeSnippet pre span:global(.token):global(.operator),
 .codeSnippet pre span:global(.token):global(.url),

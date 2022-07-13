@@ -5,7 +5,7 @@ const TryItOutButton = (props) => {
   const { onTryoutClick, onCancelClick, enabled, specSelectors } = props;
 
   const servers = specSelectors?.servers();
-  const hasServers = !!(servers && servers.length);
+  const hasServers = !!servers?.size;
 
   return hasServers ? (
     <div className={styles.tryOutWrapper}>
@@ -29,6 +29,5 @@ const TryItOutButton = (props) => {
     </div>
   ) : null;
 };
-
 
 export default TryItOutButton;

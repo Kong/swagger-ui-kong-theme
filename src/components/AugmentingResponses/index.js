@@ -9,7 +9,7 @@ import styles from "./styles.module.css";
 const hashIdx = "_**[]";
 const AugmentingResponses = memo(
   ({ system, specSelectors, getConfigs, specPath, path, method }) => {
-    const [overlay, setOverlay] = useState("on");
+    const [overlay, setOverlay] = useState(styles.on);
     const config = getConfigs();
 
     // Duplicate keys are hashed with "[key]_**[][index]"
@@ -148,13 +148,13 @@ const AugmentingResponses = memo(
     );
 
     return (
-      <div className={"code-snippet"}>
+      <div className={styles.codeSnippet}>
         {!mutatedRequest && (
-          <div className={`overlay ${overlay}`}>
+          <div className={`${styles.overlay} ${overlay}`}>
             <span
               aria-label="close"
               role="button"
-              className="close"
+              className={styles.close}
               onKeyUp={({ key }) => handleCloseKeyUp(key)}
               onClick={() => handleClose()}
             >
