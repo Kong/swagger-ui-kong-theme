@@ -102,12 +102,18 @@
 }
 
 .swagger-ui .btn.authorize {
-    color: var(--blue-rgb);
-    border: 1px var(--blue-rgb) solid;
+    background-color: var(--blue-500);
+    color: var(--input-background);
+    border: none;
+}
+
+.swagger-ui .btn.authorize:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px var(--white),0 0 0 4px var(--blue-500, var(--blue-500));
 }
 
 .swagger-ui .btn.authorize svg {
-    fill: var(--blue-rgb);
+    fill: var(--input-background);
 }
 
 .swagger-ui .main-container {
@@ -123,7 +129,6 @@
     border-bottom: 1px var(--white-rgb-250) solid;
     padding: 32px 0;
 }
-
 
 .swagger-ui .scheme-container .schemes.wrapper {
     padding: 0 30px;
@@ -145,8 +150,12 @@
   font-size: var(--headings-font-size-4);
 }
 
-.swagger-ui .scheme-container .schemes.wrapper > label > select {
+.swagger-ui .authorize-inner {
+    display: inline-flex;
+}
 
+.swagger-ui .authorize-inner > svg {
+    margin-right: 10px;
 }
 
 .swagger-ui .scheme-container .schemes.wrapper > div {
@@ -167,16 +176,18 @@
 .swagger-ui .scheme-container .schemes.wrapper .actions {
     display: flex;
     justify-content: space-around;
-
 }
 
 .swagger-ui .viewSpecBtn {
-    border-radius: 3px;
-    margin: 0 5px;
+    background-color: var(--white);
+    color: var(--blue-500);
+    border: 1px solid var(--blue-500);
+    margin: 2px;
+    box-shadow: none;
 }
 
-.swagger-ui .auth-wrapper {
-
+.swagger-ui .viewSpecBtn:focus {
+    box-shadow: 0 0 0 2px var(--white),0 0 0 4px var(--blue-500, var(--white));
 }
 
 .swagger-ui .scheme-container .schemes select {
@@ -790,6 +801,10 @@
 .swagger-ui .try-out .btn.cancel {
     color: var(--red-600);
     border-color: var(--red-600);
+}
+
+.swagger-ui .try-out .btn_cancel:focus {
+
 }
 
 .swagger-ui .btn.execute {
