@@ -25,6 +25,7 @@ import InfoAlert from "components/InfoAlert";
 
 import './styles/main.css';
 import './styles/variables.css';
+import AuthorizeBtn from "components/AuthorizeBtn";
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
@@ -33,6 +34,7 @@ const SwaggerUIKongTheme = (system) => {
   return {
     components: {
       curl: () => null,
+      authorizeBtn: AuthorizeBtn,
       KongLayout: KongLayout,
       Sidebar: Sidebar,
       SidebarList: SidebarList,

@@ -68,7 +68,7 @@ export const ViewSpecBtn = () => {
   };
 
   return (
-    <button disabled={!window.onViewSpecClick} onClick={handleVieViewSpec} className="viewSpecBtn">
+    <button disabled={!window.onViewSpecClick} onClick={handleVieViewSpec} className="btn viewSpecBtn">
         View Raw
     </button>
   );
