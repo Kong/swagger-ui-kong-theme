@@ -42,7 +42,6 @@
     "webpack-dev-server": "webpack-dev-server",
     "start": "webpack-dev-server --mode=development",
     "prod": "webpack --mode=production",
-    "test:unit": "cd test/unit && jest",
     "test:e2e": "cd test/e2e && jest"
   },
   "eslintConfig": {
