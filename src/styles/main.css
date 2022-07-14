@@ -95,6 +95,12 @@
 
 .swagger-ui section.models {
     padding: 10px !important;
+    border-bottom: var(--model-collapse-border-bottom);
+    cursor: pointer;
+}
+
+.swagger-ui section.models >div >h4 >span {
+    margin-left: 1rem;
 }
 
 .swagger-ui section.models.is-open {
@@ -976,4 +982,34 @@
     color: var(--red-700);
     border-color: var(--red-300);
     background-color: var(--red-200);
+}
+.swagger-ui section.models .model-container {
+    background-color: var(--model-container-background);
+
+}
+.swagger-ui section.models >div.no-margin >div{
+    margin: 1.25rem 0 !important
+}
+
+.swagger-ui .model-title {
+    color: var(--model-title-color);
+    font: var(--model-title-font-size);
+    font-weight: var(--model-title-font-weight);
+}
+
+.swagger-ui .model-toggle.collapsed {
+    fill: var(--model-collapse-icon-color) !important;
+}
+
+.swagger-ui .model >div >div  span.brace-open {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.swagger-ui .model >div >div  >span.inner-object >table.model >tbody >tr.description >td > div.renderedMarkdown {
+    font-size: 0.75rem;
+}
+
+.swagger-ui .model >div >div  >span.inner-object >table.model >tbody >tr >td >span.model >div >span.prop >span.prop-type {
+    color: var(--model-prop-type-color)
 }
