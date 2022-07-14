@@ -35,7 +35,7 @@
   z-index: 2;
   top: 80px;
   width: 260px;
-  height: calc(100vh - 80px);
+  height: 100%;
   background: var(--white);
   overflow-y: auto;
   border-right: 1px solid var(--white-color);

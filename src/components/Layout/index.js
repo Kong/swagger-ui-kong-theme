@@ -1,6 +1,8 @@
 import React, { useMemo } from "react";
 
 import styles from "./styles.module.css";
+import InfoAlert from "components/InfoAlert";
+import {ViewSpecBtn} from "components/AugmentingInfo";
 
 function RegisterBtnContainer() {
   function handleRegisterClick() {
@@ -10,7 +12,7 @@ function RegisterBtnContainer() {
   }
 
   return (
-    <div className="register-wrapper">
+    <div className={styles.registerWrapper}>
       <button onClick={handleRegisterClick}>Register</button>
     </div>
   );
@@ -81,10 +83,9 @@ export default function KongLayout({
           );
         },
       };
+      const loadingStatus = specSelectors?.loadingStatus();
 
-      const loadingStatus = specSelectors.loadingStatus();
-
-      return stateMessageMap[loadingStatus]();
+      return  loadingStatus && stateMessageMap[loadingStatus]();
     }, [specSelectors, errSelectors]);
 
     const config = getConfigs();
@@ -102,7 +103,7 @@ export default function KongLayout({
     const hasRegistration = window.appRegistrationEnabled;
 
     if (!loadingMessage && isSpecEmpty) {
-      return <h4>No API definition provided.</h4>;
+      return <h4>No valid API definition provided.</h4>;
     }
 
     if (loadingMessage) {
@@ -126,9 +127,10 @@ export default function KongLayout({
           >
             <div className="scheme-container">
               <Col className="schemes wrapper" mobile={12}>
-                {hasServers ? <ServersContainer /> : null}
-                {hasSchemes ? <SchemesContainer /> : null}
+                {hasServers ? <ServersContainer /> : <InfoAlert msg="No Servers found !"/>}
+                {hasSchemes ? <SchemesContainer /> : <InfoAlert msg="No Schemes found !"/>}
                 <div className="actions">
+                  <ViewSpecBtn />
                   {hasSecurityDefinitions ? <AuthorizeBtnContainer /> : null}
                   {hasRegistration ? <RegisterBtnContainer /> : null}
                 </div>
@@ -146,6 +148,6 @@ export default function KongLayout({
       </div>
     );
   } catch (error) {
-    return <h1>An error has occurred</h1>;
+    return <h1>An error has occurred </h1>;
   }
 }

@@ -14,13 +14,16 @@ import ModelWrapper from "./components/ModelWrapper";
 import HighlightCode from "./components/HighlightCode";
 import TryItOutButton from "./components/TryItOutButton";
 import ErrorBoundary from "./components/ErrorBoundary";
-
 import infoWrapper from "./components/AugmentingInfo";
 import OperationWrapper from "./components/AugmentingOperation";
 import ResponsesWrapper from "./components/AugmentingResponses";
 import Fallback from "./components/ErrorBoundary/fallback";
+import Parameters from "components/Parameters";
+import InfoAlert from "components/InfoAlert";
+import AuthorizeBtn from "components/AuthorizeBtn";
 
-import "./styles.css";
+import './styles/main.css';
+import './styles/variables.css';
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
@@ -29,6 +32,7 @@ const SwaggerUIKongTheme = (system) => {
   return {
     components: {
       curl: () => null,
+      authorizeBtn: AuthorizeBtn,
       KongLayout: KongLayout,
       Sidebar: Sidebar,
       SidebarList: SidebarList,
@@ -39,9 +43,11 @@ const SwaggerUIKongTheme = (system) => {
       OperationTag: OperationTag,
       FilterContainer: FilterContainer,
       operations: withErrorBoundary(Operations),
+      parameters: withErrorBoundary(Parameters),
       modelExample: ModelExample,
       ModelWrapper: ModelWrapper,
       highlightCode: HighlightCode,
+      infoAlert: InfoAlert,
       TryItOutButton: withErrorBoundary( (props) => (
         <TryItOutButton {...props} specSelectors={system.specSelectors} />
       )),

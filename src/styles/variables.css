@@ -1,0 +1,202 @@
+:root {
+  /* kong colors https://kongponents.konghq.com/style-guide/colors.html*/
+  --blue-100: #f2f6fe;
+  --blue-200: #bdd3f9;
+  --blue-300: #5888db;
+  --blue-400: #2e6ee0;
+  --blue-500: #1155cb;
+  --blue-600: #003694;
+  --blue-700: #0a2b66;
+
+  --steel-100: #f0f4fa;
+  --steel-200: #dae3f2;
+  --steel-300: #a3b6d9;
+  --steel-400: #7d91b3;
+  --steel-500: #727e94;
+  --steel-600: #395380;
+  --steel-700: #273c61;
+
+  --red-100: #ffdede;
+  --red-200: #ffcccc;
+  --red-300: #ff9a99;
+  --red-400: #ff7877;
+  --red-500: #eb5a3b;
+  --red-600: #e50000;
+  --red-700: #922021;
+
+  --green-100: #e8f8f5;
+  --green-200: #c0f2d5;
+  --green-300: #84e5ae;
+  --green-400: #42d782;
+  --green-500: #07a88d;
+  --green-600: #008871;
+  --green-700: #13755e;
+
+  --yellow-100: #fff3d8;
+  --yellow-200: #ffe6ba;
+  --yellow-300: #ffd68c;
+  --yellow-400: #fabe5f;
+  --yellow-500: #c67c06;
+
+  --grey-100: #f8f8fa;
+  --grey-200: #f1f1f5;
+  --grey-300: #e7e7ec;
+  --grey-400: #b6b6bd;
+
+  --black-85: rgba(0, 0, 0, 0.85);
+  --black-70: rgba(0, 0, 0, 0.7);
+  --black-45: rgba(0, 0, 0, 0.45);
+  --black-25: rgba(0, 0, 0, 0.25);
+  --black-10: rgba(0, 0, 0, 0.1);
+
+  --black-100: #dfdfdf;
+  --black-200: #b1b2b1;
+  --black-300: #797979;
+  --black-400: #3b3b3b;
+  --black-500: #1d1d1d;
+
+  --white: #ffffff;
+
+  /*custom variables*/
+  --white-color: #eee;
+  --dark-shade-grey: #262626;
+  --dark-shade-grey-95: hsl(205, 13%, 95%);
+  --dark-shade-grey-40: hsl(205, 13%, 40%);
+  --dark-shade-grey-30: hsl(205, 13%, 40%);
+  --dark-shade-grey-20: hsl(205, 13%, 20%);
+  --dark-shade-light-70: hsl(205, 10%, 70%);
+
+  --purple-background-color: #9012fe;
+  --blue-background-color: #0d5aa7;
+  --white-shadow: #e6e6e6;
+  --white-background-color: #ebf7ff;
+
+  --blue-rgb: rgb(0, 149, 255);
+  --white-rgb-255: rgb(255, 255, 255);
+  --white-rgb-250: rgb(250, 250, 250);
+  --white-rgb-245: rgb(245, 245, 245);
+  --white-rgb-230: rgb(230, 230, 230);
+  --white-rgb-224: rgb(224, 224, 224);
+
+  /*  buttons */
+  --button-color: #3b4151;
+  --button-font-size: 14px;
+  --button-font-weight: 700;
+  --button-background: transparent;
+  --button-padding: 5px 23px;
+  --button-border-radius: 4px;
+
+  /*  input */
+  --input-color: inherit;
+  --input-font-size: initial;
+  --input-font-weight: initial;
+  --input-background: #fff;
+  --input-padding: 8px 10px;
+  --input-border-radius: 4px;
+
+  /*  parameters */
+  --parameters-input-padding: 8px 0 8px 10px;
+
+  /*  modal */
+  --modal-background: #fff;
+  --modal-color: inherit;
+  --modal-border-radius: 4px;
+  --modal-padding: 20px;
+
+  /*  paragraph */
+  --paragraph-color: inherit;
+  --paragraph-font-size: 16px;
+  --paragraph-font-weight: normal;
+  --paragraph-padding: initial;
+  --paragraph-margin: initial;
+
+  /*  text */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-xxxl: 64px;
+
+  /*  text */
+  --text_colors-accent: var(--green-500);
+  --text_colors-secondary: rgba(0, 0, 0, 0.8);
+
+  /*  sections */
+  --section_colors-header: #f8f8f8;
+  --section_colors-body: var(--white);
+  --section_colors-hero: #f8f8f8;
+  --section_colors-accent: #f8f8f8;
+  --section_colors-tertiary: var(--white);
+  --section_colors-stroke: rgba(0, 0, 0, 0.1);
+  --section_colors-footer: #07a88d;
+
+  /*  headings */
+  --headings-color: rgba(0, 0, 0, 0.8);
+  --headings-font-weight: initial;
+  --headings-padding: initial;
+  --headings-margin: initial;
+  --headings-font-size-1: 2em;
+  --headings-font-size-2: 1.8em;
+  --headings-font-size-3: 1.6em;
+  --headings-font-size-4: 1.4em;
+  --headings-font-size-5: 1.2em;
+  --headings-font-size-6: 1em;
+
+  --register-button-background-color: var(--blue-rgb);
+  --register-button-color: var(--white);
+  --register-button-border-color: var(--blue-rgb);
+
+  --view-raw-button-border: 1px solid var(--white-rgb-224);
+  --view-raw-button-background-color: var(--white-rgb-250);
+  --view-raw-button-border-radius: 3px;
+  --view-raw-button-font-size: 16px;
+  --view-raw-button-font-weight: normal;
+  --view-raw-button-padding: 0 12px;
+
+  --cancel-button-color: var(--red-600);
+  --cancel-button-border-color: currentColor;
+
+  --try-out-button-color: var(--blue-600);
+  --try-out-button-border-color: currentColor;
+
+  --summary-post-background: #49cc90;
+  --summary-post-color: var(--white);
+
+  --summary-put-background: var(--yellow-400);
+  --summary-put-color: var(--black-400);
+
+  --summary-get-background: #61affe;
+  --summary-get-color: var(--white);
+
+  --summary-delete-background: #f93e3e;
+  --summary-delete-color: var(--white);
+
+  --summary-patch-background: var(--green-300);
+  --summary-patch-color: var(--black-400);
+
+  --summary-head-background: var(--purple-background-color);
+  --summary-head-color: var(--white);
+
+  --summary-options-background: var(--blue-background-color);
+  --summary-options-color: var(--white);
+
+  --summary-deprecated-background: var(--steel-600);
+  --summary-deprecated-color: var(--black-100);
+
+  --summary-trace-background: var(--purple-background-color);
+  --summary-trace-color: var(--white);
+
+  --name-path-arrow-color: var(--green-600);
+  --summary-path-arrow-color: var(--green-600);
+
+  --model-collapse-border-bottom: 20px;
+  --model-container-background: #ededed;
+  --model-title-color: #333333;
+  --model-title-font-size: 1rem;
+  --model-title-font-weight: 600;
+  --model-collapse-icon-color: #07A88;
+  --model-prop-type-color: #07A88D;
+}

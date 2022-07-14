@@ -1,8 +1,36 @@
+.filterContainer {
+  margin: 5px 0;
+}
+
 .filterContainer input {
-    width: 200px;
-    height: 32px;
-    font-size: 15px;
-    padding-left: 10px;
-    margin: 10px 0 16px 1.8rem;
-  }
-  
+  color: var(--text_colors-secondary);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border: 1px solid var(--section_colors-stroke);
+  border-radius: 4px;
+  background-color: var(--section_colors-tertiary);
+  line-height: 1;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.filterContainer .filterIcon {
+  position: absolute;
+  left: var(--spacing-sm);
+  top: var(--spacing-md);
+  display: inline-block;
+  border-color: #e2e8f0;
+}
+
+.filterContainer .filterWrapper {
+  position: relative;
+  margin-right: var(--spacing-lg);
+}
+
+.filterContainer .filterWrapper .filterIcon svg path {
+  fill: var(--text_colors-accent);
+}
+
+.filterContainer .filterWrapper >input {
+  width: 78%;
+}

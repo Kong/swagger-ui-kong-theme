@@ -47,8 +47,10 @@
     "jest-reporters": "^0.0.2",
     "jest-unit": "^0.0.1",
     "js-file-download": "^0.4.12",
+    "prop-types": "^15.8.1",
     "react-apiembed": "^0.1.4",
     "react-debounce-input": "^3.2.0",
+    "react-immutable-proptypes": "^2.2.0",
     "swagger2har": "git+https://github.com/Kong/swagger2har.git#8409def1fd72311f44b1d34e669af76226cb4f59",
     "typescript": "^4.7.3"
   },

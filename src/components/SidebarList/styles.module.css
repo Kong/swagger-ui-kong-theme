@@ -1,25 +1,21 @@
-.sidebarList ul {
+.sidebarList > ul {
   list-style-type: none;
-  padding: 0;
   margin: 0;
+  padding: 10px 0 10px 25px;
 }
 
 .sidebarList li.listTitle {
   font-weight: bold;
-  color: #262626;
-  font-size: 16px;
+  color: var(--headings-color);
+  font-size: .75rem;
+  text-transform: uppercase;
 }
-.sidebarList :global(.spec).listTitle {
-  padding-left: 1.8rem;
-}
+
 .sidebarList .method {
   border-radius: 3px;
-  margin-left: 0.4rem;
-  padding: 0.4rem 0 0.5rem 1.6rem;
+  padding: 0.4rem 0;
 }
-.sidebarList .method:hover {
-  background-color: rgba(237, 30, 30, 0.12);
-}
+
 .sidebarList .method a {
   cursor: pointer;
   position: relative;
@@ -38,47 +34,31 @@
 .sidebarList ul li a:hover {
   color: var(--dark-shade-grey-20);
 }
-.sidebarList ul li.submenu {
-  padding: 0.3rem 0.2rem;
-}
 
 .sidebarList ul li .submenuTitle {
   position: relative;
   display: block;
   font-weight: 500;
-  color: var(--dark-shade-grey-30);
+  color: var(--headings-color);
   cursor: pointer;
-  padding: 0.3rem 0.3rem 0.3rem 2.3rem;
+  padding: 0.3rem 0.3rem 0.3rem 1.5rem;
   border-radius: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.sidebarList ul li .submenuTitle:hover {
-  color: var(--dark-shade-grey-20);
-  background: var(--dark-shade-grey-95);
-}
-
 .sidebarList ul li .submenuTitle:before {
   position: absolute;
-  display: block;
   content: "";
-  width: 0;
-  height: 0;
-  top: 8px;
-  left: 10px;
-  right: auto;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 4px solid var(--dark-shade-light-70);
+  top: 10px;
+  left: 0;
+  border-top: 5px solid rgba(0,0,0,0);
+  border-bottom: 5px solid rgba(0,0,0,0);
+  border-left: 5px solid var(--text_colors-accent);
 }
+
 .sidebarList ul li.active .submenuTitle:before {
-  border-bottom: 4px solid transparent;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 4px solid var(--dark-shade-light-70);
-  top: 12px;
-  left: 10px;
+  transform: rotate(90deg);
 }
 
 .sidebarList ul li.submenu.active .submenuItems {
@@ -90,6 +70,7 @@
 .sidebarList ul li.submenu .submenuItems {
   max-height: 0;
   overflow: hidden;
+  padding-left: 2rem;
 }
 .sidebarList ul li .submenuItems a {
   position: relative;
@@ -104,13 +85,17 @@
   text-transform: unset;
   height: unset;
   display: inline-block;
-  width: calc(100% - 45px);
+  width: 100%;
 }
+
+
 .sidebarList ul li .submenuItems a:focus,
 .sidebarList ul li .submenuItems a:active {
   border-style: solid;
 }
+
 .sidebarList ul li .submenuItems li.active a {
+  color: var(--headings-color);
   font-weight: 500;
 }
 
@@ -158,59 +143,39 @@
 
 /* colors below should match kong-portal-templates colors for summary methods */
 
-.sidebarList ul li :global(.method-post):before {
-  background-color: var(--green-500);
-  color: var(--white);
-}
-.sidebarList ul li :global(.method-put):before {
-  background-color: var(--yellow-400);
-  color: var(--black-400) !important;
-}
-.sidebarList ul li :global(.method-get):before {
-  background: var(--blue-500);
-}
-.sidebarList ul li :global(.method-delete):before {
-  background-color: var(--red-600);
-}
-.sidebarList ul li :global(.method-patch):before {
-  background-color: var(--green-300);
-  color: var(--black-400) !important;
-}
-.sidebarList ul li :global(.method-head):before {
-  background: var(--purple-background-color);
-}
-.sidebarList ul li :global(.method-options):before {
-  background: var(--blue-background-color);
-}
-
 .sidebarList ul li :global(.method-tag-post) {
-  background-color: var(--green-400);
-  color: var(--black-70);
+  background: var(--summary-post-background);
+  color: var(--summary-post-color);
 }
 .sidebarList ul li :global(.method-tag-put) {
-  background-color: var(--yellow-400);
-  color: var(--black-400);
+  background: var(--summary-put-background);
+  color: var(--summary-put-color);
 }
 .sidebarList ul li :global(.method-tag-get) {
-  background: var(--blue-500);
+  background: var(--summary-get-background);
+  color: var(--summary-get-color);
 }
 .sidebarList ul li :global(.method-tag-delete) {
-  background-color: var(--red-600);
+  background: var(--summary-delete-background);
+  color: var(--summary-delete-color);
 }
 .sidebarList ul li :global(.method-tag-patch) {
-  background-color: var(--green-200);
-  color: var(--black-500);
+  background: var(--summary-patch-background);
+  color: var(--summary-patch-color);
 }
 .sidebarList ul li :global(.method-tag-deprecated) {
   background-color: var(--steel-600);
   color: var(--black-100);
 }
 .sidebarList ul li :global(.method-tag-head) {
-  background-color: var(--purple-background-color);
+  background: var(--summary-head-background);
+  color: var(--summary-head-color);
 }
 .sidebarList ul li :global(.method-tag-trace) {
-  background-color: var(--purple-background-color);
+  background: var(--summary-trace-background);
+  color: var(--summary-trace-color);
 }
 .sidebarList ul li :global(.method-tag-options) {
-  background-color: var(--blue-background-color);
+  background: var(--summary-options-background);
+  color: var(--summary-options-color);
 }
