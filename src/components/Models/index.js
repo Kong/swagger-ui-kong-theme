@@ -67,14 +67,14 @@ export default function Models({
         onKeyUp={(e) => handleKeypress(e, showModels)}
         tabIndex={0}
       >
-        <h1>
-          <span>{isOAS3 ? "Schemas" : "Models"}</span>
+        <h4>
           <svg width="20" height="20">
             <use
               xlinkHref={showModels ? "#large-arrow-down" : "#large-arrow"}
             />
           </svg>
-        </h1>
+          <span>{isOAS3 ? "Schemas" : "Models"}</span>
+        </h4>
       </div>
       <Collapse isOpened={showModels}>
         {definitions
