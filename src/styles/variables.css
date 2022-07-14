@@ -191,4 +191,12 @@
 
   --name-path-arrow-color: var(--green-600);
   --summary-path-arrow-color: var(--green-600);
+
+  --model-collapse-border-bottom: 20px;
+  --model-container-background: #ededed;
+  --model-title-color: #333333;
+  --model-title-font-size: 1rem;
+  --model-title-font-weight: 600;
+  --model-collapse-icon-color: #07A88;
+  --model-prop-type-color: #07A88D;
 }
