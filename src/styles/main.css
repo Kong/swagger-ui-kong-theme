@@ -595,7 +595,7 @@
 .swagger-ui .opblock .opblock-summary > button.opblock-summary-control {
     display: grid !important;
     display: -ms-grid !important;
-    grid-template-columns: 80px auto 30px;
+    grid-template-columns: 30px 60px auto;
     grid-template-rows: auto auto;
     -ms-grid-columns: 80px 1fr 30px;
     -ms-grid-rows: 50px auto;
@@ -609,14 +609,14 @@
   grid-column: 1;
   grid-row: 1;
   position: relative;
-  bottom: 5px;
+  top: 15px;
 }
 
 .swagger-ui .opblock .opblock-summary .opblock-summary-method {
-    grid-column-start: 1;
-    grid-column: 1;
+    grid-column-start: 2;
+    grid-column: 2;
 
-    -ms-grid-column: 1;
+    -ms-grid-column: 2;
     grid-row-start: 2;
     grid-row: 2;
     -ms-grid-row: 2;
@@ -683,7 +683,7 @@
 .swagger-ui .opblock .opblock-summary .opblock-summary-description {
   grid-column: 2;
   grid-column-start: 2;
-  grid-column-end: 2;
+  grid-column-end: 4;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
 
@@ -695,8 +695,6 @@
   font-size: 20px;
   font-weight: 500;
   padding-bottom: 10px;
-  position: relative;
-  right: 50px;
 }
 
 .swagger-ui .expand-operation .arrow {
@@ -712,26 +710,24 @@
 }
 
 .swagger-ui .opblock .opblock-summary .authorization__btn {
-    grid-column-start: 3;
+    grid-column-start: 5;
     grid-row-start: 1;
 
-    grid-column: 3;
-    -ms-grid-column: 3;
+    grid-column: 5;
+    -ms-grid-column: 5;
     grid-row: 1;
     -ms-grid-row: 1;
 }
 
 .swagger-ui .opblock .opblock-summary .opblock-summary-path,
 .swagger-ui .opblock .opblock-summary .opblock-summary-path__deprecated {
-    grid-column: 2;
-    -ms-grid-column: 2;
+    grid-column: 3;
+    -ms-grid-column: 3;
     -ms-grid-column-span: 2;
-    grid-column-start: 2;
+    grid-column-start: 3;
     grid-column-end: 4;
-
     grid-row: 2;
     -ms-grid-row: 2;
-
     background-color: rgb(245, 245, 245);
     padding: 10px 10px;
     font-size: 16px;
