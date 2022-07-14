@@ -1,5 +1,5 @@
 import React from "react";
-import Im, { fromJS, Iterable } from "immutable";
+import Im, { fromJS, Iterable, OrderedMap } from "immutable";
 import PropTypes from "prop-types";
 import ImPropTypes from "react-immutable-proptypes";
 
@@ -224,7 +224,7 @@ const Responses = (props) => {
 
 Responses.propTypes = {
   tryItOutResponse: PropTypes.instanceOf(Iterable),
-  responses: PropTypes.instanceOf(Iterable).isRequired,
+  responses: PropTypes.instanceOf(OrderedMap).isRequired,
   produces: PropTypes.instanceOf(Iterable),
   producesValue: PropTypes.any,
   displayRequestDuration: PropTypes.bool.isRequired,

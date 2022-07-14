@@ -2,6 +2,7 @@ import React, { memo, useMemo, useState } from "react";
 import { createHar } from "swagger2har";
 import { CodeSnippetWidget } from "react-apiembed";
 
+import Responses from './Responses';
 import { defaultLanguages } from "constants/languages";
 
 import styles from "./styles.module.css";
@@ -9,7 +10,7 @@ import styles from "./styles.module.css";
 const hashIdx = "_**[]";
 const AugmentingResponses = memo(
   ({ system, specSelectors, getConfigs, specPath, path, method }) => {
-    const [overlay, setOverlay] = useState("on");
+    const [overlay, setOverlay] = useState(styles.on);
     const config = getConfigs();
 
     // Duplicate keys are hashed with "[key]_**[][index]"
@@ -148,13 +149,13 @@ const AugmentingResponses = memo(
     );
 
     return (
-      <div className={"code-snippet"}>
+      <div className={styles.codeSnippet}>
         {!mutatedRequest && (
-          <div className={`overlay ${overlay}`}>
+          <div className={`${styles.overlay} ${overlay}`}>
             <span
               aria-label="close"
               role="button"
-              className="close"
+              className={styles.close}
               onKeyUp={({ key }) => handleCloseKeyUp(key)}
               onClick={() => handleClose()}
             >
@@ -173,7 +174,7 @@ const ResponsesWrapper = (Original, system) => (props) => {
   return (
     <div className={styles.rightSideWrapper}>
       <AugmentingResponses {...props} system={system} />
-      <Original {...props} />
+      <Responses {...props} />
     </div>
   );
 };
