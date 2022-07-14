@@ -11,7 +11,6 @@
   line-height: 1;
   width: 100%;
   font-size: 18px;
-  color: var(--text_colors-secondary);
   font-weight: 600;
 }
 
@@ -30,4 +29,8 @@
 
 .filterContainer .filterWrapper .filterIcon svg path {
   fill: var(--text_colors-accent);
+}
+
+.filterContainer .filterWrapper >input {
+  width: 78%;
 }
