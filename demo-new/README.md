@@ -1,3 +1,10 @@
+# Linking necessary modules
+
+Before you start the development version of this demo application, you need to link the following modules:
+
+* `swagger-ui-kong-theme` from the root directory of this repository
+* `@kong/swagger-ui` from https://github.com/kong/swagger-ui repository, using the `next/4.x` branch
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

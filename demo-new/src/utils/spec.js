@@ -1,4 +1,4 @@
-import SwaggerUI from "swagger-ui";
+import SwaggerUI from "@kong/swagger-ui";
 import SwaggerParser from "swagger-parser";
 import YAML from "yaml-js";
 
@@ -22,7 +22,7 @@ export const parseSpec = (contents) => {
       }
     }
   }
-  
+
   SwaggerParser.validate(
     parsedSpec,
     {
