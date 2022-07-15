@@ -121,6 +121,7 @@
   --spacing-xxxl: 64px;
 
   /*  text */
+  --text_colors-primary: rgba(0, 0, 0, 0.8);
   --text_colors-accent: var(--green-500);
   --text_colors-secondary: rgba(0, 0, 0, 0.8);
 
@@ -198,5 +199,24 @@
   --model-title-font-size: 1rem;
   --model-title-font-weight: 600;
   --model-collapse-icon-color: #07A88;
-  --model-prop-type-color: #07A88D;
+  --model-prop-type-color: #07a88d;
+
+  /*sidebar*/
+  --sidebar-width: 300px;
+  --sidebar-width-mobile: 300px;
+
+  --sidebar-filter-font-size: 1rem;
+  --sidebar-filter-font-weight: 400;
+  --sidebar-filter-color: #333;
+  --sidebar-filter-background: transparent;
+  --sidebar-filter-border-color: var(--white-shadow);
+  --sidebar-filter-border-radius: 0.25rem;
+
+  --sidebar-path-color: #333;
+  --sidebar-path-font-size: 0.875rem;
+  --sidebar-path-font-weight: 400;
+
+  --sidebar-tag-color: #333;
+  --sidebar-tag-font-size: 1rem;
+  --sidebar-tag-font-weight: 600;
 }

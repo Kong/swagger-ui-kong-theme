@@ -12,6 +12,6 @@
 
 @media all and (min-width: 1201px) {
   :global(.swagger-ui).hasSidebar {
-    margin-left: 260px;
+    margin-left: var(--sidebar-width);
   }
 }
