@@ -111,6 +111,7 @@
     background-color: var(--blue-500);
     color: var(--input-background);
     border: none;
+    margin: 0 5px;
 }
 
 .swagger-ui .btn.authorize:focus {
@@ -183,6 +184,8 @@
     display: flex;
     justify-content: space-around;
 }
+
+.swagger-ui .auth-wrapper
 
 .swagger-ui .viewSpecBtn {
     background-color: var(--white);
