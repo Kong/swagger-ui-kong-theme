@@ -1022,3 +1022,17 @@
 .swagger-ui .model >div >div  >span.inner-object >table.model >tbody >tr >td >span.model >div >span.prop >span.prop-type {
     color: var(--model-prop-type-color)
 }
+.swagger-ui .download-contents {
+    background-color: var(--blue-500);
+    color: var(--white);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    padding: var(--button-padding);
+    line-height: var(--button-line-height);
+    margin: 0 5px;
+}
+
+.swagger-ui .download-contents:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px var(--white),0 0 0 4px var(--blue-500, var(--white));
+}
