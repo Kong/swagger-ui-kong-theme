@@ -847,8 +847,8 @@
     -ms-grid-column: 1;
     /* having this grid row seems to make it stack in some specs  */
     /* grid-row-start: 2; */
-    grid-row: 2;
-    -ms-grid-row: 2;
+    /*grid-row: 2;*/
+    /*-ms-grid-row: 2;*/
 }
 
 .swagger-ui .loading-container {
