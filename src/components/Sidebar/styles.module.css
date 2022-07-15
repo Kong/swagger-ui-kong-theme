@@ -4,7 +4,6 @@
 
 .sidebarWrapper #sidebar a {
   text-decoration: none;
-  transition: all 300ms ease;
 }
 
 .sidebarWrapper #sidebar .sidebarMenu {
@@ -29,11 +28,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.45);  
   z-index: 1;
 }
 
 .overlay.open {
+  opacity: 1;
   display: block;
 }
 
@@ -53,15 +54,13 @@
   #sidebar {
     position: fixed;
     top: 0;
-    left: calc(-2 * var(--sidebar-width-mobile));
-    transition: all 400ms ease;
+    left: calc(-1.2 * var(--sidebar-width-mobile));
     z-index: 2;
   }
   #sidebar.open {
     left: 0;
   }
   #sidebar.open .sidebarMenu {
-    height: 100vh;
     width: var(--sidebar-width-mobile);
     border-right: none;
   }
@@ -71,7 +70,7 @@
     left: 0;
     right: 0;
     top: 2rem !important;
-    background: white;
+    background: var(--white);
     height: 54px;
     width: 54px;
     border-radius: 50%;
@@ -79,11 +78,11 @@
     text-indent: 100%;
     white-space: nowrap;
     z-index: 3;
-    transition: transform 0.5s, left 0.5s;
     cursor: pointer;
   }
 
   .sidebarToggle.open {
+    background: transparent;
     transform: rotate(180deg);
     left: 246px;
   }
@@ -107,7 +106,7 @@
   .sidebarToggle.open .icon:before,
   .sidebarToggle.open .icon:after {
     width: 50%;
-    transition: transform 0.5s, width 0.5s;
+    transition: transform 0.2s, width 0.2s;
   }
 
   .sidebarToggle .icon:before,
@@ -120,7 +119,7 @@
     height: 100%;
     background-color: inherit;
     transform: translateZ(0);
-    transition: tran sform 0.5s, width 0.5s, top 0.3s;
+    transition: transform 0.2s, width 0.2s, top 0.3s;
   }
 
   .sidebarToggle.open .icon:after {
