@@ -111,7 +111,7 @@
   padding: 0.3rem 0.3rem;
   border-radius: 3px;
   font-weight: 600;
-  font-family: monospace;
+  font-family: var(--font-default);
   text-transform: uppercase;
   text-align: center;
   display: inline-block;
@@ -128,7 +128,7 @@
   width: 38px;
   display: inline-block;
   text-align: center;
-  font-family: monospace;
+  font-family: var(--font-default);
   margin-right: 5px;
 }
 .sidebarList ul li.method {
