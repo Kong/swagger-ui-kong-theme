@@ -79,12 +79,14 @@
   --white-rgb-224: rgb(224, 224, 224);
 
   /*  buttons */
-  --button-color: #3b4151;
+  --button-color: var(--blue-500);
+  --buton-border-color: var(--blue-500);
   --button-font-size: 14px;
   --button-font-weight: 700;
   --button-background: transparent;
   --button-padding: 5px 23px;
   --button-border-radius: 4px;
+  --button-line-height: 2rem;
 
   /*  input */
   --input-color: inherit;

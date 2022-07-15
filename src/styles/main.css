@@ -70,12 +70,27 @@
 }
 
 .swagger-ui .btn {
+    border: 1px solid var(--buton-border-color);
     background: var(--button-background);
     border-radius: var(--button-border-radius);
     color: var(--button-color);
     font-size: var(--button-font-size);
     font-weight: var(--button-font-weight);
     padding: var(--button-padding);
+    line-height: var(--button-line-height);
+}
+
+.swagger-ui .btn:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px var(--white),0 0 0 4px var(--blue-500, var(--white));
+}
+
+.swagger-ui .btn.btn-sm {
+    padding: 0 18px;
+}
+
+.swagger-ui .opblock-control__btn {
+    border-radius: var(--button-border-radius);
 }
 
 .swagger-ui .dialog-ux .modal-ux {
@@ -799,17 +814,8 @@
     grid-column-start: 1;
     grid-column: 1;
     -ms-grid-column: 1;
-    padding: 16px 0 20px 13em;
+    padding: 5px 0 20px 13em;
     height: 71px;
-}
-
-.swagger-ui .try-out .btn.cancel {
-    color: var(--red-600);
-    border-color: var(--red-600);
-}
-
-.swagger-ui .try-out .btn_cancel:focus {
-
 }
 
 .swagger-ui .btn.execute {
