@@ -35,13 +35,13 @@ const Sidebar = ({ getConfigs, getComponent }) => {
   return (
     <div className={styles.sidebarWrapper}>
       <div
-        className={styles.sidebarToggle}
+        className={`${styles.sidebarToggle} ${sidebarOpen}`}
         role="button"
         style={swaggerAbsoluteTop}
         onClick={handleToggleSidebar}
         onKeyDown={handleKeyToggleSidebar}
       >
-        <p>{sidebarToggleText()}</p>
+        <span className={styles.icon}>  </span>
       </div>
       <div className={`${styles.overlay} ${sidebarOpen}`} />
       <div id={styles.sidebar} className={sidebarOpen}>
