@@ -1,7 +1,7 @@
 .sidebarList > ul {
   list-style-type: none;
   margin: 0;
-  padding: 10px 0 10px 25px;
+  padding: 10px 0 10px 10px;
 }
 
 .sidebarList li.listTitle {
@@ -53,7 +53,7 @@
   position: absolute;
   content: "";
   top: 10px;
-  left: 0;
+  left: 2px;
   border-top: 5px solid rgba(0,0,0,0);
   border-bottom: 5px solid rgba(0,0,0,0);
   border-left: 5px solid var(--text_colors-accent);
@@ -111,7 +111,7 @@
   padding: 0.3rem 0.3rem;
   border-radius: 3px;
   font-weight: 600;
-  font-family: monospace;
+  font-family: var(--font-default);
   text-transform: uppercase;
   text-align: center;
   display: inline-block;
@@ -128,7 +128,7 @@
   width: 38px;
   display: inline-block;
   text-align: center;
-  font-family: monospace;
+  font-family: var(--font-default);
   margin-right: 5px;
 }
 .sidebarList ul li.method {

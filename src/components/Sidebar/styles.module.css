@@ -1,5 +1,5 @@
 .sidebarWrapper #sidebar {
-  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-default);
 }
 
 .sidebarWrapper #sidebar a {

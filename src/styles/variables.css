@@ -79,12 +79,14 @@
   --white-rgb-224: rgb(224, 224, 224);
 
   /*  buttons */
-  --button-color: #3b4151;
+  --button-color: var(--blue-500);
+  --buton-border-color: var(--blue-500);
   --button-font-size: 14px;
   --button-font-weight: 700;
   --button-background: transparent;
   --button-padding: 5px 23px;
   --button-border-radius: 4px;
+  --button-line-height: 2rem;
 
   /*  input */
   --input-color: inherit;
@@ -124,6 +126,19 @@
   --text_colors-primary: rgba(0, 0, 0, 0.8);
   --text_colors-accent: var(--green-500);
   --text_colors-secondary: rgba(0, 0, 0, 0.8);
+
+  /*font family*/
+
+  --font-default: "Roboto", "sans-serif";
+  --font-code: "Roboto Mono", "monospace";
+
+
+  /*--font-family-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',*/
+  /*'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',*/
+  /*sans-serif;*/
+
+  /*--font-family-code: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',*/
+  /*monospace;*/
 
   /*  sections */
   --section_colors-header: #f8f8f8;
