@@ -1,5 +1,5 @@
 .sidebarWrapper #sidebar {
-  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-default);
 }
 
 .sidebarWrapper #sidebar a {
@@ -120,7 +120,7 @@
     height: 100%;
     background-color: inherit;
     transform: translateZ(0);
-    transition: tran sform 0.5s, width 0.5s, top 0.3s;
+    transition: transform 0.5s, width 0.5s, top 0.3s;
   }
 
   .sidebarToggle.open .icon:after {

@@ -308,7 +308,7 @@
 }
 
 .swagger-ui .opblock-tag small {
-    font-family: sans-serif;
+    font-family: var(--font-default);
     font-size: 14px;
     color: var(--black-70);
     padding-left: 10px;
@@ -358,7 +358,7 @@
     border-radius: 4px;
     background-color: rgb(65, 68, 78);
     overflow-wrap: break-word;
-    font-family: monospace;
+    font-family: var(--font-default);
     font-weight: 600;
     color: #fff;
 }
@@ -426,7 +426,7 @@
 .swagger-ui .parameters .parameters-col_name .parameter__name {
     margin-right: 0;
     overflow-wrap: break-word;
-    font-family: monospace;
+    font-family: var(--font-default);
     font-size: 15px;
     color: var(--black-70);
     font-weight: 500;
@@ -444,7 +444,7 @@
 .swagger-ui .parameters .parameters-col_name .parameter__name.required::after {
     padding: 10px 0 0 0;
     font-size: 13px;
-    font-family: sans-serif;
+    font-family: var(--font-default);
     font-weight: normal;
     text-transform: capitalize;
 }
@@ -456,19 +456,19 @@
 .swagger-ui .parameters .parameters-col_name .parameter__type {
     padding-top: 0;
     font-size: 13px;
-    font-family: sans-serif;
+    font-family: var(--font-default);
     font-weight: normal;
     color: var(--black-400);
 }
 
 .swagger-ui .parameters .parameters-col_name .prop-format {
     color: inherit;
-    font-family: sans-serif;
+    font-family: var(--font-default);
 }
 
 .swagger-ui .parameters .parameters-col_name .parameter__in {
     font-size: 13px;
-    font-family: sans-serif;
+    font-family: var(--font-default);
     font-style: normal;
     font-weight: normal;
     color: var(--black-400);
@@ -520,7 +520,7 @@
 .swagger-ui .opblock-body .live-responses-table thead tr td {
     border-radius: 4px;
     border: 0.5em solid white;
-    font-family: monospace;
+    font-family: var(--font-default);
 }
 
 .swagger-ui .opblock-body .responses-table .response-col_status {
@@ -531,7 +531,7 @@
     max-width: unset;
     text-align: center;
     border-radius: 4px 0 0 4px;
-    font-family: monospace;
+    font-family: var(--font-default);;
     font-weight: bold;
     font-size: 15px;
     /* this padding is not perfect, less than a pixel of alignment from right side */
@@ -557,7 +557,7 @@
     background-color: #ebf7ff;
     border-radius: 4px;
     width: 100%;
-    font-family: monospace;
+    font-family: var(--font-default);
 }
 
 .swagger-ui .opblock-body .responses-table .response-col_description > div {
@@ -580,7 +580,7 @@
     display: flex;
     border-radius: 4px;
     border-bottom: 30px solid transparent;
-    font-family: monospace;
+    font-family: var(--font-default);
 }
 
 .swagger-ui .swagger-ui .response-col_description__inner div.markdown,
@@ -960,7 +960,7 @@
     display: flex;
     align-items: center;
     padding: 14px;
-    font-family: inherit;
+    font-family: var(--font-default);
     font-size: 1rem;
     font-weight: 400;
     border-radius: 4px;
