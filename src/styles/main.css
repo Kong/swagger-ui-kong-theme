@@ -70,10 +70,10 @@
 }
 
 .swagger-ui .btn {
-    border: 1px solid var(--buton-border-color);
+    border: 1px solid var(--black-70);
     background: var(--button-background);
     border-radius: var(--button-border-radius);
-    color: var(--button-color);
+    color: var(--black-70);
     font-size: var(--button-font-size);
     font-weight: var(--button-font-weight);
     padding: var(--button-padding);
@@ -82,7 +82,7 @@
 
 .swagger-ui .btn:focus {
     border-color: transparent;
-    box-shadow: 0 0 0 2px var(--white),0 0 0 4px var(--blue-500, var(--white));
+    box-shadow: 0 0 0 2px var(--white),0 0 0 4px var(--black-70, var(--white));
 }
 
 .swagger-ui .btn.btn-sm {
@@ -109,24 +109,20 @@
 }
 
 .swagger-ui section.models {
-    padding: 10px !important;
-    border-bottom: var(--model-collapse-border-bottom);
+    padding: 0 !important;
     cursor: pointer;
 }
 
+
 .swagger-ui section.models >div >h4 >span {
     margin-left: 1rem;
-}
-
-.swagger-ui section.models.is-open {
-    padding-bottom: 20px !important;
 }
 
 .swagger-ui .btn.authorize {
     background-color: var(--blue-500);
     color: var(--input-background);
     border: none;
-    margin: 0 5px;
+    margin: 0 10px;
 }
 
 .swagger-ui .btn.authorize:focus {
@@ -199,11 +195,14 @@
     display: flex;
     justify-content: space-around;
 }
+.swagger-ui .auth-btn-wrapper {
+    justify-content: start;
+}
 
 .swagger-ui .viewSpecBtn {
-    background-color: var(--white);
-    color: var(--blue-500);
-    border: 1px solid var(--blue-500);
+    background-color: var(--white) !important;
+    color: var(--view-raw-button-border);
+    border: 1px solid var(--black-70);
     margin: 2px;
     box-shadow: none;
 }
@@ -268,6 +267,9 @@
     box-shadow: none;
     padding-left: 0;
     padding-right: 0;
+    font-weight: bold;
+    font-size: var(--headings-font-size-5);
+    border-bottom: 2px solid var(--white-rgb-245);
 }
 
 /* this one just applies to parameters (left side) */
@@ -285,6 +287,27 @@
     word-break: normal;
     padding: 4px 0;
     background-color: var(--black-400);
+}
+
+.swagger-ui .response-control-media-type__accept-message {
+    font-size: var(--headings-font-weight);
+}
+
+.swagger-ui .opblock-body select {
+    color: var(--black-85);
+    font-weight: normal;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: calc(100% - 12px) center !important;
+    background-color: white;
+    background: url("data:image/svg+xml,<svg height=\'10px\' width=\'10px\' viewBox='0 0 16 16' fill='green' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
+    padding: 8px 32px 8px 16px;
+    border: 1px solid var(--black-85);
+}
+.swagger-ui .opblock-body select:focus {
+    border: 1px solid var(--green-100);
 }
 
 .swagger-ui .opblock .opblock-section-header h1 {
@@ -499,7 +522,7 @@
 
 .swagger-ui .opblock-body .responses-wrapper pre {
     color: var(--black-70);
-    background: rgba(0, 0, 0, 0.1);
+    background-color: transparent;
 }
 
 .swagger-ui .swagger-ui .responses-table {
@@ -523,7 +546,7 @@
 }
 
 .swagger-ui .opblock-body .responses-table .response-col_status {
-    background-color: #ebf7ff;
+    background-color: var(--white-rgb-245);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -553,7 +576,8 @@
 
 .swagger-ui .opblock-body .responses-table .response-col_description {
     padding: 10px;
-    background-color: #ebf7ff;
+    /*background-color: #ebf7ff;*/
+    background-color: var(--white-rgb-245);
     border-radius: 4px;
     width: 100%;
     font-family: var(--font-default);
@@ -587,7 +611,7 @@
 .swagger-ui .swagger-ui .response-col_description__inner div.markdown p,
 .swagger-ui .response-col_description__inner div.renderedMarkdown p,
 .swagger-ui .response-col_description__inner div.markdown {
-    background-color: #ebf7ff;
+    background-color: var(--white-rgb-245);
     color: var(--black-70);
     font-size: 15px;
 }
@@ -934,6 +958,10 @@
     overflow: auto;
 }
 
+.swagger-ui .model-example >ul>li {
+    font-size: 0.8em;
+}
+
 .swagger-ui .code-block {
     background: hsla(220, 8%, 10%, 1);
 }
@@ -996,7 +1024,7 @@
 
 }
 .swagger-ui section.models >div.no-margin >div{
-    margin: 1.25rem 0 !important
+    margin: 1.25rem 10px !important;
 }
 
 .swagger-ui .model-title {
