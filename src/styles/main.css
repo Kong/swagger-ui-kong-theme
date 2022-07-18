@@ -70,10 +70,10 @@
 }
 
 .swagger-ui .btn {
-    border: 1px solid var(--buton-border-color);
+    border: 1px solid var(--black-70);
     background: var(--button-background);
     border-radius: var(--button-border-radius);
-    color: var(--button-color);
+    color: var(--black-70);
     font-size: var(--button-font-size);
     font-weight: var(--button-font-weight);
     padding: var(--button-padding);
@@ -82,7 +82,7 @@
 
 .swagger-ui .btn:focus {
     border-color: transparent;
-    box-shadow: 0 0 0 2px var(--white),0 0 0 4px var(--blue-500, var(--white));
+    box-shadow: 0 0 0 2px var(--white),0 0 0 4px var(--black-70, var(--white));
 }
 
 .swagger-ui .btn.btn-sm {
@@ -126,7 +126,7 @@
     background-color: var(--blue-500);
     color: var(--input-background);
     border: none;
-    margin: 0 5px;
+    margin: 0 10px;
 }
 
 .swagger-ui .btn.authorize:focus {
@@ -199,13 +199,14 @@
     display: flex;
     justify-content: space-around;
 }
-
-.swagger-ui .auth-wrapper
+.swagger-ui .auth-btn-wrapper {
+    justify-content: start;
+}
 
 .swagger-ui .viewSpecBtn {
-    background-color: var(--white);
-    color: var(--blue-500);
-    border: 1px solid var(--blue-500);
+    background-color: var(--white) !important;
+    color: var(--view-raw-button-border);
+    border: 1px solid var(--black-70);
     margin: 2px;
     box-shadow: none;
 }
