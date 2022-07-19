@@ -134,11 +134,11 @@ export const AugmentingInfo = (props) => {
           {externalDocsDescription || externalDocsUrl}
         </a>
       ) : (
-        <InfoAlert msg="No externalDocsUrl found!" />
+          console.warn('No externalDocsUrl found!')
       )}
     </div>
   ) : (
-    <InfoAlert msg="Info is missing" />
+      console.warn('Info is missing!')
   );
 };
 
