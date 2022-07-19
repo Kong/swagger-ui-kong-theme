@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Iterable, List } from "immutable";
 import ImPropTypes from "react-immutable-proptypes";
