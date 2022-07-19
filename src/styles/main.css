@@ -236,6 +236,15 @@
   word-break: break-word !important;
 }
 
+.swagger-ui .info hgroup.main .header .title {
+  color: var(--header-title-color);
+  font-size: var(--type-xl);
+}
+
+.swagger-ui .info .title small {
+  vertical-align: baseline !important;
+}
+
 .swagger-ui .wrapper {
   max-width: none;
 }
