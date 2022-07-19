@@ -60,9 +60,7 @@
   font-size: var(--headings-font-size-5);
 }
 
-.swagger-ui
-  .opblock-summary.opblock-summary-deprecated
-  span.opblock-summary-method {
+.swagger-ui .opblock-summary.opblock-summary-deprecated > span.opblock-summary-method {
   background-color: var(--steel-600);
   color: var(--black-100);
 }
@@ -115,8 +113,16 @@
   cursor: pointer;
 }
 
+.swagger-ui section.models.is-open h4 {
+  border-bottom: none;
+}
+
 .swagger-ui section.models > div > h4 > span {
   margin-left: 1rem;
+}
+
+.swagger-ui section.models > div > h4 > svg {
+  fill: var(--model-collapse-icon-color);
 }
 
 .swagger-ui .btn.authorize {
@@ -572,11 +578,7 @@
   display: none;
 }
 
-.swagger-ui
-  .opblock-body
-  .live-responses-table
-  .response-col_description
-  .highlight-code {
+.swagger-ui .opblock-body .live-responses-table .response-col_description .highlight-code {
   margin-bottom: 1em;
 }
 
@@ -593,13 +595,7 @@
   width: 100%;
 }
 
-.swagger-ui
-  .opblock-body
-  .responses-table
-  .response-col_description
-  .response-col_description__inner
-  .renderedMarkdown
-  > p {
+.swagger-ui .opblock-body .responses-table .response-col_description .response-col_description__inner.renderedMarkdown > p {
   margin-top: 10px;
 }
 
@@ -611,10 +607,7 @@
   display: none;
 }
 
-.swagger-ui
-  .responses-inner
-  .responses-table:not(.live-responses-table)
-  tr.response {
+.swagger-ui .responses-inner .responses-table:not(.live-responses-table) > tr.response {
   display: flex;
   border-radius: 4px;
   border-bottom: 30px solid transparent;
@@ -689,9 +682,7 @@
   color: var(--summary-get-color);
 }
 
-.swagger-ui
-  .opblock-summary.opblock-summary-delete
-  span.opblock-summary-method {
+.swagger-ui .opblock-summary.opblock-summary-delete span.opblock-summary-method {
   background: var(--summary-delete-background);
   color: var(--summary-delete-color);
 }
@@ -706,16 +697,12 @@
   color: var(--summary-head-color);
 }
 
-.swagger-ui
-  .opblock-summary.opblock-summary-options
-  span.opblock-summary-method {
+.swagger-ui .opblock-summary.opblock-summary-options >span.opblock-summary-method {
   background: var(--summary-options-background);
   color: var(--summary-options-color);
 }
 
-.swagger-ui
-  .opblock-summary.opblock-summary-deprecated
-  span.opblock-summary-method {
+.swagger-ui .opblock-summary.opblock-summary-deprecated >span.opblock-summary-method {
   background: var(--summary-deprecated-background);
   color: var(--summary-deprecated-color);
 }
@@ -1082,32 +1069,11 @@
   margin-top: 0.5rem;
 }
 
-.swagger-ui
-  .model
-  > div
-  > div
-  > span.inner-object
-  > table.model
-  > tbody
-  > tr.description
-  > td
-  > div.renderedMarkdown {
+.swagger-ui .model > div > div > span.inner-object > table.model > tbody > tr.description > td > div.renderedMarkdown {
   font-size: 0.75rem;
 }
 
-.swagger-ui
-  .model
-  > div
-  > div
-  > span.inner-object
-  > table.model
-  > tbody
-  > tr
-  > td
-  > span.model
-  > div
-  > span.prop
-  > span.prop-type {
+.swagger-ui .model > div > div > span.inner-object > table.model > tbody > tr > td > span.model > div > span.prop > span.prop-type {
   color: var(--model-prop-type-color);
 }
 .swagger-ui .download-contents {
