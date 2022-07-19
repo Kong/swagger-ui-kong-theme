@@ -132,7 +132,6 @@
   --font-default: "Roboto", "sans-serif";
   --font-code: "Roboto Mono", "monospace";
 
-
   /*--font-family-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',*/
   /*'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',*/
   /*sans-serif;*/
@@ -233,4 +232,14 @@
   --sidebar-tag-color: #333;
   --sidebar-tag-font-size: 1rem;
   --sidebar-tag-font-weight: 600;
+
+  /* Type sizes */
+  --type-xxxl: 32px;
+  --type-xxl: 28px;
+  --type-xl: 22px;
+  --type-lg: 18px;
+  --type-md: 16px;
+  --type-sm: 14px;
+  --type-xs: 12px;
+  --type-xxs: 10px;
 }
