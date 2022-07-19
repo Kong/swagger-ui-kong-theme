@@ -209,7 +209,6 @@
   background-color: var(--white) !important;
   color: var(--view-raw-button-border);
   border: 1px solid var(--black-70);
-  margin: 2px;
   box-shadow: none;
 }
 
@@ -861,7 +860,7 @@
     grid-auto-rows: min-content;
 
     display: -ms-grid;
-    -ms-grid-columns: 45% 64px 55%;
+    -ms-grid-columns: 49% 64px 51%;
     -ms-grid-rows: min-content min-content min-content min-content min-content;
   }
 }
@@ -873,7 +872,7 @@
   grid-column-start: 1;
   grid-column: 1;
   -ms-grid-column: 1;
-  padding: 5px 0 20px 13em;
+  padding: 5px 0 20px 11.5em;
   height: 71px;
 }
 
