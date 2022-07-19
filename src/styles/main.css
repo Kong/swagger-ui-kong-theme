@@ -188,7 +188,7 @@
   top: 5px;
   margin: 0 5px;
   color: var(--headings-color);
-  font-size: var(--headings-font-size-5);
+  font-size: var(--headings-font-size-6);
 }
 
 .swagger-ui .scheme-container .schemes.wrapper .actions {
@@ -892,6 +892,12 @@
 
 .swagger-ui .btn.execute {
   background-color: var(--blue-500);
+  margin-right: 5px;
+  border-radius: var(--input-border-radius) !important;
+}
+
+.swagger-ui .btn-group .btn:last-child {
+  border-radius: var(--input-border-radius);
 }
 
 .swagger-ui .opblock-body .execute-wrapper {
