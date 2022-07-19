@@ -1,9 +1,8 @@
-import React from "react";
+import React, { memo }  from "react";
 import PropTypes from "prop-types";
 import { Iterable, List } from "immutable";
 import ImPropTypes from "react-immutable-proptypes";
 import toString from "lodash/toString";
-import { memo } from "react";
 
 function OperationSummary({
   toggleShown,
