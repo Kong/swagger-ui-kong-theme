@@ -21,6 +21,7 @@ import Fallback from "./components/ErrorBoundary/fallback";
 import Parameters from "components/Parameters";
 import InfoAlert from "components/InfoAlert";
 import AuthorizeBtn from "components/AuthorizeBtn";
+import OperationSummary from './components/OperationSummary';
 
 import './styles/main.css';
 import './styles/variables.css';
@@ -52,7 +53,8 @@ const SwaggerUIKongTheme = (system) => {
         <TryItOutButton {...props} specSelectors={system.specSelectors} />
       )),
       Fallback,
-      ErrorBoundary
+      ErrorBoundary,
+      OperationSummary
     },
     wrapComponents: {
       responses: ResponsesWrapper,
