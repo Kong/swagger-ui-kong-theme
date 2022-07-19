@@ -16,7 +16,7 @@
   font-size: var(--input-font-size);
   font-weight: var(--input-font-weight);
   background: var(--input-background);
-  padding: var(--input-padding);
+  padding: var(--input-padding)!important;
   border-radius: var(--input-border-radius);
 }
 
@@ -268,10 +268,21 @@
   box-shadow: none;
   padding-left: 0;
   padding-right: 0;
+  padding: var(--spacing-lg) 0;
+  margin-bottom: ;
   font-weight: bold;
   font-size: var(--headings-font-size-5);
   border-bottom: 2px solid var(--white-rgb-245);
 }
+
+.swagger-ui .opblock .opblock-section-header h4 {
+  color: #3b4151;
+  flex: 1;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+
 
 /* this one just applies to parameters (left side) */
 .swagger-ui .opblock .opblock-section > .opblock-section-header {
@@ -435,7 +446,7 @@
   Might lead to uglyness if we have a really long parameter name */
 .swagger-ui table.parameters thead tr td,
 .swagger-ui table.parameters tbody tr td:first-of-type {
-  width: 13em;
+  width: 12em;
 }
 
 .swagger-ui .parameters thead {
@@ -451,9 +462,9 @@
   margin-right: 0;
   overflow-wrap: break-word;
   font-family: var(--font-default);
-  font-size: 15px;
-  color: var(--black-70);
-  font-weight: 500;
+  font-size: var(--type-lg);
+  color: var(--text_colors-primary);
+  font-weight: 600;
 }
 
 .swagger-ui .parameters .parameters-col_name .parameter__name:not(.required) {
@@ -467,11 +478,13 @@
 
 .swagger-ui .parameters .parameters-col_name .parameter__name.required::after {
   padding: 10px 0 0 0;
-  font-size: 13px;
+  font-size: var(--type-md);
   font-family: var(--font-default);
   font-weight: normal;
   text-transform: capitalize;
+  color: #d90000;
 }
+
 
 .swagger-ui .parameters .parameters-col_name .parameter__name.required span {
   display: none;
@@ -482,8 +495,10 @@
   font-size: 13px;
   font-family: var(--font-default);
   font-weight: normal;
-  color: var(--black-400);
+  color: var(--text_colors-secondary);
+  opacity: .45;
 }
+
 
 .swagger-ui .parameters .parameters-col_name .prop-format {
   color: inherit;
@@ -491,19 +506,30 @@
 }
 
 .swagger-ui .parameters .parameters-col_name .parameter__in {
-  font-size: 13px;
+  font-size: var(--type-sm);
   font-family: var(--font-default);
   font-style: normal;
   font-weight: normal;
-  color: var(--black-400);
+  color: var(--text_colors-secondary);
 }
 
 .swagger-ui .parameters .parameter__deprecated {
-  font-size: 13px;
+  font-size: var(--type-md);
 }
 
 .swagger-ui .parameters select {
   width: 100%;
+}
+
+.swagger-ui .parameters input[type="email"]:disabled,
+.swagger-ui .parameters input[type="password"]:disabled,
+.swagger-ui .parameters input[type="search"]:disabled,
+.swagger-ui .parameters input[type="text"]:disabled,
+.swagger-ui .parameters textarea:disabled {
+  cursor: not-allowed;
+  font-style: italic;
+  background-color: var(--KInputDisabledBackground, var(--grey-100, #f8f8fa));
+  box-shadow: inset 0 0 0 1px var(--KInputBorder, var(--grey-300)) !important;
 }
 
 .swagger-ui .parameters input[type="email"],
@@ -511,8 +537,18 @@
 .swagger-ui .parameters input[type="search"],
 .swagger-ui .parameters input[type="text"],
 .swagger-ui .parameters textarea {
+  display: block;
+  color: var(--input-color);
+  font-size: var(--input-font-size);
+  font-weight: var(--input-font-weight);
+  line-height: 24px;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--input-background);
+  box-shadow: inset 0 0 0 1px var(--KInputBorder, var(--grey-300)) !important;
+  box-sizing: border-box;
+  transition: color .1s ease,box-shadow .1s ease;
   padding: var(--parameters-input-padding);
-  max-width: unset;
 }
 
 .swagger-ui .parameters input[type="file"] {
@@ -943,6 +979,7 @@
   height: unset;
 }
 
+
 /**************************************************************************
  * From templates repo, not sure if needed, consildating all css in one spot before removing
  * swagger-ui container
@@ -976,7 +1013,6 @@
 .swagger-ui .operations-container .opblock .opblock-summary-path {
   margin-left: 80px;
 }
-
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .swagger-ui .operations-container .opblock .opblock-summary-path {

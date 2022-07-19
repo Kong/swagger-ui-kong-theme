@@ -5,7 +5,8 @@
 }
 
 .tryOutWrapper .btnTryOut {
-    color: var(--try-out-button-color);
-    border-color: var(--try-out-button-border-color);
+    color: var(--try-out-button-color)!important;
+    border-color: var(--try-out-button-border-color)!important;
+
 }
 

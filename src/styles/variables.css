@@ -89,11 +89,11 @@
   --button-line-height: 2rem;
 
   /*  input */
-  --input-color: inherit;
-  --input-font-size: initial;
-  --input-font-weight: initial;
-  --input-background: #fff;
-  --input-padding: 8px 10px;
+  --input-color: var(--KInputColor, var(--black-70, rgba(0, 0, 0, 0.7)));
+  --input-font-size: var(--type-sm, 14px);
+  --input-font-weight: normal;
+  --input-background: var(--KInputBackground, var(--white, #ffffff));
+  --input-padding: 10px var(--spacing-md, 16px);
   --input-border-radius: 4px;
 
   /*  parameters */
@@ -109,8 +109,8 @@
   --paragraph-color: inherit;
   --paragraph-font-size: 16px;
   --paragraph-font-weight: normal;
-  --paragraph-padding: initial;
-  --paragraph-margin: initial;
+  --paragraph-padding: 0;
+  --paragraph-margin: 0;
 
   /*  text */
   --spacing-xxs: 4px;
@@ -174,8 +174,8 @@
   --cancel-button-color: var(--red-600);
   --cancel-button-border-color: currentColor;
 
-  --try-out-button-color: var(--blue-600);
-  --try-out-button-border-color: currentColor;
+  --try-out-button-color:  var(--text_colors-secondary);
+  --try-out-button-border-color: var(--section_colors-stroke);
 
   --summary-post-background: #49cc90;
   --summary-post-color: var(--white);
