@@ -212,7 +212,6 @@
 
 .swagger-ui .btn:focus {
   border-color: transparent;
-  box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--black-70, var(--white));
 }
 
 .swagger-ui .btn.btn-sm {

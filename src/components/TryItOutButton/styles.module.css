@@ -1,12 +1,17 @@
 
-.tryOutWrapper .btnCancel {
-    color: var(--cancel-button-color);
-    border-color: var(--cancel-button-border-color);
-}
-
 .tryOutWrapper .btnTryOut {
     color: var(--try-out-button-color)!important;
     border-color: var(--try-out-button-border-color)!important;
+}
 
+.tryOutWrapper .btnTryOut:hover {
+    box-shadow: unset;
+    border-color: var(--KButtonSecondaryHoverBorder, var(--black-45, rgba(0, 0, 0, 0.45)));
+    background-color: var(--KButtonSecondaryHover);
+}
+
+.tryOutWrapper .btnTryOut:focus{
+    outline: transparent;
+    box-shadow: transparent;
 }
 

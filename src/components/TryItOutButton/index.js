@@ -7,12 +7,14 @@ const TryItOutButton = (props) => {
   const servers = specSelectors?.servers();
   const hasServers = !!servers?.size;
 
+  
+
   return hasServers ? (
     <div className={styles.tryOutWrapper}>
       {enabled ? (
         <button
           aria-label="Cancel sending an example request"
-          className={`${styles.btnCancel} btn`}
+          className={`${styles.btnTryOut} btn`}
           onClick={onCancelClick}
         >
           Cancel
