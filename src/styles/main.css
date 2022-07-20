@@ -114,10 +114,10 @@
 }
 
 .swagger-ui section.models.is-open h4 {
-  border-bottom: 1px solid var(--black-200);
+  border-bottom: 1px solid var(--section_colors-stroke);
 }
 .swagger-ui section.models.is-open h4:hover {
-  border-bottom: 1px solid var(--green-500);
+  border-bottom: 1px solid var(--section_colors-stroke);
 }
 
 .swagger-ui section.models > div > h4 > span {
