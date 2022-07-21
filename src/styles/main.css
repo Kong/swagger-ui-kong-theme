@@ -236,7 +236,7 @@
 
 .swagger-ui .info {
   word-break: break-word !important;
-  /*border: 1px solid var(--section_colors-stroke);*/
+  border: 1px solid var(--section_colors-stroke);
   margin: var(--spacing-xl) 0;
   padding: var(--spacing-xl) 0;
   border-radius: 3px;
