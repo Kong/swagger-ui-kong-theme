@@ -70,7 +70,7 @@
 }
 
 .swagger-ui .btn {
-  border: 1px solid var(--black-70);
+  border: 1px solid var(--section_colors-stroke);
   background: var(--button-background);
   border-radius: var(--button-border-radius);
   color: var(--black-70);
