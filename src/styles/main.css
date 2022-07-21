@@ -64,6 +64,7 @@
 .swagger-ui .parameters textarea:not([type="radio"]):read-only,
 .swagger-ui .parameters select:not([type="radio"]):read-only,
 .swagger-ui .opblock .content-type-wrapper select:not([type="radio"]):read-only,
+.swagger-ui .opblock-body .examples-select select ,
 .swagger-ui
   .opblock
   .responses-wrapper
@@ -104,6 +105,7 @@
 .swagger-ui .parameters textarea:not([type="radio"]),
 .swagger-ui .parameters select:not([type="radio"]),
 .swagger-ui .opblock .content-type-wrapper select:not([type="radio"]),
+.swagger-ui .opblock-body .examples-select select ,
 .swagger-ui
   .opblock
   .responses-wrapper
