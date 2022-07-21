@@ -135,7 +135,9 @@
 }
 
 .swagger-ui .modal-ux-inner .btn.authorize {
-  margin-right: 1.5rem !important;
+  margin-right: 2.3rem !important;
+  margin-left: 0 !important;
+
 }
 
 .swagger-ui .btn.authorize:focus {
