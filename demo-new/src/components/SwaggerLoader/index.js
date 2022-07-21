@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { loadSwagger } from "../../utils/spec";
-import "swagger-ui/dist/swagger-ui.css";
+import "@kong/swagger-ui/dist/swagger-ui.css";
 import "./SwaggerLoader.css";
 
 const specs = [
