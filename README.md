@@ -40,7 +40,7 @@ The retry functionality is implemented reseting the state of the ErrorBoundary H
 
 ### Reproduce manually
 
-You can throw manually an Error from one of the theme compoennts. This will display the Alert and the retry button on the component site. Pressing the button won't fix the error while we are triggering the Error manually but it can be checked by console that the re render is being triggered.  
+You can throw manually an Error from one of the theme components. This will display the Alert and the retry button on the component site. Pressing the button won't fix the error while we are triggering the Error manually but it can be checked by console that the re render is being triggered.  
 
 ```
   throw new Error("Test");
