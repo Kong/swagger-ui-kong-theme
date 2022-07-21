@@ -738,6 +738,10 @@
   color: var(--headings-color);
 }
 
+.swagger-ui .expand-operation, button {
+  padding-left: 0;
+}
+
 .swagger-ui .expand-operation .arrow {
   width: 20px;
   height: 20px;
