@@ -28,7 +28,6 @@ class ErrorBoundary extends Component {
       return (
         <FallbackComponent
           onRetry={() => {
-            console.log("retry", this);
             this.setState({ hasError: false, error: null });
           }}
           name={targetName}

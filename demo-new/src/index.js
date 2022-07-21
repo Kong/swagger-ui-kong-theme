@@ -6,7 +6,7 @@ import App from "./components/App";
 import { BrowserRouter } from "react-router-dom";
 import SwaggerUI from "swagger-ui";
 import { SwaggerUIKongTheme, KongSafeRenderer } from "swagger-ui-kong-theme";
-console.log(KongSafeRenderer);
+
 window.swaggerUIOptions = {
   // dom_id: "#ui-wrapper", // Determine what element to load swagger ui
   docExpansion: "list",
