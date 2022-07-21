@@ -106,6 +106,8 @@
 .swagger-ui .scheme-container {
   box-shadow: none;
   background-color: transparent !important;
+  padding: 10px 0 !important;
+  margin: 0 32px;
 }
 
 .swagger-ui section.models {
@@ -129,7 +131,7 @@
   background-color: var(--blue-500);
   color: var(--input-background);
   border: none;
-  margin: 0 10px;
+  margin: 0 0 0 5px !important;
 }
 
 .swagger-ui .btn.authorize:focus {
@@ -156,7 +158,6 @@
 }
 
 .swagger-ui .scheme-container .schemes.wrapper {
-  padding: 0 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -184,6 +185,7 @@
   margin: 7px 5px;
   color: var(--headings-color);
   font-size: var(--input-font-size);
+  font-weight: normal;
 }
 
 .swagger-ui .scheme-container .schemes.wrapper .actions {
@@ -239,6 +241,7 @@
 
 .swagger-ui .wrapper {
   max-width: none;
+  padding: 0;
 }
 
 .swagger-ui .opblock {
