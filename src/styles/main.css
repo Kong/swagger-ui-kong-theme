@@ -413,10 +413,6 @@
   font-weight: 700;
 }
 
-.swagger-ui .renderedMarkdown p {
-    margin: 0 !important;
-}
-
 /* this one just applies to parameters (left side) */
 .swagger-ui .opblock .opblock-section > .opblock-section-header {
   border-bottom: 2px solid var(--black-10);
@@ -713,19 +709,26 @@
   font-family: var(--font-default);
 }
 
+.swagger-ui .opblock-body .responses-table tr.response {
+  display: flex;
+  border-radius: 4px;
+  border-bottom: 30px solid rgba(0,0,0,0);
+  font-family: monospace;
+}
+
 .swagger-ui .opblock-body .responses-table .response-col_status {
-  background-color: var(--white-rgb-245);
+  background-color: var(--section_colors-accent);
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: unset;
   text-align: center;
   border-radius: 4px 0 0 4px;
-  font-family: var(--font-default);
+  font-family: monospace;
   font-weight: bold;
   font-size: 15px;
-  /* this padding is not perfect, less than a pixel of alignment from right side */
   padding: 9px 0;
+  color: var(--text_colors-primary);
 }
 
 .swagger-ui .opblock-body .live-responses-table .response-col_status {
