@@ -106,6 +106,8 @@
 .swagger-ui .scheme-container {
   box-shadow: none;
   background-color: transparent !important;
+  padding: 10px 0 !important;
+  margin: 0 32px;
 }
 
 .swagger-ui section.models {
@@ -132,7 +134,7 @@
   background-color: var(--blue-500);
   color: var(--input-background);
   border: none;
-  margin: 0 10px;
+  margin: 0 0 0 5px !important;
 }
 
 .swagger-ui .btn.authorize:focus {
@@ -154,25 +156,17 @@
 
 .swagger-ui .scheme-container {
   background-color: var(--white-rgb-250);
-  border-bottom: 1px var(--white-rgb-250) solid;
+  border-bottom: 1px var(--section_colors-stroke) solid;
   padding: 32px 0;
 }
 
 .swagger-ui .scheme-container .schemes.wrapper {
-  padding: 0 30px;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-}
-
-.swagger-ui .scheme-container .schemes.wrapper > label {
-  display: flex;
-  flex-direction: row;
+  align-items: center;
 }
 
 .swagger-ui .scheme-container .schemes.wrapper > label > span {
-  position: relative;
-  top: 5px;
   margin: 0 5px;
   color: var(--headings-color);
   font-size: var(--headings-font-size-4);
@@ -188,16 +182,13 @@
 
 .swagger-ui .scheme-container .schemes.wrapper > div {
   display: flex;
-  flex-direction: row;
-  vertical-align: baseline;
 }
 
 .swagger-ui .scheme-container .schemes.wrapper > div .servers-title {
-  position: relative;
-  top: 5px;
-  margin: 0 5px;
+  margin: 7px 5px;
   color: var(--headings-color);
-  font-size: var(--headings-font-size-6);
+  font-size: var(--input-font-size);
+  font-weight: normal;
 }
 
 .swagger-ui .scheme-container .schemes.wrapper .actions {
@@ -231,7 +222,7 @@
   background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='green' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
     no-repeat;
   padding: 8px 32px 8px 16px;
-  border: 1px solid var(--black-85);
+  border: 1px solid var(--section_colors-stroke);
 }
 
 .swagger-ui .info {
@@ -253,6 +244,7 @@
 
 .swagger-ui .wrapper {
   max-width: none;
+  padding: 0;
 }
 
 .swagger-ui .opblock {
