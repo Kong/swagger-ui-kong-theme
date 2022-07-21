@@ -213,8 +213,11 @@
   --model-title-color: #333333;
   --model-title-font-size: 1rem;
   --model-title-font-weight: 600;
-  --model-collapse-icon-color: #07A88;
+  --model-collapse-icon-color: #07A88D;
   --model-prop-type-color: #07a88d;
+
+  /*title*/
+  --header-title-color: black;
 
   /*sidebar*/
   --sidebar-width: 300px;
