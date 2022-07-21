@@ -4,7 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./components/App";
 import { BrowserRouter } from "react-router-dom";
-import SwaggerUI from "swagger-ui";
+import SwaggerUI from "@kong/swagger-ui";
 import { SwaggerUIKongTheme } from "swagger-ui-kong-theme";
 
 window.swaggerUIOptions = {
