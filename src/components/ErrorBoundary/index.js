@@ -20,11 +20,11 @@ class ErrorBoundary extends Component {
 
   render() {
     const { getComponent, targetName, children } = this.props;
-    console.log("pase por el error boundary")
 
+    
     if (this.state.hasError) {
       const FallbackComponent = getComponent("Fallback");
-      console.log("fallback render")
+
       return (
         <FallbackComponent
           onRetry={() => {

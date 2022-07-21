@@ -2,7 +2,7 @@ import React from "react";
 import InfoAlert from "components/InfoAlert";
 
 function Fallback({ name, message, onRetry }) {
-  console.log("retry function", onRetry);
+
   return (
     <div className="fallback">
       <InfoAlert
