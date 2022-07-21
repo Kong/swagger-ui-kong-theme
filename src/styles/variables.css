@@ -214,6 +214,9 @@
   --model-collapse-icon-color: #07A88D;
   --model-prop-type-color: #07a88d;
 
+  /*title*/
+  --header-title-color: black;
+
   /*sidebar*/
   --sidebar-width: 300px;
   --sidebar-width-mobile: 300px;
