@@ -6,7 +6,7 @@ const TryItOutButton = (props) => {
 
   const servers = specSelectors?.servers();
   const hasServers = !!servers?.size;
-
+  throw new Error()
   return hasServers ? (
     <div className={styles.tryOutWrapper}>
       {enabled ? (

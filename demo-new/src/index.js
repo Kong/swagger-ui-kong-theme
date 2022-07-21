@@ -5,16 +5,23 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./components/App";
 import { BrowserRouter } from "react-router-dom";
 import SwaggerUI from "swagger-ui";
-import { SwaggerUIKongTheme } from "swagger-ui-kong-theme";
-
+import { SwaggerUIKongTheme, KongSafeRenderer } from "swagger-ui-kong-theme";
+console.log(KongSafeRenderer);
 window.swaggerUIOptions = {
- // dom_id: "#ui-wrapper", // Determine what element to load swagger ui
+  // dom_id: "#ui-wrapper", // Determine what element to load swagger ui
   docExpansion: "list",
   deepLinking: true, // Enables dynamic deep linking for tags and operations
   filter: true,
   layout: "KongLayout",
   presets: [SwaggerUI.presets.apis],
-  plugins: [SwaggerUIKongTheme, SwaggerUI.plugins.DownloadUrl],
+  plugins: [
+    SwaggerUIKongTheme,
+    SwaggerUI.plugins.DownloadUrl,
+    SwaggerUI.plugins.SafeRender({
+      componentList: ["SidebarList", "TryItOutButton"],
+    }),
+    KongSafeRenderer,
+  ],
   theme: {
     swaggerAbsoluteTop: "0px",
     hasSidebar: true,
