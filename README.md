@@ -32,7 +32,7 @@ The Error Boundary HOC is automatically applied to a list of predefined componen
   ],
 ```
 
-In the demo index.js, we provide some of our custom components to the SafeRenderer plugin. Note that first Kong theme is being applied, after that the SafeRenderer plugin is being applied and finally our custom SafeRenderer components. The plugins should be configured in this order because SafeRenderer must we aware of each of the components in which it has to apply the Error Boundary and to override predefined SafeRenderer components they should be applied after the plugin configuration.
+In the demo index.js, we provide some of our custom components to the SafeRenderer plugin. Note the order. First Kong theme is being applied, after that the SafeRenderer plugin and finally our custom SafeRenderer components. They should be configured in this order because SafeRenderer must we aware of each of the components in which it has to apply the Error Boundary and to override predefined SafeRenderer components they should be applied after the plugin configuration.
 
 To a complete explanation reference to [Error handling section in the swagger documentation](https://swagger.io/docs/open-source-tools/swagger-ui/customization/plug-points/#:~:text=%7D)-,Error%20handling,-SwaggerUI%20comes%20with)
 
