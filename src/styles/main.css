@@ -134,6 +134,10 @@
   margin: 0 0 0 5px !important;
 }
 
+.swagger-ui .modal-ux-inner .btn.authorize {
+  margin-right: 1.5rem !important;
+}
+
 .swagger-ui .btn.authorize:focus {
   border-color: transparent;
   box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--blue-500, var(--blue-500));
