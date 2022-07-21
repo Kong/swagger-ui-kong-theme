@@ -36,6 +36,17 @@ In the demo index.js, we provide some of our custom components to the SafeRender
 
 To a complete explanation reference to [Error handling section in the swagger documentation](https://swagger.io/docs/open-source-tools/swagger-ui/customization/plug-points/#error-handling)
 
+The retry functionality is implemented reseting the state of the ErrorBoundary HOC component. This force a re-render in the children. It should address cases which it fails due to wrong async resolutions
+
+### Reproduce manually
+
+You can throw manually an Error from one of the theme compoennts. This will display the Alert and the retry button on the component site. Pressing the button won't fix the error while we are triggering the Error manually but it can be checked by console that the re render is being triggered.  
+
+```
+  throw new Error("Test");
+```
+<img width="575" alt="Screen Shot 2022-07-21 at 10 54 19" src="https://user-images.githubusercontent.com/106538073/180231547-0bc26f14-78c4-41b0-8045-87541fe1dacd.png">
+
 ## How to load
 
 ```
