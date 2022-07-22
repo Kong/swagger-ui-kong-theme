@@ -1263,7 +1263,7 @@ opblock
 
 .swagger-ui .model-toggle {
   border: solid var(--model-collapse-icon-color);
-  border-width: 0 3px 3px 0;
+  border-width: 0 1px 1px 0;
   display: inline-block;
   padding: 3px;
   top: 0 !important;
@@ -1301,10 +1301,3 @@ opblock
   border-color: transparent;
   box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--blue-500, var(--white));
 }
-/*.swagger-ui .model-box >div >span {*/
-
-/*  background-image: linear-gradient(45deg, transparent 50%, var(--model-collapse-icon-color) 50%),linear-gradient(135deg, var(--model-collapse-icon-color) 50%, transparent 50%)!important;*/
-/*  background-position: calc(100% - 20px) calc(1em + 2px),calc(100% - 15px) calc(1em + 2px)!important;*/
-/*  background-size: 5px 5px,5px 5px!important;*/
-
-/*}*/
