@@ -1263,7 +1263,7 @@ opblock
 
 .swagger-ui .model-toggle {
   border: solid var(--model-collapse-icon-color);
-  border-width: 0 1px 1px 0;
+  border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
   top: 0 !important;
