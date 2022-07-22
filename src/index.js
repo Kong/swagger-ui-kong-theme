@@ -69,4 +69,15 @@ const KongSafeRenderer = (system) => {
   };
 };
 
-export { SwaggerUIKongTheme, KongLayout, KongSafeRenderer };
+const SwaggerUIKongThemeWrappers = () => {
+  return {
+    wrapComponents: {
+      responses: ResponsesWrapper,
+      operation: OperationWrapper,
+      info: infoWrapper,
+    },
+  };
+};
+
+
+export { SwaggerUIKongTheme, KongLayout, KongSafeRenderer, SwaggerUIKongThemeWrappers };
