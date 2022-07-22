@@ -12,6 +12,7 @@ import ModelCollapse from './components/ModelCollapse'
 import OperationTag from './components/OperationTag'
 import FilterContainer from './containers/Filter'
 import Operations from './components/Operations'
+import Operation from './components/Operation'
 import ModelExample from './components/ModelExample'
 import ModelWrapper from './components/ModelWrapper'
 import HighlightCode from './components/HighlightCode'
@@ -30,6 +31,7 @@ const SwaggerUIKongTheme = (system) => {
       Models: Models,
       ModelCollapse: ModelCollapse,
       OperationTag: OperationTag,
+      operation: Operation,
       FilterContainer: FilterContainer,
       operations: Operations,
       modelExample: ModelExample,
@@ -50,7 +52,7 @@ const SwaggerUIKongTheme = (system) => {
         return (
           <div className='operations-augment-wrapper'>
             <AugmentingOperation {...props} system={system} />
-            <Original { ...props}  />
+            <Original { ...props} />
           </div>
         )
       },
