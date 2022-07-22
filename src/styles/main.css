@@ -220,6 +220,7 @@ opblock
 
 .swagger-ui .opblock-control__btn {
   border-radius: var(--button-border-radius);
+  line-height: inherit;
 }
 
 .swagger-ui .dialog-ux .modal-ux {
@@ -1061,8 +1062,8 @@ opblock
   grid-column-start: 1;
   grid-column: 1;
   -ms-grid-column: 1;
-  padding: 5px 0 20px 11.5em;
-  height: 71px;
+  padding: 3px 0 15px 12em;
+  height: 50px;
 }
 
 .swagger-ui .btn.execute {
