@@ -8,16 +8,146 @@
   left: 0;
 }
 
+.swagger-ui .model-box {
+  background: transparent;
+}
+
 /* main */
 
 .swagger-ui input,
-.swagger-ui textarea {
+.swagger-ui textarea,
+.swagger-ui select {
   color: var(--input-color);
   font-size: var(--input-font-size);
   font-weight: var(--input-font-weight);
   background: var(--input-background);
   padding: var(--input-padding);
   border-radius: var(--input-border-radius);
+}
+
+.swagger-ui select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--select-arrow-color) 50%),linear-gradient(135deg, var(--select-arrow-color) 50%, transparent 50%)!important;
+  background-position: calc(100% - 20px) calc(1em + 2px),calc(100% - 15px) calc(1em + 2px)!important;
+  background-size: 5px 5px,5px 5px!important;
+  background-repeat: no-repeat!important;
+}
+
+
+.k-input:not([type="checkbox"]):read-only,
+.swagger-ui .operations-container select:not([type="checkbox"]):read-only,
+.swagger-ui .parameters input[type="email"]:not([type="checkbox"]):read-only,
+.swagger-ui .parameters input[type="password"]:not([type="checkbox"]):read-only,
+.swagger-ui .parameters input[type="search"]:not([type="checkbox"]):read-only,
+.swagger-ui .parameters input[type="text"]:not([type="checkbox"]):read-only,
+.swagger-ui .parameters textarea:not([type="checkbox"]):read-only,
+.swagger-ui .parameters select:not([type="checkbox"]):read-only,
+.swagger-ui
+opblock
+  .content-type-wrapper
+  select:not([type="checkbox"]):read-only,
+.swagger-ui
+  .opblock
+  .responses-wrapper
+  .opblock-section-header
+  select:not([type="checkbox"]):read-only,
+.swagger-ui .scheme-container .actions select:not([type="checkbox"]):read-only,
+.swagger-ui
+  .scheme-container
+  .version-select
+  select:not([type="checkbox"]):read-only,
+.k-input:not([type="radio"]):read-only,
+.swagger-ui .operations-container select:not([type="radio"]):read-only,
+.swagger-ui .parameters input[type="email"]:not([type="radio"]):read-only,
+.swagger-ui .parameters input[type="password"]:not([type="radio"]):read-only,
+.swagger-ui .parameters input[type="search"]:not([type="radio"]):read-only,
+.swagger-ui .parameters input[type="text"]:not([type="radio"]):read-only,
+.swagger-ui .parameters textarea:not([type="radio"]):read-only,
+.swagger-ui .parameters select:not([type="radio"]):read-only,
+.swagger-ui .opblock .content-type-wrapper select:not([type="radio"]):read-only,
+.swagger-ui .opblock-body .examples-select select ,
+.swagger-ui
+  .opblock
+  .responses-wrapper
+  .opblock-section-header
+  select:not([type="radio"]):read-only,
+.swagger-ui .scheme-container .actions select:not([type="radio"]):read-only,
+.swagger-ui
+  .scheme-container
+  .version-select
+  select:not([type="radio"]):read-only,
+.form-control:not([type="checkbox"]):read-only,
+.form-control:not([type="radio"]):read-only {
+  box-shadow: inset 0 0 0 1px var(--KInputBorder, var(--grey-300)) !important;
+}
+
+.k-input:not([type="checkbox"]),
+.swagger-ui .operations-container select:not([type="checkbox"]),
+.swagger-ui .parameters input[type="email"]:not([type="checkbox"]),
+.swagger-ui .parameters input[type="password"]:not([type="checkbox"]),
+.swagger-ui .parameters input[type="search"]:not([type="checkbox"]),
+.swagger-ui .parameters input[type="text"]:not([type="checkbox"]),
+.swagger-ui .parameters textarea:not([type="checkbox"]),
+.swagger-ui .parameters select:not([type="checkbox"]),
+.swagger-ui .opblock .content-type-wrapper select:not([type="checkbox"]),
+.swagger-ui
+  .opblock
+  .responses-wrapper
+  .opblock-section-header
+  select:not([type="checkbox"]),
+.swagger-ui .scheme-container .actions select:not([type="checkbox"]),
+.swagger-ui .scheme-container .version-select select:not([type="checkbox"]),
+.k-input:not([type="radio"]),
+.swagger-ui .operations-container select:not([type="radio"]),
+.swagger-ui .parameters input[type="email"]:not([type="radio"]),
+.swagger-ui .parameters input[type="password"]:not([type="radio"]),
+.swagger-ui .parameters input[type="search"]:not([type="radio"]),
+.swagger-ui .parameters input[type="text"]:not([type="radio"]),
+.swagger-ui .parameters textarea:not([type="radio"]),
+.swagger-ui .parameters select:not([type="radio"]),
+.swagger-ui .opblock .content-type-wrapper select:not([type="radio"]),
+.swagger-ui .opblock-body .examples-select select ,
+.swagger-ui
+  .opblock
+  .responses-wrapper
+  .opblock-section-header
+  select:not([type="radio"]),
+.swagger-ui .scheme-container .schemes select,
+.swagger-ui .scheme-container .version-select select:not([type="radio"]),
+.form-control:not([type="checkbox"]),
+.form-control:not([type="radio"]) {
+  display: block;
+  padding: 10px var(--spacing-md, 16px);
+  color: var(--KInputColor, var(--black-70, rgba(0, 0, 0, 0.7)));
+  font-size: var(--type-sm, 14px);
+  font-weight: normal;
+  line-height: 24px;
+  border: none;
+  border-top-color: initial;
+  border-top-style: none;
+  border-top-width: initial;
+  border-right-color: initial;
+  border-right-style: none;
+  border-right-width: initial;
+  border-bottom-color: initial;
+  border-bottom-style: none;
+  border-bottom-width: initial;
+  border-left-color: initial;
+  border-left-style: none;
+  border-left-width: initial;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  border-radius: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background-color: var(--KInputBackground, var(--white, #ffffff));
+  box-shadow: inset 0 0 0 1px var(--KInputBorder, var(--grey-300)) !important;
+  box-sizing: border-box;
+  transition: color 0.1s ease, box-shadow 0.1s ease;
 }
 
 .swagger-ui p {
@@ -82,7 +212,6 @@
 
 .swagger-ui .btn:focus {
   border-color: transparent;
-  box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--black-70, var(--white));
 }
 
 .swagger-ui .btn.btn-sm {
@@ -216,10 +345,7 @@
   box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--blue-500, var(--white));
 }
 
-.swagger-ui .scheme-container .schemes select {
-  color: var(--black-85);
-  font-weight: normal;
-  box-shadow: none;
+/* .swagger-ui .scheme-container .schemes select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -227,9 +353,7 @@
   background-color: white;
   background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='green' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
     no-repeat;
-  padding: 8px 32px 8px 16px;
-  border: 1px solid var(--section_colors-stroke);
-}
+} */
 
 .swagger-ui .info {
   word-break: break-word !important;
@@ -287,14 +411,22 @@
   box-shadow: none;
   padding-left: 0;
   padding-right: 0;
+  padding: var(--spacing-lg) 0;
+  margin-bottom: ;
   font-weight: bold;
   font-size: var(--headings-font-size-5);
   border-bottom: 2px solid var(--white-rgb-245);
 }
 
+.swagger-ui .opblock .opblock-section-header h4 {
+  font-size: var(--type-md);
+  color: inherit;
+  font-weight: 700;
+}
+
 /* this one just applies to parameters (left side) */
 .swagger-ui .opblock .opblock-section > .opblock-section-header {
-  border-bottom: 1px solid var(--white-shadow);
+  border-bottom: 2px solid var(--black-10);
   padding-right: 0;
 }
 
@@ -320,10 +452,10 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-position: calc(100% - 12px) center !important;
+/*   background-position: calc(100% - 12px) center !important;
   background-color: white;
   background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='green' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
-    no-repeat;
+    no-repeat; */
   padding: 8px 32px 8px 16px;
   border: 1px solid var(--black-85);
 }
@@ -412,12 +544,13 @@
   color: #fff;
 }
 
-.swagger-ui .opblock-section pre {
-  background-color: var(--white);
-  color: var(--black-70);
+.swagger-ui .opblock-section pre.microlight {
+  background-color: var(--section_colors-accent);
+  color: var(--text_colors-primary);
   border-radius: 0 0 3px;
-  border: 1px solid var(--white-rgb-230);
+  border: 1px solid var(--section_colors-stroke);
 }
+
 
 /*  needed to remove  max width on small screen width*/
 @media (max-width: 768px) {
@@ -460,7 +593,7 @@
   Might lead to uglyness if we have a really long parameter name */
 .swagger-ui table.parameters thead tr td,
 .swagger-ui table.parameters tbody tr td:first-of-type {
-  width: 13em;
+  width: 12em;
 }
 
 .swagger-ui .parameters thead {
@@ -476,9 +609,9 @@
   margin-right: 0;
   overflow-wrap: break-word;
   font-family: var(--font-default);
-  font-size: 15px;
-  color: var(--black-70);
-  font-weight: 500;
+  font-size: var(--type-lg);
+  color: var(--text_colors-primary);
+  font-weight: 600;
 }
 
 .swagger-ui .parameters .parameters-col_name .parameter__name:not(.required) {
@@ -492,10 +625,11 @@
 
 .swagger-ui .parameters .parameters-col_name .parameter__name.required::after {
   padding: 10px 0 0 0;
-  font-size: 13px;
+  font-size: var(--type-md);
   font-family: var(--font-default);
   font-weight: normal;
   text-transform: capitalize;
+  color: #d90000;
 }
 
 .swagger-ui .parameters .parameters-col_name .parameter__name.required span {
@@ -507,7 +641,8 @@
   font-size: 13px;
   font-family: var(--font-default);
   font-weight: normal;
-  color: var(--black-400);
+  color: var(--text_colors-secondary);
+  opacity: 0.45;
 }
 
 .swagger-ui .parameters .parameters-col_name .prop-format {
@@ -516,19 +651,28 @@
 }
 
 .swagger-ui .parameters .parameters-col_name .parameter__in {
-  font-size: 13px;
+  font-size: var(--type-sm);
   font-family: var(--font-default);
   font-style: normal;
   font-weight: normal;
-  color: var(--black-400);
+  color: var(--text_colors-secondary);
 }
 
 .swagger-ui .parameters .parameter__deprecated {
-  font-size: 13px;
+  font-size: var(--type-md);
 }
 
 .swagger-ui .parameters select {
   width: 100%;
+}
+
+.swagger-ui .parameters input[type="email"]:disabled,
+.swagger-ui .parameters input[type="password"]:disabled,
+.swagger-ui .parameters input[type="search"]:disabled,
+.swagger-ui .parameters input[type="text"]:disabled,
+.swagger-ui .parameters textarea:disabled {
+  cursor: not-allowed;
+  font-style: italic;
 }
 
 .swagger-ui .parameters input[type="email"],
@@ -536,8 +680,18 @@
 .swagger-ui .parameters input[type="search"],
 .swagger-ui .parameters input[type="text"],
 .swagger-ui .parameters textarea {
+  display: block;
+  color: var(--input-color);
+  font-size: var(--input-font-size);
+  font-weight: var(--input-font-weight);
+  line-height: 24px;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--input-background);
+  box-shadow: inset 0 0 0 1px var(--input-border-custom, var(--grey-300)) !important;
+  box-sizing: border-box;
+  transition: color 0.1s ease, box-shadow 0.1s ease;
   padding: var(--parameters-input-padding);
-  max-width: unset;
 }
 
 .swagger-ui .parameters input[type="file"] {
@@ -572,19 +726,26 @@
   font-family: var(--font-default);
 }
 
+.swagger-ui .opblock-body .responses-table tr.response {
+  display: flex;
+  border-radius: 4px;
+  border-bottom: 30px solid rgba(0,0,0,0);
+  font-family: monospace;
+}
+
 .swagger-ui .opblock-body .responses-table .response-col_status {
-  background-color: var(--white-rgb-245);
+  background-color: var(--section_colors-accent);
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: unset;
   text-align: center;
   border-radius: 4px 0 0 4px;
-  font-family: var(--font-default);
+  font-family: monospace;
   font-weight: bold;
   font-size: 15px;
-  /* this padding is not perfect, less than a pixel of alignment from right side */
   padding: 9px 0;
+  color: var(--text_colors-primary);
 }
 
 .swagger-ui .opblock-body .live-responses-table .response-col_status {
@@ -641,6 +802,10 @@
   background-color: var(--white-rgb-245);
   color: var(--black-70);
   font-size: 15px;
+}
+
+.swagger-ui .response-col_links {
+  display: none;
 }
 
 .swagger-ui .responses-inner {
@@ -992,7 +1157,6 @@
 .swagger-ui .operations-container .opblock .opblock-summary-path {
   margin-left: 80px;
 }
-
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .swagger-ui .operations-container .opblock .opblock-summary-path {
