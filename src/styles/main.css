@@ -1038,9 +1038,13 @@ button {
 .swagger-ui .opblock.is-open .opblock-summary-description::before,
 .swagger-ui .opblock-tag-section.is-open .opblock-tag::before {
   mask-image: url("data:image/svg+xml,%3Csvg width='14' height='14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%231255CB' stroke-width='2'/%3E%3C/svg%3E");
-  mask-position: 25% 75%;
+  mask-position: initial;
+  display: block;
+  height: 20px;
+  position: relative;
+  top: 1.7rem;
+  right: 1.2rem;
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='14' height='14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%231255CB' stroke-width='2'/%3E%3C/svg%3E");
-  -webkit-mask-position: 25% 75%;
 }
 
 .swagger-ui .opblock .opblock-summary-description::before,
@@ -1053,6 +1057,7 @@ button {
   -webkit-mask-position: center;
   -webkit-mask-repeat: no-repeat;
   background-color: var(--text_colors-accent);
+  padding-right: var(--spacing-lg);
   line-height: normal;
 }
 
