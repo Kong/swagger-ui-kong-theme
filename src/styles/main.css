@@ -1249,7 +1249,7 @@ opblock
 
 .swagger-ui .model-title {
   color: var(--model-title-color);
-  font: var(--model-title-font-size);
+  font-size: var(--model-title-font-size);
   font-weight: var(--model-title-font-weight);
 }
 
