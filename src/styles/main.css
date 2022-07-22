@@ -1006,20 +1006,24 @@ opblock
   mask-image: url("data:image/svg+xml,%3Csvg width='14' height='14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%231255CB' stroke-width='2'/%3E%3C/svg%3E");
   mask-position: 25% 75%;
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='14' height='14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%231255CB' stroke-width='2'/%3E%3C/svg%3E");
-  -webkit-mask-position: 25% 75%;
 }
 
 .swagger-ui .opblock .opblock-summary-description::before,
 .swagger-ui .opblock-tag-section .opblock-tag::before {
   content: "";
   mask-image: url("data:image/svg+xml,%3Csvg width='14' height='14' fill='none' transform='rotate(-90)' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%231255CB' stroke-width='2'/%3E%3C/svg%3E");
-  mask-position: center;
+  mask-position: initial;
   mask-repeat: no-repeat;
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='14' height='14' fill='none' transform='rotate(-90)' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%231255CB' stroke-width='2'/%3E%3C/svg%3E");
-  -webkit-mask-position: center;
+  -webkit-mask-position: initial;
   -webkit-mask-repeat: no-repeat;
   background-color: var(--text_colors-accent);
   line-height: normal;
+  display: block;
+  height: 20px;
+  position: relative;
+  top: 1.5rem;
+  right: 1rem;
 }
 
 .swagger-ui .callbacks-container .opblock-summary * {
