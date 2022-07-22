@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./components/App";
 import { BrowserRouter } from "react-router-dom";
 import SwaggerUI from "swagger-ui";
-import { SwaggerUIKongTheme, KongSafeRenderer } from "swagger-ui-kong-theme";
+import { SwaggerUIKongTheme, KongSafeRenderer, SwaggerUIKongThemeWrappers } from "swagger-ui-kong-theme";
 
 window.swaggerUIOptions = {
   // dom_id: "#ui-wrapper", // Determine what element to load swagger ui
@@ -21,6 +21,7 @@ window.swaggerUIOptions = {
       componentList: ["SidebarList", "TryItOutButton"],
     }),
     KongSafeRenderer,
+    SwaggerUIKongThemeWrappers
   ],
   theme: {
     swaggerAbsoluteTop: "0px",
