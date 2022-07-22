@@ -1,7 +1,3 @@
-.infoAugmentWrapper {
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-}
 
 .infoAugmentWrapper :global(.info) {
   margin-bottom: 0;
