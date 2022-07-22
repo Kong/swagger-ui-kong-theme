@@ -1,3 +1,8 @@
+/**
+ * Original file: https://github.com/Kong/swagger-ui/blob/main/src/core/components/operation.jsx
+ * @prettier
+ */
+
 import React, { PureComponent } from "react"
 import { getList, getExtensions, escapeDeepLinkPath, sanitizeUrl } from '../helpers/helpers'
 import { List } from "immutable"
