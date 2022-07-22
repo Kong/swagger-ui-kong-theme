@@ -42,7 +42,7 @@
 .swagger-ui .parameters textarea:not([type="checkbox"]):read-only,
 .swagger-ui .parameters select:not([type="checkbox"]):read-only,
 .swagger-ui
-  .opblock
+opblock
   .content-type-wrapper
   select:not([type="checkbox"]):read-only,
 .swagger-ui
@@ -673,7 +673,7 @@
   border: none;
   border-radius: 3px;
   background-color: var(--input-background);
-  box-shadow: inset 0 0 0 1px var(--KInputBorder, var(--grey-300)) !important;
+  box-shadow: inset 0 0 0 1px var(--input-border-custom, var(--grey-300)) !important;
   box-sizing: border-box;
   transition: color 0.1s ease, box-shadow 0.1s ease;
   padding: var(--parameters-input-padding);

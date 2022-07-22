@@ -6,8 +6,8 @@
 
 .tryOutWrapper .btnTryOut:hover {
     box-shadow: unset;
-    border-color: var(--KButtonSecondaryHoverBorder, var(--black-45, rgba(0, 0, 0, 0.45)));
-    background-color: var(--KButtonSecondaryHover);
+    border-color: var(--button-secondary-hover, var(--black-45, rgba(0, 0, 0, 0.45)));
+    background-color: var(--button-secondary-hover);
 }
 
 .tryOutWrapper .btnTryOut:focus{
