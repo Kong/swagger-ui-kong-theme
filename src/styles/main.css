@@ -1254,9 +1254,27 @@ opblock
   font-weight: var(--model-title-font-weight);
 }
 
-.swagger-ui .model-toggle.collapsed {
-  fill: var(--model-collapse-icon-color) !important;
+.swagger-ui .model-box .model-box .model .model-title {
+  margin-right: 15px;
 }
+
+.swagger-ui .model-toggle:after {
+  display: none;
+}
+
+.swagger-ui .model-toggle {
+  border: solid var(--model-collapse-icon-color);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  top: 0 !important;
+  transform: rotate(45deg);
+}
+
+.swagger-ui .model-toggle.collapsed {
+  transform: rotate(-45deg);
+}
+
 
 .swagger-ui .model > div > div span.brace-open {
   display: block;
