@@ -1,14 +1,15 @@
 .sidebarList > ul {
   list-style-type: none;
   margin: 0;
-  padding: 10px 0 10px 25px;
+  padding: 10px 0 10px 10px;
 }
 
 .sidebarList li.listTitle {
   font-weight: bold;
   color: var(--headings-color);
-  font-size: .75rem;
+  font-size: 1rem;
   text-transform: uppercase;
+  margin: 3px;
 }
 
 .sidebarList .method {
@@ -38,11 +39,12 @@
 .sidebarList ul li .submenuTitle {
   position: relative;
   display: block;
-  font-weight: 500;
-  color: var(--headings-color);
+  font-weight: var(--sidebar-tag-font-weight);
+  color: var(--sidebar-tag-color);
   cursor: pointer;
   padding: 0.3rem 0.3rem 0.3rem 1.5rem;
   border-radius: 3px;
+  font-size: var(--sidebar-tag-font-size);
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -51,7 +53,7 @@
   position: absolute;
   content: "";
   top: 10px;
-  left: 0;
+  left: 2px;
   border-top: 5px solid rgba(0,0,0,0);
   border-bottom: 5px solid rgba(0,0,0,0);
   border-left: 5px solid var(--text_colors-accent);
@@ -72,16 +74,18 @@
   overflow: hidden;
   padding-left: 2rem;
 }
+
 .sidebarList ul li .submenuItems a {
   position: relative;
   border-style: solid;
   border-width: 2px;
   border-color: transparent;
   line-height: 1.2;
-  font-weight: normal;
+  font-weight: var(--sidebar-path-font-weight);
   text-align: start;
+  font-size: var(--sidebar-path-font-size);
   white-space: break-spaces;
-  color: var(--blue-500);
+  color: var(--sidebar-path-color);
   text-transform: unset;
   height: unset;
   display: inline-block;
@@ -107,7 +111,7 @@
   padding: 0.3rem 0.3rem;
   border-radius: 3px;
   font-weight: 600;
-  font-family: monospace;
+  font-family: var(--font-default);
   text-transform: uppercase;
   text-align: center;
   display: inline-block;
@@ -124,7 +128,7 @@
   width: 38px;
   display: inline-block;
   text-align: center;
-  font-family: monospace;
+  font-family: var(--font-default);
   margin-right: 5px;
 }
 .sidebarList ul li.method {

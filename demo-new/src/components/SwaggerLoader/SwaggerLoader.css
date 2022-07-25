@@ -29,8 +29,3 @@
     height: 20px;
 }
 
-@media all and (max-width: 1200px) {
-    .btn-panel {
-        top: 40px;
-    }
-}

@@ -21,14 +21,13 @@ import Fallback from "./components/ErrorBoundary/fallback";
 import Parameters from "components/Parameters";
 import InfoAlert from "components/InfoAlert";
 import AuthorizeBtn from "components/AuthorizeBtn";
+import OperationSummary from "./components/OperationSummary";
 
-import './styles/main.css';
-import './styles/variables.css';
+import "./styles/main.css";
+import "./styles/variables.css";
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
-  const { withErrorBoundary } = system.fn;
-
   return {
     components: {
       curl: () => null,
@@ -38,21 +37,20 @@ const SwaggerUIKongTheme = (system) => {
       SidebarList: SidebarList,
       contentType: ContentType,
       ExamplesSelect: ExamplesSelect,
-      Models: withErrorBoundary(Models),
+      Models: Models,
       ModelCollapse: ModelCollapse,
       OperationTag: OperationTag,
       FilterContainer: FilterContainer,
-      operations: withErrorBoundary(Operations),
-      parameters: withErrorBoundary(Parameters),
+      operations: Operations,
+      parameters: Parameters,
       modelExample: ModelExample,
       ModelWrapper: ModelWrapper,
       highlightCode: HighlightCode,
       infoAlert: InfoAlert,
-      TryItOutButton: withErrorBoundary( (props) => (
+      TryItOutButton: (props) => (
         <TryItOutButton {...props} specSelectors={system.specSelectors} />
-      )),
-      Fallback,
-      ErrorBoundary
+      ),
+      OperationSummary,
     },
     wrapComponents: {
       responses: ResponsesWrapper,
@@ -62,4 +60,24 @@ const SwaggerUIKongTheme = (system) => {
   };
 };
 
-export { SwaggerUIKongTheme, KongLayout };
+const KongSafeRenderer = (system) => {
+  return {
+    components: {
+      ErrorBoundary,
+      Fallback,
+    },
+  };
+};
+
+const SwaggerUIKongThemeWrappers = () => {
+  return {
+    wrapComponents: {
+      responses: ResponsesWrapper,
+      operation: OperationWrapper,
+      info: infoWrapper,
+    },
+  };
+};
+
+
+export { SwaggerUIKongTheme, KongLayout, KongSafeRenderer, SwaggerUIKongThemeWrappers };

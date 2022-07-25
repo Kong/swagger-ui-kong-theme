@@ -120,6 +120,8 @@ const Responses = (props) => {
     ? getAcceptControllingResponse(responses)
     : null;
 
+
+
   const regionId = createHtmlReadyId(`${method}${path}_responses`);
   const controlId = `${regionId}_select`;
   return responses !== undefined &&
