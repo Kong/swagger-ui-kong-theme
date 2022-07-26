@@ -56,6 +56,7 @@ export default class OperationTag extends React.Component {
           >
           <DeepLink
             tabIndex={-1}
+            showArrow={false}
             enabled={false} // Set to false, as we don't seem to be doing anything when deeplinking.
             isShown={showTag}
             path={createDeepLinkPath(tag)}

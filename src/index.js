@@ -12,6 +12,8 @@ import ModelCollapse from './components/ModelCollapse'
 import OperationTag from './components/OperationTag'
 import FilterContainer from './containers/Filter'
 import Operations from './components/Operations'
+import DeepLink from './components/DeepLink'
+import OperationSummaryPath from './components/OperationSummaryPath'
 import Operation from './components/Operation'
 import ModelExample from './components/ModelExample'
 import ModelWrapper from './components/ModelWrapper'
@@ -32,6 +34,8 @@ const SwaggerUIKongTheme = (system) => {
       ModelCollapse: ModelCollapse,
       OperationTag: OperationTag,
       operation: Operation,
+      OperationSummaryPath,
+      DeepLink,
       FilterContainer: FilterContainer,
       operations: Operations,
       modelExample: ModelExample,
