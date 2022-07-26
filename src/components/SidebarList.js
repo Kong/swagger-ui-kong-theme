@@ -101,6 +101,7 @@ export default class SidebarList extends React.Component {
     let anchor = document.getElementById(anchorPath) || document.getElementById(encodedPath)
 
     if (anchor) {
+      anchor.focus()
       this.moveToAnchor(anchor)
     }
   }

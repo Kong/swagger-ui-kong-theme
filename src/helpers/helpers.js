@@ -1,4 +1,5 @@
 import { sanitizeUrl as braintreeSanitizeUrl } from "@braintree/sanitize-url"
+import Im from "immutable"
 
 // copied from helpers in 'swagger-js', we use this to get the proper id
 const toLower = str => String.prototype.toLowerCase.call(str)
@@ -40,6 +41,21 @@ export const createDeepLinkPath = (str) => typeof str == "string" || str instanc
 // suitable for use in CSS classes and ids
 export const escapeDeepLinkPath = (str) => window.CSS.escape(createDeepLinkPath(str).replace(/%20/g, "_") )
 
+/**
+ * Returns an Immutable List, safely
+ * @param {Immutable.Iterable} iterable the iterable to get the key from
+ * @param {String|[String]} key either an array of keys, or a single key
+ * @returns {Immutable.List} either iterable.get(keys) or an empty Immutable.List
+ */
+ export function getList(iterable, keys) {
+  if(!Im.Iterable.isIterable(iterable)) {
+    return Im.List()
+  }
+  let val = iterable.getIn(Array.isArray(keys) ? keys : [keys])
+  return Im.List.isList(val) ? val : Im.List()
+}
+
+export const getExtensions = (defObj) => defObj.filter((v, k) => /^x-/.test(k))
 
 export function sanitizeUrl(url) {
   if(typeof url !== "string" || url === "") {
