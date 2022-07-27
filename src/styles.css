@@ -953,7 +953,8 @@
   -ms-grid-row: 1
 }
 
-.swagger-ui .opblock .opblock-summary .opblock-summary-path a.has-arrow {
+.swagger-ui .opblock .opblock-summary .opblock-summary-path a.has-arrow,
+.swagger-ui .opblock .opblock-summary .opblock-summary-path__deprecated a.has-arrow {
   display: flex;
   align-items: center;
   justify-content: space-between;
