@@ -953,6 +953,13 @@
   -ms-grid-row: 1
 }
 
+.swagger-ui .opblock .opblock-summary .opblock-summary-path a.has-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .swagger-ui .opblock .opblock-summary .opblock-summary-path,
 .swagger-ui .opblock .opblock-summary .opblock-summary-path__deprecated {
   grid-column-start: 2;
