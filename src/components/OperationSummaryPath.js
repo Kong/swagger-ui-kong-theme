@@ -1,3 +1,8 @@
+/**
+ * Original file: https://github.com/Kong/swagger-ui/blob/main/src/core/components/operation-summary-path.jsx
+ * @prettier
+ */
+
 import React, { PureComponent } from "react"
 import { createDeepLinkPath } from "../helpers/helpers"
 
