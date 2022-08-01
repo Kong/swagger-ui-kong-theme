@@ -1,8 +1,44 @@
 import { sanitizeUrl as braintreeSanitizeUrl } from "@braintree/sanitize-url"
 import Im from "immutable"
+import XML from "@kyleshockey/xml"
+import memoizee from "memoizee"
 
 // copied from helpers in 'swagger-js', we use this to get the proper id
 const toLower = str => String.prototype.toLowerCase.call(str)
+
+export const isImmutable = (maybe) => Im.Iterable.isIterable(maybe)
+
+const primitives = {
+  "string": () => "string",
+  "string_email": () => "user@example.com",
+  "string_date-time": () => new Date().toISOString(),
+  "string_date": () => new Date().toISOString().substring(0, 10),
+  "string_uuid": () => "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "string_hostname": () => "example.com",
+  "string_ipv4": () => "198.51.100.42",
+  "string_ipv6": () => "2001:0db8:5b96:0000:0000:426f:8e17:642a",
+  "number": () => 0,
+  "number_float": () => 0.0,
+  "integer": () => 0,
+  "boolean": (schema) => typeof schema.default === "boolean" ? schema.default : true
+}
+
+export function isFunc(thing) {
+  return typeof(thing) === "function"
+}
+
+const primitive = (schema) => {
+  schema = objectify(schema)
+  let { type, format } = schema
+
+  let fn = primitives[`${type}_${format}`] || primitives[type]
+
+  if(isFunc(fn))
+    return fn(schema)
+
+  return "Unknown Type: " + schema.type
+}
+
 
 const escapeString = (str) => {
   return str.replace(/[^\w]/gi, '_')
@@ -56,6 +92,7 @@ export const escapeDeepLinkPath = (str) => window.CSS.escape(createDeepLinkPath(
 }
 
 export const getExtensions = (defObj) => defObj.filter((v, k) => /^x-/.test(k))
+export const getCommonExtensions = (defObj) => defObj.filter((v, k) => /^pattern|maxLength|minLength|maximum|minimum/.test(k))
 
 export function sanitizeUrl(url) {
   if(typeof url !== "string" || url === "") {
@@ -224,4 +261,231 @@ export function sanitizeUrl(url) {
   }
 
   return reset(el)
+}
+
+function makeWindow() {
+  var win = {
+    location: {},
+    history: {},
+    open: () => {},
+    close: () => {},
+    File: function() {}
+  }
+
+  if(typeof window === "undefined") {
+    return win
+  }
+
+  try {
+    win = window
+    var props = ["File", "Blob", "FormData"]
+    for (var prop of props) {
+      if (prop in window) {
+        win[prop] = window[prop]
+      }
+    }
+  } catch( e ) {
+    console.error(e)
+  }
+
+  return win
+}
+
+export const win = makeWindow()
+
+export function isObject(obj) {
+  return !!obj && typeof obj === "object"
+}
+
+export function objectify (thing) {
+  if(!isObject(thing))
+    return {}
+  if(isImmutable(thing))
+    return thing.toJS()
+  return thing
+}
+
+// Deeply strips a specific key from an object.
+//
+// `predicate` can be used to discriminate the stripping further,
+// by preserving the key's place in the object based on its value.
+export function deeplyStripKey(input, keyToStrip, predicate = () => true) {
+  if(typeof input !== "object" || Array.isArray(input) || input === null || !keyToStrip) {
+    return input
+  }
+
+  const obj = Object.assign({}, input)
+
+  Object.keys(obj).forEach(k => {
+    if(k === keyToStrip && predicate(obj[k], k)) {
+      delete obj[k]
+      return
+    }
+    obj[k] = deeplyStripKey(obj[k], keyToStrip, predicate)
+  })
+
+  return obj
+}
+
+export const sampleFromSchema = (schema, config={}) => {
+  let { type, example, properties, additionalProperties, items } = objectify(schema)
+  let { includeReadOnly, includeWriteOnly } = config
+
+
+  if(example !== undefined) {
+    return deeplyStripKey(example, "$$ref", (val) => {
+      // do a couple of quick sanity tests to ensure the value
+      // looks like a $$ref that swagger-client generates.
+      return typeof val === "string" && val.indexOf("#") > -1
+    })
+  }
+
+  if(!type) {
+    if(properties) {
+      type = "object"
+    } else if(items) {
+      type = "array"
+    } else {
+      return
+    }
+  }
+
+  if(type === "object") {
+    let props = objectify(properties)
+    let obj = {}
+    for (var name in props) {
+      if ( props[name] && props[name].deprecated ) {
+        continue
+      }
+      if ( props[name] && props[name].readOnly && !includeReadOnly ) {
+        continue
+      }
+      if ( props[name] && props[name].writeOnly && !includeWriteOnly ) {
+        continue
+      }
+      obj[name] = sampleFromSchema(props[name], config)
+    }
+
+    if ( additionalProperties === true ) {
+      obj.additionalProp1 = {}
+    } else if ( additionalProperties ) {
+      let additionalProps = objectify(additionalProperties)
+      let additionalPropVal = sampleFromSchema(additionalProps, config)
+
+      for (let i = 1; i < 4; i++) {
+        obj["additionalProp" + i] = additionalPropVal
+      }
+    }
+    return obj
+  }
+
+  if(type === "array") {
+    if(Array.isArray(items.anyOf)) {
+      return items.anyOf.map(i => sampleFromSchema(i, config))
+    }
+
+    if(Array.isArray(items.oneOf)) {
+      return items.oneOf.map(i => sampleFromSchema(i, config))
+    }
+
+    return [ sampleFromSchema(items, config) ]
+  }
+
+  if(schema["enum"]) {
+    if(schema["default"])
+      return schema["default"]
+    return normalizeArray(schema["enum"])[0]
+  }
+
+  if (type === "file") {
+    return
+  }
+
+  return primitive(schema)
+}
+
+
+export function normalizeArray(arr) {
+  if(Array.isArray(arr))
+    return arr
+  return [arr]
+}
+
+
+export function createXMLExample(schema, config) {
+  let json = sampleXmlFromSchema(schema, config)
+  if (!json) { return }
+
+  return XML(json, { declaration: true, indent: "\t" })
+}
+
+export const memoizedCreateXMLExample = memoizee(createXMLExample)
+
+export const memoizedSampleFromSchema = memoizee(sampleFromSchema)
+
+export const getSampleSchema = (schema, contentType="", config={}) => {
+  if (/xml/.test(contentType)) {
+    if (!schema.xml || !schema.xml.name) {
+      schema.xml = schema.xml || {}
+
+      if (schema.$$ref) {
+        let match = schema.$$ref.match(/\S*\/(\S+)$/)
+        schema.xml.name = match[1]
+      } else if (schema.type || schema.items || schema.properties || schema.additionalProperties) {
+        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!-- XML example cannot be generated; root element name is undefined -->"
+      } else {
+        return null
+      }
+    }
+    return memoizedCreateXMLExample(schema, config)
+  }
+
+  const res = memoizedSampleFromSchema(schema, config)
+
+  return typeof res === "object" ? JSON.stringify(res, null, 2) : res
+}
+
+export function numberToString(thing) {
+  if(typeof thing === "number") {
+    return thing.toString()
+  }
+
+  return thing
+}
+
+export function stringify(thing) {
+  if (typeof thing === "string") {
+    return thing
+  }
+
+  if (thing && thing.toJS) {
+    thing = thing.toJS()
+  }
+
+  if (typeof thing === "object" && thing !== null) {
+    try {
+      return JSON.stringify(thing, null, 2)
+    }
+    catch (e) {
+      return String(thing)
+    }
+  }
+
+  if(thing === null || thing === undefined) {
+    return ""
+  }
+
+  return thing.toString()
+}
+
+export const isEmptyValue = (value) => {
+  if (!value) {
+    return true
+  }
+
+  if (isImmutable(value) && value.isEmpty()) {
+    return true
+  }
+
+  return false
 }
