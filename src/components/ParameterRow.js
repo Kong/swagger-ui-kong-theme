@@ -1,3 +1,8 @@
+/**
+ * Original file: https://github.com/Kong/swagger-ui/blob/main/src/core/components/parameter-row.jsx
+ * @prettier
+ */
+
 import React, { Component } from "react"
 import { Map, List } from "immutable"
 import PropTypes from "prop-types"
