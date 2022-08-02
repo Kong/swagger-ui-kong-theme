@@ -3782,10 +3782,10 @@ randomfill@^1.0.3:
     randombytes "^2.0.5"
     safe-buffer "^5.1.0"
 
-react-apiembed@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/react-apiembed/-/react-apiembed-0.1.4.tgz#4946b8a5aefbe21b8989bd3bd5ba06d502ad3e7a"
-  integrity sha512-xeFPfFLEK2Q4E5FcFxEIXE2rJzBxcSkknM1Urhym1kOhlwjZeQXGtMMNQkz0nSPAxt+WhSTYx8eJbzZEBe0wHg==
+react-apiembed@0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/react-apiembed/-/react-apiembed-0.1.6.tgz#f40af7d1747af754f96e236ebaf84ccd7de63f25"
+  integrity sha512-a+CQsAe5XBcoamw8z2kvhICq1S1f4UNWSr1xmPQRHlrJdc+lNyskNqI98xKzntxI33rjMk8Wbhza6Q4Rylrarg==
   dependencies:
     babel-plugin-transform-class-properties "^6.24.1"
     httpsnippet "^2.0.0"
