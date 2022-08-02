@@ -1186,6 +1186,10 @@
   height: unset;
 }
 
+.swagger-ui .parameters .parameters-col_description .parameter-row-error  {
+  font-size: 12px;
+  color: var(--red-600);
+}
 
 /**************************************************************************
  * From templates repo, not sure if needed, consildating all css in one spot before removing
