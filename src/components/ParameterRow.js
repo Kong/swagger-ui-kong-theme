@@ -178,7 +178,7 @@ export default class ParameterRow extends Component {
   }
 
   // Kong change - format error
-  getParametrRowErrorProps = (errors) => {
+  getParameterRowErrorProps = (errors) => {
     return errors?.toJS ? errors.toJS() : []
   }
 
@@ -336,7 +336,7 @@ export default class ParameterRow extends Component {
 
           {/* Kong change -  Display error message in case of errors */}
           { bodyParam ? null
-            : <ParameterRowError errors={this.getParametrRowErrorProps(paramWithMeta.get("errors"))} /> }
+            : <ParameterRowError errors={this.getParameterRowErrorProps(paramWithMeta.get("errors"))} /> }
 
           {
             bodyParam && schema ? <ModelExample getComponent={ getComponent }
