@@ -108,7 +108,7 @@ export default class ParameterRow extends Component {
       .get("content", Map())
       .keySeq()
       .first()
-    
+
     // getSampleSchema could return null
     const generatedSampleValue = schema ? getSampleSchema(schema.toJS(), parameterMediaType, {
       includeWriteOnly: true
@@ -150,7 +150,7 @@ export default class ParameterRow extends Component {
         this.onChangeWrapper(initialValue)
       } else if(
         schema && schema.get("type") === "object"
-        && generatedSampleValue 
+        && generatedSampleValue
         && !paramWithMeta.get("examples")
       ) {
         // Object parameters get special treatment.. if the user doesn't set any
@@ -178,8 +178,8 @@ export default class ParameterRow extends Component {
   }
 
   // Kong change - format error
-  getParameterRowErrorProps = (errors) => {
-    return errors?.toJS ? errors.toJS() : []
+  getParameterRowErrorProps = (errors, param) => {
+    return errors?.toJS ? errors.toJS().map(err => `Invalid value for property ${param.name} in ${param.in} section: ${err}`) : []
   }
 
   render() {
@@ -336,7 +336,7 @@ export default class ParameterRow extends Component {
 
           {/* Kong change -  Display error message in case of errors */}
           { bodyParam ? null
-            : <ParameterRowError errors={this.getParameterRowErrorProps(paramWithMeta.get("errors"))} /> }
+            : <ParameterRowError errors={this.getParameterRowErrorProps(paramWithMeta.get("errors"), paramWithMeta.toJS())} /> }
 
           {
             bodyParam && schema ? <ModelExample getComponent={ getComponent }
