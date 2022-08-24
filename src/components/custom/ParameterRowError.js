@@ -38,7 +38,7 @@ export class ParameterRowError extends Component {
     return (
       <div
         className='parameter-row-error'
-        tabIndex='-1'
+        tabIndex={errors.length ? -1 : 1}
         ref={this.initializeComponent}
       >
         {errors.length ? <span className='error-parameter-name'>Invalid value for property {param.name} in {param.in} section:&nbsp;</span> : null }
