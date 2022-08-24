@@ -40,8 +40,7 @@ export class ParameterRowError extends Component {
         tabIndex='-1'
         ref={this.initializeComponent}
       >
-        <span className='error-parameter-name'>Invalid value for property {errors.param.name} in {errors.param.in} section:</span>
-        <span className='errors-details'>{errors.errors.join('. ')}</span>
+        {errors.join('. ')}
       </div>
     )
   }
