@@ -88,7 +88,11 @@ class ViewSpec extends React.Component {
 
   render(){
     return (
-      <button onClick={() => this.handleViewSpecClick()}>
+      <button 
+        id="viewRawSpecButton"
+        className="btn"
+        onClick={() => this.handleViewSpecClick()}
+      >
         <EyeSVG></EyeSVG> View Raw
       </button>
     )

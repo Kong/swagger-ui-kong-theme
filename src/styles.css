@@ -414,6 +414,12 @@
   box-shadow: none;
 }
 
+.swagger-ui .btn:focus {
+  outline: solid;
+  outline-color: var(--black-500);
+  transition: outline 1ms linear;
+}
+
 .swagger-ui .btn.authorize {
   color: rgb(0, 149, 255);
   border: 1px rgb(0, 149, 255) solid;
