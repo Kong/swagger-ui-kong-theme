@@ -179,7 +179,14 @@ export default class ParameterRow extends Component {
 
   // Kong change - format error
   getParameterRowErrorProps = (errors, param) => {
-    return errors?.toJS ? errors.toJS().map(err => `Invalid value for property ${param.name} in ${param.in} section: ${err}`) : []
+    if (errors && errors.toJS().length >=1) {
+      return {
+        errors: errors.toJS(),
+        param: param
+      }
+    } else {
+      return []
+    }
   }
 
   render() {
