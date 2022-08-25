@@ -322,11 +322,6 @@ export default class ParameterRow extends Component {
             ) : null
           }
 
-          {/* Kong change -  Display error message in case of errors */}
-          { bodyParam ? null
-            : <ParameterRowError errors={this.getParameterRowErrorProps(paramWithMeta.get("errors"))} param={paramWithMeta.toJS()} />
-          }
-
           { bodyParam ? null
             : <JsonSchemaForm fn={fn}
                               getComponent={getComponent}
@@ -337,6 +332,11 @@ export default class ParameterRow extends Component {
                               onChange={ this.onChangeWrapper }
                               errors={ paramWithMeta.get("errors") }
                               schema={ schema }/>
+          }
+
+          {/* Kong change -  Display error message in case of errors */}
+          { bodyParam ? null
+            : <ParameterRowError errors={this.getParameterRowErrorProps(paramWithMeta.get("errors"))} param={paramWithMeta.toJS()} />
           }
 
           {
