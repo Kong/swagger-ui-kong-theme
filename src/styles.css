@@ -1192,6 +1192,10 @@
   height: unset;
 }
 
+.swagger-ui .parameters .error-parameter-name {
+  margin-bottom: 0;
+}
+
 .swagger-ui .parameters .parameters-col_description .parameter-row-error  {
   font-size: 12px;
   color: var(--red-600);
