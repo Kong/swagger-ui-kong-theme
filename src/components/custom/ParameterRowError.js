@@ -32,7 +32,8 @@ export class ParameterRowError extends Component {
   }
 
   render() {
-    const { errors } = this.props
+    const { errors, param } = this.props
+
 
     return (
       <div
@@ -40,7 +41,9 @@ export class ParameterRowError extends Component {
         tabIndex='-1'
         ref={this.initializeComponent}
       >
-        {errors.join('. ')}
+        {errors.length ? <p className='error-parameter-name' role="alert">
+          Invalid value for property {param.name} in {param.in} section:&nbsp; <span className='errors-details'>{errors.join('. ')}</span>
+        </p> : null }
       </div>
     )
   }
