@@ -1,5 +1,6 @@
 import React from 'react'
 import KongLayout from './components/Layout'
+import AuthorizationPopup from './components/auth/authorization-popup'
 import AugmentingInfo from './components/AugmentingInfo.js'
 import AugmentingResponses from './components/AugmentingResponses'
 import AugmentingOperation from './components/AugmentingOperation.js'
@@ -26,6 +27,7 @@ const SwaggerUIKongTheme = (system) => {
   return {
     components: {
       curl: () => null,
+      authorizationPopup: AuthorizationPopup,
       KongLayout: KongLayout,
       Sidebar: Sidebar,
       SidebarList: SidebarList,
