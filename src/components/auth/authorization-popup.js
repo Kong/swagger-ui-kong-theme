@@ -3,16 +3,27 @@ import PropTypes from "prop-types"
 
 export default class AuthorizationPopup extends React.Component {
   close =() => {
-    let { authActions } = this.props
-
+    let { authActions, system } = this.props
     authActions.showDefinitions(false)
+    const lastFocusedEl = system.focusManagerSelectors.getLastActivatedButton()
+    if (lastFocusedEl) {
+      setTimeout(() => {
+        lastFocusedEl.focus();
+      }, 10)
+    }
+  }
+
+  componentDidMount() {
+    const {show} = this.props
+    if (this.headerRef ) {
+      setTimeout(() => {this.headerRef.focus()}, 10)
+    }
   }
 
   render() {
     let { authSelectors, authActions, getComponent, errSelectors, specSelectors, fn: { AST = {} } } = this.props
     let definitions = authSelectors.shownDefinitions()
     const Auths = getComponent("auths")
-
     return (
       <div className="dialog-ux">
         <div className="backdrop-ux"></div>
@@ -20,7 +31,9 @@ export default class AuthorizationPopup extends React.Component {
           <div className="modal-dialog-ux">
             <div className="modal-ux-inner">
               <div className="modal-ux-header">
-                <h3>Available testeststs</h3>
+                <h3
+                ref={(_el) => this.headerRef = _el}
+                >Available authorizations</h3>
                 <button type="button" className="close-modal" onClick={ this.close }>
                   <svg width="20" height="20">
                     <use href="#close" xlinkHref="#close" />
