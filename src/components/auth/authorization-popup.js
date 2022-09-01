@@ -14,9 +14,8 @@ export default class AuthorizationPopup extends React.Component {
   }
 
   componentDidMount() {
-    const {show} = this.props
     if (this.headerRef ) {
-      setTimeout(() => {this.headerRef.focus()}, 10)
+      setTimeout(() => {this.headerRef.focus()}, 100)
     }
   }
 
@@ -25,13 +24,16 @@ export default class AuthorizationPopup extends React.Component {
     let definitions = authSelectors.shownDefinitions()
     const Auths = getComponent("auths")
     return (
-      <div className="dialog-ux">
+      <div className="dialog-ux" onKeyUp={({key}) => {
+        if (key === 'Escape') return this.close()
+      }}>
         <div className="backdrop-ux"></div>
         <div className="modal-ux">
           <div className="modal-dialog-ux">
             <div className="modal-ux-inner">
               <div className="modal-ux-header">
                 <h3
+                tabIndex="0"
                 ref={(_el) => this.headerRef = _el}
                 >Available authorizations</h3>
                 <button type="button" className="close-modal" onClick={ this.close }>

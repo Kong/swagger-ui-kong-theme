@@ -1,6 +1,5 @@
 import React from 'react'
 import KongLayout from './components/Layout'
-import AuthorizationPopup from './components/auth/authorization-popup'
 import AugmentingInfo from './components/AugmentingInfo.js'
 import AugmentingResponses from './components/AugmentingResponses'
 import AugmentingOperation from './components/AugmentingOperation.js'
@@ -21,8 +20,9 @@ import ModelWrapper from './components/ModelWrapper'
 import HighlightCode from './components/HighlightCode'
 import TryItOutButton from './components/TryItOutButton'
 import ParameterRow from './components/ParameterRow'
+import AuthorizationPopup from './components/auth/authorization-popup'
 import AuthorizeBtn from './components/auth/authorize-btn'
-import Auths from './components/auth/auths'
+import AuthorizeOperationBtn from './components/auth/authorize-operation-btn'
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
@@ -46,6 +46,22 @@ const SwaggerUIKongTheme = (system) => {
           getLastActivatedButton: (state) => state.get("lastActivatedButton")
         },
       },
+      auth: {
+        wrapActions: {
+          showDefinitions: (oriAction, system) => (isShown) => {
+            // here, you can hand the value to some function that exists outside of Swagger UI
+            if (!isShown) {
+              const lastFocusedEl = system.focusManagerSelectors.getLastActivatedButton()
+              if (lastFocusedEl) {
+                setTimeout(() => {
+                  lastFocusedEl.focus();
+                }, 10)
+              }
+            }
+            return oriAction(isShown) // don't forget! otherwise, Swagger UI won't update
+          }
+        }
+      }
     },
     components: {
       curl: () => null,
@@ -74,9 +90,9 @@ const SwaggerUIKongTheme = (system) => {
           <AuthorizeBtn {...props} system={system} />
         )
       },
-      auths: (Original, system) => (props) => {
+      authorizeOperationBtn: (Original, system) => (props) => {
         return (
-          <Auths {...props} system={system} />
+          <AuthorizeOperationBtn {...props} system={system} />
         )
       },
       authorizationPopup: (Original, system) => (props) => {
