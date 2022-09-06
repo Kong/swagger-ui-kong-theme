@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 export default class AuthorizationPopup extends React.Component {
-  close =() => {
+  close = () => {
     let { authActions, system } = this.props
     authActions.showDefinitions(false)
     const lastFocusedEl = system.focusManagerSelectors.getLastActivatedButton()
