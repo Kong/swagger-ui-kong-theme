@@ -20,10 +20,49 @@ import ModelWrapper from './components/ModelWrapper'
 import HighlightCode from './components/HighlightCode'
 import TryItOutButton from './components/TryItOutButton'
 import ParameterRow from './components/ParameterRow'
+import AuthorizationPopup from './components/auth/authorization-popup'
+import AuthorizeBtn from './components/auth/authorize-btn'
+import AuthorizeOperationBtn from './components/auth/authorize-operation-btn'
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
   return {
+    statePlugins: {
+      focusManager: {
+        actions: {
+          updateLastActivatedButton: (el) => {
+            return {
+              type: "SET_LAST_ACTIVATED_BUTTON",
+              payload: el
+            }
+          }
+        },
+        reducers: {
+          "SET_LAST_ACTIVATED_BUTTON": (state, action) => {
+            return state.set("lastActivatedButton", action.payload)
+          }
+        },
+        selectors: {
+          getLastActivatedButton: (state) => state.get("lastActivatedButton")
+        },
+      },
+      auth: {
+        wrapActions: {
+          showDefinitions: (oriAction, system) => (isShown) => {
+            // here, you can hand the value to some function that exists outside of Swagger UI
+            if (!isShown) {
+              const lastFocusedEl = system.focusManagerSelectors.getLastActivatedButton()
+              if (lastFocusedEl) {
+                setTimeout(() => {
+                  lastFocusedEl.focus();
+                }, 10)
+              }
+            }
+            return oriAction(isShown) // don't forget! otherwise, Swagger UI won't update
+          }
+        }
+      }
+    },
     components: {
       curl: () => null,
       KongLayout: KongLayout,
@@ -46,6 +85,21 @@ const SwaggerUIKongTheme = (system) => {
       parameterRow: ParameterRow
     },
     wrapComponents: {
+      authorizeBtn: (Original, system) => (props) => {
+        return (
+          <AuthorizeBtn {...props} system={system} />
+        )
+      },
+      authorizeOperationBtn: (Original, system) => (props) => {
+        return (
+          <AuthorizeOperationBtn {...props} system={system} />
+        )
+      },
+      authorizationPopup: (Original, system) => (props) => {
+        return (
+          <AuthorizationPopup {...props} system={system} />
+        )
+      },
       responses: (Original, system) => (props) => {
         return (
           <div className="right-side-wrapper">

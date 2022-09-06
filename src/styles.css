@@ -414,6 +414,13 @@
   box-shadow: none;
 }
 
+.swagger-ui .close-modal:active,
+.swagger-ui .close-modal:focus,
+.swagger-ui .authorize:active,
+.swagger-ui .authorize:focus,
+.swagger-ui .authorization__btn:active,
+.swagger-ui .authorization__btn:focus,
+.swagger-ui .btn:active,
 .swagger-ui .btn:focus {
   outline: solid;
   outline-color: var(--black-500);
