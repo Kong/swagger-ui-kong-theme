@@ -4,7 +4,7 @@
  */
 
 import React from "react"
-import { createDeepLinkPath, escapeDeepLinkPath, sanitizeUrl } from '../helpers/helpers'
+import { escapeDeepLinkPath, sanitizeUrl } from '../helpers/helpers'
 
 export default class OperationTag extends React.Component {
   handleKeypress = (event, isShownKey, showTag) => {
@@ -31,7 +31,6 @@ export default class OperationTag extends React.Component {
 
     const Collapse = getComponent("Collapse")
     const Markdown = getComponent("Markdown")
-    const DeepLink = getComponent("DeepLink")
     const Link = getComponent("Link")
 
     let tagDescription = tagObj.getIn(["tagDetails", "description"], null)
@@ -54,18 +53,14 @@ export default class OperationTag extends React.Component {
           data-is-open={showTag}
           tabIndex={0}
           >
-          <DeepLink
-            tabIndex={-1}
-            showArrow={false}
-            enabled={false} // Set to false, as we don't seem to be doing anything when deeplinking.
-            isShown={showTag}
-            path={createDeepLinkPath(tag)}
-            text={tag} />
+          <div className="nostyle">
+            <span>{tag}</span>
+          </div>
           { !tagDescription ? <small></small> :
             <small>
-                <Markdown source={tagDescription} />
-              </small>
-            }
+              <Markdown source={tagDescription} />
+            </small>
+          }
 
             <div>
               { !tagExternalDocsDescription ? null :
@@ -89,8 +84,7 @@ export default class OperationTag extends React.Component {
               onClick={() => layoutActions.show(isShownKey, !showTag)}
               aria-expanded={showTag}
               tabIndex={-1}
-              >
-
+            >
               <svg className="arrow" width="20" height="20">
                 <use href={showTag ? "#large-arrow-down" : "#large-arrow"} xlinkHref={showTag ? "#large-arrow-down" : "#large-arrow"} />
               </svg>
