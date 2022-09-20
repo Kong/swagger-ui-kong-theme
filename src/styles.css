@@ -1212,6 +1212,26 @@
   color: var(--red-600);
 }
 
+
+.swagger-ui section.models .flex-wrapper {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  margin: 0;
+  padding: 10px 20px 10px 10px;
+  cursor: pointer;
+  transition: all .2s;
+  font-family: sans-serif;
+  color: #606060;
+}
+
+.swagger-ui section.models .flex-wrapper :first-child {
+  flex: 1
+}
+.swagger-ui section.models .flex-wrapper svg {
+  transition: all .4s;
+}
+
 /**************************************************************************
  * From templates repo, not sure if needed, consildating all css in one spot before removing
  * swagger-ui container

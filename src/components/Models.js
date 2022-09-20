@@ -54,12 +54,13 @@ export default class Models extends Component {
         onKeyUp={(e) => this.handleKeypress(e, showModels)}
         tabIndex={0}
       >
-        <h1>
-          <span>{isOAS3 ? "Schemas" : "Models"}</span>
+        <div className="flex-wrapper">
+        <span>{isOAS3 ? "Schemas" : "Models"}</span>
           <svg width="20" height="20">
             <use xlinkHref={showModels ? "#large-arrow-down" : "#large-arrow"} />
           </svg>
-        </h1>
+        </div>
+
       </div>
       <Collapse isOpened={showModels}>
         {

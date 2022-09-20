@@ -43,8 +43,10 @@ export default class OperationTag extends React.Component {
     return (
       <div
         className={showTag ? "opblock-tag-section is-open" : "opblock-tag-section"}
-      >
-        <h1
+        >
+        <div
+          role={"rowheader"}
+          aria-expanded={showTag}
           className={!tagDescription ? "opblock-tag no-desc" : "opblock-tag" }
           id={isShownKey.map(v => escapeDeepLinkPath(v)).join("-")}
           onClick={() => layoutActions.show(isShownKey, !showTag)}
@@ -78,18 +80,19 @@ export default class OperationTag extends React.Component {
               }
           </p>
 
-          <button
-            className="expand-operation"
-            title={showTag ? "Collapse operation": "Expand operation"}
-            onClick={() => layoutActions.show(isShownKey, !showTag)}
-            aria-expanded={showTag}
-            tabIndex={-1}
-          >
-            <svg className="arrow" width="20" height="20">
-              <use href={showTag ? "#large-arrow-down" : "#large-arrow"} xlinkHref={showTag ? "#large-arrow-down" : "#large-arrow"} />
-            </svg>
-          </button>
-        </h1>
+            <button
+              className="expand-operation"
+              title={showTag ? "Collapse operation": "Expand operation"}
+              onClick={() => layoutActions.show(isShownKey, !showTag)}
+              aria-expanded={showTag}
+              tabIndex={-1}
+              >
+
+              <svg className="arrow" width="20" height="20">
+                <use href={showTag ? "#large-arrow-down" : "#large-arrow"} xlinkHref={showTag ? "#large-arrow-down" : "#large-arrow"} />
+              </svg>
+            </button>
+        </div>
         <Collapse isOpened={showTag}>
           {children}
         </Collapse>
