@@ -592,6 +592,10 @@
   padding: 12px 0;
 }
 
+.swagger-ui .opblock-tag .text-wrapper {
+  margin-bottom: 0;
+}
+
 .swagger-ui .opblock-tag .nostyle span {
   color: var(--black-70);
   font-size: 24px;

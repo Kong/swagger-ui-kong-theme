@@ -4,7 +4,7 @@
  */
 
 import React from "react"
-import { createDeepLinkPath, escapeDeepLinkPath, sanitizeUrl } from '../helpers/helpers'
+import { escapeDeepLinkPath, sanitizeUrl } from '../helpers/helpers'
 
 export default class OperationTag extends React.Component {
   handleKeypress = (event, isShownKey, showTag) => {
@@ -31,7 +31,6 @@ export default class OperationTag extends React.Component {
 
     const Collapse = getComponent("Collapse")
     const Markdown = getComponent("Markdown")
-    const DeepLink = getComponent("DeepLink")
     const Link = getComponent("Link")
 
     let tagDescription = tagObj.getIn(["tagDetails", "description"], null)
@@ -44,7 +43,7 @@ export default class OperationTag extends React.Component {
     return (
       <div
         className={showTag ? "opblock-tag-section is-open" : "opblock-tag-section"}
-        >
+      >
         <h1
           className={!tagDescription ? "opblock-tag no-desc" : "opblock-tag" }
           id={isShownKey.map(v => escapeDeepLinkPath(v)).join("-")}
@@ -53,48 +52,43 @@ export default class OperationTag extends React.Component {
           data-tag={tag}
           data-is-open={showTag}
           tabIndex={0}
-          >
-          <DeepLink
-            tabIndex={-1}
-            showArrow={false}
-            enabled={false} // Set to false, as we don't seem to be doing anything when deeplinking.
-            isShown={showTag}
-            path={createDeepLinkPath(tag)}
-            text={tag} />
+        >
+          <p className="nostyle text-wrapper">
+            <span>{tag}</span>
+          </p>
           { !tagDescription ? <small></small> :
             <small>
-                <Markdown source={tagDescription} />
-              </small>
-            }
+              <Markdown source={tagDescription} />
+            </small>
+          }
 
-            <div>
-              { !tagExternalDocsDescription ? null :
-                <small>
-                    { tagExternalDocsDescription }
-                      { tagExternalDocsUrl ? ": " : null }
-                      { tagExternalDocsUrl ?
-                        <Link
-                            href={sanitizeUrl(tagExternalDocsUrl)}
-                            onClick={(e) => e.stopPropagation()}
-                            target="_blank"
-                            >{tagExternalDocsUrl}</Link> : null
-                          }
-                  </small>
-                }
-            </div>
+          <p className="text-wrapper">
+            { !tagExternalDocsDescription ? null :
+              <small>
+                  { tagExternalDocsDescription }
+                    { tagExternalDocsUrl ? ": " : null }
+                    { tagExternalDocsUrl ?
+                      <Link
+                          href={sanitizeUrl(tagExternalDocsUrl)}
+                          onClick={(e) => e.stopPropagation()}
+                          target="_blank"
+                          >{tagExternalDocsUrl}</Link> : null
+                        }
+                </small>
+              }
+          </p>
 
-            <button
-              className="expand-operation"
-              title={showTag ? "Collapse operation": "Expand operation"}
-              onClick={() => layoutActions.show(isShownKey, !showTag)}
-              aria-expanded={showTag}
-              tabIndex={-1}
-              >
-
-              <svg className="arrow" width="20" height="20">
-                <use href={showTag ? "#large-arrow-down" : "#large-arrow"} xlinkHref={showTag ? "#large-arrow-down" : "#large-arrow"} />
-              </svg>
-            </button>
+          <button
+            className="expand-operation"
+            title={showTag ? "Collapse operation": "Expand operation"}
+            onClick={() => layoutActions.show(isShownKey, !showTag)}
+            aria-expanded={showTag}
+            tabIndex={-1}
+          >
+            <svg className="arrow" width="20" height="20">
+              <use href={showTag ? "#large-arrow-down" : "#large-arrow"} xlinkHref={showTag ? "#large-arrow-down" : "#large-arrow"} />
+            </svg>
+          </button>
         </h1>
         <Collapse isOpened={showTag}>
           {children}
