@@ -45,7 +45,7 @@ export default class OperationTag extends React.Component {
         className={showTag ? "opblock-tag-section is-open" : "opblock-tag-section"}
         >
         <div
-          role={"rowheader"}
+          role="rowheader"
           aria-expanded={showTag}
           className={!tagDescription ? "opblock-tag no-desc" : "opblock-tag" }
           id={isShownKey.map(v => escapeDeepLinkPath(v)).join("-")}
