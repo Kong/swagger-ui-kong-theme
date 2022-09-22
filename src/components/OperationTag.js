@@ -7,13 +7,6 @@ import React from "react"
 import { escapeDeepLinkPath, sanitizeUrl } from '../helpers/helpers'
 
 export default class OperationTag extends React.Component {
-  handleKeypress = (event, isShownKey, showTag) => {
-    const { layoutActions } = this.props
-
-    if (event.nativeEvent.code === "Enter" || event.nativeEvent.code === "Space") {
-      layoutActions.show(isShownKey, showTag)
-    }
-  }
 
   render() {
     const {
@@ -40,20 +33,21 @@ export default class OperationTag extends React.Component {
     let isShownKey = ["operations-tag", tag]
     let showTag = layoutSelectors.isShown(isShownKey, docExpansion === "full" || docExpansion === "list")
 
+    const opBlockSectionKeyId = isShownKey.map(v => escapeDeepLinkPath(v)).join("-")
+    const opBlockSectionCollapseKeyId = opBlockSectionKeyId+'-collapse'
     return (
       <div
-        className={showTag ? "opblock-tag-section is-open" : "opblock-tag-section"}
+        className={showTag ? "opblock-tag-section" : "opblock-tag-section"}
         >
-        <div
-          role="rowheader"
+        <button
+          type="button"
           aria-expanded={showTag}
-          className={!tagDescription ? "opblock-tag no-desc" : "opblock-tag" }
-          id={isShownKey.map(v => escapeDeepLinkPath(v)).join("-")}
+          className={'btn opblock-tag-btn ' + (!tagDescription ? "opblock-tag no-desc" : "opblock-tag") }
+          id={opBlockSectionKeyId}
+          aria-controls={opBlockSectionCollapseKeyId}
           onClick={() => layoutActions.show(isShownKey, !showTag)}
-          onKeyUp={(e) => this.handleKeypress(e, isShownKey, !showTag)}
           data-tag={tag}
           data-is-open={showTag}
-          tabIndex={0}
         >
           <p className="nostyle text-wrapper">
             <span>{tag}</span>
@@ -80,20 +74,17 @@ export default class OperationTag extends React.Component {
               }
           </p>
 
-            <button
-              className="expand-operation"
+            <div
+              className="arrow-wrapper expand-operation"
               title={showTag ? "Collapse operation": "Expand operation"}
-              onClick={() => layoutActions.show(isShownKey, !showTag)}
-              aria-expanded={showTag}
-              tabIndex={-1}
               >
 
               <svg className="arrow" width="20" height="20">
                 <use href={showTag ? "#large-arrow-down" : "#large-arrow"} xlinkHref={showTag ? "#large-arrow-down" : "#large-arrow"} />
               </svg>
-            </button>
-        </div>
-        <Collapse isOpened={showTag}>
+            </div>
+        </button>
+        <Collapse id={opBlockSectionCollapseKeyId} isOpened={showTag}>
           {children}
         </Collapse>
       </div>

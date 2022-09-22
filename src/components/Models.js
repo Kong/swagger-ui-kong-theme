@@ -47,12 +47,11 @@ export default class Models extends Component {
     const JumpToPath = getComponent("JumpToPath")
 
     return <section className={showModels ? "models is-open" : "models"}>
-      <div
-        role="button"
+      <button
+        className="btn"
+        type="button"
         aria-pressed={showModels}
         onClick={() => layoutActions.show("models", !showModels)}
-        onKeyUp={(e) => this.handleKeypress(e, showModels)}
-        tabIndex={0}
       >
         <div className="flex-wrapper">
         <span>{isOAS3 ? "Schemas" : "Models"}</span>
@@ -61,7 +60,7 @@ export default class Models extends Component {
           </svg>
         </div>
 
-      </div>
+      </button>
       <Collapse isOpened={showModels}>
         {
           definitions.entrySeq().map(([name]) => {

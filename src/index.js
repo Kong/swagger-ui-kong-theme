@@ -23,6 +23,7 @@ import ParameterRow from './components/ParameterRow'
 import AuthorizationPopup from './components/auth/authorization-popup'
 import AuthorizeBtn from './components/auth/authorize-btn'
 import AuthorizeOperationBtn from './components/auth/authorize-operation-btn'
+import Collapse from './components/Collapse'
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
@@ -65,6 +66,7 @@ const SwaggerUIKongTheme = (system) => {
     },
     components: {
       curl: () => null,
+      Collapse: Collapse,
       KongLayout: KongLayout,
       Sidebar: Sidebar,
       SidebarList: SidebarList,
@@ -82,7 +84,7 @@ const SwaggerUIKongTheme = (system) => {
       ModelWrapper: ModelWrapper,
       highlightCode: HighlightCode,
       TryItOutButton: TryItOutButton,
-      parameterRow: ParameterRow
+      parameterRow: ParameterRow,
     },
     wrapComponents: {
       authorizeBtn: (Original, system) => (props) => {
