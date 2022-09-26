@@ -58,21 +58,6 @@ export default class OperationTag extends React.Component {
             </small>
           }
 
-          <p className="text-wrapper">
-            { !tagExternalDocsDescription ? null :
-              <small>
-                  { tagExternalDocsDescription }
-                    { tagExternalDocsUrl ? ": " : null }
-                    { tagExternalDocsUrl ?
-                      <Link
-                          href={sanitizeUrl(tagExternalDocsUrl)}
-                          onClick={(e) => e.stopPropagation()}
-                          target="_blank"
-                          >{tagExternalDocsUrl}</Link> : null
-                        }
-                </small>
-              }
-          </p>
 
             <div
               className="arrow-wrapper expand-operation"
@@ -84,10 +69,27 @@ export default class OperationTag extends React.Component {
               </svg>
             </div>
         </button>
-        <Collapse id={opBlockSectionCollapseKeyId} isOpened={showTag}>
+        <Collapse labelledBy={opBlockSectionKeyId} id={opBlockSectionCollapseKeyId} isOpened={showTag}>
+          {buildExternalDocsLink(tagExternalDocsDescription, tagExternalDocsUrl, Link)}
           {children}
         </Collapse>
       </div>
     )
   }
 }
+function buildExternalDocsLink(tagExternalDocsDescription, tagExternalDocsUrl, Link) {
+  return <p className="text-wrapper">
+    {!tagExternalDocsDescription ? null :
+      <small>
+        {tagExternalDocsDescription}
+        {tagExternalDocsUrl ? ": " : null}
+        {tagExternalDocsUrl ?
+          <Link
+            href={sanitizeUrl(tagExternalDocsUrl)}
+            onClick={(e) => e.stopPropagation()}
+            target="_blank"
+          >{tagExternalDocsUrl}</Link> : null}
+      </small>}
+  </p>
+}
+

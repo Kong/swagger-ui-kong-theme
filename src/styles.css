@@ -631,6 +631,10 @@
   border-radius: 0;
   border-bottom-width: 1px;
 }
+.swagger-ui button.opblock-tag.opblock-tag-btn:focus,
+.swagger-ui button.opblock-tag.opblock-tag-btn:active {
+  border: none;
+}
 
 .swagger-ui .opblock .body-param .body-param-options label {
   display: flex;

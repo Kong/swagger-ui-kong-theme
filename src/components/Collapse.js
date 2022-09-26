@@ -6,13 +6,8 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 
-const NoMargin = ({ children, id }) => {
-  if (id) {
-    return <div role="region" id={id} style={{ height: "auto", border: "none", margin: 0, padding: 0 }}> {children} </div>
-  } else {
-    return <div role="region" style={{ height: "auto", border: "none", margin: 0, padding: 0 }}> {children} </div>
-  }
-
+const NoMargin = ({ children, id, labelledBy }) => {
+  return <div id={id} aria-labelledby={labelledBy} role="region" style={{ height: "auto", border: "none", margin: 0, padding: 0 }}> {children} </div>
 }
 
 NoMargin.propTypes = {
@@ -26,7 +21,8 @@ export default class Collapse extends Component {
     isOpened: PropTypes.bool,
     children: PropTypes.node.isRequired,
     animated: PropTypes.bool,
-    id: PropTypes.string
+    id: PropTypes.string,
+    labelledBy: PropTypes.string
   }
 
   static defaultProps = {
@@ -40,21 +36,21 @@ export default class Collapse extends Component {
     }
 
     return (
-      <NoMargin id={this.props.id}>
+      <NoMargin id={this.props.id} labelledBy={this.props.labelledBy}>
         {this.props.children}
       </NoMargin>
     )
   }
 
   render() {
-    let { animated, isOpened, children, id } = this.props
+    let { animated, isOpened, children, id, labelledBy } = this.props
 
     if (!animated)
       return this.renderNotAnimated()
 
     children = isOpened ? children : null
     return (
-      <NoMargin id={id}>
+      <NoMargin id={id} labelledBy={labelledBy}>
         {children}
       </NoMargin>
     )
