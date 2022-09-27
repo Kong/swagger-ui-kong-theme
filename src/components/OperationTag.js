@@ -7,13 +7,6 @@ import React from "react"
 import { escapeDeepLinkPath, sanitizeUrl } from '../helpers/helpers'
 
 export default class OperationTag extends React.Component {
-  handleKeypress = (event, isShownKey, showTag) => {
-    const { layoutActions } = this.props
-
-    if (event.nativeEvent.code === "Enter" || event.nativeEvent.code === "Space") {
-      layoutActions.show(isShownKey, showTag)
-    }
-  }
 
   render() {
     const {
@@ -40,18 +33,21 @@ export default class OperationTag extends React.Component {
     let isShownKey = ["operations-tag", tag]
     let showTag = layoutSelectors.isShown(isShownKey, docExpansion === "full" || docExpansion === "list")
 
+    const opBlockSectionKeyId = isShownKey.map(v => escapeDeepLinkPath(v)).join("-")
+    const opBlockSectionCollapseKeyId = opBlockSectionKeyId+'-collapse'
     return (
       <div
-        className={showTag ? "opblock-tag-section is-open" : "opblock-tag-section"}
-      >
-        <h1
-          className={!tagDescription ? "opblock-tag no-desc" : "opblock-tag" }
-          id={isShownKey.map(v => escapeDeepLinkPath(v)).join("-")}
+        className={showTag ? "opblock-tag-section" : "opblock-tag-section"}
+        >
+        <button
+          type="button"
+          aria-expanded={showTag}
+          className={'btn opblock-tag-btn ' + (!tagDescription ? "opblock-tag no-desc" : "opblock-tag") }
+          id={opBlockSectionKeyId}
+          aria-controls={opBlockSectionCollapseKeyId}
           onClick={() => layoutActions.show(isShownKey, !showTag)}
-          onKeyUp={(e) => this.handleKeypress(e, isShownKey, !showTag)}
           data-tag={tag}
           data-is-open={showTag}
-          tabIndex={0}
         >
           <p className="nostyle text-wrapper">
             <span>{tag}</span>
@@ -62,38 +58,38 @@ export default class OperationTag extends React.Component {
             </small>
           }
 
-          <p className="text-wrapper">
-            { !tagExternalDocsDescription ? null :
-              <small>
-                  { tagExternalDocsDescription }
-                    { tagExternalDocsUrl ? ": " : null }
-                    { tagExternalDocsUrl ?
-                      <Link
-                          href={sanitizeUrl(tagExternalDocsUrl)}
-                          onClick={(e) => e.stopPropagation()}
-                          target="_blank"
-                          >{tagExternalDocsUrl}</Link> : null
-                        }
-                </small>
-              }
-          </p>
 
-          <button
-            className="expand-operation"
-            title={showTag ? "Collapse operation": "Expand operation"}
-            onClick={() => layoutActions.show(isShownKey, !showTag)}
-            aria-expanded={showTag}
-            tabIndex={-1}
-          >
-            <svg className="arrow" width="20" height="20">
-              <use href={showTag ? "#large-arrow-down" : "#large-arrow"} xlinkHref={showTag ? "#large-arrow-down" : "#large-arrow"} />
-            </svg>
-          </button>
-        </h1>
-        <Collapse isOpened={showTag}>
+            <div
+              className="arrow-wrapper expand-operation"
+              title={showTag ? "Collapse operation": "Expand operation"}
+              >
+
+              <svg className="arrow" width="20" height="20">
+                <use href={showTag ? "#large-arrow-down" : "#large-arrow"} xlinkHref={showTag ? "#large-arrow-down" : "#large-arrow"} />
+              </svg>
+            </div>
+        </button>
+        <Collapse labelledBy={opBlockSectionKeyId} id={opBlockSectionCollapseKeyId} isOpened={showTag}>
+          {buildExternalDocsLink(tagExternalDocsDescription, tagExternalDocsUrl, Link)}
           {children}
         </Collapse>
       </div>
     )
   }
 }
+function buildExternalDocsLink(tagExternalDocsDescription, tagExternalDocsUrl, Link) {
+  return <p className="text-wrapper">
+    {!tagExternalDocsDescription ? null :
+      <small>
+        {tagExternalDocsDescription}
+        {tagExternalDocsUrl ? ": " : null}
+        {tagExternalDocsUrl ?
+          <Link
+            href={sanitizeUrl(tagExternalDocsUrl)}
+            onClick={(e) => e.stopPropagation()}
+            target="_blank"
+          >{tagExternalDocsUrl}</Link> : null}
+      </small>}
+  </p>
+}
+
