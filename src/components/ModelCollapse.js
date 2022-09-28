@@ -66,7 +66,11 @@ export default class ModelCollapse extends Component {
               style={{ "cursor": "pointer", "display": "inline-block" }}
             >
               {title ? title : null}
-              <span className={"model-toggle" + (this.state.expanded ? "" : " collapsed")}></span>
+              <span className={"toggle-model-icon" + (this.state.expanded ? "" : " collapsed")}>
+                <svg className={"arrow" + (this.state.expanded ? " opened" : "")} width="12" height="12">
+                  <use href={this.state.expanded ? "#large-arrow-down" : "#large-arrow"} xlinkHref={this.state.expanded ? "#large-arrow-down" : "#large-arrow"} />
+                </svg>
+              </span>
             </div>
             {this.state.expanded ? this.props.children : this.state.collapsedContent}
           </div>
