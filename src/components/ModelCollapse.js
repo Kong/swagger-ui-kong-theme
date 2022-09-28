@@ -67,7 +67,7 @@ export default class ModelCollapse extends Component {
             >
               {title ? title : null}
               <span className={"toggle-model-icon" + (this.state.expanded ? "" : " collapsed")}>
-                <svg className={"arrow" + (this.state.expanded && title ? " opened" : "")} width="12" height="12" role="img">
+                <svg className={"arrow" + (this.state.expanded && title ? " opened" : "")} width="12" height="12">
                   <use href={this.state.expanded ? "#large-arrow-down" : "#large-arrow"} xlinkHref={this.state.expanded ? "#large-arrow-down" : "#large-arrow"} />
                 </svg>
               </span>
