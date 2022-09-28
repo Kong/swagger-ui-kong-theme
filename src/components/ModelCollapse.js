@@ -50,7 +50,7 @@ export default class ModelCollapse extends Component {
   }
 
   render() {
-    const { title, classes } = this.props
+    const { title, classes, displayName } = this.props
 
 
     return (
@@ -59,6 +59,7 @@ export default class ModelCollapse extends Component {
           <div>
             <div
               role="button"
+              title={displayName ? `Show ${displayName} model` : 'Show model'}
               aria-pressed={this.state.expanded}
               onClick={this.toggleCollapsed}
               onKeyUp={(e) => this.handleKeypress(e)}
