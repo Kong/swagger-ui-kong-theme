@@ -50,7 +50,7 @@ export default class ModelCollapse extends Component {
   }
 
   render() {
-    const { title, classes } = this.props
+    const { title, classes, displayName } = this.props
 
 
     return (
@@ -59,6 +59,7 @@ export default class ModelCollapse extends Component {
           <div>
             <div
               role="button"
+              title={displayName ? `Show ${displayName} model` : 'Show model'}
               aria-pressed={this.state.expanded}
               onClick={this.toggleCollapsed}
               onKeyUp={(e) => this.handleKeypress(e)}
@@ -66,7 +67,11 @@ export default class ModelCollapse extends Component {
               style={{ "cursor": "pointer", "display": "inline-block" }}
             >
               {title ? title : null}
-              <span className={"model-toggle" + (this.state.expanded ? "" : " collapsed")}></span>
+              <span className={"toggle-model-icon" + (this.state.expanded ? "" : " collapsed")}>
+                <svg className={"arrow" + (this.state.expanded && title ? " opened" : "")} width="12" height="12">
+                  <use href={this.state.expanded ? "#large-arrow-down" : "#large-arrow"} xlinkHref={this.state.expanded ? "#large-arrow-down" : "#large-arrow"} />
+                </svg>
+              </span>
             </div>
             {this.state.expanded ? this.props.children : this.state.collapsedContent}
           </div>
