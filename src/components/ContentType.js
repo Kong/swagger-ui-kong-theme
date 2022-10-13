@@ -10,17 +10,22 @@ export default class ContentType extends React.Component {
   componentDidMount() {
     // Needed to populate the form, initially
     if (this.props.contentTypes) {
-      this.props.onChange(this.props.contentTypes[0])
+      // `contentTypes` can be one of `ImPropTypes.list`, `ImPropTypes.set`, `ImPropTypes.seq` and `array`
+      const firstElement = typeof this.props.contentTypes.first === "function" ? this.props.contentTypes.first() : this.props.contentTypes[0]
+      this.props.onChange(firstElement)
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!nextProps.contentTypes || !nextProps.contentTypes.length) {
+    // `contentTypes` can be one of `ImPropTypes.list`, `ImPropTypes.set`, `ImPropTypes.seq` and `array`
+    if (!nextProps.contentTypes || (!nextProps.contentTypes.size && !nextProps.contentTypes.length)) {
       return
     }
 
     if (!nextProps.contentTypes.includes(nextProps.value)) {
-      nextProps.onChange(nextProps.contentTypes[0])
+      // `contentTypes` can be one of `ImPropTypes.list`, `ImPropTypes.set`, `ImPropTypes.seq` and `array`
+      const firstElement = typeof nextProps.contentTypes.first === "function" ? nextProps.contentTypes.first() : nextProps.contentTypes[0]
+      nextProps.onChange(firstElement)
     }
   }
 
