@@ -50,7 +50,7 @@ export default class Models extends Component {
       <button
         className="btn"
         type="button"
-        aria-pressed={showModels}
+        aria-expanded={showModels}
         onClick={() => layoutActions.show("models", !showModels)}
       >
         <div className="flex-wrapper">
