@@ -160,6 +160,7 @@ export default class SidebarList extends React.Component {
             <li className={"submenu" + this.ifActive(this.isTagActive(tag))} >
               <span
                 role="button"
+                aria-expanded={this.isTagActive(tag)}
                 className="submenu-title" tabIndex={0}
                 onClick={() => this.subMenuClicked(tag)}
                 onKeyUp={(e) => this.subMenuKeyup(e.key, tag)}

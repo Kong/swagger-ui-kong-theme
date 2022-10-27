@@ -60,7 +60,7 @@ export default class ModelCollapse extends Component {
             <div
               role="button"
               title={displayName ? `Show ${displayName} model` : 'Show model'}
-              aria-pressed={this.state.expanded}
+              aria-expanded={this.state.expanded}
               onClick={this.toggleCollapsed}
               onKeyUp={(e) => this.handleKeypress(e)}
               tabIndex={0}
