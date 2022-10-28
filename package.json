@@ -36,6 +36,7 @@
     "@braintree/sanitize-url": "^2.0.2",
     "@kyleshockey/xml": "^1.0.2",
     "curl-to-har": "^1.0.1",
+    "focus-trap-react": "^10.0.0",
     "immutable": "^3.x.x",
     "js-file-download": "^0.4.1",
     "memoizee": "^0.4.12",
