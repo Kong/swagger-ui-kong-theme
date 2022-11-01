@@ -11,7 +11,7 @@ export const DeepLink = ({ enabled, path, text, showArrow, isShown }) => {
     <a 
       className={showArrow ? "nostyle has-arrow" : "nostyle"}
       onClick={enabled ? (e) => e.preventDefault() : null}
-      title={showArrow ? isShown ? "Collapse operation": "Expand operation" : null}
+      label={showArrow ? isShown ? `Collapse ${text} operation`: `Expand ${text} operation` : null}
       aria-expanded={showArrow ? isShown : null}
       href={enabled ? `#/${path}` : null}
     >

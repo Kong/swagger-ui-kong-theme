@@ -42,6 +42,7 @@ export default class OperationTag extends React.Component {
         <button
           type="button"
           aria-expanded={showTag}
+          aria-label={showTag ? `Collapse ${tagDescription ? `${tag} (${tagDescription})` : `${tag}`} operation section` :`Expand ${tagDescription ? `${tag} (${tagDescription})` : `${tag}`} operation section`}
           className={'btn opblock-tag-btn ' + (!tagDescription ? "opblock-tag no-desc" : "opblock-tag") }
           id={opBlockSectionKeyId}
           aria-controls={opBlockSectionCollapseKeyId}

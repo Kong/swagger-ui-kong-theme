@@ -161,6 +161,7 @@ export default class SidebarList extends React.Component {
               <span
                 role="button"
                 aria-expanded={this.isTagActive(tag)}
+                aria-label={this.isTagActive(tag) ? `Collapse ${tag} section` : `Expand ${tag} section`}
                 className="submenu-title" tabIndex={0}
                 onClick={() => this.subMenuClicked(tag)}
                 onKeyUp={(e) => this.subMenuKeyup(e.key, tag)}

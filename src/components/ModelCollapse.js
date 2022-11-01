@@ -59,7 +59,7 @@ export default class ModelCollapse extends Component {
           <div>
             <div
               role="button"
-              title={displayName ? `Show ${displayName} model` : 'Show model'}
+              aria-label={displayName ? `${this.state.expanded ? "Hide" : "Show"} ${displayName} model` : `${this.state.expanded ? "Hide" : "Show"} model`}
               aria-expanded={this.state.expanded}
               onClick={this.toggleCollapsed}
               onKeyUp={(e) => this.handleKeypress(e)}
