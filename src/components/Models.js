@@ -50,6 +50,7 @@ export default class Models extends Component {
       <button
         className="btn"
         type="button"
+        aria-label={showModels ? `Collapse ${isOAS3 ? "Schemas" : "Models"}` : `Expand ${isOAS3 ? "Schemas" : "Models"}`}
         aria-expanded={showModels}
         onClick={() => layoutActions.show("models", !showModels)}
       >

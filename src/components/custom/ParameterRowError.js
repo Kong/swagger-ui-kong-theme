@@ -23,7 +23,7 @@ export class ParameterRowError extends Component {
     ) {
       setTimeout(() => {
         // Get the first invalid input
-        const associatedInput = this.el.parentElement?.parentElement?.parentElement?.querySelector('input.invalid')
+        const associatedInput = this.el.closest('table.parameters')?.querySelector('input.invalid')
 
         if (associatedInput) {
           associatedInput.focus()
@@ -38,7 +38,7 @@ export class ParameterRowError extends Component {
 
   render() {
     const { errors, param } = this.props
-    const associatedInput = this.el?.parentElement?.parentElement?.parentElement?.querySelector('input.invalid')
+    const associatedInput = this.el?.closest('table.parameters')?.querySelector('input.invalid')
 
 
     return (
