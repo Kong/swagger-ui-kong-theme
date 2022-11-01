@@ -22,7 +22,12 @@ export class ParameterRowError extends Component {
       this.el
     ) {
       setTimeout(() => {
-        this.el.focus()
+        // Get the first invalid input
+        const associatedInput = this.el.parentElement?.parentElement?.parentElement?.querySelector('input.invalid')
+
+        if (associatedInput) {
+          associatedInput.focus()
+        }
       })
     }
   }
@@ -33,6 +38,7 @@ export class ParameterRowError extends Component {
 
   render() {
     const { errors, param } = this.props
+    const associatedInput = this.el?.parentElement?.parentElement?.parentElement?.querySelector('input.invalid')
 
 
     return (
@@ -41,9 +47,14 @@ export class ParameterRowError extends Component {
         tabIndex='-1'
         ref={this.initializeComponent}
       >
-        {errors.length ? <p className='error-parameter-name' role="alert">
-          Invalid value for property {param.name} in {param.in} section:&nbsp; <span className='errors-details'>{errors.join('. ')}</span>
-        </p> : null }
+        {errors.length ? (
+          <p
+            className='error-parameter-name'
+            role={this.el && this.el.parentElement.getElementsByTagName('input')[0] === associatedInput ? "alert" : null}
+          >
+            Invalid value for property {param.name} in {param.in} section:&nbsp; <span className='errors-details'>{errors.join('. ')}</span>
+          </p>
+        ) : null }
       </div>
     )
   }
