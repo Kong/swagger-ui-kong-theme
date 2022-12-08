@@ -1,48 +1,56 @@
-import React from "react"
+import classNames from 'classnames'
+import React, { Component } from 'react'
+import { overrideScrollPositionForSelector } from '../helpers/helpers'
+import styles from './Sidebar.module.css'
 
-export default class Sidebar extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      sidebarOpen: ""
-    };
-    this.handleToggleSidebar = this.handleToggleSidebar.bind(this)
-
+export default class Sidebar extends Component {
+  state = {
+    sidebarOpen: false
   }
 
-  handleToggleSidebar() {
-    this.state.sidebarOpen === "open" ?
-      this.setState({sidebarOpen: "close"}) :
-      this.setState({sidebarOpen: "open"})
+  handleToggleSidebar = () => {
+    this.setState((state) => ({
+      sidebarOpen: !state.sidebarOpen
+    }))
   }
 
-  handleKeyToggleSidebar(e) {
-    if (e && e.code && ['Space', 'Enter', 'Return'].includes(e.code)) {
-      this.handleToggleSidebar()
+  sidebarToggleText () {
+    return `${this.state.sidebarOpen === 'open' ? 'Close' : 'Open'} Sidebar`
+  }
+
+  componentDidMount () {
+    const tocDiv = document.querySelector('.toc-content')
+    const config = this.props.getConfigs()
+
+    if (!config.theme && config.theme.serviceToc || !tocDiv) {
+      return
     }
+
+    tocDiv.innerHTML = config.theme.serviceToc
+
+    overrideScrollPositionForSelector('.toc-content a')
   }
 
-  sidebarToggleText() {
-    return `${this.state.sidebarOpen === "open" ? "Close" : "Open"} Sidebar`
-  }
-
-  render() {
+  render () {
     const config = this.props.getConfigs()
     const swaggerAbsoluteTop = {
       top: config.theme && config.theme.swaggerAbsoluteTop || '0'
     }
+    const serviceToc = config.theme && config.theme.serviceToc
 
     const { getComponent } = this.props
-    const SidebarList = getComponent("SidebarList", true)
+    const SidebarList = getComponent('SidebarList', true)
 
     return (
-      <div>
-        <div className="sidebar-toggle" role="button" style={swaggerAbsoluteTop} onClick={this.handleToggleSidebar} onKeyUp={this.handleKeyToggleSidebar} >
-          <p>{this.sidebarToggleText()}</p>
-        </div>
-        <div className={"overlay " + this.state.sidebarOpen}></div>
-        <div id="sidebar" className={this.state.sidebarOpen}>
-          <div className="sidebar-menu" style={swaggerAbsoluteTop}>
+      <div className={classNames(styles.sidebarWrapper, { [styles.sidebarWrapperOpen]: this.state.sidebarOpen })}>
+        <a className={styles.sidebarToggle} style={swaggerAbsoluteTop} onClick={this.handleToggleSidebar}>
+          <span className={styles.sidebarToggleIcon} />
+        </a>
+        <div className={classNames(styles.overlay)} />
+        <div id="sidebar" className={classNames(styles.sidebar)}>
+          <div className={classNames(styles.sidebarMenu, "pl-5 pr-1 pt-6")}>
+            <label className={serviceToc ? 'toc-title color-text_colors-headings font-bold uppercase text-xs mb-1' : 'd-none'}>About</label>
+            <div className={serviceToc ? 'toc-content mt-4 mb-5' : 'd-none'} />
             <SidebarList title="Resources" />
           </div>
         </div>
@@ -50,4 +58,3 @@ export default class Sidebar extends React.Component{
     )
   }
 }
-

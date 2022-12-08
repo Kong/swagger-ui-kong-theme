@@ -1,19 +1,21 @@
 {
-  "name": "swagger-ui-kong-theme",
-  "version": "1.1.6",
-  "description": "Plugin to theme Swagger-UI with 3 columns",
-  "main": "dist/bundle.js",
+  "name": "@kong/swagger-ui-kong-theme",
+  "version": "4.0.0",
+  "description": "SwaggerUI theme for Kong Portal and Konnect Portal",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "copy-styles": "cp src/styles.css ../kong-portal-templates/workspaces/default/themes/base/assets/styles/swagger-ui-kong-theme.$(git rev-parse --short HEAD).css",
-    "dev": "DEBUG=true webpack"
+    "dev": "webpack --mode development --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kong/kong-portal-cli.git"
+    "url": "git+https://github.com/Kong/swagger-ui-kong-theme.git"
   },
-  "author": "Henri Pietila @henripro",
+  "homepage": "https://github.com/kong/swagger-ui-kong-theme",
+  "author": {
+    "name": "Kong Inc.",
+    "url": "https://konghq.com"
+  },
   "license": "Apache-2.0",
   "keywords": [
     "swagger-ui",
@@ -34,7 +36,9 @@
   },
   "dependencies": {
     "@braintree/sanitize-url": "^2.0.2",
+    "@kongponents/styles": "^7.2.2",
     "@kyleshockey/xml": "^1.0.2",
+    "classnames": "^2.3.2",
     "curl-to-har": "^1.0.1",
     "focus-trap-react": "^10.0.0",
     "immutable": "^3.x.x",
@@ -42,7 +46,8 @@
     "memoizee": "^0.4.12",
     "react-apiembed": "0.1.8",
     "react-debounce-input": "^3.2.0",
-    "swagger2har": "git+https://github.com/Kong/swagger2har.git#8409def1fd72311f44b1d34e669af76226cb4f59"
+    "swagger2har": "git+https://github.com/Kong/swagger2har.git#8409def1fd72311f44b1d34e669af76226cb4f59",
+    "tachyons-sass": "^4.9.5"
   },
   "devDependencies": {
     "@babel/code-frame": "^7.0.0",
@@ -52,18 +57,28 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "css-loader": "^2.1.1",
+    "buffer": "^6.0.3",
+    "css-loader": "^6.7.2",
     "file-loader": "^4.0.0",
-    "react": "15.6.2",
+    "mini-css-extract-plugin": "^2.7.1",
+    "process": "^0.11.10",
+    "prop-types": "^15.8.1",
+    "querystring-es3": "^0.2.1",
     "react-immutable-proptypes": "2.1.0",
-    "style-loader": "^0.23.1",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
     "uglifyjs-webpack-plugin": "^2.1.3",
+    "url": "^0.11.0",
     "url-loader": "^2.3.0",
-    "webpack": "^4.32.2",
-    "webpack-cli": "^3.3.2"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
   },
   "resolutions": {
-    "react": "15.6.2",
-    "react-dom": "15.6.2"
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "peerDependencies": {
+    "react": "17.0.2"
   }
 }

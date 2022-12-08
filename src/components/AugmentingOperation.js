@@ -1,22 +1,13 @@
-import React from 'react'
-import { escapeDeepLinkPath } from '../helpers/helpers'
+import React from "react"
+import { escapeDeepLinkPath } from "../helpers/helpers"
 
-
+// Loosely based on https://github.com/swagger-api/swagger-ui/blob/master/src/core/components/operation.jsx
 export default class AugmentingOperation extends React.Component {
-
-
   render() {
-    let {
-      response,
-    } = this.props
-    let operationProps = this.props.operation
+    let { response, operation } = this.props
+    const { tag, operationId } = operation.toJS()
 
-    let {
-      tag,
-      operationId
-    } = operationProps.toJS()
-
-    let operation = operationProps.getIn(["op"])
+    let op = operation.getIn(["op"])
     let responses = operation.get("responses")
     let isShownKey = ["operations", tag, operationId]
     let id = escapeDeepLinkPath(isShownKey.join("-"))
@@ -26,6 +17,7 @@ export default class AugmentingOperation extends React.Component {
       response = response.set("notDocumented", notDocumented)
     }
 
+    // TODO: fix me
     const $exampleResponse = window.document.querySelector(`#${id} .responses-table:not(.live-responses-table)` )
 
     if (response && $exampleResponse) {
@@ -35,9 +27,6 @@ export default class AugmentingOperation extends React.Component {
       $exampleResponse.style.display = 'table'
     }
 
-    return (
-      <div className='empty'>
-      </div>
-    )
+    return null
   }
 }

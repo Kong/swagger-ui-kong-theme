@@ -1,0 +1,31 @@
+.filter {
+  --filter-input-color: var(--text_colors-secondary, rgba(0, 0, 0, 0.8));
+  --filter-input-placeholder-color: var(--filter-input-color);
+  --filter-input-border-color: var(--text_colors-stroke, rgba(0, 0, 0, 0.1));
+  --filter-input-border-radius: 4px;
+  --filter-icon-color: var(--text_colors-accent, rgba(0, 0, 0, 0.35));
+}
+
+.input-wrapper {
+  position: relative;
+  margin-right: var(--spacing-lg);
+}
+
+.input {
+  color: var(--filter-input-color);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border: 1px solid var(--filter-input-border-color);
+  border-radius: var(--filter-input-border-radius);
+  line-height: 1;
+}
+
+.input::placeholder {
+  color: var(--filter-input-placeholder-color);
+}
+
+.input-icon {
+  position: absolute;
+  left: var(--spacing-sm);
+  top: var(--spacing-md);
+  color: var(--filter-icon-color);
+}

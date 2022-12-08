@@ -1,0 +1,47 @@
+:host {
+  --spec-info-border-color: var(--section_colors-stroke, rgba(0, 0, 0, 0.1));
+  --spec-info-margin: var(--spacing-xl, 1.5rem) 0;
+  --spec-info-padding: var(--spacing-xl);
+  --spec-info-background-color: var(--section_colors-body, #fff);
+  --spec-info-title-font-size: var(--type-xl);
+  --spec-info-title-font-weight: 300;
+  --spec-info-title-color: var(--text-color);
+}
+
+.spec-detail-section {
+  border-radius: 3px;
+  border: 1px solid var(--spec-info-border-color);
+  margin: var(--spacing-xl, 1.5rem) 0;
+  padding: var(--spec-info-padding);
+  background: var(--spec-info-background-color);
+}
+
+.main {
+  margin: 0 0 1.25rem 0;
+}
+
+.title {
+  font-size: var(--type-xl);
+  font-weight: var(--spec-info-title-font-weight);
+  padding: 0;
+  margin: 0 0 1rem;
+  color: var(--spec-info-title-color);
+}
+
+.title small {
+  font-size: 0.875rem;
+  font-weight: 300;
+  display: inline-block;
+  margin: 0 0 0 var(--spacing-xs);
+  padding: 4px;
+  vertical-align: super;
+  border-radius: 1rem;
+  background: #7d8492;
+}
+
+.title small > pre {
+  margin: 0;
+  padding: 0;
+  font-family: var(--swagger-ui-font-family);
+  color: #fff;
+}

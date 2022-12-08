@@ -1,53 +1,31 @@
-import React from "react"
-import { createHar } from "swagger2har"
-import { CodeSnippetWidget } from 'react-apiembed'
+import React, { Component } from 'react'
+import { createHar } from 'swagger2har'
+// import { CodeSnippetWidget } from 'react-apiembed'
 
-const hashIdx = "_**[]"
-export default class AugmentingResponses extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      overlay: 'on'
-    }
+export default class AugmentingResponses extends Component {
+  state = {
+    overlay: 'on'
   }
 
-  // Duplicate keys are hashed with "[key]_**[][index]"
-  // This helper extracts the key from the hashed key
-  // see extractKey https://github.com/swagger-api/swagger-ui/blob/master/src/core/plugins/request-snippets/fn.js
-  extractKey(hashedKey) {
-    if (hashedKey.indexOf(hashIdx) < 0) {
-      return hashedKey
-    }
-    return hashedKey.split(hashIdx)[0].trim()
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate (nextProps, nextState) {
     // BUG: props.tryItOutResponse is always coming back as a new Immutable instance
-    let render = this.props.tryItOutResponse !== nextProps.tryItOutResponse
-    || this.props.responses !== nextProps.responses
-    || this.props.produces !== nextProps.produces
-    || this.props.producesValue !== nextProps.producesValue
-    || this.props.displayRequestDuration !== nextProps.displayRequestDuration
-    || this.props.path !== nextProps.path
-    || this.props.method !== nextProps.method
-    || this.state.overlay !== nextState.overlay
+    const render = this.props.tryItOutResponse !== nextProps.tryItOutResponse ||
+      this.props.responses !== nextProps.responses ||
+      this.props.produces !== nextProps.produces ||
+      this.props.producesValue !== nextProps.producesValue ||
+      this.props.displayRequestDuration !== nextProps.displayRequestDuration ||
+      this.props.path !== nextProps.path ||
+      this.props.method !== nextProps.method ||
+      this.state.overlay !== nextState.overlay
+
     return render
   }
 
-  handleClose() {
-    this.setState({overlay: ""})
+  handleClose () {
+    this.setState({ overlay: '' })
   }
 
-  handleCloseKeyup(key) {
-    switch (key) {
-      case 'Enter':
-        this.setState({overlay: ""})
-      default:
-        return void 0;
-    }
-  }
-
-  render() {
+  render () {
     const {
       system,
       specSelectors,
@@ -55,25 +33,27 @@ export default class AugmentingResponses extends React.Component {
       method,
       getConfigs
     } = this.props
-
-    const specPathSegments = this.props.specPath.toArray()
-    const isCallback = specPathSegments && specPathSegments.length && specPathSegments[3] === 'callbacks'
-
-    if (isCallback) {
-      return null
-    }
-
     const spec = specSelectors.specJson().toJS()
-    const selectedServer = system.oas3Selectors.selectedServer()
     const scheme = specSelectors.operationScheme() || 'http'
     const host = specSelectors.host() || 'example.com'
     const basePath = specSelectors.basePath() || ''
-
     const mutatedRequest = specSelectors.mutatedRequestFor(path, method)
-    let har = createHar(spec, path, method, selectedServer || `${scheme}://${host}${basePath}`)
+
+    let selectedServer = system.oas3Selectors.selectedServer()
+
+    if (selectedServer) {
+      if (selectedServer.startsWith('/')) {
+        selectedServer = window.location.origin + selectedServer
+      } else if (!selectedServer.startsWith('http://') && !selectedServer.startsWith('https://')) {
+        selectedServer = window.location.origin + window.location.pathname + '/' + selectedServer
+      }
+    }
+
+    const har = createHar(spec, path, method, selectedServer || `${scheme}://${host}${basePath}`)
 
     if (mutatedRequest) {
       let mutatedRequest = specSelectors.mutatedRequestFor(path, method)
+
       mutatedRequest = mutatedRequest.toJS()
 
       // url
@@ -84,51 +64,30 @@ export default class AugmentingResponses extends React.Component {
       if (mutatedRequest.body) {
         har.postData = har.postData || {}
         try {
-          const parsed = typeof mutatedRequest.body === "string" ?
-            JSON.parse(mutatedRequest.body) :
-            mutatedRequest.body
+          const parsed = typeof mutatedRequest.body === 'string'
+            ? JSON.parse(mutatedRequest.body)
+            : mutatedRequest.body
 
-          har.postData.jsonObj = parsed
+          har.postData.jsoObj = parsed
           har.postData.text = JSON.stringify(parsed)
-
-          har.postData.mimeType = mutatedRequest.headers['Content-Type']
-          if (har.postData.mimeType === 'multipart/form-data' && har.postData.jsonObj) {
-            har.postData.params = Object.keys(har.postData.jsonObj).map(hashedKey => {
-              const value = har.postData.jsonObj[hashedKey]
-              const name = this.extractKey(hashedKey)
-              const param = { name }
-
-              if (value instanceof File) {
-                param.fileName = `${value.name};type=${value.type}`
-              } else {
-                param.value = value
-              }
-
-              return param
-            })
-          }
-
-        } catch(e) {
+        } catch (e) {
           // catch probably means xml
-          har.postData.jsonObj = undefined
+          har.postData.jsoObj = undefined
           // TODO fix clean up
           // this is probably bad practice and will screw over people to want new lines in their xml
-          if (typeof mutatedRequest.body === 'string') {
-            har.postData.text = mutatedRequest.body.replace(/\n|\t/g, '')
-          }
+          har.postData.text = mutatedRequest.body.replace(/\n|\t/g, '')
         }
       }
 
       // headers
       har.headers = Object.keys(mutatedRequest.headers).map(headerkey => {
         return {
-          name : headerkey,
+          name: headerkey,
           value: mutatedRequest.headers[headerkey]
         }
       })
 
-      this.setState({overlay: ''})
-
+      this.setState({ overlay: '' })
     } else {
       // for some reason for scheme host basePath urls we sometimes get function header values instead of string
       // CodeSnippets only wants string headers ¯\_(ツ)_/¯
@@ -139,7 +98,7 @@ export default class AugmentingResponses extends React.Component {
       })
 
       // replace '{' '}' delimiters which render escaped in a codesnippet context with ':'
-      har.url = har.url.replace(/{/g, ":").replace(/}/g, "")
+      har.url = har.url.replace(/{/g, ':').replace(/}/g, '')
     }
 
     let languages
@@ -162,7 +121,8 @@ export default class AugmentingResponses extends React.Component {
         {
           prismLanguage: 'python',
           target: 'python'
-        },{
+        },
+        {
           prismLanguage: 'ruby',
           target: 'ruby'
         }
@@ -171,13 +131,13 @@ export default class AugmentingResponses extends React.Component {
 
     return (
       <div className={'code-snippet'}>
-         { !mutatedRequest &&
+        { !mutatedRequest &&
           <div className={`overlay ${this.state.overlay}`}>
-            <span aria-label="close" role="button" className='close' onKeyUp={(e) => handleCloseKeyup(e.key)} onClick={() => this.handleClose()}>x</span>
-            <p>Use 'Try it Out' to see completed code snippet</p>
+            <span className='close' onClick={() => this.handleClose()}>x</span>
+            <h3>Use &apos;Try it Out&apos; to see completed code snippet</h3>
           </div>
-          }
-          <CodeSnippetWidget har={har} snippets={languages}/>
+        }
+        {/*<CodeSnippetWidget har={har} snippets={languages}/>*/}
       </div>
     )
   }

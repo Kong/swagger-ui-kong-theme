@@ -1,0 +1,64 @@
+:host {
+  --layout-container-margin: 0 32px;
+  --scheme-container-background: var(--section_colors-body, #fff);
+  --scheme-container-border-bottom-color: var(--section_colors-stroke, rgba(0, 0, 0, 0.1));
+  --scheme-title-color: var(--text_colors-accent, #07A88D);
+  --scheme-title-font-size: var(--type-xxl, 2rem);
+}
+
+.wrapper {
+  font: 400 16px var(--swagger-ui-font-family);
+}
+
+.container {
+  margin: var(--layout-container-margin);
+}
+
+.scheme-container {
+  display: flex;
+  align-items: center;
+  margin: 0 0 20px;
+  padding: 0;
+  background: var(--scheme-container-background);
+  border-bottom: 1px solid var(--scheme-container-border-bottom-color);
+}
+
+.scheme {
+
+}
+
+.scheme__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.scheme__title {
+  color: var(--scheme-title-color);
+  font-weight: var(--headings-font-weight);
+  font-size: var(--scheme-title-font-size);
+}
+
+.servers-wrapper > div {
+  display: inline-flex;
+  align-items: center;
+}
+
+.servers-wrapper :global .servers-title {
+  font-size: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.buttons-wrapper {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button {
+  margin-left: 1rem;
+  display: inline-flex;
+  justify-content: stretch;
+}

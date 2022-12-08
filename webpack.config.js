@@ -1,55 +1,74 @@
-const hash = require('child_process')
-  .execSync('git rev-parse --short HEAD')
-  .toString().replace(/(\r\n|\n|\r)/gm, '')
+const webpack = require('webpack')
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = {
-  entry: './src/index.js',
-  watch: true,
-  devtool: process.env.DEBUG ? 'eval-source-map' : undefined,
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
-      },
-      { test: /\.(png|jpg|jpeg|gif|svg)$/,
-        use: ['url-loader']
-      },
-      {
-         test: /\.(woff|woff2|eot|ttf|otf)$/,
-         use: [ 'file-loader']
-       }
-    ]
-  },
-  externals: {
-    react: {
-      root: 'React',
-      commonjs2: 'react',
-      commonjs: 'react',
-      amd: 'react'
+module.exports = (env, { mode }) => {
+  const production = mode !== 'development'
+
+  return {
+    target: 'web',
+    entry: './src/index.js',
+    devtool: production ? false : 'eval',
+    module: {
+      rules: [
+        {
+          test: /\.jsx?$/i,
+          exclude: /node_modules/,
+          use: ['babel-loader']
+        },
+        { test: /\.(png|jpe?g|gif|svg)$/i,
+          use: ['url-loader']
+        },
+        {
+          test: /\.s?css$/i,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                modules: {
+                  auto: true,
+                  localIdentName: production ? '[hash:base64:6]' : '[local]--[hash:base64:6]',
+                  exportLocalsConvention: 'camelCase'
+                },
+                importLoaders: 1
+              }
+            },
+            'sass-loader'
+          ]
+        }
+      ]
     },
-    'react-dom': {
-      root: 'ReactDOM',
-      commonjs2: 'react-dom',
-      commonjs: 'react-dom',
-      amd: 'react-dom'
+    plugins: [
+      new webpack.ProvidePlugin({
+        process: 'process/browser'
+      }),
+      new MiniCssExtractPlugin()
+    ],
+    externals: {
+      react: 'react',
+      'react-dom': 'react-dom'
+    },
+    resolve: {
+      extensions: ['.js', '.jsx', '.css', '.scss'],
+      alias: {
+        process: 'process/browser'
+      },
+      fallback: {
+        util: false,
+        buffer: require.resolve('buffer/'),
+        url: require.resolve('url/'),
+        querystring: require.resolve("querystring-es3")
+      }
+    },
+    output: {
+      path: path.join(__dirname, 'dist'),
+      publicPath: '/',
+      library: 'SwaggerUIKongTheme',
+      libraryTarget: 'umd'
+    },
+    devServer: {
+      contentBase: './dist'
     }
-  },
-  resolve: {
-    extensions: ['*', '.js', '.jsx']
-  },
-  output: {
-    path: __dirname + '/../kong-portal-templates/workspaces/default/themes/base/assets/js',
-    publicPath: '/',
-    filename: `swagger-ui-kong-theme-${hash}.${process.env.DEBUG ? 'debug' : 'min'}.js`,
-    library: 'SwaggerUIKongTheme',
-    libraryTarget: 'umd'
-  },
-  devServer: {
-    contentBase: './dist'
-  },
-  optimization: process.env.DEBUG ? {
-    minimize: false
-  } : undefined
+  }
 }

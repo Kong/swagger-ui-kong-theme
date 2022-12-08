@@ -1,0 +1,5 @@
+:host {
+  --swagger-ui-font-family: 'Roboto', sans-serif;
+  --headings-font-weight: 400;
+  --text-color: var(--text_colors-primary, rgba(0, 0, 0, 0.8));
+}

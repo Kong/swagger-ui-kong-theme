@@ -1,0 +1,237 @@
+@at-root :host {
+  --select-font-size: var(--type-md, 1rem);
+  --select-font-weight: 400;
+  --select-border-radius: 4px;
+  --select-border-color: var(--text_colors-stroke, rgba(0, 0, 0, 0.1));
+  --select-padding: 0.625rem var(--spacing-xl, 2rem) 0.625rem var(--spacing-md, 1rem);
+  --select-arrow-color: var(--text_colors-accent, #07A88D);
+}
+
+select {
+  font-size: var(--select-font-size);
+  font-weight: var(--select-font-weight);
+  padding: var(--select-padding);
+  border: 1px solid var(--select-border-color);
+  border-radius: var(--select-border-radius);
+  appearance: none;
+
+  // Custom select arrow icon
+  background-image: linear-gradient(45deg, transparent 50%, var(--select-arrow-color) 50%),
+    linear-gradient(135deg, var(--select-arrow-color) 50%, transparent 50%);
+  background-position: calc(100% - 16px) calc(50% + 1px),
+    calc(100% - 11px) calc(50% + 1px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+
+    &[multiple]
+    {
+        margin: 5px 0;
+        padding: 5px;
+
+        background: $form-select-background-color;
+    }
+
+    &.invalid {
+        @include invalidFormElement();
+    }
+}
+
+.opblock-body select
+{
+    min-width: 230px;
+    @media (max-width: 768px)
+    {
+        min-width: 180px;
+    }
+}
+
+label
+{
+    font-size: 12px;
+    font-weight: bold;
+
+    margin: 0 0 5px 0;
+
+    @include text_headline();
+}
+
+input[type=text],
+input[type=password],
+input[type=search],
+input[type=email],
+input[type=file]
+{
+    @media (max-width: 768px) {
+      max-width: 175px;
+    }
+}
+
+
+input[type=text],
+input[type=password],
+input[type=search],
+input[type=email],
+input[type=file],
+textarea
+{
+    min-width: 100px;
+    margin: 5px 0;
+    padding: 8px 10px;
+
+    border: 1px solid $form-input-border-color;
+    border-radius: 4px;
+    background: $form-input-background-color;
+
+
+    &.invalid
+    {
+        @include invalidFormElement();
+    }
+
+}
+
+input,
+textarea,
+select {
+    &[disabled] {
+        // opacity: 0.85;
+        background-color: #fafafa;
+        color: #888;
+        cursor: not-allowed;
+    }
+}
+
+select[disabled] {
+    border-color: #888;
+}
+
+textarea[disabled] {
+    background-color: #41444e;
+    color: #fff;
+}
+
+@keyframes shake
+{
+    10%,
+    90%
+    {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80%
+    {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70%
+    {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60%
+    {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+textarea
+{
+    font-size: 12px;
+
+    width: 100%;
+    min-height: 280px;
+    padding: 10px;
+
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    background: rgba($form-textarea-background-color,.8);
+
+    @include text_code();
+
+    &:focus
+    {
+        border: 2px solid $form-textarea-focus-border-color;
+    }
+
+    &.curl
+    {
+        font-size: 12px;
+
+        min-height: 100px;
+        margin: 0;
+        padding: 10px;
+
+        resize: none;
+
+        border-radius: 4px;
+        background: $form-textarea-curl-background-color;
+
+        @include text_code($form-textarea-curl-font-color);
+    }
+}
+
+
+.checkbox
+{
+    padding: 5px 0 10px;
+
+    transition: opacity .5s;
+
+    color: $form-checkbox-label-font-color;
+
+    label
+    {
+        display: flex;
+    }
+
+    p
+    {
+        font-weight: normal !important;
+        font-style: italic;
+
+        margin: 0 !important;
+
+        @include text_code();
+    }
+
+    input[type=checkbox]
+    {
+        display: none;
+
+        & + label > .item
+        {
+            position: relative;
+            top: 3px;
+
+            display: inline-block;
+
+            width: 16px;
+            height: 16px;
+            margin: 0 8px 0 0;
+            padding: 5px;
+
+            cursor: pointer;
+
+            border-radius: 1px;
+            background: $form-checkbox-background-color;
+            box-shadow: 0 0 0 2px $form-checkbox-box-shadow-color;
+
+            flex: none;
+
+            &:active
+            {
+                transform: scale(.9);
+            }
+        }
+
+        &:checked + label > .item
+        {
+            background: $form-checkbox-background-color url('data:image/svg+xml, <svg width="10px" height="8px" viewBox="3 7 10 8" version="1.1" xmlns="http://www.w3.org/2000/svg"><polygon id="Rectangle-34" stroke="none" fill="#41474E" fill-rule="evenodd" points="6.33333333 15 3 11.6666667 4.33333333 10.3333333 6.33333333 12.3333333 11.6666667 7 13 8.33333333"></polygon></svg>') center center no-repeat;
+        }
+    }
+}

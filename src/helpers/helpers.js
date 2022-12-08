@@ -72,6 +72,24 @@ export function idFromPathMethod(pathName, method, { v2OperationIdCompatibilityM
   return `${toLower(method)}${escapeString(pathName)}`
 }
 
+// This function is being used to fix an issue where anchor links aren't scrolling
+// far enough, cutting off the anchor from the viewport.
+export function overrideScrollPositionForSelector (selectorString) {
+  document.querySelectorAll(selectorString).forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault()
+      e.stopPropagation()
+      const destination = document.getElementById(this.getAttribute('href').slice(1))
+      if (!destination) {
+        return
+      }
+
+      window.scrollTo({ top: destination.offsetTop - destination.getBoundingClientRect().height, behavior: 'smooth' })
+      window.history.pushState(null, null, `${this.getAttribute('href')}`)
+    })
+  })
+}
+
 // suitable for use in URL fragments
 export const createDeepLinkPath = (str) => typeof str == "string" || str instanceof String ? str.trim().replace(/\s/g, "%20") : ""
 // suitable for use in CSS classes and ids
