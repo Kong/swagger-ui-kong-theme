@@ -322,8 +322,6 @@ export function deeplyStripKey(input, keyToStrip, predicate = () => true) {
     }
   }
 
-  console.log(obj)
-
   Object.keys(obj).forEach(k => {
     if(k === keyToStrip && predicate(obj[k], k)) {
       delete obj[k]
