@@ -314,7 +314,13 @@ export function deeplyStripKey(input, keyToStrip, predicate = () => true) {
     return input
   }
 
-  const obj = Object.assign({}, input)
+  const obj = {}
+
+  for (const key of Object.keys(input)) {
+    if (input.hasOwnProperty(key)) {
+      obj[key] = input[key]
+    }
+  }
 
   Object.keys(obj).forEach(k => {
     if(k === keyToStrip && predicate(obj[k], k)) {
