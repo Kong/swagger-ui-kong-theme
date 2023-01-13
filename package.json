@@ -33,7 +33,7 @@
     ]
   },
   "dependencies": {
-    "@braintree/sanitize-url": "^2.0.2",
+    "@braintree/sanitize-url": "^6.0.0",
     "@kyleshockey/xml": "^1.0.2",
     "curl-to-har": "^1.0.1",
     "focus-trap-react": "^10.0.0",
