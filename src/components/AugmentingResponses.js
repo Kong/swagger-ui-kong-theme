@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { createHar } from 'swagger2har'
-// import { CodeSnippetWidget } from 'react-apiembed'
+import { CodeSnippetWidget } from 'react-apiembed'
 
 export default class AugmentingResponses extends Component {
   state = {
@@ -137,7 +137,7 @@ export default class AugmentingResponses extends Component {
             <h3>Use &apos;Try it Out&apos; to see completed code snippet</h3>
           </div>
         }
-        {/*<CodeSnippetWidget har={har} snippets={languages}/>*/}
+        <CodeSnippetWidget har={har} snippets={languages}/>
       </div>
     )
   }

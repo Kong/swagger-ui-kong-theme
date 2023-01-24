@@ -47,7 +47,8 @@
     "react-apiembed": "0.1.8",
     "react-debounce-input": "^3.2.0",
     "swagger2har": "git+https://github.com/Kong/swagger2har.git#8409def1fd72311f44b1d34e669af76226cb4f59",
-    "tachyons-sass": "^4.9.5"
+    "tachyons-sass": "^4.9.5",
+    "util": "^0.12.5"
   },
   "devDependencies": {
     "@babel/code-frame": "^7.0.0",
