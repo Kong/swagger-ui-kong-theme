@@ -1,5 +1,5 @@
 {
-  "name": "@kong/swagger-ui-kong-theme",
+  "name": "@kong/swagger-ui-kong-theme-universal",
   "version": "4.0.0",
   "description": "SwaggerUI theme for Kong Portal and Konnect Portal",
   "main": "dist/main.js",
