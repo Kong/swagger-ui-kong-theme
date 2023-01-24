@@ -55,7 +55,7 @@ module.exports = (env, { mode }) => {
         process: 'process/browser'
       },
       fallback: {
-        util: false,
+        util: require.resolve("util/"),
         buffer: require.resolve('buffer/'),
         url: require.resolve('url/'),
         querystring: require.resolve("querystring-es3")
