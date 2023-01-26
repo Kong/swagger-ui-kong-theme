@@ -9,10 +9,6 @@
 }
 
 .spec-detail-section {
-  border-radius: 3px;
-  border: 1px solid var(--spec-info-border-color);
-  margin: var(--spacing-xl, 1.5rem) 0;
-  padding: var(--spec-info-padding);
   background: var(--spec-info-background-color);
 }
 

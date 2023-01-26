@@ -113,8 +113,6 @@ export default class KongLayout extends React.Component {
     const VersionPragmaFilter = getComponent('VersionPragmaFilter')
     const Operations = getComponent('operations', true)
     const Models = getComponent('Models', true)
-    const Row = getComponent("Row")
-    const Col = getComponent('Col')
     const Errors = getComponent('errors', true)
 
     const info = specSelectors.info()
@@ -132,8 +130,6 @@ export default class KongLayout extends React.Component {
     let loadingMessage = null
 
     const config = getConfigs()
-
-    const title = config.theme && config.theme.serviceName || info.get('title')
 
     const versionDeprecated = config.versionDeprecated
 
@@ -190,11 +186,10 @@ export default class KongLayout extends React.Component {
     const hasSchemes = schemes && schemes.size
     const hasSecurityDefinitions = !!specSelectors.securityDefinitions()
     const hasSpec = !!specSelectors.specStr() && specSelectors.spec().get('statusCode') !== 404
-    const hasServiceVersions = serviceVersions && Array.isArray(serviceVersions) && serviceVersions.length
 
     const actionBarItems = [
       hasServers && <div className={styles.serversWrapper}><ServersContainer key="servers" /></div>,
-      hasSchemes && <div key="schemas" className="schemes-dropdown"><SchemesContainer /></div>,
+      hasSchemes && <div key="schemas" className={styles.schemesWrapper}><SchemesContainer /></div>,
       <div key="buttons" className={styles.buttonsWrapper}>
         {hasSpec && (
           <div className={styles.button}>
@@ -220,30 +215,12 @@ export default class KongLayout extends React.Component {
       <div className={classNames(styles.wrapper, 'container mx-auto max-w-screen-2xl breadcrumb-margin')}>
         <div className={'px-6 swagger-ui ' + (hasSidebar && 'has-sidebar')}>
           <div className={styles.schemeContainer}>
-            <Col className="schemes wrapper align-items-center px-0 flex-col" mobile={12}>
-              <div className={styles.schemeHeader}>
-                <h1 className={styles.schemeTitle}>{title}</h1>
-                {hasServiceVersions ? (
-                  <div className="version-select">
-                    <select
-                      className="truncate k-input"
-                      defaultValue={defaultServiceVersionId}
-                      onChange={this.handleOnSelectSpec}
-                    >
-                      {serviceVersions.map((v) =>
-                        <option key={v.id} value={v.id}>{v.dropdownLabel}</option>
-                      )}
-                    </select>
-                  </div>
-                ) : (
-                  'No published versions'
-                )}
-              </div>
+            <div className="schemes wrapper align-items-center px-0 flex-col">
               {versionDeprecated ? <p className="deprecated-alert w-full mt-1 mb-3">{deprecatedCopy}</p> : null}
               <div className={`actions d-flex ${actionBarJustification} align-items-center w-full mt-3 mb-3`}>
                 {actionBarItems}
               </div>
-            </Col>
+            </div>
           </div>
         </div>
         {hasSidebar && <Sidebar getConfigs={getConfigs} />}
