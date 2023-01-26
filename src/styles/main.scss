@@ -666,7 +666,6 @@
 }
 
 .swagger-ui .parameters .parameters-col_name {
-  text-align: right;
   padding-right: 32px;
 }
 
@@ -786,10 +785,8 @@
 .swagger-ui .opblock-body .responses-table .response-col_status {
   background-color: var(--section_colors-accent);
   display: flex;
-  justify-content: center;
   align-items: center;
   max-width: unset;
-  text-align: center;
   border-radius: 4px 0 0 4px;
   font-family: monospace;
   font-weight: bold;
@@ -801,7 +798,6 @@
 
 .swagger-ui .opblock-body .live-responses-table .response-col_status {
   display: flex;
-  text-align: center;
   padding-left: 30px;
 }
 
@@ -1001,25 +997,6 @@
   display: flex;
   flex-direction: column;
   background-color: var(--section_colors-body);
-}
-
-@media (min-width: 1000px) {
-  /* we ie does not support implicet grids so we have to work around
-      it also does not support grid-gaps so we use a extra col instead */
-  .swagger-ui .opblock-body {
-    display: grid;
-    grid-column-gap: 64px;
-    grid-template-columns: 45% 55%;
-    grid-auto-rows: min-content;
-    display: -ms-grid;
-    -ms-grid-columns: 45% 64px 55%;
-    -ms-grid-rows: min-content min-content min-content min-content min-content;
-  }
-
-  .swagger-ui .right-side-wrapper {
-    /* 64 pixes to compensate for grid col gap */
-    margin-right: 64px;
-  }
 }
 
 .swagger-ui .opblock-body .btn-group {
