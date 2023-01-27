@@ -85,12 +85,6 @@
       fill: $btn-authorize-svg-fill-color;
     }
   }
-
-  &.execute {
-    background-color: $btn-execute-background-color-alt;
-    color: $btn-execute-font-color;
-    border-color: $btn-execute-border-color;
-  }
 }
 
 .btn-group {
@@ -98,7 +92,6 @@
   padding: 30px;
 
   .btn {
-    flex: 1;
     transition: unset;
 
     &:last-of-type {

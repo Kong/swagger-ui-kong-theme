@@ -526,6 +526,10 @@
   color: inherit;
 }
 
+.swagger-ui .opblock .opblock-section-header .try-out {
+  justify-content: flex-end;
+}
+
 .swagger-ui .opblock .opblock-section-header .try-out .btn {
   @extend .k-button;
   color: var(--text_colors-secondary);
@@ -1007,10 +1011,9 @@
 }
 
 .swagger-ui .opblock-body .execute-wrapper {
-  -ms-grid-row: 3;
   grid-column-start: 1;
   -ms-grid-column: 1;
-  padding-top: 16px;
+  padding-top: var(--spacing-sm, 12px);
   padding-right: 0;
 }
 

@@ -28,7 +28,7 @@ const SwaggerUIKongTheme = () => {
       responses: (Original, system) => (props) => {
         return (
           <div className="right-side-wrapper">
-            <AugmentingResponses {...props} system={system} />
+            {props.tryItOutResponse && <AugmentingResponses {...props} system={system} />}
             <Original { ...props} />
           </div>
         )
