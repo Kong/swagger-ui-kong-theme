@@ -43,14 +43,22 @@ $color-danger: #f00 !default;
 
 $color-primary-hover: lighten($color-primary, .5%) !default;
 
-$_color-post: #49cc90 !default;
-$_color-get: #61affe !default;
-$_color-put: #fca130 !default;
-$_color-delete: #f93e3e !default;
-$_color-head: #9012fe !default;
-$_color-patch: #50e3c2 !default;
-$_color-disabled: #ebebeb !default;
-$_color-options: #0d5aa7 !default;
+$_color-post: var(--green-100, #e8f8f5) !default;
+$_font-color-post: var(--green-700, #13755e) !default;
+$_color-get: var(--petrol-100, #f2f6fe) !default;
+$_font-color-get: var(--petrol-200, #0364ac) !default;
+$_color-put: var(--yellow-100, #fff3d8) !default;
+$_font-color-put: var(--yellow-600, #a05604) !default;
+$_color-delete: var(--red-100, #ffdede) !default;
+$_font-color-delete: var(--red-700, #922021) !default;
+$_color-head: var(--yellow-200, #ffe6ba) !default;
+$_font-color-head: var(--yellow-600, #a05604) !default;
+$_color-patch: var(--teal-100, #cdf1fe) !default;
+$_font-color-patch: var(--teal-500, #006e9d) !default;
+$_color-disabled: var(--grey-200, #f1f1f5) !default;
+$_font-color-disabled: var(--steel-700, #273c61) !default;
+$_color-options: var(--steel-200, #dae3f2) !default;
+$_font-color-options: var(--steel-700, #273c61) !default;
 
 // Authorize
 
@@ -77,7 +85,7 @@ $btn-execute-border-color: $color-info !default;
 $btn-execute-font-color: $white !default;
 $btn-execute-background-color-alt: $color-info !default;
 
-$expand-methods-svg-fill-color: $gray-500 !default;
+$expand-methods-svg-fill-color: var(--grey-600, #3c4557) !default;
 $expand-methods-svg-fill-color-hover: $gray-800 !default;
 
 // Errors
@@ -135,7 +143,6 @@ $opblock-isopen-section-header-box-shadow-color: $black !default;
 
 $opblock-summary-method-background-color: $black !default;
 $opblock-summary-method-font-color: $white !default;
-$opblock-summary-method-text-shadow-color: $black !default;
 
 $operational-filter-input-border-color: $geyser-blue !default;
 
