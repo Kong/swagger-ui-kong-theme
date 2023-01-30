@@ -4406,10 +4406,10 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
-swagger2har@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/swagger2har/-/swagger2har-1.0.3.tgz#98ad00c5430fcd52c3bd3af32b9a734fd6f0f5c3"
-  integrity sha512-5lJZ0GW65ea5i1IpsBpOySHP2AZhHNo4I6vzwJFRsxNV5kEzYj454R47UKf16x7x7vSTyVHZidy1UuNBF50ReQ==
+swagger2har@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/swagger2har/-/swagger2har-1.0.4.tgz#c98fd2b787283fff34b56c2ecd05e817a046b65a"
+  integrity sha512-y/X0XQfJ9a92lB1YOePWQzoyKm3eN/K9jWlKg8ZRfr4ADhZNwoAE45HvaMRYnp+I6YgwV97FbraZT5tw3THfjA==
   dependencies:
     json-schema-instantiator "0.4.4"
     rollup-plugin-babel "^4.4.0"
