@@ -133,9 +133,10 @@
 }
 
 .swagger-ui .auth-btn-wrapper {
-  justify-content: start;
+  justify-content: space-between;
   margin-top: 1rem;
-
+  padding: 10px 20px 10px 0;
+  
   button {
     box-shadow: none;
   }
