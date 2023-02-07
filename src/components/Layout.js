@@ -31,7 +31,7 @@ class RegisterBtnContainer extends React.Component {
 
     return (
       <div className="inline register-wrapper">
-        <button data-testid="register-button" className="k-button primary ml-5" onClick={() => this.handleRegisterClick()}>
+        <button data-testid="register-button" className="btn primary" onClick={() => this.handleRegisterClick()}>
           {currentVersion.version ? `Register for ${currentVersion.version}` : 'Register'}
         </button>
       </div>
