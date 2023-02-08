@@ -1,11 +1,12 @@
 {
   "name": "@kong/swagger-ui-kong-theme-universal",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "SwaggerUI theme for Kong Portal and Konnect Portal",
   "main": "dist/main.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack --mode development --watch"
+    "dev": "webpack --mode development --watch",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
