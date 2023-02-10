@@ -398,6 +398,7 @@
   }
 
   p {
+    line-height: 1.4;
     color: var(--text_colors-primary);
   }
 }
@@ -454,6 +455,7 @@
 
 .swagger-ui .markdown code,
 .swagger-ui .renderedMarkdown code {
+  padding: 4px 6px;
   color: var(--text_colors-headings);
   background-color: var(--section_colors-accent);
 }
@@ -791,9 +793,9 @@
   border-radius: 4px 0 0 4px;
   font-family: monospace;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
   /* this padding is not perfect, less than a pixel of alignment from right side */
-  padding: 9px 0;
+  padding: 10px;
   color: var(--text_colors-primary);
 }
 
