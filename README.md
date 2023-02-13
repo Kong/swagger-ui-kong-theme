@@ -71,7 +71,7 @@ run to install required packages
 ``` yarn ```
 
 run to build
-``` npm run build ```
+``` yarn build ```
 
 
 ## How to use Demo
