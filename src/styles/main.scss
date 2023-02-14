@@ -563,6 +563,7 @@
   color: var(--text_colors-headings);
   font-size: var(--type-xl);
   font-weight: 600;
+  text-transform: capitalize;
 }
 
 .swagger-ui .opblock-tag small {
