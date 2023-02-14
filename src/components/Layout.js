@@ -230,23 +230,14 @@ export default class KongLayout extends React.Component {
 
           {!hasSpec ? (
             <div className={styles.container}>
-              <div className="info">
-                {serviceDoc &&
-                  <div
-                    className='service-package-markdown markdown-body'
-                    dangerouslySetInnerHTML={{ __html: serviceDoc }}>
-                  </div>
-                }
-              </div>
-
               <div
                 data-testid="spec-error-state"
-                className="mt-7 text-center">
-                <div className="d-flex justify-content-center mb-5">
+                className={styles.errorContainer}>
+                <div>
                   <ErrorSVG />
                 </div>
-                <p className="text-center color-text_colors-primary mb-2">No version spec found</p>
-                <p className="text-center">
+                <p>No version spec found</p>
+                <p>
                   <a
                     href="/"
                     data-testid="spec-error-catalog-link"
