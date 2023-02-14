@@ -19,6 +19,13 @@
   margin: var(--layout-container-margin);
 }
 
+.error-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--spacing-xxl, 48px);
+}
+
 .scheme-container {
   display: flex;
   align-items: center;

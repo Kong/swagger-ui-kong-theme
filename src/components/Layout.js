@@ -131,14 +131,8 @@ export default class KongLayout extends React.Component {
 
     const config = getConfigs()
 
-    const versionDeprecated = config.versionDeprecated
-
     const {
-      serviceDoc,
       hasSidebar,
-      defaultServiceVersionId,
-      deprecatedCopy,
-      serviceVersions,
       applicationRegistrationEnabled
     } = config.theme || {}
 
@@ -216,7 +210,6 @@ export default class KongLayout extends React.Component {
         <div className={'px-6 swagger-ui ' + (hasSidebar && 'has-sidebar')}>
           <div className={styles.schemeContainer}>
             <div className="schemes wrapper align-items-center px-0 flex-col">
-              {versionDeprecated ? <p className="deprecated-alert w-full mt-1 mb-3">{deprecatedCopy}</p> : null}
               <div className={`actions d-flex ${actionBarJustification} align-items-center w-full mt-3 mb-3`}>
                 {actionBarItems}
               </div>
@@ -230,23 +223,14 @@ export default class KongLayout extends React.Component {
 
           {!hasSpec ? (
             <div className={styles.container}>
-              <div className="info">
-                {serviceDoc &&
-                  <div
-                    className='service-package-markdown markdown-body'
-                    dangerouslySetInnerHTML={{ __html: serviceDoc }}>
-                  </div>
-                }
-              </div>
-
               <div
                 data-testid="spec-error-state"
-                className="mt-7 text-center">
-                <div className="d-flex justify-content-center mb-5">
+                className={styles.errorContainer}>
+                <div>
                   <ErrorSVG />
                 </div>
-                <p className="text-center color-text_colors-primary mb-2">No version spec found</p>
-                <p className="text-center">
+                <p>No version spec found</p>
+                <p>
                   <a
                     href="/"
                     data-testid="spec-error-catalog-link"
