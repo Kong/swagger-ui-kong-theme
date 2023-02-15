@@ -21,6 +21,32 @@ class RegisterBtnContainer extends React.Component {
 
 // Create the layout component
 export default class KongLayout extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.mainContainerRef = null
+    this.originalDocumentTitle = null
+  }
+
+  initializeComponent = (component) => {
+    this.mainContainerRef = component
+  }
+
+  componentDidMount() {
+    this.originalDocumentTitle = document.title
+  }
+
+  componentDidUpdate() {
+    // Find if there's any invalid parameters
+    const hasInvalidParameters = this.mainContainerRef?.querySelector('.error-parameter-name')
+
+    if (hasInvalidParameters) {
+      document.title = `Error - ${this.originalDocumentTitle}`
+    } else {
+      document.title = this.originalDocumentTitle
+    }
+  }
+
   render() {
     const {
       errSelectors,
@@ -125,7 +151,7 @@ export default class KongLayout extends React.Component {
             </div>
 
             <Errors />
-            <div className="main-container">
+            <div className="main-container" ref={this.initializeComponent}>
               <InfoContainer />
               <Operations />
               <Models />
