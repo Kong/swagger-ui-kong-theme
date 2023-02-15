@@ -11,6 +11,7 @@ import Models from './components/Models'
 import ModelCollapse from './components/ModelCollapse'
 import OperationTag from './components/OperationTag'
 import FilterContainer from './containers/Filter'
+import Parameters from './components/Parameters'
 import Operations from './components/Operations'
 import DeepLink from './components/DeepLink'
 import OperationSummaryPath from './components/OperationSummaryPath'
@@ -24,6 +25,8 @@ import AuthorizationPopup from './components/auth/authorization-popup'
 import AuthorizeBtn from './components/auth/authorize-btn'
 import AuthorizeOperationBtn from './components/auth/authorize-operation-btn'
 import Collapse from './components/Collapse'
+import Responses from './components/Responses'
+import LiveResponse from './components/LiveResponse'
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = (system) => {
@@ -78,6 +81,8 @@ const SwaggerUIKongTheme = (system) => {
       operation: Operation,
       OperationSummaryPath,
       DeepLink,
+      parameters: Parameters,
+      liveResponse: LiveResponse,
       FilterContainer: FilterContainer,
       operations: Operations,
       modelExample: ModelExample,
@@ -102,11 +107,11 @@ const SwaggerUIKongTheme = (system) => {
           <AuthorizationPopup {...props} system={system} />
         )
       },
-      responses: (Original, system) => (props) => {
+      responses: (_Original, system) => (props) => {
         return (
           <div className="right-side-wrapper">
             <AugmentingResponses {...props} system={system} />
-            <Original { ...props} />
+            <Responses { ...props} />
           </div>
         )
       },
