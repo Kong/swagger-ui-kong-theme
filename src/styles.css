@@ -729,8 +729,12 @@
   width: 13em;
 }
 
-.swagger-ui .parameters thead {
-  display: none;
+.swagger-ui .parameters thead .parameters-col_description {
+  width: unset;
+}
+
+.swagger-ui .parameters thead .col_header {
+  border-bottom: 1px solid #E6E6E6;
 }
 
 .swagger-ui .parameters .parameters-col_name {
