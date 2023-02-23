@@ -1303,6 +1303,16 @@
   }
 }
 
+.swagger-ui .model-box-control .model-toggle {
+  position: unset;
+}
+
+.swagger-ui .models .model-box .model-box-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .swagger-ui .model-toggle:after {
   // swagger-ui uses a `background: url(svg)` here
   // however background images do not support color styling, so instead we are using a mask
@@ -1312,7 +1322,18 @@
   mask-repeat: no-repeat;
   -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E");
   -webkit-mask-repeat: no-repeat;
-  background-color: var(--text_colors-accent);
+  background-color: var(--text_colors-accent, #3c4557);
+  width: 24px;
+  height: 24px;
+}
+
+.swagger-ui section.models .model-box {
+  padding-right: 0;
+}
+
+.swagger-ui .model-container table.model {
+  border-collapse: separate;
+  border-spacing: 0 var(--spacing-xxs, 4px);
 }
 
 /*******************************************************************************
