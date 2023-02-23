@@ -1317,6 +1317,11 @@
   // swagger-ui uses a `background: url(svg)` here
   // however background images do not support color styling, so instead we are using a mask
   // the background needs to be unset first
+  background: unset;
+  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
   background-color: var(--text_colors-accent, #3c4557);
   width: 24px;
   height: 24px;
