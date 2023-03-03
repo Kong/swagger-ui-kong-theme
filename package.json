@@ -1,6 +1,6 @@
 {
   "name": "@kong/swagger-ui-kong-theme-universal",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "description": "SwaggerUI theme for Kong Portal and Konnect Portal",
   "main": "dist/main.js",
   "scripts": {
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@braintree/sanitize-url": "^2.0.2",
-    "@kongponents/styles": "^7.2.2",
+    "@kong/kongponents": "^8.32.0",
     "@kyleshockey/xml": "^1.0.2",
     "classnames": "^2.3.2",
     "curl-to-har": "^1.0.1",
