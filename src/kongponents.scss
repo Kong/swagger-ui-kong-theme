@@ -1,25 +1,19 @@
-@import "~@kongponents/styles/_variables.scss";
-@import "~@kongponents/styles/forms/_forms.scss";
-@import "~@kongponents/styles/_utils.scss";
+@use "sass:meta";
+@use "sass:map";
+
+// Import Kongponents Sass variables (path may vary)
+@import "~@kong/kongponents/dist/_variables.scss";
 
 :host {
-  // colors
-  @each $name, $color in $colors {
-    // add empty string so dart-sass will properly interpret class name from variable
-    --#{"" + $name}: #{$color};
-  }
-  // Spacings
-  @each $name, $space in $spacing {
-    --spacing-#{$name}: #{$space};
-  }
-  // Type
-  @each $name, $size in $type-sizes {
-    --type-#{$name}: #{$size};
-  }
+  // Include Kongponents CSS Variables mixin from the import above
+  @include kongponents-css-variables;
+
+  // Import Kongponents styles (path may vary)
+  @include meta.load-css("../node_modules/@kong/kongponents/dist/style.css");
 }
 
 @mixin boxShadow($color, $whiteShadowSpred: 2px, $colorShadowSpread: 4px) {
-  box-shadow: 0 0 0 $whiteShadowSpred var(--white, color(white)), 0 0 0 $colorShadowSpread $color;
+  box-shadow: 0 0 0 $whiteShadowSpred var(--white, map.get($colors, 'white')), 0 0 0 $colorShadowSpread $color;
 }
 
 .k-button {
@@ -33,7 +27,7 @@
   line-height: 1.25;
   text-decoration: none;
   vertical-align: middle;
-  color: var(--black-70, color(black-70));
+  color: var(--black-70, map.get($colors,"black-70"));
   border: 1px solid transparent;
   border-radius: var(--KButtonRadius, 3px);
   transition: all .2s ease-in-out;
@@ -117,17 +111,17 @@
   }
   &.primary {
     color: var(--button_colors-primary-text, #fff);
-    background-color: var(--KButtonPrimaryBase, var(--blue-500, color(blue-500)));
+    background-color: var(--KButtonPrimaryBase, var(--blue-500, map.get($colors, 'blue-500')));
     &:hover:not(:disabled) {
       opacity: 0.85;
       background-color: var(--KButtonPrimaryHover, var(--blue-600));
     }
     &:active {
       opacity: 0.5;
-      background-color: var(--KButtonPrimaryActive, var(--blue-600, color(blue-600)));
+      background-color: var(--KButtonPrimaryActive, var(--blue-600, map.get($colors, 'blue-600')));
     }
     &:focus {
-      @include boxShadow(var(--KButtonPrimaryBase, var(--blue-500, color(blue-500))));
+      @include boxShadow(var(--KButtonPrimaryBase, var(--blue-500, map.get($colors, 'blue-500'))));
     }
     &:disabled,
     &[disabled] {
@@ -137,16 +131,16 @@
   }
   &.danger {
     color: var(--white, #fff);
-    background-color: var(--KButtonDangerBase, var(--red-500, color(red-500)));
+    background-color: var(--KButtonDangerBase, var(--red-500, map.get($colors, 'red-500')));
     &:hover:not(:disabled) {
-      $hover: rgba(color(red-700), .85);
+      $hover: rgba(map.get($colors, 'red-700'), .85);
       background-color: var(--KButtonDangerHover, $hover);
     }
     &:active {
-      background-color: var(--KButtonDangerActive, var(--red-700, color(red-700)));
+      background-color: var(--KButtonDangerActive, var(--red-700, map.get($colors, 'red-700')));
     }
     &:focus {
-      @include boxShadow(var(--KButtonDangerBase, var(--red-700, color(red-700))));
+      @include boxShadow(var(--KButtonDangerBase, var(--red-700, map.get($colors, 'red-700'))));
     }
     &:disabled,
     &[disabled] {
@@ -156,16 +150,16 @@
   }
   &.creation {
     color: var(--white, #fff);
-    background-color: var(--KButtonCreationBase, var(--green-500, color(green-500)));
+    background-color: var(--KButtonCreationBase, var(--green-500, map.get($colors, 'green-500')));
     &:hover:not(:disabled) {
-      $hover: rgba(color(green-600), .85);
+      $hover: rgba(map.get($colors, 'green-600'), .85);
       background-color: var(--KButtonCreationHover, $hover);
     }
     &:active {
-      background-color: var(--KButtonCreationActive, var(--green-600, color(green-600)));
+      background-color: var(--KButtonCreationActive, var(--green-600, map.get($colors, 'green-600')));
     }
     &:focus {
-      @include boxShadow(var(--KButtonCreationBase, var(--green-600, color(green-600))));
+      @include boxShadow(var(--KButtonCreationBase, var(--green-600, map.get($colors, 'green-600'))));
     }
     &:disabled,
     &[disabled] {
@@ -174,18 +168,18 @@
     }
   }
   &.outline {
-    color: var(--KButtonOutlineColor, var(--blue-500, color(blue-500)));
-    border-color: var(--KButtonOutlineBorder, rgba(color(blue-500), .4));
-    background-color: var(--white, color(white));
+    color: var(--KButtonOutlineColor, var(--blue-500, map.get($colors, 'blue-500')));
+    border-color: var(--KButtonOutlineBorder, rgba(map.get($colors, 'blue-500'), .4));
+    background-color: var(--white, map.get($colors, 'white'));
     &:hover:not(:disabled) {
-      border-color: var(--KButtonOutlineHoverBorder, rgba(color(blue-500), 1));
+      border-color: var(--KButtonOutlineHoverBorder, rgba(map.get($colors, 'blue-500'), 1));
     }
     &:active {
-      border-color: var(--KButtonOutlineActiveBorder, rgba(color(blue-500), 1));
-      background-color: var(--KButtonOutlineActive, var(--blue-100, color(blue-100)));
+      border-color: var(--KButtonOutlineActiveBorder, rgba(map.get($colors, 'blue-500'), 1));
+      background-color: var(--KButtonOutlineActive, var(--blue-100, map.get($colors, 'blue-100')));
     }
     &:focus {
-      @include boxShadow(var(--KButtonOutlineBorder, var(--blue-500, color(blue-500))));
+      @include boxShadow(var(--KButtonOutlineBorder, var(--blue-500, map.get($colors, 'blue-500'))));
     }
     &:disabled,
     &[disabled] {
@@ -194,13 +188,13 @@
     }
   }
   &.btn-link {
-    color: var(--KButtonBtnLink, var(--blue-500, color(blue-500)));
+    color: var(--KButtonBtnLink, var(--blue-500, map.get($colors, 'blue-500')));
     background-color: transparent;
     &:hover:not(:disabled) {
       text-decoration: underline;
     }
     &:focus {
-      @include boxShadow(var(--blue-500, color(blue-500)), 0, 2px);
+      @include boxShadow(var(--blue-500, map.get($colors, 'blue-500')), 0, 2px);
     }
     &:disabled,
     &[disabled] {
