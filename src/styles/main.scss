@@ -506,7 +506,7 @@
   font-weight: 600;
   font-size: var(--type-md);
   padding-bottom: var(--spacing-lg);
-  border-bottom: 2px solid var(--black-10);
+  border-bottom: 2px solid var(--section_colors-stroke, var(--black-10, rgba(0, 0, 0, 0.1)));
   margin-top: var(--spacing-md);
 }
 
@@ -724,7 +724,6 @@
   font-size: 13px;
   font-weight: normal;
   color: var(--text_colors-secondary);
-  opacity: 0.45;
 }
 
 .swagger-ui .parameters .parameters-col_name .prop-format {
