@@ -1,5 +1,5 @@
 @at-root :host {
-  --models-border-color: var(--grey-300, #e7e7ec);
+  --models-border-color: var(--section_colors-stroke, var(--grey-300, #e7e7ec));
   --models-icon-color: var(--text_colors-accent, #3c4557);
 }
 
@@ -173,6 +173,7 @@ section.models {
 
   &>h4 {
     border-bottom: 1px solid var(--models-border-color);
+    color: var(--text_colors-primary, #3b4151);
     font-family: var(--swagger-ui-font-family);
     font-weight: 400;
     font-size: 1rem;
@@ -196,11 +197,7 @@ section.models {
     position: relative;
     transition: all .5s;
     border-radius: 4px;
-    background: rgba($section-models-model-container-background-color, .05);
-
-    &:hover {
-      background: rgba($section-models-model-container-background-color, .07);
-    }
+    background: var(--section_colors-accent, rgba($section-models-model-container-background-color, .05));
 
     &:first-of-type {
       margin: 20px;
