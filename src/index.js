@@ -14,6 +14,7 @@ import './styles/main.scss'
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = () => {
+  console.log('linked')
   return {
     components: {
       curl: () => null,
