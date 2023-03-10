@@ -760,16 +760,24 @@ section {
   }
 }
 
-a.nostyle {
-  text-decoration: inherit;
-  color: inherit;
-  cursor: pointer;
-  display: inline;
-
-  &:visited {
+a {
+  &.nostyle {
     text-decoration: inherit;
     color: inherit;
     cursor: pointer;
+    display: inline;
+  
+    &:visited {
+      text-decoration: inherit;
+      color: inherit;
+      cursor: pointer;
+    }
+  }
+
+  &.link {
+    &:visited {
+      color: var(--text_colors-link, -webkit-link);
+    }
   }
 }
 

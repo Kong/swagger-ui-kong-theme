@@ -56,10 +56,11 @@
   .base-url {
     font-size: 12px;
     font-weight: 300 !important;
-
     margin: 0;
 
     @include text_code();
+
+    color: var(--text_colors-secondary, #3b4151);
   }
 
   .title {

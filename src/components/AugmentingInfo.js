@@ -94,11 +94,11 @@ export default class Info extends Component {
 
         <div className={styles.specDetailSection}>
           <hgroup className={styles.main}>
-            <div>
+            <div className={styles.titleWrapper}>
               <h2 className={styles.title}>
                 { title }
-                { version && <VersionStamp version={version}></VersionStamp> }
               </h2>
+              { version && <VersionStamp version={version}></VersionStamp> }
             </div>
             { host || basePath ? <Path host={ host } basePath={ basePath } /> : null }
             { url && <a target="_blank" rel="noreferrer" href={ sanitizeUrl(url) }><span className="url"> { url } </span></a> }
