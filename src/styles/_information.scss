@@ -40,13 +40,9 @@
   a {
     font-size: 14px;
 
-    transition: all .4s;
-
     @include text_body($info-link-font-color);
 
-    &:hover {
-      color: darken($info-link-font-color-hover, 15%);
-    }
+    color: var(--text_colors-link, #4990e2);
   }
 
   > div {
