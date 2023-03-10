@@ -43,7 +43,7 @@
 
     @include text_body($info-link-font-color);
 
-    color: var(--text_colors-secondary, #4990e2);
+    color: var(--text_colors-link, #4990e2);
   }
 
   > div {
