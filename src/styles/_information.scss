@@ -39,7 +39,6 @@
 
   a {
     font-size: 14px;
-    transition: all .4s;
 
     @include text_body($info-link-font-color);
 
