@@ -765,8 +765,8 @@
 }
 
 .swagger-ui .opblock-body .responses-wrapper pre {
-  background-color: var(--section_colors-accent);
-  color: var(--text_colors-primary);
+  background-color: var(--section_colors-accent) !important;
+  color: var(--text_colors-primary) !important;
 }
 
 .swagger-ui .swagger-ui .responses-table {
