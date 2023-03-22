@@ -128,8 +128,8 @@
     width: 100%;
     // to match the other selects
     height: 44px;
-    background-color: var(--KInputBackground, field);
-    border-color: var(--KInputBorder, transparent);
+    background-color: var(--KInputBackground, var(--grey-100, #f8f8fa));
+    border-color: var(--KInputBorder, var(--select-border-color));
     color: var(--text_colors-primary, inherit);
   }
 
@@ -425,6 +425,17 @@
       color: var(--text_colors-primary, inherit);
       font-family: inherit;
       font-weight: inherit;
+    }
+  }
+}
+
+.opblock-description-wrapper {
+  .examples-select {
+    margin: var(--spacing-sm, 12px) 0 0;
+    display: inline-block;
+  
+    .examples-select-element {
+      margin-top: var(--spacing-xs, 8px);
     }
   }
 }

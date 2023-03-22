@@ -62,8 +62,8 @@
 
 // theme all selects colors
 .swagger-ui select {
-  background-image: linear-gradient(45deg, transparent 50%, var(--text_colors-accent) 50%),
-    linear-gradient(135deg, var(--text_colors-accent) 50%, transparent 50%);
+  background-image: linear-gradient(45deg, transparent 50%, var(--text_colors-accent, #07A88D) 50%),
+    linear-gradient(135deg, var(--text_colors-accent, #07A88D) 50%, transparent 50%);
   background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
@@ -765,8 +765,8 @@
 }
 
 .swagger-ui .opblock-body .responses-wrapper pre {
-  background-color: var(--section_colors-accent) !important;
-  color: var(--text_colors-primary) !important;
+  background-color: var(--section_colors-accent, rgb(51, 51, 51)) !important;
+  color: var(--text_colors-primary, #fff) !important;
 }
 
 .swagger-ui .swagger-ui .responses-table {
@@ -1060,6 +1060,7 @@
 .swagger-ui .code-snippet {
   position: relative;
   margin-top: var(--spacing-md);
+  color: #fff;
 }
 
 .swagger-ui .code-snippet .overlay {
@@ -1134,16 +1135,6 @@
   padding: var(--spacing-xs, 8px);
   background-color: rgb(0, 36, 61);
   overflow-x: auto;
-}
-
-.swagger-ui .code-snippet .tabs-component-panels > section > pre span :before {
-  counter-increment: line;
-  content: counter(line);
-  display: inline-block;
-  border-right: 1px solid #ddd;
-  padding: 0 0.5em;
-  margin-right: 0.5em;
-  color: #888;
 }
 
 .swagger-ui .parameters-col_description {
