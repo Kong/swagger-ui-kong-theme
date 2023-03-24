@@ -519,9 +519,10 @@
 }
 
 .swagger-ui .download-contents {
-  right: 20px;
+  font-size: 12px;
+  padding: 4px;
+  right: 10px;
   word-break: normal;
-  padding: 4px 0px;
 }
 
 .swagger-ui .opblock .opblock-section-header h4 {
@@ -535,16 +536,14 @@
 
 .swagger-ui .opblock .opblock-section-header .try-out .btn {
   @extend .k-button;
-  color: var(--text_colors-secondary);
-  border-color: var(--section_colors-stroke);
-  background-color: var(--secton_colors-tertiary);
+  color: var(--button_colors-primary-fill, var(--blue-500, #1155cb));
+  border-color: var(--button_colors-primary-fill, var(--blue-500, #1155cb));
+  background-color: transparent;
   border-radius: 100px;
   padding: var(--spacing-xs, 8px) var(--spacing-md, 16px);
 
   &:hover {
     box-shadow: unset;
-    border-color: var(--KButtonSecondaryHoverBorder, var(--black-45, rgba(0, 0, 0, 0.45)));
-    background-color: var(--KButtonSecondaryHover);
   }
 }
 
