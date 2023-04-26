@@ -57,7 +57,7 @@ module.exports = {
   devServer: {
     contentBase: './dist'
   },
-  optimization: process.env.DEBUG ? {
+  optimization: {
     minimize: false
-  } : undefined
+  }
 }
