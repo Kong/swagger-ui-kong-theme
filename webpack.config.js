@@ -1,11 +1,19 @@
+var webpack = require('webpack');
+
 const hash = require('child_process')
   .execSync('git rev-parse --short HEAD')
   .toString().replace(/(\r\n|\n|\r)/gm, '')
 
 module.exports = {
   entry: './src/index.js',
+  mode: 'production',
   watch: true,
   devtool: process.env.DEBUG ? 'eval-source-map' : undefined,
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_DEBUG': JSON.stringify(process.env.DEBUG),
+    })
+  ],
   module: {
     rules: [
       {
