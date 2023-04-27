@@ -525,3 +525,17 @@ export const isEmptyValue = (value) => {
 
   return false
 }
+
+export const toAbsoluteUrl = (url, baseURL) => {
+  if (/^[a-z]+:\/\//i.test(url)) {
+    return url
+  }
+
+  if (url.startsWith('//')) {
+    return `${window.location.protocol}${url}`
+  }
+
+  return /^[a-z]+:\/\//i.test(baseURL)
+    ? new URL(url, baseURL).href
+    : new URL(url, window.location.href).href
+}
