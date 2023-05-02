@@ -2,6 +2,8 @@ import React from "react"
 import { createHar } from "swagger2har"
 import { CodeSnippetWidget } from 'react-apiembed'
 
+import { toAbsoluteUrl } from '../helpers/helpers'
+
 const hashIdx = "_**[]"
 export default class AugmentingResponses extends React.Component {
   constructor(props) {
@@ -63,15 +65,25 @@ export default class AugmentingResponses extends React.Component {
       return null
     }
 
+    let baseURL = ""
+    if (specSelectors.isOAS3()) {
+      const selectedServer = system.oas3Selectors.selectedServer()
+      const specUrl = specSelectors.url()
+      baseURL = toAbsoluteUrl(selectedServer, specUrl)
+      if (path.startsWith('/') && baseURL.endsWith('/')) {
+        baseURL = baseURL.slice(0, -1)  // workaround for swagger2har path concatenate bug
+      }
+    } else {
+      const scheme = specSelectors.operationScheme() || 'http'
+      const host = specSelectors.host() || 'example.com'
+      const basePath = specSelectors.basePath() || ''
+      baseURL = `${scheme}://${host}${basePath}`
+    }
+
     const spec = specSelectors.specJson().toJS()
-    const selectedServer = system.oas3Selectors.selectedServer()
-    const scheme = specSelectors.operationScheme() || 'http'
-    const host = specSelectors.host() || 'example.com'
-    const basePath = specSelectors.basePath() || ''
+    let har = createHar(spec, path, method, baseURL)
 
     const mutatedRequest = specSelectors.mutatedRequestFor(path, method)
-    let har = createHar(spec, path, method, selectedServer || `${scheme}://${host}${basePath}`)
-
     if (mutatedRequest) {
       let mutatedRequest = specSelectors.mutatedRequestFor(path, method)
       mutatedRequest = mutatedRequest.toJS()
