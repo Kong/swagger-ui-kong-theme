@@ -11,6 +11,7 @@
 }
 
 .wrapper :global .actions {
+  row-gap: var(--spacing-sm, 12px);
   max-width: 100%;
   flex-wrap: wrap;
 }
