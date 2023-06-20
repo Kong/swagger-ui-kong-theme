@@ -50,8 +50,8 @@
 }
 
 .servers-wrapper > div {
-  display: inline-flex;
   align-items: center;
+  font-size: 14px;
 }
 
 .servers-wrapper :global .servers-title {
