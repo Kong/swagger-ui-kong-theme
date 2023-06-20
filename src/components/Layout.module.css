@@ -49,6 +49,10 @@
   font-size: var(--scheme-title-font-size);
 }
 
+.servers-wrapper {
+  max-width: 65%;
+}
+
 .servers-wrapper > div {
   align-items: center;
   font-size: 14px;
