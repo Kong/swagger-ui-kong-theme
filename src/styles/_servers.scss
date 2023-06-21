@@ -7,7 +7,7 @@
 
     select {
       min-width: 130px;
-      padding: 10px var(--spacing-md);
+      padding: 10px var(--spacing-lg) 10px var(--spacing-md);
       color: var(--black-70, rgba(0, 0, 0, 0.7));
       max-width: calc(100% - 6px);
       text-overflow: ellipsis;
@@ -46,8 +46,9 @@
 
     code {
       display: inline-block;
+      overflow-wrap: anywhere;
       padding: 4px;
-      font-size: 16px;
+      font-size: 14px;
       margin: 0 1em;
     }
   }
