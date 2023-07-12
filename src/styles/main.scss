@@ -819,8 +819,9 @@
   padding: 10px;
   background-color: var(--section_colors-accent);
   border-radius: 0 4px 4px 0;
-  width: 100%;
+  width: unset;
   font-family: monospace;
+  flex-grow: 2;
 }
 
 .swagger-ui .opblock-body .responses-table .response-col_description > div {
@@ -854,6 +855,7 @@
   border-radius: 4px;
   border-bottom: 30px solid transparent;
   font-family: monospace;
+  flex-wrap: wrap;
 
   .response-col_links {
     display: none;

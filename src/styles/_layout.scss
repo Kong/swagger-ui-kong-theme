@@ -711,6 +711,7 @@
 .response-controls {
   padding-top: 1em;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .response-control-media-type {
