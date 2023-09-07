@@ -14,7 +14,6 @@ export default class Operation extends PureComponent {
     response: null,
     request: null,
     specPath: List(),
-    summary: ""
   }
 
   render() {
@@ -39,6 +38,7 @@ export default class Operation extends PureComponent {
     let operationProps = this.props.operation
 
     let {
+      summary,
       deprecated,
       isShown,
       path,
@@ -64,6 +64,7 @@ export default class Operation extends PureComponent {
     let operationScheme = specSelectors.operationScheme(path, method)
     let isShownKey = ["operations", tag, operationId]
     let extensions = getExtensions(operation)
+    summary = summary || operation.get("summary")
 
     const Responses = getComponent("responses")
     const Parameters = getComponent( "parameters" )
@@ -87,13 +88,22 @@ export default class Operation extends PureComponent {
 
     let onChangeKey = [ path, method ] // Used to add values to _this_ operation ( indexed by path and method )
 
+    const id = escapeDeepLinkPath(isShownKey.join("-"))
+    const headerId = id + '-header'
+    const panelId = id + '-collapse'
+    const summaryAria = isShown
+      ? { controls: panelId, label: `Collapse ${operationId} (${ summary ? summary : tag }) operation block` }
+      : { label: `Expand ${operationId} (${ summary ? summary : tag }) operation block` }
+
     return (
       <div
         className={deprecated ? "opblock opblock-deprecated" : isShown ? `opblock opblock-${method} is-open` : `opblock opblock-${method}`}
         tabIndex={0}
-        id={escapeDeepLinkPath(isShownKey.join("-"))}
+        id={id}
       >
         <OperationSummary
+          id={headerId}
+          aria={summaryAria}
           operationProps={operationProps}
           toggleShown={toggleShown}
           getComponent={getComponent}
@@ -101,7 +111,7 @@ export default class Operation extends PureComponent {
           authSelectors={authSelectors}
           specPath={specPath}
         />
-        <Collapse isOpened={isShown}>
+        <Collapse isOpened={isShown} id={panelId} labelledBy={headerId}>
           <div className="opblock-body">
             { (operation && operation.size) || operation === null ? null :
               <img height={"32px"} width={"32px"} src={require("../img/rolling-load.svg")} className="opblock-loading-animation" />

@@ -69,6 +69,28 @@ export default class ParameterRow extends Component {
     this.setDefaultValue()
   }
 
+  // kong changes - trim string values
+  trimStringValues = () => {
+    setTimeout(() => {
+      const { rawParam, onChange, specSelectors, pathMethod } = this.props
+      const paramWithMeta = specSelectors.parameterWithMetaByIdentity(pathMethod, rawParam) || Map()
+      const value = paramWithMeta ? paramWithMeta.get("value") : ""
+      const trimmed = this.trimStringValuesRecursively(value)
+      onChange(rawParam, trimmed)
+    }, 0)
+  }
+
+  trimStringValuesRecursively = (value) => {
+    if (List.isList(value)) {
+      return value.map(v => this.trimStringValuesRecursively(v))
+    } else if (Map.isMap(value)) {
+      return value.mapEntries(([k, v]) => [k, this.trimStringValuesRecursively(v)])
+    } else if (typeof value === "string") {
+      return value.trim()
+    }
+    return value
+  }
+
   onChangeWrapper = (value, isXml = false) => {
     let { onChange, rawParam } = this.props
     let valueForUpstream
@@ -330,6 +352,7 @@ export default class ParameterRow extends Component {
               disabled={!isExecute}
               description={param.get("description") ? `${param.get("name")} - ${param.get("description")}` : `${param.get("name")}`}
               onChange={this.onChangeWrapper}
+              onTextInputBlur={this.trimStringValues}
               errors={paramWithMeta.get("errors")}
               schema={schema} />
           }
