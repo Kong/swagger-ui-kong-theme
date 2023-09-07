@@ -152,10 +152,23 @@ export default class SidebarList extends React.Component {
     const FilterContainer = this.props.getComponent("FilterContainer", true)
 
     return (
-      <div className="spec sidebar-list" id="spec-sidebar-list">
+      <nav
+        aria-label="Resources navigation"
+        className="spec sidebar-list"
+        id="spec-sidebar-list"
+      >
+        <h2 className="spec list-title">Resources</h2>
+
+        <FilterContainer className='sidebar-filter' />
+
+        { this.renderResourcesList() }
+      </nav>
+    )
+  }
+
+  renderResourcesList() {
+    return (
         <ul>
-          <li role="none" className="spec list-title">Resources</li>
-          <li role="none"><FilterContainer /></li>
           {this.state.filteredSidebarData.map((sidebarItem, tag) =>
             <li className={"submenu" + this.ifActive(this.isTagActive(tag))} >
               <span
@@ -193,7 +206,6 @@ export default class SidebarList extends React.Component {
             </li>)}
 
         </ul>
-      </div>
     )
   }
 }

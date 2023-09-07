@@ -25,7 +25,7 @@ export default class FilterContainer extends React.Component {
     if (isLoading) inputStyle.color = "#aaa"
 
     return (
-      <div>
+      <div className={ this.props.className }>
         {filter === null || filter === false ? null :
           <div className="filter-container">
             <Col className="filter wrapper" mobile={12}>
