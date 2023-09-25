@@ -942,6 +942,7 @@
 .swagger-ui .opblock .opblock-summary-control {
   grid-column-start: 1;
   grid-column-end: 4;
+  grid-row-start: 1;
 
   .arrow {
     grid-row-start: 1;
@@ -983,7 +984,17 @@
 }
 
 .swagger-ui .opblock .opblock-summary .authorization__btn {
-  display: none;
+  padding-left: 0;
+  grid-row-start: 1;
+  grid-column-start: 3;
+  position: relative;
+  right: 30px;
+  top: -20px;
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 .swagger-ui .opblock .opblock-summary .opblock-summary-path,
