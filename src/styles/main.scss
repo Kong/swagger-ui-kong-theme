@@ -928,6 +928,7 @@
 .swagger-ui .opblock .opblock-summary {
   display: grid !important;
   grid-template-columns: 80px auto 30px;
+  position: relative;
   -ms-grid-columns: 80px 1fr 30px;
   -ms-grid-rows: 50px auto;
   border-bottom: none !important;
@@ -987,13 +988,14 @@
   padding-left: 0;
   grid-row-start: 1;
   grid-column-start: 3;
-  position: relative;
+  position: absolute;
   right: 30px;
-  top: -20px;
+  top: 5px;
 
   svg {
     width: 15px;
     height: 15px;
+    fill: var(--text_colors-accent, #3c4557);
   }
 }
 
