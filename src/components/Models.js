@@ -48,8 +48,10 @@ export default class Models extends Component {
 
     return <section className={showModels ? "models is-open" : "models"}>
       <button
+        id="operations-models"
         className="btn"
         type="button"
+        aria-controls="operations-models-collapse"
         aria-label={showModels ? `Collapse ${isOAS3 ? "Schemas" : "Models"}` : `Expand ${isOAS3 ? "Schemas" : "Models"}`}
         aria-expanded={showModels}
         onClick={() => layoutActions.show("models", !showModels)}
@@ -62,7 +64,7 @@ export default class Models extends Component {
         </div>
 
       </button>
-      <Collapse isOpened={showModels}>
+      <Collapse isOpened={showModels} id="operations-models-collapse" labelledBy="operations-models">
         {
           definitions.entrySeq().map(([name]) => {
 

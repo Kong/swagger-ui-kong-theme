@@ -7,7 +7,16 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 
 const NoMargin = ({ children, id, labelledBy }) => {
-  return <div id={id} aria-labelledby={labelledBy} style={{ height: "auto", border: "none", margin: 0, padding: 0 }}> {children} </div>
+  return (
+    <div
+      id={id}
+      role="region"
+      aria-labelledby={labelledBy}
+      style={{ height: "auto", border: "none", margin: 0, padding: 0 }}
+    >
+      { children }
+    </div>
+  )
 }
 
 NoMargin.propTypes = {
