@@ -69,7 +69,11 @@ export default class AugmentingResponses extends React.Component {
     if (specSelectors.isOAS3()) {
       const selectedServer = system.oas3Selectors.selectedServer()
       const specUrl = specSelectors.url()
-      baseURL = toAbsoluteUrl(selectedServer, specUrl)
+      try {
+        baseURL = toAbsoluteUrl(selectedServer, specUrl)
+      } catch { // failed to get window location, most likely in iframe preview
+        baseURL = 'http://example.com'
+      }
       if (path.startsWith('/') && baseURL.endsWith('/')) {
         baseURL = baseURL.slice(0, -1)  // workaround for swagger2har path concatenate bug
       }
