@@ -866,6 +866,16 @@
   margin: 0;
 }
 
+.swagger-ui .auth-container .renderedMarkdown {
+  p {
+    line-height: 1.5;
+
+    code {
+      font-size: 12px;
+    }
+  }
+}
+
 .swagger-ui .opblock-description-wrapper .renderedMarkdown p {
   margin-top: var(--spacing-md, 16px);
   font-size: 14px;
