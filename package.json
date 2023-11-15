@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@braintree/sanitize-url": "6.0.2",
-    "@kong/kongponents": "^8.32.0",
+    "@kong/kongponents": "^8.126.2",
     "@kyleshockey/xml": "^1.0.2",
     "classnames": "^2.3.2",
     "curl-to-har": "^1.0.1",
