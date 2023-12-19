@@ -357,12 +357,13 @@ export default class ParameterRow extends Component {
               onChange={this.onChangeWrapper}
               onTextInputBlur={this.trimStringValues}
               errors={paramWithMeta.get("errors")}
+              errorsDescribedById={`param-row-${param.get("name")}-errors`}
               schema={schema} />
           }
 
           {/* Kong change -  Display error message in case of errors */}
           {bodyParam ? null
-            : <ParameterRowError errors={this.getParameterRowErrorProps(paramWithMeta.get("errors"))} param={paramWithMeta.toJS()} />
+            : <ParameterRowError id={`param-row-${param.get("name")}-errors`} errors={this.getParameterRowErrorProps(paramWithMeta.get("errors"))} param={paramWithMeta.toJS()} />
           }
 
           {

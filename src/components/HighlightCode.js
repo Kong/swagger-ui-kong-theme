@@ -52,6 +52,7 @@ export default class HighlightCode extends Component {
         { !downloadable ? null :
           <div
             role="button"
+            tabIndex={0}
             aria-label="download contents"
             className="download-contents"
             onClick={this.downloadText}
@@ -63,7 +64,7 @@ export default class HighlightCode extends Component {
           ref={this.initializeComponent}
           onWheel={this.preventYScrollingBeyondElement}
           className={className + " microlight"}
-          tabIndex="0">
+        >
           {value}
         </pre>
       </div>

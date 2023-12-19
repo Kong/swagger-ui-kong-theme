@@ -37,12 +37,13 @@ export class ParameterRowError extends Component {
   }
 
   render() {
-    const { errors, param } = this.props
+    const { id, errors, param } = this.props
     const associatedInput = this.el?.closest('table.parameters')?.querySelector('input.invalid')
 
 
     return (
       <div
+        id={ id }
         className='parameter-row-error'
         tabIndex='-1'
         ref={this.initializeComponent}
@@ -61,6 +62,7 @@ export class ParameterRowError extends Component {
 }
 
 ParameterRowError.propTypes = {
+  id: PropTypes.string,
   errors: PropTypes.arrayOf(PropTypes.string),
 }
 
