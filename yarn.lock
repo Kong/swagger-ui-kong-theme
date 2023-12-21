@@ -3562,10 +3562,10 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-swagger2har@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/swagger2har/-/swagger2har-1.0.3.tgz#98ad00c5430fcd52c3bd3af32b9a734fd6f0f5c3"
-  integrity sha512-5lJZ0GW65ea5i1IpsBpOySHP2AZhHNo4I6vzwJFRsxNV5kEzYj454R47UKf16x7x7vSTyVHZidy1UuNBF50ReQ==
+swagger2har@1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/swagger2har/-/swagger2har-1.0.6.tgz#62bd09d5b4c79aa92f0dbec64c9b5c090f8e1476"
+  integrity sha512-Nqn0VCeYSrslBMM/WnG4OrPi0r+ri86/a2uK4rzLsXj9HWxOOGW+Rgh4D6jUIE8V+44jyL/IUR50gfBwdDFyuA==
   dependencies:
     json-schema-instantiator "0.4.4"
     rollup-plugin-babel "^4.4.0"
