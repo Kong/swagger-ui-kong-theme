@@ -11,6 +11,7 @@ import AuthorizeBtn from './components/AuthorizeBtn'
 import './kongponents.scss'
 import './index.css'
 import './styles/main.scss'
+import OperationSummaryPath from './components/OperationSummaryPath'
 
 // Overwriting requires lowercase versions of the react components in swagger-ui
 const SwaggerUIKongTheme = () => {
@@ -20,6 +21,7 @@ const SwaggerUIKongTheme = () => {
       Button,
       Filter,
       KongLayout,
+      OperationSummaryPath,
       Sidebar,
       SidebarList,
       authorizeBtn: AuthorizeBtn,
