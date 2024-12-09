@@ -50,14 +50,10 @@ export default class SidebarList extends React.Component {
     this.setState({ filter, filteredSidebarData })
   }
 
-  buildSidebarURL(string) {
+  escapeIdSelector(string) {
     return string
-      .replace(/\//, '')
-      .replace(/({|})/g, '_')
-      .replace(/\//g, '_')
-      .replace(/-/, '_')
       .replace(/\s/g, '_')
-      .replace(/\./g, '\\.')
+      .replace(/(!|"|#|\$|%|&|'|\(|\)|\*|\+|,|\.|\/|:|;|<|=|>|\?|@|\[|\\|\]|\^|`|\{|\||\}|~)/g, '\\$1')
   }
 
   moveToAnchor(destination) {
@@ -96,7 +92,7 @@ export default class SidebarList extends React.Component {
     this.props.layoutActions.show(["operations-tag", tag], true)
     this.props.layoutActions.show(["operations", tag, id], true)
     let anchorPath = `operations-${tag}-${id}`
-    let encodedPath = `operations-${this.buildSidebarURL(tag)}-${this.buildSidebarURL(id)}`
+    let encodedPath = `operations-${this.escapeIdSelector(tag)}-${this.escapeIdSelector(id)}`
     // this is needed because escaping is inconsistent
     let anchor = document.getElementById(anchorPath) || document.getElementById(encodedPath)
 
