@@ -63,6 +63,9 @@
   },
   "resolutions": {
     "react": "15.6.2",
-    "react-dom": "15.6.2"
+    "react-dom": "15.6.2",
+    "@braintree/sanitize-url": "6.0.4",
+    "node-fetch": "2.7.0",
+    "form-data": ">=3.0.4"
   }
 }
